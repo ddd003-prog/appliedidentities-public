@@ -1,0 +1,38 @@
+
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Applied Identities",
+  "tagline": "The architecture of what comes next.",
+  "description": "Applied Identities helps growth-market companies build the strategic identity layer that makes AI systems reason and act as authentic extensions of the organization.",
+  "url": "https://appliedidentities.com/",
+  "location": "Atlanta, GA",
+  "frameworks": [
+    
+    {
+      "name": "Compiled Corporation",
+      "category": "Organizational",
+      "description": "The shift from 'interpreted' operations — where humans translate strategy at runtime — to 'compiled' operations where business logic executes directly through agent workflows. Strategy encoded, not just communicated."
+    }
+    ,
+    {
+      "name": "Janus Brands",
+      "category": "Commercial",
+      "description": "Commercial identity that works for two audiences simultaneously: human customers who choose through emotion and experience, and AI agents that evaluate through structured data and parseable attributes."
+    }
+    ,
+    {
+      "name": "Decision Surfaces",
+      "category": "Operational",
+      "description": "The boundary architecture between human judgment and algorithmic execution — where delegation happens, how scope is defined, and what triggers human re-engagement. Designed intentionally, not left to emerge."
+    }
+    
+  ],
+  "services": [
+    "Discovery & Assessment",
+    "Company Constitution Development",
+    "Identity Architecture",
+    "Decision Surface Design",
+    "Fractional AI Leadership"
+  ]
+}
