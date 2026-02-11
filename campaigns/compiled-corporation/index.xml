@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Applied Identities</title>
-    <link>https://appliedidentities.com/</link>
-    <description>Recent content on Applied Identities</description>
+    <title>Compiled Corporation on Applied Identities</title>
+    <link>https://appliedidentities.com/campaigns/compiled-corporation/</link>
+    <description>Recent content in Compiled Corporation on Applied Identities</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 22 Jan 2026 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://appliedidentities.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://appliedidentities.com/campaigns/compiled-corporation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What Anthropic&#39;s Constitution Reveals About Enterprise AI Governance</title>
       <link>https://appliedidentities.com/perspectives/claude-constitution/</link>

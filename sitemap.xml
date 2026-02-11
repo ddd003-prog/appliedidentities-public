@@ -2,9 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://appliedidentities.com/about/</loc>
+    <loc>https://appliedidentities.com/</loc>
+    <lastmod>2026-01-22T00:00:00-05:00</lastmod>
   </url><url>
     <loc>https://appliedidentities.com/campaigns/</loc>
+    <lastmod>2026-01-22T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://appliedidentities.com/campaigns/compiled-corporation/</loc>
+    <lastmod>2026-01-22T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://appliedidentities.com/campaigns/decision-surfaces/</loc>
+    <lastmod>2026-01-22T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://appliedidentities.com/perspectives/</loc>
+    <lastmod>2026-01-22T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://appliedidentities.com/perspectives/claude-constitution/</loc>
+    <lastmod>2026-01-22T00:00:00-05:00</lastmod>
+  </url><url>
+    <loc>https://appliedidentities.com/about/</loc>
   </url><url>
     <loc>https://appliedidentities.com/contact/</loc>
   </url><url>
@@ -12,10 +28,6 @@
   </url><url>
     <loc>https://appliedidentities.com/methodology/</loc>
   </url><url>
-    <loc>https://appliedidentities.com/perspectives/</loc>
-  </url><url>
     <loc>https://appliedidentities.com/tags/</loc>
-  </url><url>
-    <loc>https://appliedidentities.com/</loc>
   </url>
 </urlset>

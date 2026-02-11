@@ -10,21 +10,21 @@
   "frameworks": [
     
     {
-      "name": "Compiled Corporation",
-      "category": "Organizational",
-      "description": "Your best employees don't follow scripts — they internalize strategy and exercise judgment. Your AI systems should work the same way. Compiled Corporation encodes business logic so agents execute against your actual strategy rather than translating instructions at runtime. The organizations that compile first capture the efficiency gains and set the operational terms their competitors inherit."
+      "name": "Identity Architecture",
+      "category": "Foundation",
+      "description": "The strategic identity layer your AI systems need to reason and act as authentic extensions of your organization. We build the Company Constitution, decision frameworks, and agent specifications that turn generic tools into competitive advantage."
     }
     ,
     {
-      "name": "Janus Brands",
-      "category": "Commercial",
-      "description": "Your brand now serves two audiences who evaluate value completely differently. Human customers choose through emotion, experience, and trust. AI agents evaluate through structured data, parseable attributes, and verifiable claims. Companies optimizing for only one audience are invisible to the other — and in agent-mediated commerce, invisible means excluded from consideration entirely."
+      "name": "Ground Truth",
+      "category": "Diagnostic",
+      "description": "A continuous evaluation loop that measures where your identity gaps create the most risk — and proves the value of closing them. Baseline assessment, progress verification, quarterly drift detection."
     }
     ,
     {
-      "name": "Decision Surfaces",
-      "category": "Operational",
-      "description": "Every AI deployment creates a boundary between human judgment and algorithmic execution. Most companies let that boundary emerge accidentally — then wonder why handoffs fail, escalations misfire, and employees work around the system. Decision Surfaces designs that boundary intentionally: where delegation happens, what scope agents operate within, and what triggers human re-engagement."
+      "name": "Fractional AI Advisory",
+      "category": "Leadership",
+      "description": "Ongoing strategic oversight for organizations in active transformation. Architecture governance, vendor evaluation, and identity stewardship as your AI deployment evolves."
     }
     
   ],
