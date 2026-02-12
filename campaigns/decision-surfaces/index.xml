@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 22 Jan 2026 00:00:00 -0500</lastBuildDate>
     <atom:link href="https://appliedidentities.com/campaigns/decision-surfaces/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>What Anthropic&#39;s Constitution Reveals About Enterprise AI Governance</title>
+      <title>What Anthropic&#39;s Constitution Means for Your AI Deployment</title>
       <link>https://appliedidentities.com/perspectives/claude-constitution/</link>
       <pubDate>Thu, 22 Jan 2026 00:00:00 -0500</pubDate>
       <guid>https://appliedidentities.com/perspectives/claude-constitution/</guid>
-      <description>&lt;p&gt;Anthropic published Claude&amp;rsquo;s complete constitution in January 2026 — 23,000 words defining who their AI is, how it reasons through conflicts, and what it will and won&amp;rsquo;t do regardless of who asks. This wasn&amp;rsquo;t a safety white paper. It&amp;rsquo;s a governance specification that establishes authority over AI behavior, determines what can be modified and by whom, and prescribes how conflicts get resolved.&lt;/p&gt;&#xA;&lt;p&gt;The overarching question is stark: do you own your AI agent&amp;rsquo;s behavior, or do you rent it from the foundation provider?&lt;/p&gt;</description>
+      <description>&lt;p&gt;Anthropic published Claude&amp;rsquo;s complete constitution in January 2026 — 23,000 words defining who their AI is, how it reasons through conflicts, and what it refuses to do regardless of who asks.&lt;/p&gt;&#xA;&lt;p&gt;The market validated the investment: 32% enterprise market share, 70% Fortune 100 adoption, valuation from $61.5B to $350B in nine months. Anthropic bet that identity architecture would become a competitive differentiator. The bet paid off.&lt;/p&gt;&#xA;&lt;p&gt;If the most successful AI company invested this deeply in identity infrastructure for one system, what does that suggest about the foundation required for yours?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
