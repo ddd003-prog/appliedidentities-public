@@ -104,6 +104,8 @@
       
         <a href="/contact/" >Contact</a>
       
+        <a href="/verify/" >Verify</a>
+      
     </nav>
   </div>
 </header>
@@ -114,8 +116,105 @@
 
 
 <section class="hero">
+  
+<div class="hero-bg">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="#1A365D" />
+        <stop offset="50%"  stop-color="#1E4A5A" />
+        <stop offset="100%" stop-color="#2D5A4E" />
+      </linearGradient>
+      <radialGradient id="amber-glow" cx="35%" cy="40%" r="45%">
+        <stop offset="0%"  stop-color="#C97B2D" stop-opacity="0.18" />
+        <stop offset="60%" stop-color="#C97B2D" stop-opacity="0.06" />
+        <stop offset="100%" stop-color="#C97B2D" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="green-glow" cx="70%" cy="65%" r="40%">
+        <stop offset="0%"  stop-color="#2D5A4E" stop-opacity="0.2" />
+        <stop offset="70%" stop-color="#2D5A4E" stop-opacity="0.04" />
+        <stop offset="100%" stop-color="#2D5A4E" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="navy-light" cx="80%" cy="20%" r="35%">
+        <stop offset="0%"  stop-color="#2a5a9a" stop-opacity="0.25" />
+        <stop offset="100%" stop-color="#1A365D" stop-opacity="0" />
+      </radialGradient>
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+        <feBlend in="SourceGraphic" mode="multiply" />
+      </filter>
+    </defs>
+
+    
+    <rect width="1440" height="900" fill="url(#bg-grad)" />
+    <rect width="1440" height="900" fill="url(#amber-glow)" />
+    <rect width="1440" height="900" fill="url(#green-glow)" />
+    <rect width="1440" height="900" fill="url(#navy-light)" />
+
+    
+    <g class="drift-a" opacity="0.55">
+      <path d="M-80,620 C120,580 280,520 480,540 C680,560 820,620 1020,580 C1220,540 1360,500 1540,530 L1540,900 L-80,900 Z"
+            fill="#2D5A4E" opacity="0.18" />
+      <path d="M-80,660 C180,620 340,570 540,590 C740,610 880,660 1080,630 C1280,600 1400,560 1540,580 L1540,900 L-80,900 Z"
+            fill="#2D5A4E" opacity="0.12" />
+    </g>
+
+    
+    <g class="drift-b" opacity="0.6">
+      <path d="M-60,450 C160,400 360,360 560,390 C760,420 900,480 1100,440 C1300,400 1440,360 1540,380 L1540,900 L-60,900 Z"
+            fill="#1A365D" opacity="0.35" />
+      <path d="M-60,490 C200,450 400,410 600,435 C800,460 940,510 1140,475 C1340,440 1460,410 1540,420 L1540,900 L-60,900 Z"
+            fill="#2D5A4E" opacity="0.1" />
+    </g>
+
+    
+    <g class="drift-c" opacity="0.7">
+      <path d="M-40,520 C180,470 380,440 580,460 C780,480 920,530 1120,500 C1320,470 1460,440 1540,450 L1540,560 C1340,580 1120,600 920,570 C720,540 520,510 320,540 C120,570 -40,590 -40,590 Z"
+            fill="#C97B2D" opacity="0.07" />
+    </g>
+
+    
+    <g class="drift-d" opacity="0.4">
+      <polygon points="0,0 600,0 420,320 0,280" fill="#F7F5F2" opacity="0.025" />
+      <polygon points="900,100 1440,0 1440,350 1050,400" fill="#F7F5F2" opacity="0.02" />
+      <polygon points="500,600 780,540 820,680 540,720" fill="#C97B2D" opacity="0.04" />
+    </g>
+
+    
+    <g opacity="0.12" fill="none" stroke="#F7F5F2" stroke-width="0.5">
+      <path class="drift-c" d="M-40,320 C160,280 360,250 560,270 C760,290 900,340 1100,310 C1300,280 1440,260 1540,270" />
+      <path class="drift-b" d="M-40,360 C180,325 380,300 580,315 C780,330 920,375 1120,350 C1320,325 1440,310 1540,315" />
+      <path class="drift-a" d="M-40,400 C200,370 400,350 600,365 C800,380 940,415 1140,395 C1340,375 1440,360 1540,365" />
+      <path class="drift-d" d="M-40,440 C220,415 420,400 620,410 C820,420 960,450 1160,435 C1360,420 1440,410 1540,412" />
+    </g>
+
+    
+    <g opacity="0.15">
+      <circle cx="1050" cy="180" r="2.5" fill="#C97B2D" opacity="0.6" />
+      <circle cx="1090" cy="200" r="1.5" fill="#C97B2D" opacity="0.4" />
+      <circle cx="1030" cy="210" r="1"   fill="#F7F5F2" opacity="0.5" />
+      <line x1="1050" y1="180" x2="1090" y2="200" stroke="#C97B2D" stroke-width="0.3" opacity="0.4" />
+      <line x1="1050" y1="180" x2="1030" y2="210" stroke="#F7F5F2" stroke-width="0.3" opacity="0.3" />
+
+      <circle cx="280" cy="620" r="2"   fill="#C97B2D" opacity="0.5" />
+      <circle cx="320" cy="640" r="1.5" fill="#F7F5F2" opacity="0.4" />
+      <circle cx="260" cy="650" r="1"   fill="#2D5A4E" opacity="0.6" />
+      <line x1="280" y1="620" x2="320" y2="640" stroke="#C97B2D" stroke-width="0.3" opacity="0.3" />
+
+      <circle cx="1200" cy="450" r="1.5" fill="#F7F5F2" opacity="0.35" />
+      <circle cx="1230" cy="430" r="1"   fill="#C97B2D" opacity="0.45" />
+      <line x1="1200" y1="450" x2="1230" y2="430" stroke="#F7F5F2" stroke-width="0.3" opacity="0.25" />
+    </g>
+
+    
+    <rect width="1440" height="900" fill="url(#bg-grad)" opacity="0.03" filter="url(#grain)" />
+  </svg>
+</div>
+<div class="hero-overlay"></div>
+
   <div class="container">
-    <div class="hero__content">
+    <div class="hero__content hero-content">
       <p class="hero__tagline animate-in">Identity Architecture for AI Transformation</p>
       <h1 class="animate-in animate-in--delay-1">Applied Identities</h1>
       <p class="hero__lead animate-in animate-in--delay-2">Your AI is capable. It just doesn&#39;t know who it&#39;s working for.</p>

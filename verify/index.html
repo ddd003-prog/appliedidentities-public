@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verification Registry | Applied Identities</title>
+  <meta name="description" content="Cryptographic verification registry for Applied Identities deliverables.">
+  
+  
+  <meta property="og:title" content="Verification Registry">
+  <meta property="og:description" content="Cryptographic verification registry for Applied Identities deliverables.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://appliedidentities.com/verify/">
+  <meta property="og:site_name" content="Applied Identities">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  
+  
+  
+
+
+
+
+
+
+  
+  
+</head>
+<body>
+  <header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">Applied <span>Identities</span></a>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <nav class="site-nav" role="navigation">
+      
+        <a href="/methodology/" >Methodology</a>
+      
+        <a href="/perspectives/" >Perspectives</a>
+      
+        <a href="/about/" >About</a>
+      
+        <a href="/contact/" >Contact</a>
+      
+        <a href="/verify/" >Verify</a>
+      
+    </nav>
+  </div>
+</header>
+
+  
+  <main id="main">
+    
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Applied Identities Verification Registry",
+  "description": "Cryptographic verification registry for Identity Architecture deliverables. Each entry contains a SHA-256 hash of the canonical content body, enabling independent integrity verification without external authority.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Applied Identities"
+  },
+  "url": "https:\/\/appliedidentities.com\/verify\/",
+  "dateModified": "",
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "application/json",
+    "contentUrl": "https:\/\/appliedidentities.com\/data/registry.json"
+  },
+  "keywords": ["cryptographic verification", "content integrity", "identity architecture", "hashInputSpec", "document provenance"]
+}
+</script>
+
+<section class="verify-hero">
+  <div class="container">
+    <div class="verify-hero__badge">VERIFICATION INFRASTRUCTURE</div>
+    <h1>Document Registry</h1>
+    <p class="verify-hero__subtitle">Every deliverable Applied Identities produces carries self-describing verification metadata. The document itself contains the specification for how to verify its integrity — no external authority required.</p>
+  </div>
+</section>
+
+<section class="verify-tool">
+  <div class="container">
+    <div class="verify-tool__box">
+      <h2>Verify a Document</h2>
+      <p>Paste the canonical content body from any Applied Identities deliverable. The hash is computed locally in your browser — nothing is transmitted.</p>
+      <textarea id="verify-input" placeholder="Paste content between <!-- BEGIN VERIFIED CONTENT --> and <!-- END VERIFIED CONTENT --> markers..." rows="6"></textarea>
+      <div class="verify-tool__actions">
+        <button id="verify-btn" onclick="verifyContent()">Compute & Verify</button>
+        <button id="clear-btn" class="btn-secondary" onclick="clearVerification()">Clear</button>
+      </div>
+      <div id="verify-result" class="verify-result" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+
+<section class="verify-registry">
+  <div class="container">
+    <div class="verify-registry__header">
+      <h2>Signed Content Blocks</h2>
+      <div class="verify-registry__meta">
+        <span class="meta-item">3 entries</span>
+        <span class="meta-sep">·</span>
+        <span class="meta-item">Last updated </span>
+        <span class="meta-sep">·</span>
+        <span class="meta-item">Registry </span>
+      </div>
+    </div>
+
+    <div class="registry-table">
+      <div class="registry-table__head">
+        <div class="col-serial">Serial</div>
+        <div class="col-title">Document</div>
+        <div class="col-type">Type</div>
+        <div class="col-hash">Content Hash (SHA-256)</div>
+        <div class="col-status">Status</div>
+      </div>
+      
+      
+      <div class="registry-table__row" data-hash="07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c" data-serial="AI-SITE-2026-001">
+        <div class="col-serial"><code>AI-SITE-2026-001</code></div>
+        <div class="col-title">
+          <span class="entry-title">Homepage - Your AI Doesn&#39;t Know Who It&#39;s Working For</span>
+          <span class="entry-date">2026-02-12T04:12:35Z</span>
+          
+        </div>
+        <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
+        <div class="col-hash"><code class="hash-display" title="07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c">07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c</code></div>
+        <div class="col-status"><span class="status-badge status-active">active</span></div>
+      </div>
+      
+      <div class="registry-table__row" data-hash="5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9" data-serial="AI-SITE-2026-002">
+        <div class="col-serial"><code>AI-SITE-2026-002</code></div>
+        <div class="col-title">
+          <span class="entry-title">Methodology - Identity Architecture</span>
+          <span class="entry-date">2026-02-12T04:12:42Z</span>
+          
+        </div>
+        <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
+        <div class="col-hash"><code class="hash-display" title="5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9">5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9</code></div>
+        <div class="col-status"><span class="status-badge status-active">active</span></div>
+      </div>
+      
+      <div class="registry-table__row" data-hash="b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a" data-serial="AI-SITE-2026-003">
+        <div class="col-serial"><code>AI-SITE-2026-003</code></div>
+        <div class="col-title">
+          <span class="entry-title">About - Two Principals, One Practice</span>
+          <span class="entry-date">2026-02-12T04:12:44Z</span>
+          
+        </div>
+        <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
+        <div class="col-hash"><code class="hash-display" title="b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a">b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a</code></div>
+        <div class="col-status"><span class="status-badge status-active">active</span></div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="verify-spec">
+  <div class="container">
+    <div class="verify-spec__content">
+      <h2>How Verification Works</h2>
+      <p>Every Applied Identities deliverable contains a <code>hashInputSpec</code> block — a self-describing verification specification embedded in the document itself. The specification tells you what to hash, how to normalize it, and what algorithm to use. Verification requires no network access, no API call, no trusted third party.</p>
+      <p>For Identity Architecture engagements, documents form a cryptographic chain. Agent Soul Documents reference the Company Constitution they derive from. Evaluation Harnesses reference the specifications they measure against. Any party holding a document can independently verify its integrity and trace its provenance back to the root.</p>
+      <p>This registry provides convenience lookup. The documents themselves are the source of truth.</p>
+      
+      <div class="spec-example">
+        <div class="spec-example__label">hashInputSpec block (embedded in every deliverable)</div>
+        <pre><code>hashInputSpec:
+  version: "1.0"
+  serial: "AI-CONST-2026-001"
+  documentType: "company-constitution"
+  created: "2026-02-10T14:30:00Z"
+  author: "Applied Identities"
+  algorithm: "sha-256"
+  contentHash: "70ed79c9..."
+  canonicalBody:
+    startMarker: "&lt;!-- BEGIN VERIFIED CONTENT --&gt;"
+    endMarker: "&lt;!-- END VERIFIED CONTENT --&gt;"
+    normalization:
+      - strip-leading-trailing-whitespace
+      - normalize-line-endings-to-lf
+      - collapse-multiple-blank-lines-to-single
+    encoding: "utf-8"
+  derivedFrom:
+    serial: null
+    relationship: null</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+  
+  <footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="/" class="site-logo">Applied <span>Identities</span></a>
+        <p>Strategic AI identity architecture for growth-market companies. The foundation that turns generic AI into authentic organizational extensions.</p>
+      </div>
+      
+      <div class="site-footer__nav">
+        <div class="site-footer__nav-group">
+          <h4>Practice</h4>
+          <a href="/methodology/">Methodology</a>
+          <a href="/perspectives/">Perspectives</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <div class="site-footer__nav-group">
+          <h4>Frameworks</h4>
+          <a href="/methodology/#compiled-corporation">Compiled Corporation</a>
+          <a href="/methodology/#janus-brands">Janus Brands</a>
+          <a href="/methodology/#decision-surfaces">Decision Surfaces</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <span>&copy; 2026 Applied Identities. All rights reserved.</span>
+      <span>Atlanta, GA</span>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="/js/main.js" defer></script>
+  
+<script>
+
+
+
+const REGISTRY = "[{\"contentHash\":\"07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c\",\"created\":\"2026-02-12T04:12:35Z\",\"derivedFrom\":null,\"documentType\":\"site-content\",\"serial\":\"AI-SITE-2026-001\",\"status\":\"active\",\"title\":\"Homepage - Your AI Doesn't Know Who It's Working For\"},{\"contentHash\":\"5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9\",\"created\":\"2026-02-12T04:12:42Z\",\"derivedFrom\":null,\"documentType\":\"site-content\",\"serial\":\"AI-SITE-2026-002\",\"status\":\"active\",\"title\":\"Methodology - Identity Architecture\"},{\"contentHash\":\"b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a\",\"created\":\"2026-02-12T04:12:44Z\",\"derivedFrom\":null,\"documentType\":\"site-content\",\"serial\":\"AI-SITE-2026-003\",\"status\":\"active\",\"title\":\"About - Two Principals, One Practice\"}]";
+
+function normalizeContent(text) {
+  
+  text = text.trim();
+  
+  text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  
+  text = text.replace(/\n{3,}/g, '\n\n');
+  return text;
+}
+
+async function computeSHA256(text) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function verifyContent() {
+  const input = document.getElementById('verify-input').value;
+  const resultEl = document.getElementById('verify-result');
+  
+  if (!input.trim()) {
+    resultEl.style.display = 'block';
+    resultEl.className = 'verify-result verify-result--error';
+    resultEl.innerHTML = 'Paste content to verify.';
+    return;
+  }
+  
+  const normalized = normalizeContent(input);
+  const hash = await computeSHA256(normalized);
+  
+  
+  const match = REGISTRY.find(e => e.contentHash === hash);
+  
+  resultEl.style.display = 'block';
+  
+  if (match) {
+    resultEl.className = 'verify-result verify-result--verified';
+    resultEl.innerHTML = `
+      <div class="result-icon">✓</div>
+      <div class="result-body">
+        <div class="result-title">Verified</div>
+        <div class="result-detail">
+          Content matches <code>${match.serial}</code> — "${match.title}"<br>
+          Signed ${match.created}
+        </div>
+        <div class="result-hash">SHA-256: <code>${hash}</code></div>
+      </div>
+    `;
+    
+    document.querySelectorAll('.registry-table__row').forEach(row => {
+      row.classList.remove('row-matched');
+      if (row.dataset.hash === hash) row.classList.add('row-matched');
+    });
+  } else {
+    resultEl.className = 'verify-result verify-result--unmatched';
+    resultEl.innerHTML = `
+      <div class="result-icon">○</div>
+      <div class="result-body">
+        <div class="result-title">No Match Found</div>
+        <div class="result-detail">
+          This content does not match any entry in the registry.<br>
+          The content may have been modified, or it may not be an Applied Identities deliverable.
+        </div>
+        <div class="result-hash">Computed SHA-256: <code>${hash}</code></div>
+      </div>
+    `;
+  }
+}
+
+function clearVerification() {
+  document.getElementById('verify-input').value = '';
+  document.getElementById('verify-result').style.display = 'none';
+  document.querySelectorAll('.registry-table__row').forEach(row => {
+    row.classList.remove('row-matched');
+  });
+}
+</script>
+
+</body>
+</html>
