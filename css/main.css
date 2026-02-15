@@ -100,18 +100,18 @@ h1 {
 
 h2 {
   font-size: var(--text-3xl);
-  margin-top: var(--space-4xl);
-  margin-bottom: var(--space-lg);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
 }
 
 h3 {
   font-size: var(--text-2xl);
-  margin-top: var(--space-3xl);
-  margin-bottom: var(--space-md);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
 }
 
 p {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
   max-width: var(--max-prose);
 }
 
@@ -155,7 +155,12 @@ blockquote {
 }
 
 .section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-md) 0;
+}
+
+.section h2,
+.section h3 {
+  margin-top: 0;
 }
 
 .section--navy {
@@ -275,7 +280,7 @@ blockquote {
   position: relative;
   overflow: hidden;
   padding-top: calc(var(--header-height) + var(--space-3xl));
-  padding-bottom: var(--space-3xl);
+  padding-bottom: var(--space-xl);
   min-height: 70vh;
   display: flex;
   align-items: center;
@@ -433,12 +438,12 @@ blockquote {
 .frameworks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-2xl);
-  margin-top: var(--space-3xl);
+  gap: var(--space-xl);
+  margin-top: var(--space-md);
 }
 
 .framework-card {
-  padding: var(--space-2xl);
+  padding: var(--space-lg);
   background: white;
   border: 1px solid var(--warm-gray);
   border-top: 3px solid var(--navy);
@@ -478,9 +483,9 @@ blockquote {
 .evidence-block {
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   align-items: start;
-  padding: var(--space-xl) 0;
+  padding: var(--space-md) 0;
   border-top: 1px solid var(--warm-gray);
 }
 
@@ -698,7 +703,7 @@ blockquote {
   }
 
   .section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-sm) 0;
   }
 }
 

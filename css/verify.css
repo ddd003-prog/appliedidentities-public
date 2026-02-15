@@ -35,7 +35,7 @@
 
 /* Verification Tool */
 .verify-tool {
-  padding: 3rem 0;
+  padding: 1.5rem 0;
 }
 
 .verify-tool__box {
@@ -207,7 +207,7 @@
 
 /* Registry Table */
 .verify-registry {
-  padding: 3rem 0 4rem;
+  padding: 1.5rem 0 2rem;
 }
 
 .verify-registry__header {
