@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Verification Registry | Applied Identities</title>
-  <meta name="description" content="Cryptographic verification registry for Applied Identities deliverables.">
+  <title>Chain of Authority | Applied Identities</title>
+  <meta name="description" content="Verified AI governance from strategy to execution — the infrastructure that ensures your AI specifications remain authentic, traceable, and tamper-evident. Every document proves its own integrity. You own everything.">
   
   
-  <meta property="og:title" content="Verification Registry">
-  <meta property="og:description" content="Cryptographic verification registry for Applied Identities deliverables.">
+  <meta property="og:title" content="Chain of Authority">
+  <meta property="og:description" content="Verified AI governance from strategy to execution — the infrastructure that ensures your AI specifications remain authentic, traceable, and tamper-evident. Every document proves its own integrity. You own everything.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://appliedidentities.com/verify/">
   <meta property="og:site_name" content="Applied Identities">
@@ -54,7 +54,7 @@
       
         <a href="/perspectives/" >Perspectives</a>
       
-        <a href="/about/" >About</a>
+        <a href="/about/" >Constitution</a>
       
         <a href="/contact/" >Contact</a>
       
@@ -90,13 +90,51 @@
 }
 </script>
 
-<section class="verify-hero">
-  <div class="container">
-    <div class="verify-hero__badge">VERIFICATION INFRASTRUCTURE</div>
-    <h1>Document Registry</h1>
-    <p class="verify-hero__subtitle">Every deliverable Applied Identities produces carries self-describing verification metadata. The document itself contains the specification for how to verify its integrity — no external authority required.</p>
+
+<article class="prose">
+  <div class="container container--narrow">
+    <h1 id="chain-of-authority">Chain of Authority</h1>
+<p><em>Verified AI Governance from Strategy to Execution</em></p>
+<hr>
+<h2 id="why-verification-is-a-governance-problem">Why Verification Is a Governance Problem</h2>
+<p>Trust is what allows AI to operate at the speed your organization needs. Not blind trust — the kind that comes from knowing every AI specification in your system traces its authority back to the strategic identity your leadership approved, and that you can prove it whenever the question comes up.</p>
+<p>Most organizations deploying AI agents face a governance gap they don&rsquo;t discover until something goes wrong. Leadership approves a strategic direction for how AI should represent the company. That direction gets translated into agent specifications by a mix of technical teams, vendors, and consultants. Those specifications get deployed. And then the connection between strategic intent and operational behavior becomes difficult to verify.</p>
+<p>Did the specifications faithfully encode what leadership approved? Has anything been modified during deployment? Have six months of model updates and team turnover introduced drift between what the organization intended and what the system actually does?</p>
+<p>These are answerable questions. Most organizations just don&rsquo;t have the infrastructure to answer them.</p>
+<p>When you have three agents and a small team, direct oversight is sufficient. When you have fifteen agent classes operating across customer service, sales operations, internal workflows, and partner interactions — each with their own behavioral specifications, each potentially modified by different teams, each subject to model updates that shift behavior — you need governance infrastructure that scales with the deployment.</p>
+<p>The problem sharpens in three contexts. PE portfolio companies face operating partners who want evidence that AI transformation investments produce measurable results, not vendor assurances. Regulated industries face compliance requirements that increasingly demand verifiable AI governance trails. Post-transformation organizations know the pattern from experience: the strategy was sound, but somewhere between the executive presentation and operational reality, the intent got lost — and nobody can point to exactly where.</p>
+<p>The Chain of Authority eliminates that gap.</p>
+<hr>
+<h2 id="three-principles">Three Principles</h2>
+<h3 id="every-specification-traces-to-a-single-root">Every Specification Traces to a Single Root</h3>
+<p>Your Company Constitution — the strategic identity document encoding your organization&rsquo;s values, decision frameworks, and principle hierarchies — serves as the origin point for every other specification in the architecture. Agent Soul Documents derive from the Constitution. Interaction Protocols derive from the Constitution. The Evaluation Harness that measures behavioral adherence derives from the Constitution.</p>
+<p>Each downstream document carries an embedded reference back to its parent, creating a verifiable chain from any specification in the system to the strategic source of truth your leadership approved. This isn&rsquo;t a folder structure or a naming convention. Each document carries a unique serial identifier and a content hash — a mathematical fingerprint of the document&rsquo;s contents. When a Soul Document references the Constitution, it references that specific serial number and that specific content hash. The reference is either valid or it isn&rsquo;t.</p>
+<p>There&rsquo;s no ambiguity about whether the agent specification you&rsquo;re looking at derives from the strategy your CEO signed off on.</p>
+<h3 id="every-document-proves-its-own-integrity">Every Document Proves Its Own Integrity</h3>
+<p>Each specification carries an embedded verification block — a <code>hashInputSpec</code> — that contains everything needed to confirm the document&rsquo;s integrity. The verification instructions travel with the document itself.</p>
+<p>No external service. No API call. No dependency on Applied Identities or any third party. Anyone with access to the document — your CIO, an auditor, a successor consulting firm — can independently confirm its authenticity.</p>
+<p>This occupies a specific gap in existing verification infrastructure. Subresource Integrity verifies fetched resources, but the hash lives in the HTML tag, not the resource — the resource doesn&rsquo;t know how to verify itself. Sigstore provides cryptographic signing for software artifacts but requires trusted infrastructure. The hashInputSpec makes verification self-contained: the document carries everything needed.</p>
+<h3 id="behavioral-drift-is-caught-and-documented">Behavioral Drift Is Caught and Documented</h3>
+<p>Heartbeat evaluations produce signed reports measuring actual agent behavior against the specific specification versions in effect. Each Heartbeat chains to the previous one, building an append-only audit trail. From any single report, you can reconstruct the complete governance history: which specifications were active at each measurement point, what behavioral scores were recorded, where drift was detected, and what remediation was applied.</p>
+<p>Heartbeat cadence scales to your needs — from periodic strategic reviews to continuous monitoring — depending on the complexity and velocity of your AI deployment. Drift detection is scored with severity classification, and every finding above baseline creates a natural, evidence-based conversation about what shifted and what to do about it.</p>
+<hr>
+<h2 id="what-you-own-everything">What You Own: Everything</h2>
+<p>This is the architectural principle we consider most important. Every document, every chain reference, every Heartbeat in the temporal sequence belongs to you. If you end your relationship with Applied Identities tomorrow, you retain the complete, verifiable governance record. A successor firm or your own internal team can walk the chain from any Heartbeat back through the full measurement history, and from any specification back to the Constitution root, without any access to our systems, our personnel, or our infrastructure.</p>
+<p>The verification is built into the documents themselves, not into a platform you subscribe to. We maintain the lookup registry below as a convenience — a place where documents can be confirmed against a central index. But the registry is additive. Its absence doesn&rsquo;t degrade your ability to verify anything.</p>
+<p>The documents are the source of truth, and you hold the documents.</p>
+<p>We built it this way because the organizations that need this architecture most — companies navigating transformation, PE portfolio companies preparing for exits, enterprises facing regulatory scrutiny — are precisely the organizations that can&rsquo;t afford to have their governance infrastructure locked inside a vendor relationship.</p>
+<hr>
+<h2 id="where-this-fits-in-the-ai-stack">Where This Fits in the AI Stack</h2>
+<p>The rest of the AI ecosystem is rapidly adopting cryptographic verification. NVIDIA signs models. C2PA signs media content. DigiCert signs training data. Sigstore signs software artifacts. Applied Identities signs the identity layer — the strategic specifications that sit above all of those and determine what the AI should be doing in the first place.</p>
+<p>The principle hierarchy that resolves value conflicts. The behavioral archetypes that calibrate agent judgment. The delegation thresholds that determine where human authority ends and algorithmic execution begins. These are the documents that no one else has recognized need the same verification infrastructure that the rest of the stack already has.</p>
+<hr>
+<h2 id="verification-registry">Verification Registry</h2>
+<p>This registry is a public index of all signed content blocks produced by Applied Identities. Every document listed below carries an embedded <code>hashInputSpec</code> block with a SHA-256 content hash, serial identifier, and chain references. The registry provides convenience lookup — the documents themselves contain everything needed for independent verification.</p>
+<p><strong>How to verify:</strong> Paste the full content of any Applied Identities deliverable into the verification tool below. The system computes a SHA-256 hash client-side — nothing is transmitted — and checks it against the registry. A match confirms the document is authentic and unmodified.</p>
+
   </div>
-</section>
+</article>
+
 
 <section class="verify-tool">
   <div class="container">
@@ -176,39 +214,6 @@
   </div>
 </section>
 
-<section class="verify-spec">
-  <div class="container">
-    <div class="verify-spec__content">
-      <h2>How Verification Works</h2>
-      <p>Every Applied Identities deliverable contains a <code>hashInputSpec</code> block — a self-describing verification specification embedded in the document itself. The specification tells you what to hash, how to normalize it, and what algorithm to use. Verification requires no network access, no API call, no trusted third party.</p>
-      <p>For Identity Architecture engagements, documents form a cryptographic chain. Agent Soul Documents reference the Company Constitution they derive from. Evaluation Harnesses reference the specifications they measure against. Any party holding a document can independently verify its integrity and trace its provenance back to the root.</p>
-      <p>This registry provides convenience lookup. The documents themselves are the source of truth.</p>
-      
-      <div class="spec-example">
-        <div class="spec-example__label">hashInputSpec block (embedded in every deliverable)</div>
-        <pre><code>hashInputSpec:
-  version: "1.0"
-  serial: "AI-CONST-2026-001"
-  documentType: "company-constitution"
-  created: "2026-02-10T14:30:00Z"
-  author: "Applied Identities"
-  algorithm: "sha-256"
-  contentHash: "70ed79c9..."
-  canonicalBody:
-    startMarker: "&lt;!-- BEGIN VERIFIED CONTENT --&gt;"
-    endMarker: "&lt;!-- END VERIFIED CONTENT --&gt;"
-    normalization:
-      - strip-leading-trailing-whitespace
-      - normalize-line-endings-to-lf
-      - collapse-multiple-blank-lines-to-single
-    encoding: "utf-8"
-  derivedFrom:
-    serial: null
-    relationship: null</code></pre>
-      </div>
-    </div>
-  </div>
-</section>
 
 
   </main>
@@ -226,7 +231,7 @@
           <h4>Practice</h4>
           <a href="/methodology/">Methodology</a>
           <a href="/perspectives/">Perspectives</a>
-          <a href="/about/">About</a>
+          <a href="/about/">Constitution</a>
           <a href="/contact/">Contact</a>
         </div>
         <div class="site-footer__nav-group">

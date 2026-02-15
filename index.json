@@ -10,21 +10,21 @@
   "frameworks": [
     
     {
-      "name": "Identity Architecture",
-      "category": "Foundation",
-      "description": "The strategic identity layer your AI systems need to reason and act as authentic extensions of your organization. We build the Company Constitution, decision frameworks, and agent specifications that turn generic tools into competitive advantage."
+      "name": "The Compiled Corporation",
+      "category": "FRAMEWORK",
+      "description": "Your competitors are restructuring into organizations where business logic executes directly through agent workflows. The companies that compile first don't capture efficiency — they set the competitive terms everyone else inherits. We build the identity architecture that makes compilation possible."
     }
     ,
     {
-      "name": "Ground Truth",
-      "category": "Diagnostic",
-      "description": "A continuous evaluation loop that measures where your identity gaps create the most risk — and proves the value of closing them. Baseline assessment, progress verification, quarterly drift detection."
+      "name": "Janus Brands",
+      "category": "FRAMEWORK",
+      "description": "Every brand now faces two audiences simultaneously — human customers who experience emotion and narrative, and AI agents that parse structured data and evaluate attributes. The companies that optimize for both capture the market. The ones that optimize for neither get filtered out of agent-mediated commerce."
     }
     ,
     {
-      "name": "Fractional AI Advisory",
-      "category": "Leadership",
-      "description": "Ongoing strategic oversight for organizations in active transformation. Architecture governance, vendor evaluation, and identity stewardship as your AI deployment evolves."
+      "name": "Decision Surfaces",
+      "category": "FRAMEWORK",
+      "description": "The new competitive battleground is where human judgment hands off to algorithmic execution. The company that controls its decision surfaces — designing the thresholds, the escalation logic, the delegation patterns — captures the margin. The one that leaves them to default configuration surrenders it."
     }
     
   ],
