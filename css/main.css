@@ -155,7 +155,7 @@ blockquote {
 }
 
 .section {
-  padding: var(--space-md) 0;
+  padding: 30px 0;
 }
 
 .section h2,
@@ -166,6 +166,12 @@ blockquote {
 .section--navy {
   background-color: var(--navy);
   color: var(--warm-white);
+  padding: 30px 0;
+}
+
+.section--gray {
+  background-color: var(--warm-gray);
+  padding: var(--space-sm) 0;
 }
 
 .section--navy h2,
@@ -175,10 +181,6 @@ blockquote {
 
 .section--navy p {
   color: rgba(247, 245, 242, 0.85);
-}
-
-.section--gray {
-  background-color: var(--warm-gray);
 }
 
 /* --- Header / Navigation --- */
