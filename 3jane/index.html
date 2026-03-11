@@ -1,1068 +1,1323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LC-AGT3-001 — Labcorp AI Enterprise Readiness: Competitive Assessment</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Enterprise Readiness — Competitive Assessment — Applied Identities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* === Applied Identities CSS Custom Properties === */
+    :root {
+      --bg: #F7F5F2;
+      --surface: #FFFFFF;
+      --surface-alt: #F0EFEB;
+      --border: #D4D1CA;
+      --text: #2C3E50;
+      --text-muted: #7A7974;
+      --text-faint: #BAB9B4;
+      --primary: #1A365D;
+      --primary-hover: #122744;
+      --accent: #C97B2D;
+      --accent-light: #F5EDE2;
+      --secondary: #2D5A4E;
+      --subject: #00A651;
+      --comparison: #8A96A6;
+      --success: #437A22;
+      --warning: #964219;
+      --error: #A12C7B;
+      --gauge-bg: #1A2332;
+      --gauge-surface: #1F2B3D;
+      --gauge-border: #2E3E54;
+      --gauge-text: #E8E7E3;
+      --gauge-text-muted: #8A96A6;
+    }
 
-  :root {
-    --bg: #F7F5F2;
-    --surface: #FFFFFF;
-    --surface-alt: #F0EFEB;
-    --border: #D4D1CA;
-    --text: #2C3E50;
-    --text-muted: #7A7974;
-    --text-faint: #BAB9B4;
-    --primary: #1A365D;
-    --primary-hover: #122744;
-    --accent: #C97B2D;
-    --accent-light: #F5EDE2;
-    --secondary: #2D5A4E;
-    --labcorp: #0072CE;
-    --quest: #8A96A6;
-    --iqvia: #8A96A6;
-    --thermo: #8A96A6;
-    --success: #437A22;
-    --warning: #964219;
-    --error: #A12C7B;
-    --gauge-bg: #1A2332;
-    --gauge-surface: #1F2B3D;
-    --gauge-border: #2E3E54;
-    --gauge-text: #E8E7E3;
-    --gauge-text-muted: #8A96A6;
-  }
+    /* === Base === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* === Container === */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
 
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    font-size: 15px;
-    -webkit-font-smoothing: antialiased;
-  }
+    /* === Report Header === */
+    .report-header {
+      background: linear-gradient(135deg, #122744 0%, #1A365D 40%, #1E2D4A 100%);
+      position: relative;
+      padding: 32px;
+      color: white;
+    }
+    .report-header::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #C97B2D 0%, #C97B2D 30%, transparent 100%);
+      z-index: 1;
+    }
+    .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .report-id { font-family: 'Inter', sans-serif; font-size: 13px; opacity: 0.65; }
+    .wordmark {
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+    }
+    .wordmark:hover { color: rgba(255,255,255,0.95); }
+    .report-title { font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; line-height: 1.15; }
+    .report-subtitle { font-family: 'Inter', sans-serif; font-size: 17px; opacity: 0.8; margin-top: 8px; }
+    .report-meta { font-family: 'Inter', sans-serif; font-size: 13px; opacity: 0.65; margin-top: 16px; }
 
-  .container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
+    /* === Section Labels === */
+    .section-label {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 8px;
+    }
 
-  /* HEADER */
-  .report-header {
-    background: linear-gradient(135deg, #122744 0%, #1A365D 40%, #1E2D4A 100%);
-    color: white;
-    padding: 56px 0 48px;
-    position: relative;
-    overflow: hidden;
-  }
-  .report-header::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #C97B2D 0%, #C97B2D 30%, transparent 100%);
-    z-index: 1;
-  }
-  .report-header::after {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: radial-gradient(ellipse at top right, rgba(255,255,255,0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .report-id {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.7;
-    margin-bottom: 0;
-  }
-  .report-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 8px;
-  }
-  .report-subtitle {
-    font-size: 17px;
-    font-weight: 400;
-    opacity: 0.8;
-    margin-bottom: 24px;
-  }
-  .report-meta {
-    display: flex;
-    gap: 32px;
-    font-size: 13px;
-    opacity: 0.65;
-  }
+    /* === Section Titles === */
+    .section-title {
+      font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700;
+      line-height: 1.2; color: var(--primary); margin-bottom: 4px;
+    }
+    .section-subtitle {
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400;
+      line-height: 1.7; color: var(--text-muted); margin-bottom: 24px;
+    }
+    .subsection-title {
+      font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 700;
+      line-height: 1.2; color: var(--primary);
+    }
 
-  /* SECTIONS */
-  section {
-    padding: 48px 0;
-  }
-  section + section {
-    border-top: 1px solid var(--border);
-  }
-  .section-label {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: 8px;
-  }
-  .section-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    color: var(--text);
-  }
-  .section-intro {
-    font-size: 15px;
-    color: var(--text-muted);
-    max-width: 720px;
-    margin-bottom: 32px;
-    line-height: 1.7;
-  }
+    /* === Cards === */
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 24px;
+    }
+    .card.highlight { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .card.baseline-card { background: var(--surface-alt); border-style: dashed; }
+    .narrative-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 32px;
+    }
 
-  /* SCORE CARDS */
-  .score-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .score-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-    text-align: center;
-    position: relative;
-  }
-  .score-card.highlight {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent);
-  }
-  .score-company {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  .score-company-sub {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-  .score-value {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .score-label {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-  .score-breakdown {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-  .score-breakdown span {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-  .score-breakdown strong {
-    font-size: 16px;
-    color: var(--text);
-    font-weight: 600;
-  }
-  .maturity-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 12px;
-    margin-top: 10px;
-  }
-  .maturity-operational { background: #E8F5E9; color: #437A22; }
-  .maturity-systemic { background: #E8EDF4; color: #1A365D; }
+    /* === Sections === */
+    .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: none; }
 
-  /* BASELINES ROW */
-  .baselines-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .baseline-card {
-    background: var(--surface-alt);
-    border: 1px dashed var(--border);
-    border-radius: 10px;
-    padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .baseline-score {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--text-muted);
-    min-width: 56px;
-    text-align: center;
-  }
-  .baseline-info { flex: 1; }
-  .baseline-name {
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-  .baseline-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-  .baseline-scores-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 6px;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
+    /* === Disclaimer === */
+    .disclaimer {
+      font-size: 12px; font-style: italic; color: var(--text-muted);
+      max-width: 960px; margin: 24px auto; padding: 0 32px;
+    }
 
-  /* ===================== */
-  /* GAUGE WIDGETS         */
-  /* ===================== */
-  .gauge-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  .gauge-widget {
-    background: var(--gauge-bg);
-    border: 1px solid var(--gauge-border);
-    border-radius: 14px;
-    padding: 28px 28px 24px;
-    color: var(--gauge-text);
-  }
-  .gauge-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 28px;
-  }
-  .gauge-category {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  .gauge-description {
-    font-size: 13px;
-    color: var(--gauge-text-muted);
-    margin-top: 4px;
-  }
-  .gauge-arc-wrap {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-  }
-  .gauge-arc-wrap svg {
-    width: 100%;
-    height: 100%;
-  }
-  .gauge-arc-value {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -38%);
-    text-align: center;
-  }
-  .gauge-arc-number {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--gauge-text);
-  }
-  .gauge-arc-label {
-    font-size: 10px;
-    color: var(--gauge-text-muted);
-    margin-top: 2px;
-  }
+    /* === Tables === */
+    .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .data-table { width: 100%; border-collapse: collapse; }
+    .data-table th {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .data-table th.numeric { text-align: center; }
+    .data-table td {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 12px;
+    }
+    .data-table td.numeric {
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    .data-table tr:hover { background: var(--surface-alt); }
+    .data-table tr.subject-row { background: rgba(0, 166, 81, 0.06); }
+    .data-table tr.subject-row:hover { background: rgba(0, 166, 81, 0.10); }
+    .data-table .subject-value { color: var(--subject); font-weight: 600; }
+    .data-table .delta-positive { color: var(--success); font-weight: 500; }
+    .data-table .delta-negative { color: var(--error); font-weight: 500; }
 
-  /* Company rows inside gauge */
-  .gauge-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .gauge-row {
-    display: grid;
-    grid-template-columns: 110px 1fr 36px;
-    align-items: center;
-    gap: 12px;
-  }
-  .gauge-row-name {
-    font-size: 13px;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .gauge-bar-track {
-    height: 8px;
-    background: var(--gauge-border);
-    border-radius: 4px;
-    position: relative;
-    overflow: visible;
-  }
-  .gauge-bar-fill {
-    height: 100%;
-    border-radius: 4px;
-    position: relative;
-    transition: width 0.6s ease;
-  }
-  .gauge-bar-marker {
-    position: absolute;
-    top: -3px;
-    width: 3px;
-    height: 14px;
-    background: var(--gauge-text);
-    border-radius: 1.5px;
-    opacity: 0.5;
-  }
-  .gauge-row-score {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    text-align: right;
-  }
+    /* === Maturity Badges === */
+    .maturity-badge {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 12px;
+    }
+    .maturity-awareness { background: #FDEDED; color: #A12C7B; }
+    .maturity-active { background: #FFF8E7; color: #964219; }
+    .maturity-operational { background: #E8F5E9; color: #437A22; }
+    .maturity-systemic { background: #E8EDF4; color: #1A365D; }
+    .maturity-transformational { background: #F5EDE2; color: #C97B2D; }
 
-  /* Color coding for bars */
-  .bar-labcorp { background: #0072CE; }
-  .bar-quest { background: #8A96A6; }
-  .bar-iqvia { background: #8A96A6; }
-  .bar-thermo { background: #8A96A6; }
+    /* === Score Cards Grid === */
+    .score-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .score-card { text-align: center; padding: 24px 16px; }
+    .score-card .score-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 52px; font-weight: 700; line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .score-card .company-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 600;
+      margin-top: 8px; color: var(--text);
+    }
+    .score-card .sub-scores {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; color: var(--text-muted);
+      margin-top: 8px;
+    }
+    .score-card .sub-scores span { margin: 0 4px; }
+    .score-card .badge-wrap { margin-top: 12px; }
 
-  /* DIMENSION TABLE */
-  .dim-table-wrap {
-    overflow-x: auto;
-    margin-bottom: 32px;
-  }
-  table.dim-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  .dim-table thead th {
-    text-align: left;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    padding: 10px 12px;
-    border-bottom: 2px solid var(--border);
-    white-space: nowrap;
-  }
-  .dim-table thead th.num {
-    text-align: center;
-  }
-  .dim-table tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  .dim-table tbody td.num {
-    text-align: center;
-    font-weight: 500;
-    font-variant-numeric: tabular-nums;
-  }
-  .dim-table tbody tr:hover {
-    background: var(--surface-alt);
-  }
-  .cat-header {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    background: var(--surface-alt);
-    padding: 10px 12px;
-  }
-  .delta {
-    font-size: 11px;
-    font-weight: 600;
-  }
-  .delta.positive { color: var(--success); }
-  .delta.negative { color: var(--error); }
-  .delta.neutral { color: var(--text-muted); }
-  .leader-badge {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 1px 5px;
-    border-radius: 3px;
-    background: #E8F5E9;
-    color: #437A22;
-    margin-left: 4px;
-  }
+    /* === Key Insight === */
+    .key-insight {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 24px 24px 24px 28px;
+      margin: 32px 0;
+    }
+    .key-insight .insight-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .key-insight .insight-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--primary); margin-bottom: 8px;
+    }
+    .key-insight .insight-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; line-height: 1.75;
+      color: var(--text);
+    }
 
-  /* INSIGHTS */
-  .insights-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  .insight-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-  }
-  .insight-card h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  .insight-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  .insight-card li {
-    font-size: 13px;
-    line-height: 1.6;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--surface-alt);
-    color: var(--text);
-  }
-  .insight-card li:last-child { border-bottom: none; }
-  .insight-card li::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  .strength li::before { background: var(--success); }
-  .gap li::before { background: var(--error); }
-  .opportunity li::before { background: var(--secondary); }
-  .threat li::before { background: var(--accent); }
+    /* === Consequence Block === */
+    .consequence-block {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .consequence-block .consequence-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--warning); margin-bottom: 8px;
+    }
+    .consequence-block .consequence-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; line-height: 1.75;
+      color: var(--text);
+    }
 
-  /* NARRATIVE */
-  .narrative {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 32px;
-    margin-bottom: 32px;
-  }
-  .narrative h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .narrative p {
-    font-size: 14px;
-    line-height: 1.75;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
+    /* === Gauge Widget === */
+    .gauge-widget {
+      background: var(--gauge-bg);
+      border: 1px solid var(--gauge-border);
+      border-radius: 14px;
+      padding: 32px;
+      margin: 24px 0;
+    }
+    .gauge-arc-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .gauge-arc-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gauge-text-muted);
+      margin-bottom: 16px;
+    }
+    .gauge-arc-score {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 36px; font-weight: 700;
+      line-height: 1;
+      fill: var(--gauge-text);
+    }
+    .gauge-bars { display: flex; flex-direction: column; gap: 14px; }
+    .gauge-bar-row {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .gauge-bar-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 500;
+      color: var(--gauge-text);
+      width: 140px; flex-shrink: 0;
+      text-align: right;
+    }
+    .gauge-bar-track {
+      flex: 1; height: 10px;
+      background: var(--gauge-border);
+      border-radius: 5px;
+      position: relative;
+      overflow: visible;
+    }
+    .gauge-bar-fill {
+      height: 100%; border-radius: 5px;
+      transition: width 0.4s ease;
+    }
+    .gauge-bar-fill.subject { background: var(--subject); }
+    .gauge-bar-fill.comparison { background: var(--comparison); }
+    .gauge-bar-score {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 600;
+      color: var(--gauge-text);
+      width: 32px; flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .gauge-baseline-marker {
+      position: absolute;
+      top: -2px;
+      width: 3px;
+      height: 14px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 1px;
+      z-index: 2;
+    }
 
-  /* FOOTER */
-  .report-footer {
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-    font-size: 12px;
-    color: var(--text-muted);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--primary);
-  }
+    /* === Narrative === */
+    .narrative-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; line-height: 1.75;
+      color: var(--text);
+    }
+    .narrative-text p { margin-bottom: 16px; }
+    .narrative-text p:last-child { margin-bottom: 0; }
+    .narrative-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--primary); line-height: 1.3;
+      margin-bottom: 12px;
+    }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .score-grid { grid-template-columns: repeat(2, 1fr); }
-    .gauge-grid { grid-template-columns: 1fr; }
-    .insights-grid { grid-template-columns: 1fr; }
-    .baselines-row { grid-template-columns: 1fr; }
-    .report-title { font-size: 26px; }
-    .report-meta { flex-wrap: wrap; gap: 12px; }
-  }
+    /* === Insight Cards === */
+    .insight-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .insight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .insight-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .insight-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .insight-card li {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; line-height: 1.6;
+      color: var(--text);
+      padding: 6px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+    .insight-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .insight-card.strengths li::before { background: var(--success); }
+    .insight-card.gaps li::before { background: var(--error); }
+    .insight-card.opportunities li::before { background: var(--secondary); }
+    .insight-card.threats li::before { background: var(--accent); }
 
-  @media print {
-    body { font-size: 11px; }
-    .report-header { padding: 32px 0; }
-    .report-title { font-size: 24px; }
-    section { padding: 24px 0; }
-    .gauge-widget { break-inside: avoid; }
-  }
-</style>
+    /* === Executive Brief === */
+    .exec-brief { padding: 32px; }
+    .finding-item { margin-bottom: 20px; }
+    .finding-item:last-child { margin-bottom: 0; }
+    .finding-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .finding-headline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 700;
+      color: var(--primary);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .finding-implication {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .action-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; line-height: 1.6;
+      color: var(--text);
+      padding: 8px 0 8px 20px;
+      position: relative;
+    }
+    .action-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 15px;
+      width: 8px; height: 8px;
+      border: 2px solid var(--accent);
+      border-radius: 2px;
+    }
+    .methodology-caveat {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-style: italic;
+      color: var(--text-muted);
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    /* === Methodology Section === */
+    .methodology-content {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; line-height: 1.75;
+      color: var(--text);
+    }
+    .methodology-content h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--primary);
+      margin: 24px 0 8px 0;
+    }
+    .methodology-content h3:first-child { margin-top: 0; }
+    .methodology-content p { margin-bottom: 12px; }
+    .methodology-content ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .methodology-content li {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    /* === Glossary === */
+    .glossary-details summary {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      padding: 12px 0;
+      list-style: none;
+    }
+    .glossary-details summary::-webkit-details-marker { display: none; }
+    .glossary-details summary::before {
+      content: '▸ ';
+      color: var(--accent);
+    }
+    .glossary-details[open] summary::before {
+      content: '▾ ';
+    }
+    .glossary-table { margin-top: 16px; }
+    .glossary-table th { white-space: nowrap; }
+
+    /* === Footer === */
+    .report-footer { padding: 32px; border-top: 1px solid var(--border); }
+    .footer-wordmark {
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--primary); text-decoration: none;
+    }
+    .footer-url { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+    .confidentiality {
+      font-size: 10px; color: var(--text-faint); letter-spacing: 0.04em;
+      text-transform: uppercase; text-align: center; margin-top: 16px;
+    }
+    .copyright { font-size: 13px; font-style: italic; color: var(--text-muted); margin-top: 16px; text-align: center; }
+
+    /* === Responsive === */
+    @media (max-width: 900px) {
+      .score-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .insight-cards-grid { grid-template-columns: 1fr; }
+      .gauge-bar-name { width: 100px; font-size: 12px; }
+      .report-title { font-size: 28px; }
+      .data-table { font-size: 12px; }
+      .data-table th, .data-table td { padding: 8px 6px; }
+    }
+
+    /* === Utility === */
+    .mt-24 { margin-top: 24px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-32 { margin-top: 32px; }
+    .mb-16 { margin-bottom: 16px; }
+    .mb-24 { margin-bottom: 24px; }
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="report-header">
-  <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
-      <div class="report-id">LC-AGT3-001</div>
-      <a href="https://appliedidentities.com" target="_blank" rel="noopener" style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.95)'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Applied Identities</a>
-    </div>
-    <h1 class="report-title">Labcorp AI Enterprise Readiness<br>Competitive Assessment</h1>
-    <p class="report-subtitle">AI Enterprise Readiness Index — Life Sciences Overlay</p>
-    <div class="report-meta">
-      <span>Prepared by Applied Identities: March 9, 2026</span>
-      <span>Framework: 3 Categories / 15 Dimensions</span>
-      <span>Baseline: General + Life Sciences Industry</span>
-      <span>Competitors: Quest Diagnostics, IQVIA, Thermo Fisher Scientific</span>
-    </div>
-  </div>
-</header>
-
-<main class="container">
-
-<!-- HEADER DISCLAIMER -->
-<section style="padding: 24px 0 0;">
-  <div style="font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; max-width: 960px;">
-    <strong>IMPORTANT NOTICE:</strong> This report was prepared by custom AI and publicly available information. The findings are provided for strategic analysis purposes only.
-  </div>
-</section>
-
-<!-- EXECUTIVE OVERVIEW -->
-<section>
-  <div class="section-label">About This Report</div>
-  <h2 class="section-title">AI Readiness as a Competitive Lens</h2>
-  <div style="max-width: 760px; margin-bottom: 32px;">
-    <p style="font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 14px;">
-      This report is the result of specialized data analysis on publicly available information — SEC filings, earnings calls, press releases, job postings, patent activity, analyst coverage, and product disclosures — to develop a broad and current view of how companies are adopting AI across their organization, brand, and product operations.
-    </p>
-    <p style="font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 14px;">
-      AI readiness is becoming one of the most revealing signals of enterprise strategy. How a company staffs for AI, communicates about AI, governs AI, and ships AI products tells you more about its competitive trajectory than most traditional metrics. It exposes organizational velocity, leadership conviction, and the gap between narrative and execution.
-    </p>
-    <p style="font-size: 15px; color: var(--text); line-height: 1.75; margin-bottom: 0;">
-      This assessment reviews Labcorp against its closest competitors — Quest Diagnostics, IQVIA, and Thermo Fisher Scientific — to develop a snapshot of where Labcorp stands, where the field is moving, and where the most significant gaps and opportunities exist.
-    </p>
-  </div>
-
-  <!-- Company Score Cards -->
-  <div class="section-label" style="margin-top: 16px;">Competitive Scorecard</div>
-  <h2 class="section-title" style="font-size: 22px; margin-bottom: 20px;">Overall Readiness Scores</h2>
-
-  <div class="score-grid">
-    <div class="score-card highlight">
-      <div class="score-company" style="color: var(--labcorp);">Labcorp</div>
-      <div class="score-company-sub">$14B Revenue · 71K Employees</div>
-      <div class="score-value" style="color: var(--labcorp);">51</div>
-      <div class="score-label">Overall Readiness Score</div>
-      <div class="score-breakdown">
-        <span>Org<br><strong>47</strong></span>
-        <span>Brand<br><strong>53</strong></span>
-        <span>Product<br><strong>54</strong></span>
+  <!-- ============================================================ -->
+  <!-- HEADER -->
+  <!-- ============================================================ -->
+  <header class="report-header">
+    <div class="container">
+      <div class="header-top">
+        <span class="report-id">RB-AGT3-001</span>
+        <a href="https://appliedidentities.com" class="wordmark">Applied Identities →</a>
       </div>
-      <div class="maturity-badge maturity-operational">Operational</div>
+      <h1 class="report-title">AI Enterprise Readiness — Competitive Assessment</h1>
+      <p class="report-subtitle">Rain Bird Corporation vs. Manufacturing Competitors</p>
+      <p class="report-meta">March 2026 · 3Jane AI Enterprise Readiness Index · Manufacturing Baseline · Netafim, Toro, Hunter Industries</p>
     </div>
-    <div class="score-card">
-      <div class="score-company" style="color: var(--quest);">Quest Diagnostics</div>
-      <div class="score-company-sub">$11B Revenue · 57K Employees</div>
-      <div class="score-value" style="color: var(--quest);">54</div>
-      <div class="score-label">Overall Readiness Score</div>
-      <div class="score-breakdown">
-        <span>Org<br><strong>52</strong></span>
-        <span>Brand<br><strong>56</strong></span>
-        <span>Product<br><strong>55</strong></span>
-      </div>
-      <div class="maturity-badge maturity-operational">Operational</div>
-    </div>
-    <div class="score-card">
-      <div class="score-company" style="color: var(--iqvia);">IQVIA</div>
-      <div class="score-company-sub">$16B Revenue · 91K Employees</div>
-      <div class="score-value" style="color: var(--iqvia);">76</div>
-      <div class="score-label">Overall Readiness Score</div>
-      <div class="score-breakdown">
-        <span>Org<br><strong>72</strong></span>
-        <span>Brand<br><strong>80</strong></span>
-        <span>Product<br><strong>77</strong></span>
-      </div>
-      <div class="maturity-badge maturity-systemic">Systemic</div>
-    </div>
-    <div class="score-card">
-      <div class="score-company" style="color: var(--thermo);">Thermo Fisher</div>
-      <div class="score-company-sub">$45B Revenue · 130K Employees</div>
-      <div class="score-value" style="color: var(--thermo);">74</div>
-      <div class="score-label">Overall Readiness Score</div>
-      <div class="score-breakdown">
-        <span>Org<br><strong>76</strong></span>
-        <span>Brand<br><strong>73</strong></span>
-        <span>Product<br><strong>74</strong></span>
-      </div>
-      <div class="maturity-badge maturity-systemic">Systemic</div>
-    </div>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- DISCLAIMER -->
+  <!-- ============================================================ -->
+  <div class="disclaimer">
+    <p>IMPORTANT NOTICE: This report was prepared using specialized AI analysis and publicly available information. The findings are provided for strategic analysis purposes only.</p>
   </div>
 
-  <!-- Baselines -->
-  <div class="baselines-row">
-    <div class="baseline-card">
-      <div class="baseline-score">35</div>
-      <div class="baseline-info">
-        <div class="baseline-name">General Cross-Industry Baseline</div>
-        <div class="baseline-desc">Avg. enterprise AI readiness across all sectors, 2025-2026 data</div>
-        <div class="baseline-scores-row">
-          <span>Org: 41</span>
-          <span>Brand: 30</span>
-          <span>Product: 35</span>
-        </div>
-      </div>
-    </div>
-    <div class="baseline-card">
-      <div class="baseline-score">35</div>
-      <div class="baseline-info">
-        <div class="baseline-name">Life Sciences Industry Overlay</div>
-        <div class="baseline-desc">Life sciences-specific baseline with regulatory premium</div>
-        <div class="baseline-scores-row">
-          <span>Org: 40</span>
-          <span>Brand: 26</span>
-          <span>Product: 38</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- ============================================================ -->
+  <!-- CONTENT -->
+  <!-- ============================================================ -->
+  <main class="container">
 
-<!-- EXECUTIVE NARRATIVE — pulled up high -->
-<section>
-  <div class="section-label">Analysis</div>
-  <h2 class="section-title">Executive Narrative</h2>
+    <!-- ========== SECTION 1: EXECUTIVE BRIEF ========== -->
+    <div class="section">
+      <div class="section-label">Executive Brief</div>
+      <div class="section-title" style="margin-bottom: 20px;">Competitive Positioning Summary</div>
 
-  <div class="narrative">
-    <h3>Labcorp's Position: Solid Foundation, Accelerating but Not Leading</h3>
-    <p>
-      Labcorp scores 51 on the AI Enterprise Readiness Index — placing it in the "Operational" maturity tier where AI is in production with measurable impact, but not yet embedded across the enterprise. This is a meaningful position: Labcorp has moved well beyond pilots, with generative AI (Test Finder) processing 500K+ monthly orders, an AI chatbot (Gia) delivering 92% patient satisfaction, and a nationwide digital pathology deployment (AISight Dx) underway. These are real deployments with quantified outcomes.
-    </p>
-    <p>
-      However, Labcorp ranks fourth among the four competitors assessed. The gap is not primarily in AI technology — it is in AI velocity and organizational penetration. Quest Diagnostics (54) holds a 3-point edge driven by the AI Companion consumer launch (45M potential users), the PathAI acquisition (vs. Labcorp's licensing approach), and the Google Cloud enterprise partnership. The gap between the pure-play labs and the broader life sciences leaders is far more significant: IQVIA (76) and Thermo Fisher (74) operate at a fundamentally different scale of AI maturity, with enterprise-wide GenAI deployment, advanced agentic AI systems, and registered AI brand identities.
-    </p>
-    <p>
-      Labcorp's strongest competitive dimension is its structured data moat: 45+ billion test results on a FHIR-compliant platform covering approximately 50% of the U.S. population. This is an asset that no competitor can replicate at comparable scale in the pure-play lab space. Combined with the broadest AI partnership ecosystem among labs (PathAI, AWS, Roche, Lunit, Proscia, Google Cloud board-level presence), Labcorp has the infrastructure foundation for aggressive AI acceleration.
-    </p>
-    <p>
-      The most critical gaps are threefold: (1) no consumer-facing AI product comparable to Quest's AI Companion, (2) no enterprise-wide GenAI access for 71,000 employees comparable to Thermo Fisher's ChatGPT Enterprise rollout, and (3) no agentic AI roadmap while competitors are building autonomous systems. These represent strategic choices, not capability limitations — and they are addressable with the assets Labcorp already possesses.
-    </p>
+      <div class="narrative-block exec-brief">
+        <!-- Scoring Comparison Table -->
+        <div class="table-wrapper"><table class="data-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th class="numeric">Organization</th>
+              <th class="numeric">Brand</th>
+              <th class="numeric">Product</th>
+              <th class="numeric">Composite</th>
+              <th>Maturity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 500;">Netafim</td>
+              <td class="numeric">58</td>
+              <td class="numeric">62</td>
+              <td class="numeric">63</td>
+              <td class="numeric" style="font-weight: 600;">61</td>
+              <td><span class="maturity-badge maturity-systemic">Systemic</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">The Toro Company</td>
+              <td class="numeric">48</td>
+              <td class="numeric">40</td>
+              <td class="numeric">52</td>
+              <td class="numeric" style="font-weight: 600;">47</td>
+              <td><span class="maturity-badge maturity-operational">Operational</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Manufacturing Baseline</td>
+              <td class="numeric">40</td>
+              <td class="numeric">27</td>
+              <td class="numeric">33</td>
+              <td class="numeric" style="font-weight: 600;">38</td>
+              <td><span class="maturity-badge maturity-active">Active</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Hunter Industries</td>
+              <td class="numeric">35</td>
+              <td class="numeric">35</td>
+              <td class="numeric">40</td>
+              <td class="numeric" style="font-weight: 600;">37</td>
+              <td><span class="maturity-badge maturity-active">Active</span></td>
+            </tr>
+            <tr class="subject-row">
+              <td style="font-weight: 600; color: var(--subject);">Rain Bird</td>
+              <td class="numeric subject-value">32</td>
+              <td class="numeric subject-value">30</td>
+              <td class="numeric subject-value">38</td>
+              <td class="numeric subject-value" style="font-size: 14px; font-weight: 700;">34</td>
+              <td><span class="maturity-badge maturity-active">Active</span></td>
+            </tr>
+          </tbody>
+        </table></div>
 
-    <h3>Recommendations</h3>
-    <p>
-      <strong>Near-term (0-6 months):</strong> Launch a consumer-facing AI health companion on the Labcorp patient portal — the data asset (45B+ results) is the moat, and Quest has demonstrated consumer demand. Deploy an enterprise GenAI platform for internal workforce access to close the organizational AI adoption gap.
-    </p>
-    <p>
-      <strong>Medium-term (6-18 months):</strong> Develop an agentic AI strategy for laboratory automation — start with pathology (already digital) and microbiology (cited by CEO as priority). Publicly quantify AI ROI contribution within LaunchPad to differentiate from competitors who also bundle AI within broader efficiency programs.
-    </p>
-    <p>
-      <strong>Strategic:</strong> Leverage the biopharma/Covance AI capabilities as a competitive differentiator Quest cannot match — position Labcorp as the only diagnostics company with AI spanning both clinical and drug development. Build toward an "AI-powered diagnostics platform" brand identity, moving from product-by-product AI messaging to a unified AI narrative.
-    </p>
-  </div>
-</section>
+        <!-- Headline Findings -->
+        <div style="margin-top: 28px;">
+          <div class="narrative-heading">Key Findings</div>
 
-<!-- CATEGORY GAUGE WIDGETS -->
-<section>
-  <div class="section-label">Category Breakdown</div>
-  <h2 class="section-title">Organization · Brand · Product</h2>
-  <p class="section-intro">Each category's baseline score (arc gauge) reflects the Life Sciences industry average. The horizontal bars show where each company scores against that baseline across the five underlying dimensions.</p>
-
-  <div class="gauge-grid" id="gaugeGrid"></div>
-</section>
-
-<!-- DIMENSION TABLE -->
-<section>
-  <div class="section-label">Detailed Scoring</div>
-  <h2 class="section-title">Full Dimension Comparison Matrix</h2>
-  <p class="section-intro">All 15 dimensions scored 0-100. Delta shown against the Life Sciences industry baseline. Leader designation identifies the highest scorer among the four assessed companies.</p>
-
-  <div class="dim-table-wrap">
-    <table class="dim-table" id="dimTable">
-      <thead>
-        <tr>
-          <th style="width:22%;">Dimension</th>
-          <th class="num" style="width:8%;">Gen. Baseline</th>
-          <th class="num" style="width:8%;">LS Baseline</th>
-          <th class="num" style="width:11%;">Labcorp</th>
-          <th class="num" style="width:11%;">Quest</th>
-          <th class="num" style="width:11%;">IQVIA</th>
-          <th class="num" style="width:11%;">Thermo Fisher</th>
-          <th class="num" style="width:9%;">Leader</th>
-        </tr>
-      </thead>
-      <tbody id="dimTableBody"></tbody>
-    </table>
-  </div>
-</section>
-
-<!-- COMPETITIVE INSIGHTS -->
-<section>
-  <div class="section-label">Competitive Intelligence</div>
-  <h2 class="section-title">Labcorp Positioning Analysis</h2>
-
-  <div class="insights-grid">
-    <div class="insight-card strength">
-      <h4>Labcorp Strengths vs. Field</h4>
-      <ul>
-        <li>Formal AI Ethics Board with published AI Code of Ethics — the most structured governance among the two pure-play labs (Labcorp 62, Quest 58)</li>
-        <li>45B+ structured test results on FHIR-compliant platform covering ~50% of US population — a proprietary data moat</li>
-        <li>Gia AI chatbot delivers quantified clinical value: 100K+ patients, 92% satisfaction, 3x high-risk variant identification</li>
-        <li>Broadest AI partnership ecosystem among pure-play labs: PathAI, AWS, Roche, Lunit, Proscia, Google Cloud board presence</li>
-        <li>Biopharma/Covance AI capabilities in clinical trials give Labcorp a dimension Quest lacks entirely</li>
-      </ul>
-    </div>
-
-    <div class="insight-card gap">
-      <h4>Labcorp Gaps vs. Field</h4>
-      <ul>
-        <li>Lowest overall score (51) — 3 points below Quest, 23 below IQVIA, 23 below Thermo Fisher</li>
-        <li>No enterprise-wide AI workforce access — AI concentrated in pathology and provider tools for 71K employees</li>
-        <li>No agentic AI deployments (score 35) — all competitors show higher agentic maturity (Quest 40, TMO 68, IQVIA 80)</li>
-        <li>7-year PathAI timeline (2019 investment to 2026 deployment) — Quest acquired and deployed AISight Dx two years faster</li>
-        <li>AI orchestration is weakest dimension (32) — no evidence of AI-first brand or marketing operations</li>
-      </ul>
-    </div>
-
-    <div class="insight-card opportunity">
-      <h4>Whitespace Opportunities</h4>
-      <ul>
-        <li>Consumer AI health companion — Quest launched AI Companion (45M users); Labcorp has no equivalent consumer-facing AI</li>
-        <li>Enterprise-wide GenAI rollout — Thermo Fisher deployed ChatGPT Enterprise to 130K employees; Labcorp has no disclosed comparable program</li>
-        <li>Agentic lab workflows — IQVIA and Thermo Fisher are building autonomous agent systems; Labcorp has the data infrastructure but no agentic roadmap</li>
-        <li>AI revenue attribution — None of the four companies fully disaggregate AI ROI; first-mover disclosure could differentiate</li>
-      </ul>
-    </div>
-
-    <div class="insight-card threat">
-      <h4>Competitive Threats</h4>
-      <ul>
-        <li>Quest AI Companion gives direct competitor consumer AI differentiation at 45M user scale</li>
-        <li>IQVIA's Healthcare-grade AI trademark and registered brand create defensible AI market perception moat</li>
-        <li>Thermo Fisher + NVIDIA edge-AI agent demos signal instrument-level autonomy that could reset lab AI expectations</li>
-        <li>Quest's Google Cloud partnership (March 2025) may accelerate enterprise AI scaling faster than Labcorp's AWS relationship</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- LABCORP DEEP DIVE -->
-<section>
-  <div class="section-label">Labcorp Assessment Detail</div>
-  <h2 class="section-title">Labcorp AI Product Inventory</h2>
-
-  <div class="dim-table-wrap">
-    <table class="dim-table">
-      <thead>
-        <tr>
-          <th style="width:18%;">Product</th>
-          <th style="width:14%;">Type</th>
-          <th style="width:10%;">Status</th>
-          <th style="width:36%;">Description</th>
-          <th style="width:22%;">Scale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Test Finder</strong></td>
-          <td>Generative AI / LLM</td>
-          <td>Production</td>
-          <td>Conversational AI for providers to find lab tests using plain-language queries. Built on Amazon Bedrock.</td>
-          <td>750+ health systems, 500K+ monthly orders</td>
-        </tr>
-        <tr>
-          <td><strong>Gia Chatbot</strong></td>
-          <td>AI Chatbot</td>
-          <td>Production</td>
-          <td>HIPAA-compliant AI for hereditary cancer genetic testing — pre-test education, family history, results delivery.</td>
-          <td>100K+ patients, 92% satisfaction</td>
-        </tr>
-        <tr>
-          <td><strong>AISight Dx</strong></td>
-          <td>Digital Pathology AI</td>
-          <td>Deploying (Feb 2026)</td>
-          <td>FDA-cleared PathAI platform for fully digital pathology workflows — case management, slide review, AI image analysis.</td>
-          <td>All Labcorp AP labs, nationwide</td>
-        </tr>
-        <tr>
-          <td><strong>Diagnostic Assistant</strong></td>
-          <td>EHR-Integrated AI</td>
-          <td>Production</td>
-          <td>FHIR-based solution in EHRs (Epic, Cerner, athenahealth, etc.). Real-time access to 45B+ test results + Test Finder AI.</td>
-          <td>750+ health systems</td>
-        </tr>
-        <tr>
-          <td><strong>DiNA</strong></td>
-          <td>AI Recruiting</td>
-          <td>Production</td>
-          <td>AI-powered recruitment chatbot on careers site for candidate interactions and job matching.</td>
-          <td>Enterprise HR</td>
-        </tr>
-        <tr>
-          <td><strong>eClaim Assist</strong></td>
-          <td>Billing Automation</td>
-          <td>Production</td>
-          <td>Automated digital handling of patient claim info, billing inquiries, and bulk claims processing.</td>
-          <td>Labcorp Link platform</td>
-        </tr>
-        <tr>
-          <td><strong>Biopharma Digital Pathology</strong></td>
-          <td>Clinical Trial AI</td>
-          <td>Production (since 2021)</td>
-          <td>AI-driven clinical trial support — centralized slide review, biomarker discovery, companion diagnostics. Uses Proscia Concentriq LS.</td>
-          <td>20 scanners, 14 global sites</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- METHODOLOGY & SOURCES -->
-<section>
-  <div class="section-label">Methodology</div>
-  <h2 class="section-title">Methodology &amp; Sources</h2>
-  <div class="narrative">
-    <p>
-      This report was produced using the <strong>3Jane AI Enterprise Readiness Index</strong>, a 15-dimension framework organized across three assessment categories: Organization, Brand, and Product. Research, scoring, and analysis were conducted using customized or specialized AI agents operating on publicly available evidence including earnings calls, SEC filings, press releases, job postings, patent filings, analyst coverage, and product analysis. Scores are benchmarked against both a general cross-industry baseline and a Life Sciences industry overlay.
-    </p>
-    <p>
-      <strong>Data sources include:</strong> Deloitte State of AI in Enterprise 2026, McKinsey Global Survey on AI 2025, Stanford HAI AI Index, Gartner, Forrester, company 10-K/10-Q filings, earnings transcripts, press releases (PR Newswire, Business Wire), industry publications, job postings (LinkedIn, corporate careers pages), and corporate responsibility reports.
-    </p>
-    <p>
-      <strong>Maturity levels:</strong> Awareness (0–20), Active (21–40), Operational (41–60), Systemic (61–80), Transformational (81–100).
-    </p>
-    <p>
-      <strong>Limitations:</strong> All scores are based on publicly available information only. Internal AI deployment data, proprietary metrics, and non-public initiatives are not captured in this assessment. Confidence levels vary by dimension and are noted in the underlying assessment data where applicable. Survey-based perception data (3Jane Level 1 / Level 2) was not available for any company in this assessment unless explicitly noted.
-    </p>
-    <p>
-      <strong>Disclaimer:</strong> Unless otherwise specified, all data and analysis in this report is derived from public sources. This report does not represent, reflect, or imply the views or endorsement of any company named in the analysis. No company named herein has reviewed, approved, or contributed to the findings. Applied Identities makes no warranty regarding the completeness or accuracy of publicly available data, and this report should not be relied upon as the sole basis for business, investment, or operational decisions.
-    </p>
-    <p style="margin-top: 16px; font-size: 13px; font-style: italic; color: var(--text-muted);">©2026 Applied Identities</p>
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="report-footer">
-      <div><a href="https://appliedidentities.com" target="_blank" rel="noopener" class="footer-logo" style="text-decoration: none;">Applied Identities</a><div style="font-size: 11px; margin-top: 4px; color: var(--text-faint);">appliedidentities.com</div></div>
-      <div style="text-align: right;"><div>LC-AGT3-001 · Confidential · March 9, 2026</div><div style="font-size: 11px; margin-top: 4px; color: var(--text-faint);">Independent analysis based on public sources only. Not endorsed by any company named herein.</div></div>
-    </div>
-    <div style="text-align: center; padding: 12px 0 24px; font-size: 10px; color: var(--text-faint); letter-spacing: 0.04em;">CONFIDENTIAL — For intended recipient only</div>
-  </div>
-</footer>
-
-<script>
-// ============================================
-// DATA
-// ============================================
-const dimensions = {
-  organization: {
-    labels: ['Workforce AI Access','Scaling Maturity','Governance & Ethics','Talent & Upskilling','Measurable ROI'],
-    general:  [48, 33, 28, 36, 22],
-    lifesci:  [42, 25, 40, 32, 20],
-    labcorp:  [42, 44, 62, 38, 45],
-    quest:    [48, 50, 58, 50, 55],
-    iqvia:    [68, 75, 72, 70, 75],
-    thermo:   [80, 75, 82, 72, 74]
-  },
-  brand: {
-    labels: ['AI-Native Messaging','Agent-Ready Infra','Market AI Perception','Content AI-Readiness','AI-First Orchestration'],
-    general:  [38, 27, 31, 22, 18],
-    lifesci:  [34, 30, 28, 19, 14],
-    labcorp:  [55, 58, 55, 48, 32],
-    quest:    [60, 62, 58, 52, 42],
-    iqvia:    [85, 82, 78, 75, 80],
-    thermo:   [76, 72, 78, 68, 71]
-  },
-  product: {
-    labels: ['AI Interaction Layer','Agentic AI Deploy','AI UX Maturity','Process Redesign','AI Value Delivery'],
-    general:  [44, 20, 30, 28, 32],
-    lifesci:  [40, 24, 38, 34, 38],
-    labcorp:  [60, 35, 55, 52, 58],
-    quest:    [62, 40, 55, 58, 60],
-    iqvia:    [75, 80, 70, 78, 82],
-    thermo:   [72, 68, 68, 78, 77]
-  }
-};
-
-const categories = [
-  { key: 'organization', name: 'Organization', desc: 'How the enterprise adopts and operationalizes AI',
-    composites: { general: 41, lifesci: 40, labcorp: 47, quest: 52, iqvia: 72, thermo: 76 }},
-  { key: 'brand', name: 'Brand', desc: 'How the enterprise communicates and positions AI identity',
-    composites: { general: 30, lifesci: 26, labcorp: 53, quest: 56, iqvia: 80, thermo: 73 }},
-  { key: 'product', name: 'Product', desc: 'How the enterprise builds and delivers AI-powered products',
-    composites: { general: 35, lifesci: 38, labcorp: 54, quest: 55, iqvia: 77, thermo: 74 }}
-];
-
-const companies = [
-  { key: 'labcorp', name: 'Labcorp', color: '#0072CE', barClass: 'bar-labcorp' },
-  { key: 'quest',   name: 'Quest',   color: '#8A96A6', barClass: 'bar-quest' },
-  { key: 'iqvia',   name: 'IQVIA',   color: '#8A96A6', barClass: 'bar-iqvia' },
-  { key: 'thermo',  name: 'Thermo Fisher', color: '#8A96A6', barClass: 'bar-thermo' }
-];
-
-// ============================================
-// GAUGE ARC SVG BUILDER
-// ============================================
-function buildArc(score, arcColor) {
-  const cx = 50, cy = 50, r = 40;
-  const startAngle = -225;
-  const totalSweep = 270;
-  const scoreAngle = startAngle + (score / 100) * totalSweep;
-
-  function polarToCartesian(angle) {
-    const rad = (angle * Math.PI) / 180;
-    return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
-  }
-
-  function arcPath(start, end) {
-    const s = polarToCartesian(start);
-    const e = polarToCartesian(end);
-    const sweep = end - start;
-    const largeArc = sweep > 180 ? 1 : 0;
-    return `M ${s.x} ${s.y} A ${r} ${r} 0 ${largeArc} 1 ${e.x} ${e.y}`;
-  }
-
-  const trackPath = arcPath(startAngle, startAngle + totalSweep);
-  const fillPath = arcPath(startAngle, scoreAngle);
-
-  return `<svg viewBox="0 0 100 100">
-    <path d="${trackPath}" fill="none" stroke="#2E3E54" stroke-width="7" stroke-linecap="round"/>
-    <path d="${fillPath}" fill="none" stroke="${arcColor}" stroke-width="7" stroke-linecap="round"/>
-  </svg>`;
-}
-
-function getArcColor(score) {
-  if (score <= 30) return '#C0392B';
-  if (score <= 50) return '#C97B2D';
-  if (score <= 70) return '#3A6FA0';
-  return '#437A22';
-}
-
-// ============================================
-// BUILD GAUGE WIDGETS
-// ============================================
-function buildGauges() {
-  const grid = document.getElementById('gaugeGrid');
-
-  categories.forEach(cat => {
-    const d = dimensions[cat.key];
-    const baselineScore = cat.composites.lifesci;
-    const arcColor = getArcColor(baselineScore);
-
-    let rowsHTML = '';
-    companies.forEach(co => {
-      const avg = cat.composites[co.key];
-      const pct = Math.min(avg, 100);
-      const markerLeft = (baselineScore / 100) * 100;
-      rowsHTML += `
-        <div class="gauge-row">
-          <div class="gauge-row-name" style="color: ${co.color};">${co.name}</div>
-          <div class="gauge-bar-track">
-            <div class="gauge-bar-fill ${co.barClass}" style="width: ${pct}%;"></div>
-            <div class="gauge-bar-marker" style="left: ${markerLeft}%;"></div>
+          <div class="finding-item">
+            <div class="finding-number">Finding 1</div>
+            <div class="finding-headline">Rain Bird trails the manufacturing baseline by 4 points and all named competitors.</div>
+            <div class="finding-implication">The gap is widest in Organization (–8 vs baseline), driven by governance deficit and absent AI talent pipeline.</div>
           </div>
-          <div class="gauge-row-score" style="color: ${co.color};">${avg}</div>
-        </div>`;
-    });
 
-    grid.innerHTML += `
+          <div class="finding-item">
+            <div class="finding-number">Finding 2</div>
+            <div class="finding-headline">Netafim operates at Systemic maturity (61) — nearly double Rain Bird's composite.</div>
+            <div class="finding-implication">Netafim owns the AI narrative in precision irrigation; closing this gap requires both capability and credible positioning.</div>
+          </div>
+
+          <div class="finding-item">
+            <div class="finding-number">Finding 3</div>
+            <div class="finding-headline">The Rachio acquisition is Rain Bird's strongest strategic asset — and its positioning is undecided.</div>
+            <div class="finding-implication">Whether Rachio becomes an AI capability accelerator or a product-line extension determines Rain Bird's trajectory over the next 18–24 months.</div>
+          </div>
+        </div>
+
+        <!-- Recommended Actions -->
+        <div style="margin-top: 24px;">
+          <div class="narrative-heading">Recommended Actions</div>
+          <div class="action-item">Establish AI governance infrastructure before expanding deployment — the 2025 data breach makes this non-negotiable.</div>
+          <div class="action-item">Define Rachio integration as an AI capability play, not a product extension, and align brand messaging accordingly.</div>
+        </div>
+
+        <!-- Methodology Caveat -->
+        <p class="methodology-caveat">Scores reflect publicly available evidence only. Companies with limited public disclosure may score lower than their internal capabilities warrant.</p>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 2: KEY COMPETITIVE INSIGHT ========== -->
+    <div class="section">
+      <div class="key-insight">
+        <div class="insight-label">Key Competitive Insight</div>
+        <div class="insight-title">Surface vs. Real AI: The Hunter/Hydrawise Distinction</div>
+        <div class="insight-body">Hunter Industries' Hydrawise Predictive Watering is marketed as machine learning but is confirmed through independent validation to be evapotranspiration calculation — a rules-based weather computation, not a learning system. This distinction between AI that claims intelligence and AI that demonstrates it is the most actionable competitive insight in this assessment. Rain Bird should position against this gap explicitly as it integrates Rachio's genuine ML capabilities.</div>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 3: COMPETITIVE POSITIONING ========== -->
+    <div class="section">
+      <div class="section-label">Competitive Positioning</div>
+      <div class="section-title">Overall Readiness Scores</div>
+
+      <div class="score-cards-grid">
+        <!-- Netafim -->
+        <div class="card score-card">
+          <div class="score-value" style="color: var(--comparison);">61</div>
+          <div class="company-name">Netafim</div>
+          <div class="sub-scores">
+            <span>Org 58</span> · <span>Brand 62</span> · <span>Product 63</span>
+          </div>
+          <div class="badge-wrap"><span class="maturity-badge maturity-systemic">Systemic</span></div>
+        </div>
+
+        <!-- Toro -->
+        <div class="card score-card">
+          <div class="score-value" style="color: var(--comparison);">47</div>
+          <div class="company-name">The Toro Company</div>
+          <div class="sub-scores">
+            <span>Org 48</span> · <span>Brand 40</span> · <span>Product 52</span>
+          </div>
+          <div class="badge-wrap"><span class="maturity-badge maturity-operational">Operational</span></div>
+        </div>
+
+        <!-- Hunter -->
+        <div class="card score-card">
+          <div class="score-value" style="color: var(--comparison);">37</div>
+          <div class="company-name">Hunter Industries</div>
+          <div class="sub-scores">
+            <span>Org 35</span> · <span>Brand 35</span> · <span>Product 40</span>
+          </div>
+          <div class="badge-wrap"><span class="maturity-badge maturity-active">Active</span></div>
+        </div>
+
+        <!-- Rain Bird (highlight) -->
+        <div class="card score-card highlight">
+          <div class="score-value" style="color: var(--subject);">34</div>
+          <div class="company-name">Rain Bird</div>
+          <div class="sub-scores">
+            <span>Org 32</span> · <span>Brand 30</span> · <span>Product 38</span>
+          </div>
+          <div class="badge-wrap"><span class="maturity-badge maturity-active">Active</span></div>
+        </div>
+      </div>
+
+      <!-- Baseline Card - full width beneath -->
+      <div style="margin-top: 16px;">
+        <div class="card baseline-card" style="text-align: center; padding: 20px;">
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; color: var(--text-muted); font-variant-numeric: tabular-nums;">38</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); margin-top: 4px;">Manufacturing Baseline</div>
+          <div style="font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); margin-top: 6px;">
+            <span>Org 40</span> · <span>Brand 27</span> · <span>Product 33</span>
+          </div>
+          <div style="margin-top: 10px;"><span class="maturity-badge maturity-active">Active</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 4: ORGANIZATION ========== -->
+    <div class="section">
+      <div class="section-label">Category Deep Dive</div>
+      <div class="section-title">Organization</div>
+      <div class="section-subtitle">How the enterprise adopts and operationalizes AI</div>
+
+      <!-- Gauge Widget -->
       <div class="gauge-widget">
-        <div class="gauge-header">
-          <div>
-            <div class="gauge-category">${cat.name}</div>
-            <div class="gauge-description">${cat.desc}</div>
-          </div>
-          <div class="gauge-arc-wrap">
-            ${buildArc(baselineScore, arcColor)}
-            <div class="gauge-arc-value">
-              <div class="gauge-arc-number">${baselineScore}</div>
-              <div class="gauge-arc-label">LS Baseline</div>
+        <div class="gauge-arc-container">
+          <div class="gauge-arc-label">Manufacturing Baseline</div>
+          <svg width="200" height="115" viewBox="0 0 200 115">
+            <!-- Track arc -->
+            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
+            <!-- Score arc (40/100) -->
+            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#C97B2D" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="267" stroke-dashoffset="160.2"/>
+            <!-- Score text -->
+            <text x="100" y="90" text-anchor="middle" class="gauge-arc-score" style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; fill: #E8E7E3;">40</text>
+          </svg>
+        </div>
+
+        <div class="gauge-bars">
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Netafim</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 58%;"></div>
+              <div class="gauge-baseline-marker" style="left: 40%;"></div>
             </div>
+            <div class="gauge-bar-score">58</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Toro</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 48%;"></div>
+              <div class="gauge-baseline-marker" style="left: 40%;"></div>
+            </div>
+            <div class="gauge-bar-score">48</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Hunter</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 35%;"></div>
+              <div class="gauge-baseline-marker" style="left: 40%;"></div>
+            </div>
+            <div class="gauge-bar-score">35</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name" style="color: var(--subject); font-weight: 600;">Rain Bird</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill subject" style="width: 32%;"></div>
+              <div class="gauge-baseline-marker" style="left: 40%;"></div>
+            </div>
+            <div class="gauge-bar-score" style="color: var(--subject);">32</div>
           </div>
         </div>
-        <div class="gauge-rows">
-          ${rowsHTML}
+      </div>
+
+      <!-- Narrative -->
+      <div class="narrative-block mt-24">
+        <div class="narrative-heading">Organization Analysis</div>
+        <div class="narrative-text">
+          <p>Rain Bird's Organization score of 32 places it eight points below the manufacturing baseline and last among all competitors assessed. The deficit is structural, not incidental. Governance & Ethics (25) is the lowest dimension in the entire assessment — a score compounded by a data breach spanning seven months of 2025. For a company evaluating AI expansion, this governance gap is not a secondary concern; it is the primary constraint.</p>
+          <p>The talent pipeline is equally underdeveloped. No AI/ML-specific roles appear in Rain Bird's public job postings, and no visible upskilling programs have been disclosed. The Rachio acquisition brings some AI-adjacent talent into the organization, but the integration strategy remains unclear. Whether that talent is absorbed into Rain Bird's core operations or remains siloed within Rachio determines whether the acquisition addresses the talent gap or merely moves it to a subsidiary.</p>
+          <p>The IQ4 smart irrigation platform provides genuine infrastructure capability — cloud platform unification and API architecture are positive indicators of scaling potential. But infrastructure readiness without a governance framework or AI talent to build on it creates an asymmetry: the platform exists, but the intelligence layer hasn't been built on top of it. Scaling Maturity (35) matches the baseline precisely, suggesting that Rain Bird has the operational scaffolding but lacks the AI-specific maturity to utilize it.</p>
         </div>
-      </div>`;
-  });
-}
-buildGauges();
+      </div>
 
-// ============================================
-// BUILD DIMENSION TABLE
-// ============================================
-function buildTable() {
-  const tbody = document.getElementById('dimTableBody');
-  const cats = [
-    { name: 'Organization', key: 'organization', lc: 47, q: 52, iq: 72, tmo: 76 },
-    { name: 'Brand', key: 'brand', lc: 53, q: 56, iq: 80, tmo: 73 },
-    { name: 'Product', key: 'product', lc: 54, q: 55, iq: 77, tmo: 74 }
-  ];
+      <!-- Business Consequence -->
+      <div class="consequence-block">
+        <div class="consequence-label">Business Consequence</div>
+        <div class="consequence-body">An Organization score of 32 — eight points below the manufacturing baseline — signals that Rain Bird lacks the governance infrastructure, talent pipeline, and scaling maturity to deploy AI safely at enterprise scale. The 2025 data breach amplifies this: pursuing AI expansion without established governance creates compounding liability. The immediate cost is not the score itself but the deployment risk it represents — any AI initiative launched without governance infrastructure carries higher incident probability, slower time-to-value, and reduced board confidence in technology investments.</div>
+      </div>
 
-  cats.forEach(cat => {
-    const d = dimensions[cat.key];
-    const catRow = document.createElement('tr');
-    catRow.innerHTML = `<td class="cat-header" colspan="8">${cat.name} (Composite: LC ${cat.lc} / Quest ${cat.q} / IQVIA ${cat.iq} / TMO ${cat.tmo})</td>`;
-    tbody.appendChild(catRow);
+      <!-- Dimension Detail Table -->
+      <div class="mt-24">
+        <div class="narrative-heading">Dimension Scores</div>
+        <div class="table-wrapper"><table class="data-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th class="numeric">Rain Bird</th>
+              <th class="numeric">Netafim</th>
+              <th class="numeric">Toro</th>
+              <th class="numeric">Hunter</th>
+              <th class="numeric">Baseline</th>
+              <th class="numeric">Gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Workforce AI Access</td>
+              <td class="numeric subject-value">30</td>
+              <td class="numeric">55</td>
+              <td class="numeric">45</td>
+              <td class="numeric">32</td>
+              <td class="numeric">59</td>
+              <td class="numeric delta-negative">–29</td>
+            </tr>
+            <tr>
+              <td>Scaling Maturity</td>
+              <td class="numeric subject-value">35</td>
+              <td class="numeric">60</td>
+              <td class="numeric">50</td>
+              <td class="numeric">38</td>
+              <td class="numeric">35</td>
+              <td class="numeric" style="color: var(--text-muted);">0</td>
+            </tr>
+            <tr>
+              <td>Governance & Ethics</td>
+              <td class="numeric subject-value">25</td>
+              <td class="numeric">50</td>
+              <td class="numeric">42</td>
+              <td class="numeric">30</td>
+              <td class="numeric">30</td>
+              <td class="numeric delta-negative">–5</td>
+            </tr>
+            <tr>
+              <td>Talent & Upskilling</td>
+              <td class="numeric subject-value">35</td>
+              <td class="numeric">62</td>
+              <td class="numeric">48</td>
+              <td class="numeric">38</td>
+              <td class="numeric">50</td>
+              <td class="numeric delta-negative">–15</td>
+            </tr>
+            <tr>
+              <td>Measurable ROI</td>
+              <td class="numeric subject-value">35</td>
+              <td class="numeric">65</td>
+              <td class="numeric">55</td>
+              <td class="numeric">37</td>
+              <td class="numeric">28</td>
+              <td class="numeric delta-positive">+7</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
 
-    d.labels.forEach((label, i) => {
-      const scores = { 'Labcorp': d.labcorp[i], 'Quest': d.quest[i], 'IQVIA': d.iqvia[i], 'Thermo Fisher': d.thermo[i] };
-      const leader = Object.entries(scores).sort((a,b) => b[1]-a[1])[0];
-      const lsDelta = d.labcorp[i] - d.lifesci[i];
-      const deltaClass = lsDelta > 0 ? 'positive' : lsDelta < 0 ? 'negative' : 'neutral';
-      const deltaStr = lsDelta > 0 ? `+${lsDelta}` : `${lsDelta}`;
+    <!-- ========== SECTION 5: BRAND ========== -->
+    <div class="section">
+      <div class="section-label">Category Deep Dive</div>
+      <div class="section-title">Brand</div>
+      <div class="section-subtitle">How the brand presents itself as AI-native</div>
 
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${label}</td>
-        <td class="num" style="color:var(--text-faint);">${d.general[i]}</td>
-        <td class="num" style="color:var(--text-muted);">${d.lifesci[i]}</td>
-        <td class="num" style="font-weight:600;color:var(--labcorp);">${d.labcorp[i]} <span class="delta ${deltaClass}">${deltaStr}</span></td>
-        <td class="num">${d.quest[i]}</td>
-        <td class="num">${d.iqvia[i]}</td>
-        <td class="num">${d.thermo[i]}</td>
-        <td class="num">${leader[0] === 'Labcorp' ? '<span class="leader-badge">LC</span>' : leader[0] === 'Quest' ? 'Quest' : leader[0] === 'IQVIA' ? 'IQVIA' : 'TMO'}</td>
-      `;
-      tbody.appendChild(row);
-    });
-  });
-}
-buildTable();
-</script>
+      <!-- Gauge Widget -->
+      <div class="gauge-widget">
+        <div class="gauge-arc-container">
+          <div class="gauge-arc-label">Manufacturing Baseline</div>
+          <svg width="200" height="115" viewBox="0 0 200 115">
+            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
+            <!-- Score arc (27/100) -->
+            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#C0392B" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="267" stroke-dashoffset="194.9"/>
+            <text x="100" y="90" text-anchor="middle" style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; fill: #E8E7E3;">27</text>
+          </svg>
+        </div>
+
+        <div class="gauge-bars">
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Netafim</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 62%;"></div>
+              <div class="gauge-baseline-marker" style="left: 27%;"></div>
+            </div>
+            <div class="gauge-bar-score">62</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Toro</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 40%;"></div>
+              <div class="gauge-baseline-marker" style="left: 27%;"></div>
+            </div>
+            <div class="gauge-bar-score">40</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Hunter</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 35%;"></div>
+              <div class="gauge-baseline-marker" style="left: 27%;"></div>
+            </div>
+            <div class="gauge-bar-score">35</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name" style="color: var(--subject); font-weight: 600;">Rain Bird</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill subject" style="width: 30%;"></div>
+              <div class="gauge-baseline-marker" style="left: 27%;"></div>
+            </div>
+            <div class="gauge-bar-score" style="color: var(--subject);">30</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Narrative -->
+      <div class="narrative-block mt-24">
+        <div class="narrative-heading">Brand Analysis</div>
+        <div class="narrative-text">
+          <p>Rain Bird's Brand score of 30 sits three points above a low manufacturing baseline — a marginal lead that provides no competitive advantage. The category is defined by a single outlier: Netafim, whose Brand score of 62 reflects deliberate, multi-channel AI positioning. Netafim's CEO thought leadership via Forbes, explicit "AI-powered" product language, and Irrigation-as-a-Service positioning have made AI central to its brand identity, not peripheral to it. Rain Bird's AI messaging, by contrast, is future-oriented rather than present-tense — it describes aspiration, not capability.</p>
+          <p>The IQ4 API platform is infrastructure-positive for agent readiness: Rain Bird scores 35 on Agent-Ready Infrastructure, above the 22 baseline. But infrastructure without articulated AI identity creates a disconnect — the plumbing exists, the story doesn't. Content AI-Readiness (30) sits below the 36 baseline, indicating that Rain Bird's content is product-focused and not optimized for AI consumption or machine-readable formats. In a landscape moving toward agentic commerce and AI-mediated purchasing, this is a visibility problem, not just a marketing one.</p>
+          <p>The Rachio brand carries stronger AI positioning but operates separately from Rain Bird's corporate identity. Whether Rachio's brand equity is absorbed, federated, or left independent will determine whether Rain Bird's Brand score moves meaningfully in the next assessment cycle.</p>
+        </div>
+      </div>
+
+      <!-- Business Consequence -->
+      <div class="consequence-block">
+        <div class="consequence-label">Business Consequence</div>
+        <div class="consequence-body">A Brand score of 30 — three points above a low baseline — means Rain Bird is not perceived as AI-capable by the market, analysts, or potential partners. In a category where Netafim has established AI as central to its brand identity (78 on AI-Native Messaging), Rain Bird's absence from the AI conversation creates a positioning vacuum. The cost is opportunity: AI-forward partners, talent, and customers will default to companies that credibly communicate AI capability. As agentic commerce and AI-mediated purchasing emerge, brands that are not machine-readable and AI-optimized will lose visibility to those that are.</div>
+      </div>
+
+      <!-- Dimension Detail Table -->
+      <div class="mt-24">
+        <div class="narrative-heading">Dimension Scores</div>
+        <div class="table-wrapper"><table class="data-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th class="numeric">Rain Bird</th>
+              <th class="numeric">Netafim</th>
+              <th class="numeric">Toro</th>
+              <th class="numeric">Hunter</th>
+              <th class="numeric">Baseline</th>
+              <th class="numeric">Gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AI-Native Messaging</td>
+              <td class="numeric subject-value">28</td>
+              <td class="numeric">78</td>
+              <td class="numeric">38</td>
+              <td class="numeric">32</td>
+              <td class="numeric">27</td>
+              <td class="numeric delta-positive">+1</td>
+            </tr>
+            <tr>
+              <td>Agent-Ready Infrastructure</td>
+              <td class="numeric subject-value">35</td>
+              <td class="numeric">55</td>
+              <td class="numeric">42</td>
+              <td class="numeric">38</td>
+              <td class="numeric">22</td>
+              <td class="numeric delta-positive">+13</td>
+            </tr>
+            <tr>
+              <td>Market AI Perception</td>
+              <td class="numeric subject-value">28</td>
+              <td class="numeric">58</td>
+              <td class="numeric">40</td>
+              <td class="numeric">33</td>
+              <td class="numeric">25</td>
+              <td class="numeric delta-positive">+3</td>
+            </tr>
+            <tr>
+              <td>Content AI-Readiness</td>
+              <td class="numeric subject-value">30</td>
+              <td class="numeric">60</td>
+              <td class="numeric">42</td>
+              <td class="numeric">35</td>
+              <td class="numeric">36</td>
+              <td class="numeric delta-negative">–6</td>
+            </tr>
+            <tr>
+              <td>AI-First Orchestration</td>
+              <td class="numeric subject-value">28</td>
+              <td class="numeric">58</td>
+              <td class="numeric">38</td>
+              <td class="numeric">35</td>
+              <td class="numeric">20</td>
+              <td class="numeric delta-positive">+8</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 6: PRODUCT ========== -->
+    <div class="section">
+      <div class="section-label">Category Deep Dive</div>
+      <div class="section-title">Product</div>
+      <div class="section-subtitle">How the product delivers AI-first experiences</div>
+
+      <!-- Gauge Widget -->
+      <div class="gauge-widget">
+        <div class="gauge-arc-container">
+          <div class="gauge-arc-label">Manufacturing Baseline</div>
+          <svg width="200" height="115" viewBox="0 0 200 115">
+            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
+            <!-- Score arc (33/100) -->
+            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#C97B2D" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="267" stroke-dashoffset="178.9"/>
+            <text x="100" y="90" text-anchor="middle" style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; fill: #E8E7E3;">33</text>
+          </svg>
+        </div>
+
+        <div class="gauge-bars">
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Netafim</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 63%;"></div>
+              <div class="gauge-baseline-marker" style="left: 33%;"></div>
+            </div>
+            <div class="gauge-bar-score">63</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Toro</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 52%;"></div>
+              <div class="gauge-baseline-marker" style="left: 33%;"></div>
+            </div>
+            <div class="gauge-bar-score">52</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name">Hunter</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill comparison" style="width: 40%;"></div>
+              <div class="gauge-baseline-marker" style="left: 33%;"></div>
+            </div>
+            <div class="gauge-bar-score">40</div>
+          </div>
+          <div class="gauge-bar-row">
+            <div class="gauge-bar-name" style="color: var(--subject); font-weight: 600;">Rain Bird</div>
+            <div class="gauge-bar-track">
+              <div class="gauge-bar-fill subject" style="width: 38%;"></div>
+              <div class="gauge-baseline-marker" style="left: 33%;"></div>
+            </div>
+            <div class="gauge-bar-score" style="color: var(--subject);">38</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Narrative -->
+      <div class="narrative-block mt-24">
+        <div class="narrative-heading">Product Analysis</div>
+        <div class="narrative-text">
+          <p>Product is Rain Bird's strongest category at 38 — five points above the manufacturing baseline and the only category where the company leads from a position of relative strength. AI Value Delivery (45) and Process Redesign (42) both outperform several competitors, reflecting the tangible potential embedded in Rain Bird's product infrastructure. The IQ4 platform, Rachio acquisition, and process automation investments provide a foundation that the Organization and Brand categories lack.</p>
+          <p>The Rachio integration is the strategic lever. Rachio's genuine machine learning capabilities — weather-responsive scheduling, soil moisture inference, real-time water optimization — represent the closest thing Rain Bird has to a demonstrable AI product. If positioned as an AI capability accelerator and integrated into Rain Bird's core platform, it transforms the product trajectory. If treated as a standalone product line, it leaves the Product score static and the competitive gap with Netafim unbridged.</p>
+          <p>Netafim's Product score of 63 illustrates what full AI integration looks like in this category: GrowSphere with 30+ crop models, Irrigation-as-a-Service, AI-driven dosing. The distance between 38 and 63 is not a scoring gap — it is the gap between "has AI potential" and "delivers AI value." Agentic AI Deployment (29) and AI Interaction Layer (35) remain below baseline indicators, suggesting that Rain Bird's product intelligence is present but not yet surfaced to users or third-party systems in a way that creates competitive moat.</p>
+        </div>
+      </div>
+
+      <!-- Business Consequence -->
+      <div class="consequence-block">
+        <div class="consequence-label">Business Consequence</div>
+        <div class="consequence-body">A Product score of 38 — five points above baseline — is Rain Bird's competitive bright spot, but the margin is fragile. The Rachio acquisition creates a decision window: integrating Rachio's ML capabilities into the core platform builds a genuine AI product moat; treating it as a standalone product line leaves the score static. Netafim's Product score of 63 reflects what full AI integration looks like — GrowSphere with 30+ crop models, Irrigation-as-a-Service, AI-driven dosing. The distance between 38 and 63 is the gap between "has AI potential" and "delivers AI value." The cost of inaction is competitive irrelevance in the precision irrigation segment within 18–24 months.</div>
+      </div>
+
+      <!-- Dimension Detail Table -->
+      <div class="mt-24">
+        <div class="narrative-heading">Dimension Scores</div>
+        <div class="table-wrapper"><table class="data-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th class="numeric">Rain Bird</th>
+              <th class="numeric">Netafim</th>
+              <th class="numeric">Toro</th>
+              <th class="numeric">Hunter</th>
+              <th class="numeric">Baseline</th>
+              <th class="numeric">Gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AI Interaction Layer</td>
+              <td class="numeric subject-value">35</td>
+              <td class="numeric">60</td>
+              <td class="numeric">48</td>
+              <td class="numeric">38</td>
+              <td class="numeric">29</td>
+              <td class="numeric delta-positive">+6</td>
+            </tr>
+            <tr>
+              <td>Agentic AI Deployment</td>
+              <td class="numeric subject-value">29</td>
+              <td class="numeric">58</td>
+              <td class="numeric">45</td>
+              <td class="numeric">35</td>
+              <td class="numeric">25</td>
+              <td class="numeric delta-positive">+4</td>
+            </tr>
+            <tr>
+              <td>AI UX Maturity</td>
+              <td class="numeric subject-value">38</td>
+              <td class="numeric">55</td>
+              <td class="numeric">50</td>
+              <td class="numeric">40</td>
+              <td class="numeric">31</td>
+              <td class="numeric delta-positive">+7</td>
+            </tr>
+            <tr>
+              <td>Process Redesign</td>
+              <td class="numeric subject-value">42</td>
+              <td class="numeric">68</td>
+              <td class="numeric">58</td>
+              <td class="numeric">42</td>
+              <td class="numeric">38</td>
+              <td class="numeric delta-positive">+4</td>
+            </tr>
+            <tr>
+              <td>AI Value Delivery</td>
+              <td class="numeric subject-value">45</td>
+              <td class="numeric">72</td>
+              <td class="numeric">58</td>
+              <td class="numeric">45</td>
+              <td class="numeric">42</td>
+              <td class="numeric delta-positive">+3</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 7: COMPETITIVE INSIGHTS ========== -->
+    <div class="section">
+      <div class="section-label">Competitive Intelligence</div>
+      <div class="section-title" style="margin-bottom: 24px;">Strengths, Gaps, Opportunities & Threats</div>
+
+      <div class="insight-cards-grid">
+        <!-- Strengths -->
+        <div class="insight-card strengths">
+          <div class="insight-card-title">Strengths</div>
+          <ul>
+            <li>Infrastructure readiness via IQ4 API and cloud platform unification</li>
+            <li>Rachio acquisition as AI capability accelerator potential</li>
+            <li>Process Redesign (42) and AI Value Delivery (45) outperform category averages</li>
+          </ul>
+        </div>
+
+        <!-- Gaps -->
+        <div class="insight-card gaps">
+          <div class="insight-card-title">Gaps</div>
+          <ul>
+            <li>Governance & Ethics (25) — lowest dimension, compounded by 2025 data breach</li>
+            <li>No AI/ML roles in public job postings — critical talent gap</li>
+            <li>AI messaging is future-oriented, not present-tense — brand gap vs. Netafim</li>
+          </ul>
+        </div>
+
+        <!-- Opportunities -->
+        <div class="insight-card opportunities">
+          <div class="insight-card-title">Opportunities</div>
+          <ul>
+            <li>Rachio integration as the strategic fork — position as AI capability play</li>
+            <li>Agent-Ready Infrastructure (35) above baseline — build on existing API layer</li>
+            <li>Precision irrigation AI narrative is unclaimed except by Netafim</li>
+          </ul>
+        </div>
+
+        <!-- Threats -->
+        <div class="insight-card threats">
+          <div class="insight-card-title">Threats</div>
+          <ul>
+            <li>Netafim owns the AI narrative (78 Brand AI Messaging) — first-mover advantage</li>
+            <li>Hunter's Hydrawise claims create market confusion about what "AI irrigation" means</li>
+            <li>Talent competition — AI-capable engineers have alternatives beyond irrigation manufacturing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 8: METHODOLOGY & SOURCES ========== -->
+    <div class="section">
+      <div class="section-label">Methodology</div>
+      <div class="section-title" style="margin-bottom: 24px;">Framework, Sources & Limitations</div>
+
+      <div class="narrative-block methodology-content">
+        <h3>3Jane AI Enterprise Readiness Index</h3>
+        <p>This assessment uses the 3Jane AI Enterprise Readiness Index, a proprietary framework that evaluates enterprise AI capability across 15 dimensions organized into three categories: Organization (5 dimensions), Brand (5 dimensions), and Product (5 dimensions). Each dimension is scored on a 0–100 scale based on publicly available evidence.</p>
+
+        <h3>Industry Overlay</h3>
+        <p>Manufacturing sector baseline applied. Baseline scores are derived from aggregated industry benchmarks drawing on cross-industry AI adoption research, adjusted for manufacturing-specific maturity indicators.</p>
+
+        <h3>Data Sources</h3>
+        <ul>
+          <li>Deloitte State of AI in the Enterprise</li>
+          <li>McKinsey Global Survey on AI</li>
+          <li>Stanford HAI AI Index Report</li>
+          <li>Gartner AI Maturity Model</li>
+          <li>Forrester AI Readiness frameworks</li>
+          <li>SEC filings and earnings transcripts</li>
+          <li>Press releases and corporate communications</li>
+          <li>Job postings and corporate careers pages</li>
+          <li>Industry publications and analyst coverage</li>
+        </ul>
+
+        <h3>Maturity Levels</h3>
+        <ul>
+          <li><strong>Awareness (0–20):</strong> AI is acknowledged but not operationalized. No visible investment or strategy.</li>
+          <li><strong>Active (21–40):</strong> Early AI initiatives underway. Some infrastructure and experimentation, but limited scale or governance.</li>
+          <li><strong>Operational (41–60):</strong> AI is deployed in specific functions with measurable impact. Governance emerging.</li>
+          <li><strong>Systemic (61–80):</strong> AI is integrated across operations with clear strategy, talent, and brand positioning.</li>
+          <li><strong>Transformational (81–100):</strong> AI is a core competitive differentiator embedded in all enterprise functions.</li>
+        </ul>
+
+        <h3>Equal Weighting Rationale</h3>
+        <p>Dimensions within each category are weighted equally. This ensures transparency and auditability. Client-specific weighting models are available as part of Applied Identities engagement-level assessments.</p>
+
+        <h3>QA Validation</h3>
+        <p>Quality assurance corrections were applied during this assessment: The Toro Company composite adjusted from 51 to 47; Rain Bird Agentic AI Deployment adjusted from 35 to 29. All corrections are documented in the assessment data.</p>
+
+        <h3>Limitations</h3>
+        <p>Scores reflect publicly available evidence only. Companies with limited public disclosure may score lower than their internal capabilities warrant. Private companies (Rain Bird, Hunter Industries) face inherent asymmetry in evidence availability compared to publicly traded peers. This assessment does not represent a comprehensive audit of internal AI capabilities and should be interpreted as a market-facing readiness signal, not a definitive capability ranking.</p>
+
+        <p style="margin-top: 24px; font-size: 12px; line-height: 1.6; color: var(--text-muted);">This report was prepared using specialized AI analysis and publicly available information. The findings are provided for strategic analysis purposes only and do not constitute professional advice. Applied Identities makes no representations or warranties regarding the completeness or accuracy of third-party data used in this analysis. Recipients should conduct their own due diligence before making business decisions based on these findings.</p>
+
+        <p class="copyright">©2026 Applied Identities</p>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 9: DIMENSION GLOSSARY ========== -->
+    <div class="section" style="border-bottom: none;">
+      <details class="glossary-details">
+        <summary>Dimension Glossary — 15 Dimensions Defined</summary>
+        <table class="data-table glossary-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Category</th>
+              <th>What It Measures</th>
+              <th>Evidence Considered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Organization Dimensions -->
+            <tr>
+              <td style="font-weight: 500;">Workforce AI Access</td>
+              <td>Organization</td>
+              <td style="font-size: 12px; line-height: 1.5;">The breadth and depth of AI tool availability across the enterprise workforce — from executive access to frontline tooling.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Job postings mentioning AI/ML tools, internal platform announcements, employee-facing AI features, partnership disclosures with AI vendors.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Scaling Maturity</td>
+              <td>Organization</td>
+              <td style="font-size: 12px; line-height: 1.5;">The organization's ability to move AI from pilot projects to enterprise-scale deployment with repeatable processes.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Cloud infrastructure investments, platform architecture, API ecosystem maturity, production deployment evidence, MLOps indicators.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Governance & Ethics</td>
+              <td>Organization</td>
+              <td style="font-size: 12px; line-height: 1.5;">The maturity of AI governance frameworks, ethical guidelines, and risk management infrastructure.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Published AI policies, responsible AI frameworks, data privacy incidents, board-level AI oversight, regulatory compliance posture.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Talent & Upskilling</td>
+              <td>Organization</td>
+              <td style="font-size: 12px; line-height: 1.5;">The organization's investment in AI talent acquisition, retention, and workforce upskilling programs.</td>
+              <td style="font-size: 12px; line-height: 1.5;">AI/ML job postings, data science team size indicators, upskilling program announcements, academic partnerships, AI talent acquisition patterns.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Measurable ROI</td>
+              <td>Organization</td>
+              <td style="font-size: 12px; line-height: 1.5;">Evidence of quantified business impact from AI investments — demonstrated returns rather than projected value.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Earnings call AI mentions with metrics, published case studies with outcomes, efficiency gain disclosures, revenue attribution to AI features.</td>
+            </tr>
+            <!-- Brand Dimensions -->
+            <tr>
+              <td style="font-weight: 500;">AI-Native Messaging</td>
+              <td>Brand</td>
+              <td style="font-size: 12px; line-height: 1.5;">How prominently and credibly the brand communicates AI capability in its market-facing messaging.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Website AI language, product marketing copy, executive thought leadership, press releases, investor communications mentioning AI.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Agent-Ready Infrastructure</td>
+              <td>Brand</td>
+              <td style="font-size: 12px; line-height: 1.5;">The brand's technical readiness for AI agent interaction — structured data, APIs, and machine-readable content.</td>
+              <td style="font-size: 12px; line-height: 1.5;">API availability, structured data markup, developer documentation, integration partnerships, chatbot/assistant presence.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Market AI Perception</td>
+              <td>Brand</td>
+              <td style="font-size: 12px; line-height: 1.5;">How the market — analysts, media, partners — perceives the company's AI capability and positioning.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Analyst reports, media coverage framing, industry award recognition, conference speaking invitations, partner ecosystem positioning.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Content AI-Readiness</td>
+              <td>Brand</td>
+              <td style="font-size: 12px; line-height: 1.5;">How well the brand's content ecosystem is optimized for AI consumption, discovery, and machine comprehension.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Content structure and schema markup, dynamic vs. static content, knowledge base architecture, SEO-to-AEO transition indicators.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">AI-First Orchestration</td>
+              <td>Brand</td>
+              <td style="font-size: 12px; line-height: 1.5;">The degree to which AI coordinates cross-channel brand experiences and marketing operations.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Marketing automation sophistication, personalization evidence, cross-channel consistency, AI-driven campaign optimization indicators.</td>
+            </tr>
+            <!-- Product Dimensions -->
+            <tr>
+              <td style="font-weight: 500;">AI Interaction Layer</td>
+              <td>Product</td>
+              <td style="font-size: 12px; line-height: 1.5;">The sophistication of AI-driven user interaction within the product — from smart features to conversational AI.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Product AI features, conversational interfaces, recommendation systems, smart automation, natural language capabilities.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Agentic AI Deployment</td>
+              <td>Product</td>
+              <td style="font-size: 12px; line-height: 1.5;">Integration with third-party AI agent ecosystems and deployment of autonomous AI capabilities within the product.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Agent framework integrations, autonomous workflow capabilities, third-party AI ecosystem participation, MCP/tool-use support.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">AI UX Maturity</td>
+              <td>Product</td>
+              <td style="font-size: 12px; line-height: 1.5;">The maturity of AI-specific user experience patterns — explainability, trust, error recovery, and transparency.</td>
+              <td style="font-size: 12px; line-height: 1.5;">AI explainability features, confidence indicators, user control over AI behavior, error handling, transparency disclosures.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Process Redesign</td>
+              <td>Product</td>
+              <td style="font-size: 12px; line-height: 1.5;">The degree to which AI has driven fundamental process transformation rather than surface-level automation.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Workflow automation depth, AI-driven process re-architecture evidence, operational transformation disclosures, patent filings.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">AI Value Delivery</td>
+              <td>Product</td>
+              <td style="font-size: 12px; line-height: 1.5;">Measurable value the product delivers through AI capabilities — cost savings, efficiency gains, or new revenue streams for users.</td>
+              <td style="font-size: 12px; line-height: 1.5;">Published ROI metrics, customer case studies, product differentiation claims, pricing premium evidence, competitive win rates.</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </details>
+    </div>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================================ -->
+  <footer class="report-footer">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <a href="https://appliedidentities.com" class="footer-wordmark">Applied Identities →</a>
+          <div class="footer-url">appliedidentities.com</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 13px; color: var(--text-muted);">RB-AGT3-001 · March 2026</div>
+        </div>
+      </div>
+      <p class="confidentiality">CONFIDENTIAL — For intended recipient only</p>
+      <p class="copyright">©2026 Applied Identities</p>
+    </div>
+  </footer>
+
 </body>
 </html>
