@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Enterprise Readiness — Competitive Assessment — Applied Identities</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Rain Bird AI Enterprise Readiness — Competitive Assessment — Applied Identities</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap');
+
     /* === Applied Identities CSS Custom Properties === */
     :root {
       --bg: #F7F5F2;
@@ -22,7 +21,7 @@
       --accent: #C97B2D;
       --accent-light: #F5EDE2;
       --secondary: #2D5A4E;
-      --subject: #00A651;
+      --subject: #005EB8;
       --comparison: #8A96A6;
       --success: #437A22;
       --warning: #964219;
@@ -82,18 +81,9 @@
     }
 
     /* === Section Titles === */
-    .section-title {
-      font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700;
-      line-height: 1.2; color: var(--primary); margin-bottom: 4px;
-    }
-    .section-subtitle {
-      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400;
-      line-height: 1.7; color: var(--text-muted); margin-bottom: 24px;
-    }
-    .subsection-title {
-      font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 700;
-      line-height: 1.2; color: var(--primary);
-    }
+    .section-title { font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.2; color: var(--primary); margin-bottom: 16px; }
+    .subsection-title { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 700; line-height: 1.2; color: var(--primary); margin-bottom: 12px; }
+    .narrative-heading { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--primary); margin-bottom: 8px; }
 
     /* === Cards === */
     .card {
@@ -101,7 +91,7 @@
       border-radius: 10px; padding: 24px;
     }
     .card.highlight { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-    .card.baseline-card { background: var(--surface-alt); border-style: dashed; }
+    .card.baseline { background: var(--surface-alt); border-style: dashed; }
     .narrative-block {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 10px; padding: 32px;
@@ -109,7 +99,6 @@
 
     /* === Sections === */
     .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-    .section:last-child { border-bottom: none; }
 
     /* === Disclaimer === */
     .disclaimer {
@@ -117,42 +106,33 @@
       max-width: 960px; margin: 24px auto; padding: 0 32px;
     }
 
-    /* === Tables === */
-    .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .data-table { width: 100%; border-collapse: collapse; }
-    .data-table th {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.06em;
-      color: var(--text-muted);
-      border-bottom: 2px solid var(--border);
-      padding: 10px 12px;
-      text-align: left;
-    }
-    .data-table th.numeric { text-align: center; }
-    .data-table td {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      border-bottom: 1px solid var(--border);
-      padding: 10px 12px;
-    }
-    .data-table td.numeric {
-      text-align: center;
-      font-variant-numeric: tabular-nums;
-    }
-    .data-table tr:hover { background: var(--surface-alt); }
-    .data-table tr.subject-row { background: rgba(0, 166, 81, 0.06); }
-    .data-table tr.subject-row:hover { background: rgba(0, 166, 81, 0.10); }
-    .data-table .subject-value { color: var(--subject); font-weight: 600; }
-    .data-table .delta-positive { color: var(--success); font-weight: 500; }
-    .data-table .delta-negative { color: var(--error); font-weight: 500; }
+    /* === Grids === */
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
-    /* === Maturity Badges === */
+    /* === Score Cards === */
+    .score-card { text-align: center; }
+    .score-card .company-name {
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .score-card .score-value {
+      font-family: 'DM Sans', sans-serif; font-size: 52px; font-weight: 700; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .score-card .score-value.subject-color { color: var(--subject); }
+    .score-card .score-value.comparison-color { color: var(--comparison); }
+    .score-card .score-value.baseline-val { font-size: 36px; }
+    .score-card .sub-scores {
+      display: flex; justify-content: center; gap: 16px;
+      font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted);
+      margin-top: 8px;
+    }
+    .score-card .sub-scores span { white-space: nowrap; }
     .maturity-badge {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px; font-weight: 600;
-      padding: 3px 10px; border-radius: 12px;
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 12px; margin-top: 8px;
     }
     .maturity-awareness { background: #FDEDED; color: #A12C7B; }
     .maturity-active { background: #FFF8E7; color: #964219; }
@@ -160,33 +140,7 @@
     .maturity-systemic { background: #E8EDF4; color: #1A365D; }
     .maturity-transformational { background: #F5EDE2; color: #C97B2D; }
 
-    /* === Score Cards Grid === */
-    .score-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .score-card { text-align: center; padding: 24px 16px; }
-    .score-card .score-value {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 52px; font-weight: 700; line-height: 1;
-      font-variant-numeric: tabular-nums;
-    }
-    .score-card .company-name {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px; font-weight: 600;
-      margin-top: 8px; color: var(--text);
-    }
-    .score-card .sub-scores {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px; color: var(--text-muted);
-      margin-top: 8px;
-    }
-    .score-card .sub-scores span { margin: 0 4px; }
-    .score-card .badge-wrap { margin-top: 12px; }
-
-    /* === Key Insight === */
+    /* === Key Insight Callout === */
     .key-insight {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -196,23 +150,28 @@
       margin: 32px 0;
     }
     .key-insight .insight-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px; font-weight: 600;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 8px;
     }
     .key-insight .insight-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 18px; font-weight: 700;
+      font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700;
       color: var(--primary); margin-bottom: 8px;
     }
     .key-insight .insight-body {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; line-height: 1.75;
-      color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.75; color: var(--text);
     }
+    .key-insight .signal-source {
+      font-family: 'Inter', sans-serif; font-size: 11px;
+      color: var(--text-muted); margin-top: 12px;
+      padding-top: 10px; border-top: 1px solid var(--border);
+    }
+    .key-insight .signal-source a {
+      color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px;
+    }
+    .key-insight .signal-source a:hover { color: var(--primary); }
 
-    /* === Consequence Block === */
+    /* === Business Consequence Block === */
     .consequence-block {
       background: var(--surface-alt);
       border: 1px solid var(--border);
@@ -221,15 +180,24 @@
       margin-top: 24px;
     }
     .consequence-block .consequence-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px; font-weight: 600;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--warning); margin-bottom: 8px;
     }
     .consequence-block .consequence-body {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; line-height: 1.75;
-      color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.75; color: var(--text);
+    }
+
+    /* === Category Header Grid (gauge + signal card side by side) === */
+    .category-header-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 24px 0;
+    }
+    .category-header-grid .gauge-widget { margin: 0; }
+    .category-header-grid .key-insight {
+      margin: 0; display: flex; flex-direction: column; justify-content: center;
     }
 
     /* === Gauge Widget === */
@@ -237,218 +205,133 @@
       background: var(--gauge-bg);
       border: 1px solid var(--gauge-border);
       border-radius: 14px;
-      padding: 32px;
-      margin: 24px 0;
+      padding: 24px;
     }
-    .gauge-arc-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 28px;
+    .gauge-widget .gauge-title {
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+      color: var(--gauge-text); margin-bottom: 16px; text-align: center;
     }
-    .gauge-arc-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--gauge-text-muted);
-      margin-bottom: 16px;
-    }
-    .gauge-arc-score {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 36px; font-weight: 700;
-      line-height: 1;
-      fill: var(--gauge-text);
-    }
-    .gauge-bars { display: flex; flex-direction: column; gap: 14px; }
+    .gauge-arc-container { position: relative; width: 180px; height: 100px; margin: 0 auto 16px; }
+    .gauge-bars { margin-top: 12px; }
     .gauge-bar-row {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; margin-bottom: 8px;
     }
-    .gauge-bar-name {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px; font-weight: 500;
-      color: var(--gauge-text);
-      width: 140px; flex-shrink: 0;
-      text-align: right;
+    .gauge-bar-label {
+      font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+      color: var(--gauge-text-muted); width: 100px; flex-shrink: 0;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .gauge-bar-track {
-      flex: 1; height: 10px;
-      background: var(--gauge-border);
-      border-radius: 5px;
-      position: relative;
-      overflow: visible;
+      flex: 1; height: 22px; background: var(--gauge-border);
+      border-radius: 4px; position: relative; overflow: hidden;
     }
     .gauge-bar-fill {
-      height: 100%; border-radius: 5px;
-      transition: width 0.4s ease;
+      height: 100%; border-radius: 4px; transition: width 0.6s ease;
     }
     .gauge-bar-fill.subject { background: var(--subject); }
     .gauge-bar-fill.comparison { background: var(--comparison); }
+    .gauge-bar-fill.baseline-fill { background: rgba(255,255,255,0.25); border: 1px dashed rgba(255,255,255,0.4); }
     .gauge-bar-score {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px; font-weight: 600;
-      color: var(--gauge-text);
-      width: 32px; flex-shrink: 0;
-      font-variant-numeric: tabular-nums;
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+      color: var(--gauge-text); width: 32px; text-align: right; flex-shrink: 0; margin-left: 8px;
     }
-    .gauge-baseline-marker {
-      position: absolute;
-      top: -2px;
-      width: 3px;
-      height: 14px;
-      background: rgba(255,255,255,0.5);
-      border-radius: 1px;
-      z-index: 2;
+    .gauge-bar-marker {
+      position: absolute; top: 2px; width: 3px; height: 18px;
+      background: rgba(255,255,255,0.5); border-radius: 1px;
     }
 
-    /* === Narrative === */
-    .narrative-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; line-height: 1.75;
-      color: var(--text);
+    /* === Tables === */
+    .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .data-table th {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-muted); border-bottom: 2px solid var(--border);
+      padding: 10px 12px; text-align: left;
     }
-    .narrative-text p { margin-bottom: 16px; }
-    .narrative-text p:last-child { margin-bottom: 0; }
-    .narrative-heading {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 18px; font-weight: 700;
-      color: var(--primary); line-height: 1.3;
-      margin-bottom: 12px;
+    .data-table th.numeric { text-align: center; }
+    .data-table td {
+      font-family: 'Inter', sans-serif; font-size: 13px;
+      border-bottom: 1px solid var(--border); padding: 10px 12px;
     }
+    .data-table td.numeric { text-align: center; font-variant-numeric: tabular-nums; }
+    .data-table tr:hover { background: var(--surface-alt); }
+    .data-table .category-header-row {
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+      background: var(--surface-alt);
+    }
+    .delta-positive { color: var(--success); font-weight: 500; }
+    .delta-negative { color: var(--error); font-weight: 500; }
 
-    /* === Insight Cards === */
-    .insight-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    /* === Insight Cards (SGOT) === */
+    .insight-card { }
+    .insight-card .insight-card-title {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--primary); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
     }
-    .insight-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 24px;
+    .insight-dot {
+      width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
     }
-    .insight-card-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px; font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 16px;
-    }
+    .dot-strength { background: var(--success); }
+    .dot-gap { background: var(--error); }
+    .dot-opportunity { background: var(--secondary); }
+    .dot-threat { background: var(--accent); }
     .insight-card ul {
-      list-style: none;
-      padding: 0;
+      list-style: none; padding: 0;
     }
     .insight-card li {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px; line-height: 1.6;
-      color: var(--text);
-      padding: 6px 0;
-      padding-left: 18px;
-      position: relative;
+      font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.6;
+      color: var(--text); padding: 6px 0; border-bottom: 1px solid var(--border);
     }
-    .insight-card li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 13px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-    }
-    .insight-card.strengths li::before { background: var(--success); }
-    .insight-card.gaps li::before { background: var(--error); }
-    .insight-card.opportunities li::before { background: var(--secondary); }
-    .insight-card.threats li::before { background: var(--accent); }
+    .insight-card li:last-child { border-bottom: none; }
 
-    /* === Executive Brief === */
-    .exec-brief { padding: 32px; }
-    .finding-item { margin-bottom: 20px; }
-    .finding-item:last-child { margin-bottom: 0; }
-    .finding-number {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px; font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
+    /* === Executive Brief Table === */
+    .exec-table { width: 100%; border-collapse: collapse; }
+    .exec-table th {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted);
+      border-bottom: 2px solid var(--border); padding: 8px 10px; text-align: center;
     }
-    .finding-headline {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px; font-weight: 700;
-      color: var(--primary);
-      line-height: 1.4;
-      margin-bottom: 4px;
+    .exec-table th:first-child { text-align: left; }
+    .exec-table td {
+      font-family: 'Inter', sans-serif; font-size: 13px;
+      border-bottom: 1px solid var(--border); padding: 8px 10px; text-align: center;
+      font-variant-numeric: tabular-nums;
     }
-    .finding-implication {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px; color: var(--text-muted);
-      line-height: 1.6;
-    }
-    .action-item {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; line-height: 1.6;
-      color: var(--text);
-      padding: 8px 0 8px 20px;
-      position: relative;
-    }
-    .action-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 15px;
-      width: 8px; height: 8px;
-      border: 2px solid var(--accent);
-      border-radius: 2px;
-    }
+    .exec-table td:first-child { text-align: left; font-weight: 500; }
+    .exec-table tr:hover { background: var(--surface-alt); }
+    .exec-table .subject-row { font-weight: 600; }
+    .exec-table .subject-row td:first-child { color: var(--subject); }
+    .exec-table .baseline-row { font-style: italic; background: var(--surface-alt); }
+
+    /* === Methodology Caveat === */
     .methodology-caveat {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px; font-style: italic;
-      color: var(--text-muted);
-      margin-top: 20px;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif; font-size: 13px; font-style: italic;
+      color: var(--text-muted); margin-top: 16px;
     }
 
-    /* === Methodology Section === */
-    .methodology-content {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; line-height: 1.75;
-      color: var(--text);
+    /* === Dimension Glossary === */
+    details.glossary { margin-top: 24px; }
+    details.glossary summary {
+      font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700;
+      color: var(--primary); cursor: pointer; padding: 12px 0;
     }
-    .methodology-content h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px; font-weight: 700;
-      color: var(--primary);
-      margin: 24px 0 8px 0;
+    details.glossary summary:hover { color: var(--primary-hover); }
+    .glossary-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .glossary-table th {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted);
+      border-bottom: 2px solid var(--border); padding: 8px 10px; text-align: left;
     }
-    .methodology-content h3:first-child { margin-top: 0; }
-    .methodology-content p { margin-bottom: 12px; }
-    .methodology-content ul {
-      padding-left: 20px;
-      margin-bottom: 12px;
+    .glossary-table td {
+      font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.55;
+      border-bottom: 1px solid var(--border); padding: 8px 10px; vertical-align: top;
     }
-    .methodology-content li {
-      font-size: 13px;
-      margin-bottom: 4px;
+    .glossary-table tr:hover { background: var(--surface-alt); }
+    .glossary-cat-header {
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+      background: var(--surface-alt); padding: 8px 10px;
     }
-
-    /* === Glossary === */
-    .glossary-details summary {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 18px; font-weight: 700;
-      color: var(--primary);
-      cursor: pointer;
-      padding: 12px 0;
-      list-style: none;
-    }
-    .glossary-details summary::-webkit-details-marker { display: none; }
-    .glossary-details summary::before {
-      content: '▸ ';
-      color: var(--accent);
-    }
-    .glossary-details[open] summary::before {
-      content: '▾ ';
-    }
-    .glossary-table { margin-top: 16px; }
-    .glossary-table th { white-space: nowrap; }
 
     /* === Footer === */
     .report-footer { padding: 32px; border-top: 1px solid var(--border); }
@@ -456,7 +339,7 @@
       font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
       color: var(--primary); text-decoration: none;
     }
-    .footer-url { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+    .footer-url { font-size: 11px; color: var(--text-faint); }
     .confidentiality {
       font-size: 10px; color: var(--text-faint); letter-spacing: 0.04em;
       text-transform: uppercase; text-align: center; margin-top: 16px;
@@ -465,857 +348,1048 @@
 
     /* === Responsive === */
     @media (max-width: 900px) {
-      .score-cards-grid { grid-template-columns: repeat(2, 1fr); }
-      .insight-cards-grid { grid-template-columns: 1fr; }
-      .gauge-bar-name { width: 100px; font-size: 12px; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .category-header-grid { grid-template-columns: 1fr; }
       .report-title { font-size: 28px; }
-      .data-table { font-size: 12px; }
-      .data-table th, .data-table td { padding: 8px 6px; }
+      .score-card .score-value { font-size: 40px; }
     }
 
-    /* === Utility === */
-    .mt-24 { margin-top: 24px; }
-    .mt-16 { margin-top: 16px; }
-    .mt-32 { margin-top: 32px; }
-    .mb-16 { margin-bottom: 16px; }
-    .mb-24 { margin-bottom: 24px; }
+    /* === Narrative text === */
+    .narrative-text {
+      font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.75; color: var(--text);
+    }
+    .narrative-text p { margin-bottom: 14px; }
+    .section-intro {
+      font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    /* === SVG Gauge === */
+    .arc-gauge { display: block; margin: 0 auto; }
+
+    /* === Print === */
+    @media print {
+      body { background: white; }
+      .section { break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ============================================================ -->
-  <!-- HEADER -->
-  <!-- ============================================================ -->
+  <!-- ========== HEADER ========== -->
   <header class="report-header">
     <div class="container">
       <div class="header-top">
         <span class="report-id">RB-AGT3-001</span>
-        <a href="https://appliedidentities.com" class="wordmark">Applied Identities →</a>
+        <a href="https://appliedidentities.com" class="wordmark">Applied Identities &rarr;</a>
       </div>
-      <h1 class="report-title">AI Enterprise Readiness — Competitive Assessment</h1>
-      <p class="report-subtitle">Rain Bird Corporation vs. Manufacturing Competitors</p>
-      <p class="report-meta">March 2026 · 3Jane AI Enterprise Readiness Index · Manufacturing Baseline · Netafim, Toro, Hunter Industries</p>
+      <h1 class="report-title">Rain Bird AI Enterprise Readiness</h1>
+      <p class="report-subtitle">Competitive Assessment &mdash; Irrigation &amp; Water Management</p>
+      <p class="report-meta">March 11, 2026 &middot; 3Jane AI Enterprise Readiness Index v2 &middot; Manufacturing Baseline &middot; Hunter Industries, Toro Company, Netafim</p>
     </div>
   </header>
 
-  <!-- ============================================================ -->
-  <!-- DISCLAIMER -->
-  <!-- ============================================================ -->
+  <!-- ========== DISCLAIMER ========== -->
   <div class="disclaimer">
-    <p>IMPORTANT NOTICE: This report was prepared using specialized AI analysis and publicly available information. The findings are provided for strategic analysis purposes only.</p>
+    <p>IMPORTANT NOTICE: This report was prepared by Applied Identities using customized or specialized AI agents and publicly available information only. Unless otherwise specified, no data in this analysis was provided by, verified by, or produced in coordination with any company named herein. The findings, scores, and interpretations represent Applied Identities' independent assessment and should not be construed as the views, endorsements, or representations of any organization referenced in this report. This document is provided for strategic analysis purposes and does not constitute investment, legal, or operational advice.</p>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- CONTENT -->
-  <!-- ============================================================ -->
+  <!-- ========== CONTENT ========== -->
   <main class="container">
 
-    <!-- ========== SECTION 1: EXECUTIVE BRIEF ========== -->
-    <div class="section">
+    <!-- ===== 1. EXECUTIVE BRIEF ===== -->
+    <section class="section" id="executive-brief">
       <div class="section-label">Executive Brief</div>
-      <div class="section-title" style="margin-bottom: 20px;">Competitive Positioning Summary</div>
+      <h2 class="section-title">Competitive Intelligence Summary</h2>
 
-      <div class="narrative-block exec-brief">
+      <div class="narrative-block">
+        <p class="narrative-text" style="margin-bottom: 20px;">This report is a competitive intelligence assessment that aggregates multiple public sources to maintain an AI Readiness Index, helping companies gain insight into AI adoption and their relative position versus competitors. Rain Bird Corporation is benchmarked against three irrigation-sector peers&mdash;Hunter Industries, The Toro Company, and Netafim&mdash;using the 3Jane AI Enterprise Readiness Index, a 15-dimension framework spanning Organization, Brand, and Product categories. Scores are further contextualized against a Manufacturing industry baseline derived from cross-industry research.</p>
+
         <!-- Scoring Comparison Table -->
-        <div class="table-wrapper"><table class="data-table">
+        <table class="exec-table">
           <thead>
             <tr>
-              <th>Company</th>
-              <th class="numeric">Organization</th>
-              <th class="numeric">Brand</th>
-              <th class="numeric">Product</th>
-              <th class="numeric">Composite</th>
+              <th style="text-align:left">Company</th>
+              <th>Organization</th>
+              <th>Brand</th>
+              <th>Product</th>
+              <th>Composite</th>
               <th>Maturity</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style="font-weight: 500;">Netafim</td>
-              <td class="numeric">58</td>
-              <td class="numeric">62</td>
-              <td class="numeric">63</td>
-              <td class="numeric" style="font-weight: 600;">61</td>
-              <td><span class="maturity-badge maturity-systemic">Systemic</span></td>
+            <tr class="subject-row">
+              <td>Rain Bird</td>
+              <td>31</td>
+              <td>33</td>
+              <td>37</td>
+              <td><strong>34</strong></td>
+              <td><span class="maturity-badge maturity-active">Active</span></td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">The Toro Company</td>
-              <td class="numeric">48</td>
-              <td class="numeric">40</td>
-              <td class="numeric">52</td>
-              <td class="numeric" style="font-weight: 600;">47</td>
+              <td>Hunter Industries</td>
+              <td>38</td>
+              <td>38</td>
+              <td>33</td>
+              <td><strong>37</strong></td>
+              <td><span class="maturity-badge maturity-active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Toro Company</td>
+              <td>42</td>
+              <td>43</td>
+              <td>54</td>
+              <td><strong>47</strong></td>
               <td><span class="maturity-badge maturity-operational">Operational</span></td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Manufacturing Baseline</td>
-              <td class="numeric">40</td>
-              <td class="numeric">27</td>
-              <td class="numeric">33</td>
-              <td class="numeric" style="font-weight: 600;">38</td>
-              <td><span class="maturity-badge maturity-active">Active</span></td>
+              <td>Netafim</td>
+              <td>49</td>
+              <td>63</td>
+              <td>71</td>
+              <td><strong>61</strong></td>
+              <td><span class="maturity-badge maturity-systemic">Systemic</span></td>
             </tr>
-            <tr>
-              <td style="font-weight: 500;">Hunter Industries</td>
-              <td class="numeric">35</td>
-              <td class="numeric">35</td>
-              <td class="numeric">40</td>
-              <td class="numeric" style="font-weight: 600;">37</td>
-              <td><span class="maturity-badge maturity-active">Active</span></td>
-            </tr>
-            <tr class="subject-row">
-              <td style="font-weight: 600; color: var(--subject);">Rain Bird</td>
-              <td class="numeric subject-value">32</td>
-              <td class="numeric subject-value">30</td>
-              <td class="numeric subject-value">38</td>
-              <td class="numeric subject-value" style="font-size: 14px; font-weight: 700;">34</td>
+            <tr class="baseline-row">
+              <td>Mfg. Baseline</td>
+              <td>32</td>
+              <td>36</td>
+              <td>43</td>
+              <td><strong>38</strong></td>
               <td><span class="maturity-badge maturity-active">Active</span></td>
             </tr>
           </tbody>
-        </table></div>
+        </table>
 
-        <!-- Headline Findings -->
+        <!-- Strategic Intelligence -->
         <div style="margin-top: 28px;">
-          <div class="narrative-heading">Key Findings</div>
+          <div class="narrative-heading">Strategic Intelligence</div>
 
-          <div class="finding-item">
-            <div class="finding-number">Finding 1</div>
-            <div class="finding-headline">Rain Bird trails the manufacturing baseline by 4 points and all named competitors.</div>
-            <div class="finding-implication">The gap is widest in Organization (–8 vs baseline), driven by governance deficit and absent AI talent pipeline.</div>
+          <div style="margin-top: 16px;">
+            <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px;">1. The market leader is not the technology leader</div>
+            <p class="narrative-text">Rain Bird&rsquo;s dominant market share in irrigation hardware has not translated into AI readiness. The company trails every peer in the competitive set and scores 4 points below the manufacturing industry baseline. In an industry increasingly shaped by software-defined water management, hardware incumbency is an asset only if it becomes a platform for intelligence&mdash;and Rain Bird has not yet made that transition.</p>
           </div>
 
-          <div class="finding-item">
-            <div class="finding-number">Finding 2</div>
-            <div class="finding-headline">Netafim operates at Systemic maturity (61) — nearly double Rain Bird's composite.</div>
-            <div class="finding-implication">Netafim owns the AI narrative in precision irrigation; closing this gap requires both capability and credible positioning.</div>
+          <div style="margin-top: 16px;">
+            <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px;">2. A 27-point readiness gap separates Rain Bird from the field leader</div>
+            <p class="narrative-text">Netafim&rsquo;s Systemic maturity (61) versus Rain Bird&rsquo;s Active status (34) represents a structural divergence, not a closing gap. Netafim has deployed production ML systems, built a coherent AI brand narrative, and reorganized its product architecture around data-driven agronomy. This gap widens with every quarter of inaction&mdash;it is a compounding advantage, not a static difference.</p>
           </div>
 
-          <div class="finding-item">
-            <div class="finding-number">Finding 3</div>
-            <div class="finding-headline">The Rachio acquisition is Rain Bird's strongest strategic asset — and its positioning is undecided.</div>
-            <div class="finding-implication">Whether Rachio becomes an AI capability accelerator or a product-line extension determines Rain Bird's trajectory over the next 18–24 months.</div>
+          <div style="margin-top: 16px;">
+            <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 4px;">3. The Rachio acquisition creates a narrow strategic window</div>
+            <p class="narrative-text">Rachio&rsquo;s consumer IoT platform, public REST API, and Alexa voice integration give Rain Bird the only near-term path to product-layer intelligence in its portfolio. But the subsidiary operates independently. Without deliberate integration of Rachio&rsquo;s adaptive scheduling capabilities into Rain Bird&rsquo;s commercial and golf platforms, the acquisition remains a consumer brand play rather than an AI transformation catalyst.</p>
           </div>
         </div>
 
-        <!-- Recommended Actions -->
-        <div style="margin-top: 24px;">
-          <div class="narrative-heading">Recommended Actions</div>
-          <div class="action-item">Establish AI governance infrastructure before expanding deployment — the 2025 data breach makes this non-negotiable.</div>
-          <div class="action-item">Define Rachio integration as an AI capability play, not a product extension, and align brand messaging accordingly.</div>
-        </div>
-
-        <!-- Methodology Caveat -->
-        <p class="methodology-caveat">Scores reflect publicly available evidence only. Companies with limited public disclosure may score lower than their internal capabilities warrant.</p>
+        <p class="methodology-caveat" style="margin-top: 20px;">Scores reflect publicly available evidence only. Companies with limited public disclosure may score lower than their internal capabilities warrant.</p>
       </div>
+    </section>
+
+    <!-- ===== 2. KEY COMPETITIVE INSIGHT ===== -->
+    <div class="key-insight" style="margin: 0 0 0 0;">
+      <div class="insight-label">Key Competitive Insight</div>
+      <div class="insight-title">Irrigation&rsquo;s AI Divide Tracks Data Infrastructure, Not Market Share</div>
+      <div class="insight-body">The four-company competitive set reveals a clear pattern: AI readiness correlates with data infrastructure investment, not revenue or installed base. Netafim (61) and Toro (47) have each invested in production ML systems anchored to proprietary data pipelines&mdash;crop models and soil mapping, respectively. Rain Bird (34) and Hunter (37), despite comparable or larger hardware market positions, have no ML systems in production. The implication is that AI readiness in irrigation is won through data strategy, not distribution. Rain Bird&rsquo;s 130-country install base is a potential data asset, but only if instrumented for intelligence.</div>
     </div>
 
-    <!-- ========== SECTION 2: KEY COMPETITIVE INSIGHT ========== -->
-    <div class="section">
-      <div class="key-insight">
-        <div class="insight-label">Key Competitive Insight</div>
-        <div class="insight-title">Surface vs. Real AI: The Hunter/Hydrawise Distinction</div>
-        <div class="insight-body">Hunter Industries' Hydrawise Predictive Watering is marketed as machine learning but is confirmed through independent validation to be evapotranspiration calculation — a rules-based weather computation, not a learning system. This distinction between AI that claims intelligence and AI that demonstrates it is the most actionable competitive insight in this assessment. Rain Bird should position against this gap explicitly as it integrates Rachio's genuine ML capabilities.</div>
-      </div>
-    </div>
-
-    <!-- ========== SECTION 3: COMPETITIVE POSITIONING ========== -->
-    <div class="section">
+    <!-- ===== 3. COMPETITIVE POSITIONING — SCORE CARDS ===== -->
+    <section class="section" id="positioning">
       <div class="section-label">Competitive Positioning</div>
-      <div class="section-title">Overall Readiness Scores</div>
+      <h2 class="section-title">AI Readiness Scores</h2>
+      <p class="section-intro">The readiness score reflects a company's overall position in the AI adoption journey, determined by analyzing publicly available news sources, filings, and market signals.</p>
 
-      <div class="score-cards-grid">
-        <!-- Netafim -->
-        <div class="card score-card">
-          <div class="score-value" style="color: var(--comparison);">61</div>
-          <div class="company-name">Netafim</div>
+      <div class="grid-4">
+        <!-- Rain Bird (subject — highlighted) -->
+        <div class="card highlight score-card">
+          <div class="company-name">Rain Bird</div>
+          <div class="score-value subject-color">34</div>
           <div class="sub-scores">
-            <span>Org 58</span> · <span>Brand 62</span> · <span>Product 63</span>
+            <span>Org 31</span>
+            <span>Brand 33</span>
+            <span>Product 37</span>
           </div>
-          <div class="badge-wrap"><span class="maturity-badge maturity-systemic">Systemic</span></div>
-        </div>
-
-        <!-- Toro -->
-        <div class="card score-card">
-          <div class="score-value" style="color: var(--comparison);">47</div>
-          <div class="company-name">The Toro Company</div>
-          <div class="sub-scores">
-            <span>Org 48</span> · <span>Brand 40</span> · <span>Product 52</span>
-          </div>
-          <div class="badge-wrap"><span class="maturity-badge maturity-operational">Operational</span></div>
+          <span class="maturity-badge maturity-active">Active</span>
         </div>
 
         <!-- Hunter -->
         <div class="card score-card">
-          <div class="score-value" style="color: var(--comparison);">37</div>
           <div class="company-name">Hunter Industries</div>
+          <div class="score-value comparison-color">37</div>
           <div class="sub-scores">
-            <span>Org 35</span> · <span>Brand 35</span> · <span>Product 40</span>
+            <span>Org 38</span>
+            <span>Brand 38</span>
+            <span>Product 33</span>
           </div>
-          <div class="badge-wrap"><span class="maturity-badge maturity-active">Active</span></div>
+          <span class="maturity-badge maturity-active">Active</span>
         </div>
 
-        <!-- Rain Bird (highlight) -->
-        <div class="card score-card highlight">
-          <div class="score-value" style="color: var(--subject);">34</div>
-          <div class="company-name">Rain Bird</div>
+        <!-- Toro -->
+        <div class="card score-card">
+          <div class="company-name">Toro Company</div>
+          <div class="score-value comparison-color">47</div>
           <div class="sub-scores">
-            <span>Org 32</span> · <span>Brand 30</span> · <span>Product 38</span>
+            <span>Org 42</span>
+            <span>Brand 43</span>
+            <span>Product 54</span>
           </div>
-          <div class="badge-wrap"><span class="maturity-badge maturity-active">Active</span></div>
+          <span class="maturity-badge maturity-operational">Operational</span>
+        </div>
+
+        <!-- Netafim -->
+        <div class="card score-card">
+          <div class="company-name">Netafim</div>
+          <div class="score-value comparison-color">61</div>
+          <div class="sub-scores">
+            <span>Org 49</span>
+            <span>Brand 63</span>
+            <span>Product 71</span>
+          </div>
+          <span class="maturity-badge maturity-systemic">Systemic</span>
         </div>
       </div>
 
-      <!-- Baseline Card - full width beneath -->
-      <div style="margin-top: 16px;">
-        <div class="card baseline-card" style="text-align: center; padding: 20px;">
-          <div style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; color: var(--text-muted); font-variant-numeric: tabular-nums;">38</div>
-          <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); margin-top: 4px;">Manufacturing Baseline</div>
-          <div style="font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); margin-top: 6px;">
-            <span>Org 40</span> · <span>Brand 27</span> · <span>Product 33</span>
+      <!-- Baseline card -->
+      <div style="max-width: 280px; margin: 20px auto 0;">
+        <div class="card baseline score-card">
+          <div class="company-name" style="color: var(--text-muted);">Manufacturing Baseline</div>
+          <div class="score-value baseline-val" style="color: var(--text-muted);">38</div>
+          <div class="sub-scores">
+            <span>Org 32</span>
+            <span>Brand 36</span>
+            <span>Product 43</span>
           </div>
-          <div style="margin-top: 10px;"><span class="maturity-badge maturity-active">Active</span></div>
+          <span class="maturity-badge maturity-active">Active</span>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ========== SECTION 4: ORGANIZATION ========== -->
-    <div class="section">
-      <div class="section-label">Category Deep Dive</div>
-      <div class="section-title">Organization</div>
-      <div class="section-subtitle">How the enterprise adopts and operationalizes AI</div>
+    <!-- ===== 4. ORGANIZATION CATEGORY ===== -->
+    <section class="section" id="organization">
+      <div class="section-label">Category Analysis</div>
+      <h2 class="section-title">Organization</h2>
+      <p class="section-intro">How the enterprise adopts and operationalizes AI&mdash;workforce tools, scaling maturity, governance, talent strategy, and measurable ROI.</p>
 
-      <!-- Gauge Widget -->
-      <div class="gauge-widget">
-        <div class="gauge-arc-container">
-          <div class="gauge-arc-label">Manufacturing Baseline</div>
-          <svg width="200" height="115" viewBox="0 0 200 115">
-            <!-- Track arc -->
-            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
-            <!-- Score arc (40/100) -->
-            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#C97B2D" stroke-width="14" stroke-linecap="round"
-              stroke-dasharray="267" stroke-dashoffset="160.2"/>
-            <!-- Score text -->
-            <text x="100" y="90" text-anchor="middle" class="gauge-arc-score" style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; fill: #E8E7E3;">40</text>
+      <!-- Category Header Grid: Gauge + Signal Card -->
+      <div class="category-header-grid">
+        <!-- Gauge Widget -->
+        <div class="gauge-widget">
+          <div class="gauge-title">Organization &mdash; Baseline: 32</div>
+          <svg class="arc-gauge" viewBox="0 0 200 110" width="200" height="110">
+            <!-- Background arc -->
+            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
+            <!-- Score arc (baseline 32/100 => ~57.6 degrees of 180) -->
+            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#C97B2D" stroke-width="14" stroke-linecap="round" stroke-dasharray="80.4 251.3"/>
+            <!-- Center score -->
+            <text x="100" y="88" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="36" font-weight="700" fill="#E8E7E3">32</text>
+            <text x="100" y="105" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8A96A6">BASELINE</text>
           </svg>
+
+          <div class="gauge-bars">
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Rain Bird</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill subject" style="width: 31%;"></div>
+                <div class="gauge-bar-marker" style="left: 32%;"></div>
+              </div>
+              <span class="gauge-bar-score">31</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Hunter</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 38%;"></div>
+                <div class="gauge-bar-marker" style="left: 32%;"></div>
+              </div>
+              <span class="gauge-bar-score">38</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Toro</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 42%;"></div>
+                <div class="gauge-bar-marker" style="left: 32%;"></div>
+              </div>
+              <span class="gauge-bar-score">42</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Netafim</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 49%;"></div>
+                <div class="gauge-bar-marker" style="left: 32%;"></div>
+              </div>
+              <span class="gauge-bar-score">49</span>
+            </div>
+          </div>
         </div>
 
-        <div class="gauge-bars">
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Netafim</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 58%;"></div>
-              <div class="gauge-baseline-marker" style="left: 40%;"></div>
-            </div>
-            <div class="gauge-bar-score">58</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Toro</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 48%;"></div>
-              <div class="gauge-baseline-marker" style="left: 40%;"></div>
-            </div>
-            <div class="gauge-bar-score">48</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Hunter</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 35%;"></div>
-              <div class="gauge-baseline-marker" style="left: 40%;"></div>
-            </div>
-            <div class="gauge-bar-score">35</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name" style="color: var(--subject); font-weight: 600;">Rain Bird</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill subject" style="width: 32%;"></div>
-              <div class="gauge-baseline-marker" style="left: 40%;"></div>
-            </div>
-            <div class="gauge-bar-score" style="color: var(--subject);">32</div>
-          </div>
+        <!-- Signal Card: Organization -->
+        <div class="key-insight">
+          <div class="insight-label">Signal: Organization</div>
+          <div class="insight-title">Rain Bird Web Store Breach &mdash; 7 Months Undetected</div>
+          <div class="insight-body">Rain Bird&rsquo;s web store experienced a payment card data breach from February 11 to September 5, 2025, exposing customer names, card numbers, expiration dates, and CVV codes. Suspicious activity was not detected until approximately July 25, 2025&mdash;over five months into the breach. The extended exposure window signals a reactive cybersecurity posture that weighs heavily on the governance dimension.</div>
+          <div class="signal-source">Source: <a href="https://www.federmanlaw.com/blog/rain-bird-corporation-data-breach-investigated-by-federman-sherwood/" target="_blank" rel="noopener">Federman &amp; Sherwood, December 2025</a></div>
         </div>
       </div>
 
       <!-- Narrative -->
-      <div class="narrative-block mt-24">
-        <div class="narrative-heading">Organization Analysis</div>
+      <div class="narrative-block">
+        <div class="narrative-heading">Analysis</div>
         <div class="narrative-text">
-          <p>Rain Bird's Organization score of 32 places it eight points below the manufacturing baseline and last among all competitors assessed. The deficit is structural, not incidental. Governance & Ethics (25) is the lowest dimension in the entire assessment — a score compounded by a data breach spanning seven months of 2025. For a company evaluating AI expansion, this governance gap is not a secondary concern; it is the primary constraint.</p>
-          <p>The talent pipeline is equally underdeveloped. No AI/ML-specific roles appear in Rain Bird's public job postings, and no visible upskilling programs have been disclosed. The Rachio acquisition brings some AI-adjacent talent into the organization, but the integration strategy remains unclear. Whether that talent is absorbed into Rain Bird's core operations or remains siloed within Rachio determines whether the acquisition addresses the talent gap or merely moves it to a subsidiary.</p>
-          <p>The IQ4 smart irrigation platform provides genuine infrastructure capability — cloud platform unification and API architecture are positive indicators of scaling potential. But infrastructure readiness without a governance framework or AI talent to build on it creates an asymmetry: the platform exists, but the intelligence layer hasn't been built on top of it. Scaling Maturity (35) matches the baseline precisely, suggesting that Rain Bird has the operational scaffolding but lacks the AI-specific maturity to utilize it.</p>
+          <p>Rain Bird scores 31 on Organization&mdash;1 point below the manufacturing baseline (32) and the lowest in the competitive set. The company has no publicly visible enterprise AI tool deployment, no AI/ML job postings, and no formal AI governance framework. The 2025 web store data breach (6+ months undetected) is a significant negative signal for cybersecurity maturity in an era of increasing IoT scrutiny.</p>
+          <p>Hunter Industries (38) edges ahead through its Augmentir AI-powered Connected Worker deployment on the manufacturing floor&mdash;a concrete, operational AI investment. Toro (42) benefits from public-company disclosure requirements that confirm AI investment commitments and board-level technology strategy. Netafim (49) leads with its Orbia parent&rsquo;s digital transformation infrastructure, including a dedicated IT hub in Pune, India (opened November 2025).</p>
+          <p>Rain Bird&rsquo;s VP of Technology, Michael Roberts, PhD&mdash;the 2026 Irrigation Association President&mdash;frames AI as &ldquo;the possibilities of AI&rdquo; and a future evolution rather than current organizational capability. No Chief AI Officer, Chief Data Officer, or dedicated AI leadership role exists.</p>
         </div>
       </div>
+
+      <!-- Dimension Table -->
+      <table class="data-table" style="margin-top: 24px;">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="numeric">Rain Bird</th>
+            <th class="numeric">Hunter</th>
+            <th class="numeric">Toro</th>
+            <th class="numeric">Netafim</th>
+            <th class="numeric">Baseline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Workforce AI Access</td>
+            <td class="numeric">22</td>
+            <td class="numeric">48</td>
+            <td class="numeric">38</td>
+            <td class="numeric">42</td>
+            <td class="numeric">32</td>
+          </tr>
+          <tr>
+            <td>Scaling Maturity</td>
+            <td class="numeric">38</td>
+            <td class="numeric">38</td>
+            <td class="numeric">47</td>
+            <td class="numeric">55</td>
+            <td class="numeric">35</td>
+          </tr>
+          <tr>
+            <td>Governance &amp; Ethics</td>
+            <td class="numeric">25</td>
+            <td class="numeric">28</td>
+            <td class="numeric">42</td>
+            <td class="numeric">38</td>
+            <td class="numeric">30</td>
+          </tr>
+          <tr>
+            <td>Talent &amp; Upskilling</td>
+            <td class="numeric">28</td>
+            <td class="numeric">35</td>
+            <td class="numeric">40</td>
+            <td class="numeric">50</td>
+            <td class="numeric">33</td>
+          </tr>
+          <tr>
+            <td>Measurable ROI</td>
+            <td class="numeric">42</td>
+            <td class="numeric">42</td>
+            <td class="numeric">45</td>
+            <td class="numeric">58</td>
+            <td class="numeric">52</td>
+          </tr>
+        </tbody>
+      </table>
 
       <!-- Business Consequence -->
       <div class="consequence-block">
         <div class="consequence-label">Business Consequence</div>
-        <div class="consequence-body">An Organization score of 32 — eight points below the manufacturing baseline — signals that Rain Bird lacks the governance infrastructure, talent pipeline, and scaling maturity to deploy AI safely at enterprise scale. The 2025 data breach amplifies this: pursuing AI expansion without established governance creates compounding liability. The immediate cost is not the score itself but the deployment risk it represents — any AI initiative launched without governance infrastructure carries higher incident probability, slower time-to-value, and reduced board confidence in technology investments.</div>
+        <div class="consequence-body">Rain Bird&rsquo;s organizational gap translates directly to talent acquisition risk. As irrigation increasingly converges with precision agriculture and AI-driven water management, the company&rsquo;s inability to attract AI/ML talent&mdash;evidenced by zero dedicated postings&mdash;limits its capacity to build the data infrastructure required for next-generation products. Every quarter without an AI talent pipeline widens the capability gap with competitors who have already made these hires. The governance deficit, underscored by the 2025 breach, also creates liability exposure as municipalities and golf courses adopt connected irrigation systems that manage critical water infrastructure.</div>
       </div>
+    </section>
 
-      <!-- Dimension Detail Table -->
-      <div class="mt-24">
-        <div class="narrative-heading">Dimension Scores</div>
-        <div class="table-wrapper"><table class="data-table">
-          <thead>
-            <tr>
-              <th>Dimension</th>
-              <th class="numeric">Rain Bird</th>
-              <th class="numeric">Netafim</th>
-              <th class="numeric">Toro</th>
-              <th class="numeric">Hunter</th>
-              <th class="numeric">Baseline</th>
-              <th class="numeric">Gap</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Workforce AI Access</td>
-              <td class="numeric subject-value">30</td>
-              <td class="numeric">55</td>
-              <td class="numeric">45</td>
-              <td class="numeric">32</td>
-              <td class="numeric">59</td>
-              <td class="numeric delta-negative">–29</td>
-            </tr>
-            <tr>
-              <td>Scaling Maturity</td>
-              <td class="numeric subject-value">35</td>
-              <td class="numeric">60</td>
-              <td class="numeric">50</td>
-              <td class="numeric">38</td>
-              <td class="numeric">35</td>
-              <td class="numeric" style="color: var(--text-muted);">0</td>
-            </tr>
-            <tr>
-              <td>Governance & Ethics</td>
-              <td class="numeric subject-value">25</td>
-              <td class="numeric">50</td>
-              <td class="numeric">42</td>
-              <td class="numeric">30</td>
-              <td class="numeric">30</td>
-              <td class="numeric delta-negative">–5</td>
-            </tr>
-            <tr>
-              <td>Talent & Upskilling</td>
-              <td class="numeric subject-value">35</td>
-              <td class="numeric">62</td>
-              <td class="numeric">48</td>
-              <td class="numeric">38</td>
-              <td class="numeric">50</td>
-              <td class="numeric delta-negative">–15</td>
-            </tr>
-            <tr>
-              <td>Measurable ROI</td>
-              <td class="numeric subject-value">35</td>
-              <td class="numeric">65</td>
-              <td class="numeric">55</td>
-              <td class="numeric">37</td>
-              <td class="numeric">28</td>
-              <td class="numeric delta-positive">+7</td>
-            </tr>
-          </tbody>
-        </table></div>
-      </div>
-    </div>
+    <!-- ===== 5. BRAND CATEGORY ===== -->
+    <section class="section" id="brand">
+      <div class="section-label">Category Analysis</div>
+      <h2 class="section-title">Brand</h2>
+      <p class="section-intro">How the brand presents itself as AI-native&mdash;messaging, infrastructure readiness, market perception, content AI-readiness, and orchestration.</p>
 
-    <!-- ========== SECTION 5: BRAND ========== -->
-    <div class="section">
-      <div class="section-label">Category Deep Dive</div>
-      <div class="section-title">Brand</div>
-      <div class="section-subtitle">How the brand presents itself as AI-native</div>
-
-      <!-- Gauge Widget -->
-      <div class="gauge-widget">
-        <div class="gauge-arc-container">
-          <div class="gauge-arc-label">Manufacturing Baseline</div>
-          <svg width="200" height="115" viewBox="0 0 200 115">
-            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
-            <!-- Score arc (27/100) -->
-            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#C0392B" stroke-width="14" stroke-linecap="round"
-              stroke-dasharray="267" stroke-dashoffset="194.9"/>
-            <text x="100" y="90" text-anchor="middle" style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; fill: #E8E7E3;">27</text>
+      <div class="category-header-grid">
+        <!-- Gauge Widget -->
+        <div class="gauge-widget">
+          <div class="gauge-title">Brand &mdash; Baseline: 36</div>
+          <svg class="arc-gauge" viewBox="0 0 200 110" width="200" height="110">
+            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
+            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#C97B2D" stroke-width="14" stroke-linecap="round" stroke-dasharray="90.5 251.3"/>
+            <text x="100" y="88" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="36" font-weight="700" fill="#E8E7E3">36</text>
+            <text x="100" y="105" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8A96A6">BASELINE</text>
           </svg>
+
+          <div class="gauge-bars">
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Rain Bird</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill subject" style="width: 33%;"></div>
+                <div class="gauge-bar-marker" style="left: 36%;"></div>
+              </div>
+              <span class="gauge-bar-score">33</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Hunter</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 38%;"></div>
+                <div class="gauge-bar-marker" style="left: 36%;"></div>
+              </div>
+              <span class="gauge-bar-score">38</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Toro</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 43%;"></div>
+                <div class="gauge-bar-marker" style="left: 36%;"></div>
+              </div>
+              <span class="gauge-bar-score">43</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Netafim</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 63%;"></div>
+                <div class="gauge-bar-marker" style="left: 36%;"></div>
+              </div>
+              <span class="gauge-bar-score">63</span>
+            </div>
+          </div>
         </div>
 
-        <div class="gauge-bars">
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Netafim</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 62%;"></div>
-              <div class="gauge-baseline-marker" style="left: 27%;"></div>
-            </div>
-            <div class="gauge-bar-score">62</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Toro</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 40%;"></div>
-              <div class="gauge-baseline-marker" style="left: 27%;"></div>
-            </div>
-            <div class="gauge-bar-score">40</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Hunter</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 35%;"></div>
-              <div class="gauge-baseline-marker" style="left: 27%;"></div>
-            </div>
-            <div class="gauge-bar-score">35</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name" style="color: var(--subject); font-weight: 600;">Rain Bird</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill subject" style="width: 30%;"></div>
-              <div class="gauge-baseline-marker" style="left: 27%;"></div>
-            </div>
-            <div class="gauge-bar-score" style="color: var(--subject);">30</div>
-          </div>
+        <!-- Signal Card: Brand -->
+        <div class="key-insight">
+          <div class="insight-label">Signal: Brand</div>
+          <div class="insight-title">Netafim CEO&rsquo;s Forbes AI Thought Leadership</div>
+          <div class="insight-body">Netafim CEO Gaby Miodownik published a Forbes byline positioning AI-driven precision agriculture as a solution to global food security. This executive-level thought leadership&mdash;placing the CEO in a top-tier business publication with an explicit AI narrative&mdash;is a capability no other company in this competitive set has demonstrated. It anchors Netafim&rsquo;s brand_ai_messaging score of 78, the highest single dimension in the assessment.</div>
+          <div class="signal-source">Source: <a href="https://www.forbes.com/" target="_blank" rel="noopener">Forbes (Gaby Miodownik byline)</a></div>
         </div>
       </div>
 
-      <!-- Narrative -->
-      <div class="narrative-block mt-24">
-        <div class="narrative-heading">Brand Analysis</div>
+      <div class="narrative-block">
+        <div class="narrative-heading">Analysis</div>
         <div class="narrative-text">
-          <p>Rain Bird's Brand score of 30 sits three points above a low manufacturing baseline — a marginal lead that provides no competitive advantage. The category is defined by a single outlier: Netafim, whose Brand score of 62 reflects deliberate, multi-channel AI positioning. Netafim's CEO thought leadership via Forbes, explicit "AI-powered" product language, and Irrigation-as-a-Service positioning have made AI central to its brand identity, not peripheral to it. Rain Bird's AI messaging, by contrast, is future-oriented rather than present-tense — it describes aspiration, not capability.</p>
-          <p>The IQ4 API platform is infrastructure-positive for agent readiness: Rain Bird scores 35 on Agent-Ready Infrastructure, above the 22 baseline. But infrastructure without articulated AI identity creates a disconnect — the plumbing exists, the story doesn't. Content AI-Readiness (30) sits below the 36 baseline, indicating that Rain Bird's content is product-focused and not optimized for AI consumption or machine-readable formats. In a landscape moving toward agentic commerce and AI-mediated purchasing, this is a visibility problem, not just a marketing one.</p>
-          <p>The Rachio brand carries stronger AI positioning but operates separately from Rain Bird's corporate identity. Whether Rachio's brand equity is absorbed, federated, or left independent will determine whether Rain Bird's Brand score moves meaningfully in the next assessment cycle.</p>
+          <p>Rain Bird&rsquo;s brand AI readiness (33) sits 3 points below the manufacturing baseline. The company&rsquo;s foundational tagline&mdash;&ldquo;The Intelligent Use of Water&trade;&rdquo;&mdash;uses &ldquo;intelligent&rdquo; as a water stewardship philosophy, not an AI claim. Public-facing materials consistently use &ldquo;smart&rdquo; language without &ldquo;AI&rdquo; or &ldquo;machine learning.&rdquo; Marketing Manager Sean Azad explicitly frames AI as &ldquo;the future&rdquo; in a March 2026 podcast.</p>
+          <p>The strongest brand dimension for Rain Bird is Agent-Ready Infrastructure (48), driven by the IQ4 API (per-account API keys, confirmed by Marketing Manager) and Rachio&rsquo;s fully documented REST API with webhooks. These provide genuine machine-readable access points. However, AI-First Orchestration (20) is the lowest score in the entire assessment&mdash;no evidence of cross-channel AI-coordinated brand operations.</p>
+          <p>Netafim dominates this category at 63, with the only CEO-level Forbes AI thought leadership in the set, systematic &ldquo;AI&rdquo; and &ldquo;self-learning&rdquo; language across product marketing, and enterprise partnerships (Bayer, Phytech) that reinforce the AI narrative externally.</p>
         </div>
       </div>
 
-      <!-- Business Consequence -->
+      <table class="data-table" style="margin-top: 24px;">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="numeric">Rain Bird</th>
+            <th class="numeric">Hunter</th>
+            <th class="numeric">Toro</th>
+            <th class="numeric">Netafim</th>
+            <th class="numeric">Baseline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AI-Native Messaging</td>
+            <td class="numeric">32</td>
+            <td class="numeric">22</td>
+            <td class="numeric">52</td>
+            <td class="numeric">78</td>
+            <td class="numeric">42</td>
+          </tr>
+          <tr>
+            <td>Agent-Ready Infrastructure</td>
+            <td class="numeric">48</td>
+            <td class="numeric">44</td>
+            <td class="numeric">42</td>
+            <td class="numeric">58</td>
+            <td class="numeric">38</td>
+          </tr>
+          <tr>
+            <td>Market AI Perception</td>
+            <td class="numeric">30</td>
+            <td class="numeric">45</td>
+            <td class="numeric">52</td>
+            <td class="numeric">70</td>
+            <td class="numeric">45</td>
+          </tr>
+          <tr>
+            <td>Content AI-Readiness</td>
+            <td class="numeric">35</td>
+            <td class="numeric">38</td>
+            <td class="numeric">40</td>
+            <td class="numeric">62</td>
+            <td class="numeric">29</td>
+          </tr>
+          <tr>
+            <td>AI-First Orchestration</td>
+            <td class="numeric">20</td>
+            <td class="numeric">40</td>
+            <td class="numeric">30</td>
+            <td class="numeric">45</td>
+            <td class="numeric">25</td>
+          </tr>
+        </tbody>
+      </table>
+
       <div class="consequence-block">
         <div class="consequence-label">Business Consequence</div>
-        <div class="consequence-body">A Brand score of 30 — three points above a low baseline — means Rain Bird is not perceived as AI-capable by the market, analysts, or potential partners. In a category where Netafim has established AI as central to its brand identity (78 on AI-Native Messaging), Rain Bird's absence from the AI conversation creates a positioning vacuum. The cost is opportunity: AI-forward partners, talent, and customers will default to companies that credibly communicate AI capability. As agentic commerce and AI-mediated purchasing emerge, brands that are not machine-readable and AI-optimized will lose visibility to those that are.</div>
+        <div class="consequence-body">As AI-powered discovery channels (ChatGPT, Perplexity, Google AI Overviews) reshape how contractors and specifiers find irrigation solutions, Rain Bird&rsquo;s lack of AI-optimized content and brand messaging creates a discovery risk. Competitors with structured AI content and explicit AI narratives will surface more prominently in agentic search results. Rain Bird&rsquo;s Agent-Ready Infrastructure score (48) suggests the technical plumbing exists via IQ4 and Rachio APIs, but the absence of AI brand messaging means the company is invisible in the AI consideration set where purchasing decisions increasingly begin.</div>
       </div>
+    </section>
 
-      <!-- Dimension Detail Table -->
-      <div class="mt-24">
-        <div class="narrative-heading">Dimension Scores</div>
-        <div class="table-wrapper"><table class="data-table">
-          <thead>
-            <tr>
-              <th>Dimension</th>
-              <th class="numeric">Rain Bird</th>
-              <th class="numeric">Netafim</th>
-              <th class="numeric">Toro</th>
-              <th class="numeric">Hunter</th>
-              <th class="numeric">Baseline</th>
-              <th class="numeric">Gap</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>AI-Native Messaging</td>
-              <td class="numeric subject-value">28</td>
-              <td class="numeric">78</td>
-              <td class="numeric">38</td>
-              <td class="numeric">32</td>
-              <td class="numeric">27</td>
-              <td class="numeric delta-positive">+1</td>
-            </tr>
-            <tr>
-              <td>Agent-Ready Infrastructure</td>
-              <td class="numeric subject-value">35</td>
-              <td class="numeric">55</td>
-              <td class="numeric">42</td>
-              <td class="numeric">38</td>
-              <td class="numeric">22</td>
-              <td class="numeric delta-positive">+13</td>
-            </tr>
-            <tr>
-              <td>Market AI Perception</td>
-              <td class="numeric subject-value">28</td>
-              <td class="numeric">58</td>
-              <td class="numeric">40</td>
-              <td class="numeric">33</td>
-              <td class="numeric">25</td>
-              <td class="numeric delta-positive">+3</td>
-            </tr>
-            <tr>
-              <td>Content AI-Readiness</td>
-              <td class="numeric subject-value">30</td>
-              <td class="numeric">60</td>
-              <td class="numeric">42</td>
-              <td class="numeric">35</td>
-              <td class="numeric">36</td>
-              <td class="numeric delta-negative">–6</td>
-            </tr>
-            <tr>
-              <td>AI-First Orchestration</td>
-              <td class="numeric subject-value">28</td>
-              <td class="numeric">58</td>
-              <td class="numeric">38</td>
-              <td class="numeric">35</td>
-              <td class="numeric">20</td>
-              <td class="numeric delta-positive">+8</td>
-            </tr>
-          </tbody>
-        </table></div>
-      </div>
-    </div>
+    <!-- ===== 6. PRODUCT CATEGORY ===== -->
+    <section class="section" id="product">
+      <div class="section-label">Category Analysis</div>
+      <h2 class="section-title">Product</h2>
+      <p class="section-intro">How the product delivers AI-first experiences&mdash;interaction layer, agentic deployment, UX maturity, process redesign, and AI value delivery.</p>
 
-    <!-- ========== SECTION 6: PRODUCT ========== -->
-    <div class="section">
-      <div class="section-label">Category Deep Dive</div>
-      <div class="section-title">Product</div>
-      <div class="section-subtitle">How the product delivers AI-first experiences</div>
-
-      <!-- Gauge Widget -->
-      <div class="gauge-widget">
-        <div class="gauge-arc-container">
-          <div class="gauge-arc-label">Manufacturing Baseline</div>
-          <svg width="200" height="115" viewBox="0 0 200 115">
-            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
-            <!-- Score arc (33/100) -->
-            <path d="M 15 100 A 85 85 0 0 1 185 100" fill="none" stroke="#C97B2D" stroke-width="14" stroke-linecap="round"
-              stroke-dasharray="267" stroke-dashoffset="178.9"/>
-            <text x="100" y="90" text-anchor="middle" style="font-family: 'DM Sans', sans-serif; font-size: 36px; font-weight: 700; fill: #E8E7E3;">33</text>
+      <div class="category-header-grid">
+        <!-- Gauge Widget -->
+        <div class="gauge-widget">
+          <div class="gauge-title">Product &mdash; Baseline: 43</div>
+          <svg class="arc-gauge" viewBox="0 0 200 110" width="200" height="110">
+            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#2E3E54" stroke-width="14" stroke-linecap="round"/>
+            <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#C97B2D" stroke-width="14" stroke-linecap="round" stroke-dasharray="108 251.3"/>
+            <text x="100" y="88" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="36" font-weight="700" fill="#E8E7E3">43</text>
+            <text x="100" y="105" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8A96A6">BASELINE</text>
           </svg>
+
+          <div class="gauge-bars">
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Rain Bird</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill subject" style="width: 37%;"></div>
+                <div class="gauge-bar-marker" style="left: 43%;"></div>
+              </div>
+              <span class="gauge-bar-score">37</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Hunter</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 33%;"></div>
+                <div class="gauge-bar-marker" style="left: 43%;"></div>
+              </div>
+              <span class="gauge-bar-score">33</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Toro</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 54%;"></div>
+                <div class="gauge-bar-marker" style="left: 43%;"></div>
+              </div>
+              <span class="gauge-bar-score">54</span>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label">Netafim</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill comparison" style="width: 71%;"></div>
+                <div class="gauge-bar-marker" style="left: 43%;"></div>
+              </div>
+              <span class="gauge-bar-score">71</span>
+            </div>
+          </div>
         </div>
 
-        <div class="gauge-bars">
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Netafim</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 63%;"></div>
-              <div class="gauge-baseline-marker" style="left: 33%;"></div>
-            </div>
-            <div class="gauge-bar-score">63</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Toro</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 52%;"></div>
-              <div class="gauge-baseline-marker" style="left: 33%;"></div>
-            </div>
-            <div class="gauge-bar-score">52</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name">Hunter</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill comparison" style="width: 40%;"></div>
-              <div class="gauge-baseline-marker" style="left: 33%;"></div>
-            </div>
-            <div class="gauge-bar-score">40</div>
-          </div>
-          <div class="gauge-bar-row">
-            <div class="gauge-bar-name" style="color: var(--subject); font-weight: 600;">Rain Bird</div>
-            <div class="gauge-bar-track">
-              <div class="gauge-bar-fill subject" style="width: 38%;"></div>
-              <div class="gauge-baseline-marker" style="left: 33%;"></div>
-            </div>
-            <div class="gauge-bar-score" style="color: var(--subject);">38</div>
-          </div>
+        <!-- Signal Card: Product -->
+        <div class="key-insight">
+          <div class="insight-label">Signal: Product</div>
+          <div class="insight-title">Toro&rsquo;s Spatial Adjust: AI Soil Mapping in Production</div>
+          <div class="insight-body">Toro&rsquo;s Spatial Adjust system uses TerraRad below-ground sensing technology combined with AI-driven soil mapping to create precision irrigation prescriptions. COO Jeff Draeger confirmed AI integration in the Q1 FY2026 earnings call (March 2026), and the company&rsquo;s 10-K filings identify &ldquo;data-driven recommendations&rdquo; as a product direction. This is the only confirmed AI soil analytics product shipping in the landscape irrigation segment.</div>
+          <div class="signal-source">Source: <a href="https://www.toro.com/en/golf/spatial-adjust" target="_blank" rel="noopener">Toro Spatial Adjust product page</a>; <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000098752" target="_blank" rel="noopener">SEC 10-K FY2025</a></div>
         </div>
       </div>
 
-      <!-- Narrative -->
-      <div class="narrative-block mt-24">
-        <div class="narrative-heading">Product Analysis</div>
+      <div class="narrative-block">
+        <div class="narrative-heading">Analysis</div>
         <div class="narrative-text">
-          <p>Product is Rain Bird's strongest category at 38 — five points above the manufacturing baseline and the only category where the company leads from a position of relative strength. AI Value Delivery (45) and Process Redesign (42) both outperform several competitors, reflecting the tangible potential embedded in Rain Bird's product infrastructure. The IQ4 platform, Rachio acquisition, and process automation investments provide a foundation that the Organization and Brand categories lack.</p>
-          <p>The Rachio integration is the strategic lever. Rachio's genuine machine learning capabilities — weather-responsive scheduling, soil moisture inference, real-time water optimization — represent the closest thing Rain Bird has to a demonstrable AI product. If positioned as an AI capability accelerator and integrated into Rain Bird's core platform, it transforms the product trajectory. If treated as a standalone product line, it leaves the Product score static and the competitive gap with Netafim unbridged.</p>
-          <p>Netafim's Product score of 63 illustrates what full AI integration looks like in this category: GrowSphere with 30+ crop models, Irrigation-as-a-Service, AI-driven dosing. The distance between 38 and 63 is not a scoring gap — it is the gap between "has AI potential" and "delivers AI value." Agentic AI Deployment (29) and AI Interaction Layer (35) remain below baseline indicators, suggesting that Rain Bird's product intelligence is present but not yet surfaced to users or third-party systems in a way that creates competitive moat.</p>
+          <p>Product is the category with the widest competitive spread: Netafim (71) leads Rain Bird (37) by 34 points. Rain Bird&rsquo;s product portfolio relies on rule-based automation&mdash;ET-based scheduling, threshold-triggered flow alerts, weather data routing&mdash;with no production ML systems. The corrected Agentic AI Deployment score (29, revised from 35 during validation) reflects that while Rachio&rsquo;s Alexa integration provides a narrow voice-control capability, it is not production-scale agentic AI.</p>
+          <p>Toro has differentiated through Spatial Adjust (AI soil mapping), an autonomous mower portfolio (GeoLink, Exmark XiQ), and a SaaS revenue strategy disclosed in earnings calls. Netafim&rsquo;s GrowSphere Crop Advisor represents genuine ML with 30+ crop models updated daily on 50 years of agronomic data, and the Dosing 5G suite launched in February 2026 claims self-learning fertigation capabilities.</p>
+          <p>Rain Bird&rsquo;s strongest product dimension is AI Value Delivery (45), driven by EPA WaterSense-certified 30&ndash;33% water savings. However, this reflects automation value, not AI value&mdash;a distinction that may erode as competitors demonstrate ML-driven precision gains.</p>
         </div>
       </div>
 
-      <!-- Business Consequence -->
+      <table class="data-table" style="margin-top: 24px;">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="numeric">Rain Bird</th>
+            <th class="numeric">Hunter</th>
+            <th class="numeric">Toro</th>
+            <th class="numeric">Netafim</th>
+            <th class="numeric">Baseline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AI Interaction Layer</td>
+            <td class="numeric">42</td>
+            <td class="numeric">35</td>
+            <td class="numeric">62</td>
+            <td class="numeric">80</td>
+            <td class="numeric">44</td>
+          </tr>
+          <tr>
+            <td>Agentic AI Deployment</td>
+            <td class="numeric">29</td>
+            <td class="numeric">18</td>
+            <td class="numeric">45</td>
+            <td class="numeric">65</td>
+            <td class="numeric">35</td>
+          </tr>
+          <tr>
+            <td>AI UX Maturity</td>
+            <td class="numeric">38</td>
+            <td class="numeric">42</td>
+            <td class="numeric">55</td>
+            <td class="numeric">68</td>
+            <td class="numeric">36</td>
+          </tr>
+          <tr>
+            <td>Process Redesign</td>
+            <td class="numeric">30</td>
+            <td class="numeric">40</td>
+            <td class="numeric">52</td>
+            <td class="numeric">72</td>
+            <td class="numeric">43</td>
+          </tr>
+          <tr>
+            <td>AI Value Delivery</td>
+            <td class="numeric">45</td>
+            <td class="numeric">32</td>
+            <td class="numeric">58</td>
+            <td class="numeric">72</td>
+            <td class="numeric">55</td>
+          </tr>
+        </tbody>
+      </table>
+
       <div class="consequence-block">
         <div class="consequence-label">Business Consequence</div>
-        <div class="consequence-body">A Product score of 38 — five points above baseline — is Rain Bird's competitive bright spot, but the margin is fragile. The Rachio acquisition creates a decision window: integrating Rachio's ML capabilities into the core platform builds a genuine AI product moat; treating it as a standalone product line leaves the score static. Netafim's Product score of 63 reflects what full AI integration looks like — GrowSphere with 30+ crop models, Irrigation-as-a-Service, AI-driven dosing. The distance between 38 and 63 is the gap between "has AI potential" and "delivers AI value." The cost of inaction is competitive irrelevance in the precision irrigation segment within 18–24 months.</div>
+        <div class="consequence-body">Rain Bird&rsquo;s product AI gap creates a competitive ceiling in the segments with the highest growth margins. Golf course superintendents and large-scale commercial operators are increasingly evaluating AI-driven water optimization&mdash;Toro&rsquo;s Spatial Adjust and Netafim&rsquo;s GrowSphere are already in those conversations. Rain Bird&rsquo;s CirrusPRO (golf) and IQ4 (commercial) aggregate data from sensors and pumps, but without an ML layer to generate prescriptive irrigation recommendations, they function as monitoring dashboards, not decision engines. The Rachio acquisition provides a path to product intelligence, but only if its adaptive scheduling algorithms are ported to commercial-scale platforms.</div>
       </div>
+    </section>
 
-      <!-- Dimension Detail Table -->
-      <div class="mt-24">
-        <div class="narrative-heading">Dimension Scores</div>
-        <div class="table-wrapper"><table class="data-table">
-          <thead>
-            <tr>
-              <th>Dimension</th>
-              <th class="numeric">Rain Bird</th>
-              <th class="numeric">Netafim</th>
-              <th class="numeric">Toro</th>
-              <th class="numeric">Hunter</th>
-              <th class="numeric">Baseline</th>
-              <th class="numeric">Gap</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>AI Interaction Layer</td>
-              <td class="numeric subject-value">35</td>
-              <td class="numeric">60</td>
-              <td class="numeric">48</td>
-              <td class="numeric">38</td>
-              <td class="numeric">29</td>
-              <td class="numeric delta-positive">+6</td>
-            </tr>
-            <tr>
-              <td>Agentic AI Deployment</td>
-              <td class="numeric subject-value">29</td>
-              <td class="numeric">58</td>
-              <td class="numeric">45</td>
-              <td class="numeric">35</td>
-              <td class="numeric">25</td>
-              <td class="numeric delta-positive">+4</td>
-            </tr>
-            <tr>
-              <td>AI UX Maturity</td>
-              <td class="numeric subject-value">38</td>
-              <td class="numeric">55</td>
-              <td class="numeric">50</td>
-              <td class="numeric">40</td>
-              <td class="numeric">31</td>
-              <td class="numeric delta-positive">+7</td>
-            </tr>
-            <tr>
-              <td>Process Redesign</td>
-              <td class="numeric subject-value">42</td>
-              <td class="numeric">68</td>
-              <td class="numeric">58</td>
-              <td class="numeric">42</td>
-              <td class="numeric">38</td>
-              <td class="numeric delta-positive">+4</td>
-            </tr>
-            <tr>
-              <td>AI Value Delivery</td>
-              <td class="numeric subject-value">45</td>
-              <td class="numeric">72</td>
-              <td class="numeric">58</td>
-              <td class="numeric">45</td>
-              <td class="numeric">42</td>
-              <td class="numeric delta-positive">+3</td>
-            </tr>
-          </tbody>
-        </table></div>
-      </div>
-    </div>
+    <!-- ===== 7. COMPETITIVE INSIGHTS (SGOT) ===== -->
+    <section class="section" id="insights">
+      <div class="section-label">Competitive Insights</div>
+      <h2 class="section-title">Strengths, Gaps, Opportunities &amp; Threats</h2>
 
-    <!-- ========== SECTION 7: COMPETITIVE INSIGHTS ========== -->
-    <div class="section">
-      <div class="section-label">Competitive Intelligence</div>
-      <div class="section-title" style="margin-bottom: 24px;">Strengths, Gaps, Opportunities & Threats</div>
-
-      <div class="insight-cards-grid">
+      <div class="grid-2" style="margin-top: 24px;">
         <!-- Strengths -->
-        <div class="insight-card strengths">
-          <div class="insight-card-title">Strengths</div>
+        <div class="card insight-card">
+          <div class="insight-card-title"><span class="insight-dot dot-strength"></span> Strengths</div>
           <ul>
-            <li>Infrastructure readiness via IQ4 API and cloud platform unification</li>
-            <li>Rachio acquisition as AI capability accelerator potential</li>
-            <li>Process Redesign (42) and AI Value Delivery (45) outperform category averages</li>
+            <li>Agent-Ready Infrastructure (48)&mdash;highest among traditional irrigation manufacturers, driven by IQ4 API and Rachio REST API with webhooks</li>
+            <li>Unified IQ platform spanning residential through commercial (completed Dec 2025)&mdash;the only manufacturer with a single platform across all segments</li>
+            <li>EPA WaterSense certification providing independently validated 30&ndash;33% water savings across smart controller portfolio</li>
+            <li>130-country install base creates a potential data flywheel if instrumented for AI</li>
           </ul>
         </div>
 
         <!-- Gaps -->
-        <div class="insight-card gaps">
-          <div class="insight-card-title">Gaps</div>
+        <div class="card insight-card">
+          <div class="insight-card-title"><span class="insight-dot dot-gap"></span> Gaps</div>
           <ul>
-            <li>Governance & Ethics (25) — lowest dimension, compounded by 2025 data breach</li>
-            <li>No AI/ML roles in public job postings — critical talent gap</li>
-            <li>AI messaging is future-oriented, not present-tense — brand gap vs. Netafim</li>
+            <li>Zero AI/ML production systems&mdash;all current products rely on rule-based ET automation and threshold logic</li>
+            <li>No AI talent pipeline&mdash;zero dedicated AI/ML/data science job postings; workforce hiring dominated by manufacturing roles</li>
+            <li>AI-First Orchestration (20)&mdash;lowest single score in the entire competitive assessment; no cross-channel AI coordination</li>
+            <li>No formal AI governance framework; 2025 data breach signals reactive cybersecurity posture</li>
           </ul>
         </div>
 
         <!-- Opportunities -->
-        <div class="insight-card opportunities">
-          <div class="insight-card-title">Opportunities</div>
+        <div class="card insight-card">
+          <div class="insight-card-title"><span class="insight-dot dot-opportunity"></span> Opportunities</div>
           <ul>
-            <li>Rachio integration as the strategic fork — position as AI capability play</li>
-            <li>Agent-Ready Infrastructure (35) above baseline — build on existing API layer</li>
-            <li>Precision irrigation AI narrative is unclaimed except by Netafim</li>
+            <li>Rachio integration pathway: adaptive scheduling + consumer data platform could seed ML capabilities for commercial/golf products</li>
+            <li>CirrusPRO data aggregation (soil moisture + pump data) creates foundation for prescriptive irrigation recommendations without new hardware</li>
+            <li>No competitor has captured the AI-driven commercial landscape irrigation segment; Toro&rsquo;s Spatial Adjust targets golf, Netafim targets agriculture</li>
+            <li>&ldquo;Intelligent Use of Water&rdquo; brand could evolve into genuine AI positioning with minimal identity disruption</li>
           </ul>
         </div>
 
         <!-- Threats -->
-        <div class="insight-card threats">
-          <div class="insight-card-title">Threats</div>
+        <div class="card insight-card">
+          <div class="insight-card-title"><span class="insight-dot dot-threat"></span> Threats</div>
           <ul>
-            <li>Netafim owns the AI narrative (78 Brand AI Messaging) — first-mover advantage</li>
-            <li>Hunter's Hydrawise claims create market confusion about what "AI irrigation" means</li>
-            <li>Talent competition — AI-capable engineers have alternatives beyond irrigation manufacturing</li>
+            <li>Netafim&rsquo;s 27-point lead represents a compounding advantage&mdash;ML systems improve with data accumulation, widening the gap organically</li>
+            <li>Toro&rsquo;s SaaS revenue strategy and autonomous mower portfolio position it for software-defined market share gains</li>
+            <li>Hunter&rsquo;s active ML Engineer hiring (confirmed March 2026) signals imminent product-layer competition from Rain Bird&rsquo;s closest peer</li>
+            <li>AI-powered discovery channels (ChatGPT, Perplexity) may deprioritize brands without AI content signals&mdash;contractor purchasing starts online</li>
           </ul>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ========== SECTION 8: METHODOLOGY & SOURCES ========== -->
-    <div class="section">
+    <!-- ===== 8. FULL DIMENSION COMPARISON ===== -->
+    <section class="section" id="full-comparison">
+      <div class="section-label">Detailed Comparison</div>
+      <h2 class="section-title">15-Dimension Scoring Matrix</h2>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="numeric">Rain Bird</th>
+            <th class="numeric">Hunter</th>
+            <th class="numeric">Toro</th>
+            <th class="numeric">Netafim</th>
+            <th class="numeric">Mfg. Baseline</th>
+            <th class="numeric">vs Baseline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Organization -->
+          <tr class="category-header-row"><td colspan="7">Organization</td></tr>
+          <tr>
+            <td>Workforce AI Access</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">22</td>
+            <td class="numeric">48</td>
+            <td class="numeric">38</td>
+            <td class="numeric">42</td>
+            <td class="numeric">32</td>
+            <td class="numeric delta-negative">&minus;10</td>
+          </tr>
+          <tr>
+            <td>Scaling Maturity</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">38</td>
+            <td class="numeric">38</td>
+            <td class="numeric">47</td>
+            <td class="numeric">55</td>
+            <td class="numeric">35</td>
+            <td class="numeric delta-positive">+3</td>
+          </tr>
+          <tr>
+            <td>Governance &amp; Ethics</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">25</td>
+            <td class="numeric">28</td>
+            <td class="numeric">42</td>
+            <td class="numeric">38</td>
+            <td class="numeric">30</td>
+            <td class="numeric delta-negative">&minus;5</td>
+          </tr>
+          <tr>
+            <td>Talent &amp; Upskilling</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">28</td>
+            <td class="numeric">35</td>
+            <td class="numeric">40</td>
+            <td class="numeric">50</td>
+            <td class="numeric">33</td>
+            <td class="numeric delta-negative">&minus;5</td>
+          </tr>
+          <tr>
+            <td>Measurable ROI</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">42</td>
+            <td class="numeric">42</td>
+            <td class="numeric">45</td>
+            <td class="numeric">58</td>
+            <td class="numeric">52</td>
+            <td class="numeric delta-negative">&minus;10</td>
+          </tr>
+
+          <!-- Brand -->
+          <tr class="category-header-row"><td colspan="7">Brand</td></tr>
+          <tr>
+            <td>AI-Native Messaging</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">32</td>
+            <td class="numeric">22</td>
+            <td class="numeric">52</td>
+            <td class="numeric">78</td>
+            <td class="numeric">42</td>
+            <td class="numeric delta-negative">&minus;10</td>
+          </tr>
+          <tr>
+            <td>Agent-Ready Infrastructure</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">48</td>
+            <td class="numeric">44</td>
+            <td class="numeric">42</td>
+            <td class="numeric">58</td>
+            <td class="numeric">38</td>
+            <td class="numeric delta-positive">+10</td>
+          </tr>
+          <tr>
+            <td>Market AI Perception</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">30</td>
+            <td class="numeric">45</td>
+            <td class="numeric">52</td>
+            <td class="numeric">70</td>
+            <td class="numeric">45</td>
+            <td class="numeric delta-negative">&minus;15</td>
+          </tr>
+          <tr>
+            <td>Content AI-Readiness</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">35</td>
+            <td class="numeric">38</td>
+            <td class="numeric">40</td>
+            <td class="numeric">62</td>
+            <td class="numeric">29</td>
+            <td class="numeric delta-positive">+6</td>
+          </tr>
+          <tr>
+            <td>AI-First Orchestration</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">20</td>
+            <td class="numeric">40</td>
+            <td class="numeric">30</td>
+            <td class="numeric">45</td>
+            <td class="numeric">25</td>
+            <td class="numeric delta-negative">&minus;5</td>
+          </tr>
+
+          <!-- Product -->
+          <tr class="category-header-row"><td colspan="7">Product</td></tr>
+          <tr>
+            <td>AI Interaction Layer</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">42</td>
+            <td class="numeric">35</td>
+            <td class="numeric">62</td>
+            <td class="numeric">80</td>
+            <td class="numeric">44</td>
+            <td class="numeric delta-negative">&minus;2</td>
+          </tr>
+          <tr>
+            <td>Agentic AI Deployment</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">29</td>
+            <td class="numeric">18</td>
+            <td class="numeric">45</td>
+            <td class="numeric">65</td>
+            <td class="numeric">35</td>
+            <td class="numeric delta-negative">&minus;6</td>
+          </tr>
+          <tr>
+            <td>AI UX Maturity</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">38</td>
+            <td class="numeric">42</td>
+            <td class="numeric">55</td>
+            <td class="numeric">68</td>
+            <td class="numeric">36</td>
+            <td class="numeric delta-positive">+2</td>
+          </tr>
+          <tr>
+            <td>Process Redesign</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">30</td>
+            <td class="numeric">40</td>
+            <td class="numeric">52</td>
+            <td class="numeric">72</td>
+            <td class="numeric">43</td>
+            <td class="numeric delta-negative">&minus;13</td>
+          </tr>
+          <tr>
+            <td>AI Value Delivery</td>
+            <td class="numeric" style="color: var(--subject); font-weight: 600;">45</td>
+            <td class="numeric">32</td>
+            <td class="numeric">58</td>
+            <td class="numeric">72</td>
+            <td class="numeric">55</td>
+            <td class="numeric delta-negative">&minus;10</td>
+          </tr>
+
+          <!-- Composites -->
+          <tr class="category-header-row"><td colspan="7">Composites</td></tr>
+          <tr style="font-weight: 600;">
+            <td>Organization</td>
+            <td class="numeric" style="color: var(--subject);">31</td>
+            <td class="numeric">38</td>
+            <td class="numeric">42</td>
+            <td class="numeric">49</td>
+            <td class="numeric">32</td>
+            <td class="numeric delta-negative">&minus;1</td>
+          </tr>
+          <tr style="font-weight: 600;">
+            <td>Brand</td>
+            <td class="numeric" style="color: var(--subject);">33</td>
+            <td class="numeric">38</td>
+            <td class="numeric">43</td>
+            <td class="numeric">63</td>
+            <td class="numeric">36</td>
+            <td class="numeric delta-negative">&minus;3</td>
+          </tr>
+          <tr style="font-weight: 600;">
+            <td>Product</td>
+            <td class="numeric" style="color: var(--subject);">37</td>
+            <td class="numeric">33</td>
+            <td class="numeric">54</td>
+            <td class="numeric">71</td>
+            <td class="numeric">43</td>
+            <td class="numeric delta-negative">&minus;6</td>
+          </tr>
+          <tr style="font-weight: 700; border-top: 2px solid var(--border);">
+            <td>Overall Composite</td>
+            <td class="numeric" style="color: var(--subject);">34</td>
+            <td class="numeric">37</td>
+            <td class="numeric">47</td>
+            <td class="numeric">61</td>
+            <td class="numeric">38</td>
+            <td class="numeric delta-negative">&minus;4</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== 9. METHODOLOGY & SOURCES ===== -->
+    <section class="section" id="methodology">
       <div class="section-label">Methodology</div>
-      <div class="section-title" style="margin-bottom: 24px;">Framework, Sources & Limitations</div>
+      <h2 class="section-title">Methodology &amp; Sources</h2>
 
-      <div class="narrative-block methodology-content">
-        <h3>3Jane AI Enterprise Readiness Index</h3>
-        <p>This assessment uses the 3Jane AI Enterprise Readiness Index, a proprietary framework that evaluates enterprise AI capability across 15 dimensions organized into three categories: Organization (5 dimensions), Brand (5 dimensions), and Product (5 dimensions). Each dimension is scored on a 0–100 scale based on publicly available evidence.</p>
+      <div class="narrative-block">
+        <div class="narrative-text">
+          <p>This report was produced using the <strong>3Jane AI Enterprise Readiness Index</strong>, a 15-dimension framework organized across three assessment categories: Organization, Brand, and Product. Research, scoring, and analysis were conducted using customized or specialized AI agents operating on publicly available evidence including earnings calls, SEC filings, press releases, job postings, patent filings, analyst coverage, and product analysis. Scores are benchmarked against both a general cross-industry baseline and the Manufacturing industry overlay.</p>
 
-        <h3>Industry Overlay</h3>
-        <p>Manufacturing sector baseline applied. Baseline scores are derived from aggregated industry benchmarks drawing on cross-industry AI adoption research, adjusted for manufacturing-specific maturity indicators.</p>
+          <p><strong>Data sources include:</strong> SEC EDGAR (Toro 10-K FY2025, 10-Q filings), earnings call transcripts (Toro Q4 FY2025, Q1 FY2026), company press releases (PR Newswire, Business Wire), product documentation (Rain Bird IQ4, Rachio API, Hydrawise User Guide, Toro Spatial Adjust, Netafim GrowSphere), LinkedIn job postings and corporate profiles, trade press (Irrigation Today, Golf Course Industry), vendor case studies (Augmentir, Smartling), Forbes, YouTube podcast interviews, EPA WaterSense certification data, and patent filings (USPTO, Justia).</p>
 
-        <h3>Data Sources</h3>
-        <ul>
-          <li>Deloitte State of AI in the Enterprise</li>
-          <li>McKinsey Global Survey on AI</li>
-          <li>Stanford HAI AI Index Report</li>
-          <li>Gartner AI Maturity Model</li>
-          <li>Forrester AI Readiness frameworks</li>
-          <li>SEC filings and earnings transcripts</li>
-          <li>Press releases and corporate communications</li>
-          <li>Job postings and corporate careers pages</li>
-          <li>Industry publications and analyst coverage</li>
-        </ul>
+          <p><strong>Maturity levels:</strong> Awareness (0&ndash;20), Active (21&ndash;40), Operational (41&ndash;60), Systemic (61&ndash;80), Transformational (81&ndash;100).</p>
 
-        <h3>Maturity Levels</h3>
-        <ul>
-          <li><strong>Awareness (0–20):</strong> AI is acknowledged but not operationalized. No visible investment or strategy.</li>
-          <li><strong>Active (21–40):</strong> Early AI initiatives underway. Some infrastructure and experimentation, but limited scale or governance.</li>
-          <li><strong>Operational (41–60):</strong> AI is deployed in specific functions with measurable impact. Governance emerging.</li>
-          <li><strong>Systemic (61–80):</strong> AI is integrated across operations with clear strategy, talent, and brand positioning.</li>
-          <li><strong>Transformational (81–100):</strong> AI is a core competitive differentiator embedded in all enterprise functions.</li>
-        </ul>
+          <p><strong>Equal weighting:</strong> Dimensions within each category are weighted equally to produce category composite scores. This ensures no single dimension disproportionately influences the assessment and provides a consistent, transparent baseline for cross-company comparison. Client-specific weighting models&mdash;calibrated to strategic priorities&mdash;are available as part of Applied Identities engagement-level assessments.</p>
 
-        <h3>Equal Weighting Rationale</h3>
-        <p>Dimensions within each category are weighted equally. This ensures transparency and auditability. Client-specific weighting models are available as part of Applied Identities engagement-level assessments.</p>
+          <p><strong>Limitations:</strong> All scores are based on publicly available information only. Internal AI deployment data, proprietary metrics, and non-public initiatives are not captured. Rain Bird and Hunter Industries are private companies; the absence of SEC filings limits evidence depth for organizational and financial dimensions. Netafim operates as a subsidiary of Orbia (BMV: ORBIA*); some organizational signals are inferred from parent-level disclosures. Confidence levels vary by dimension and are noted in the underlying assessment data. Survey-based perception data (3Jane Level 1 / Level 2) was not available for any company in this assessment.</p>
 
-        <h3>QA Validation</h3>
-        <p>Quality assurance corrections were applied during this assessment: The Toro Company composite adjusted from 51 to 47; Rain Bird Agentic AI Deployment adjusted from 35 to 29. All corrections are documented in the assessment data.</p>
-
-        <h3>Limitations</h3>
-        <p>Scores reflect publicly available evidence only. Companies with limited public disclosure may score lower than their internal capabilities warrant. Private companies (Rain Bird, Hunter Industries) face inherent asymmetry in evidence availability compared to publicly traded peers. This assessment does not represent a comprehensive audit of internal AI capabilities and should be interpreted as a market-facing readiness signal, not a definitive capability ranking.</p>
-
-        <p style="margin-top: 24px; font-size: 12px; line-height: 1.6; color: var(--text-muted);">This report was prepared using specialized AI analysis and publicly available information. The findings are provided for strategic analysis purposes only and do not constitute professional advice. Applied Identities makes no representations or warranties regarding the completeness or accuracy of third-party data used in this analysis. Recipients should conduct their own due diligence before making business decisions based on these findings.</p>
-
-        <p class="copyright">©2026 Applied Identities</p>
+          <p><strong>Disclaimer:</strong> Unless otherwise specified, all data and analysis in this report is derived from public sources. This report does not represent, reflect, or imply the views or endorsement of any company named in the analysis. No company named herein has reviewed, approved, or contributed to the findings. Applied Identities makes no warranty regarding the completeness or accuracy of publicly available data, and this report should not be relied upon as the sole basis for business, investment, or operational decisions.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- ========== SECTION 9: DIMENSION GLOSSARY ========== -->
-    <div class="section" style="border-bottom: none;">
-      <details class="glossary-details">
-        <summary>Dimension Glossary — 15 Dimensions Defined</summary>
-        <table class="data-table glossary-table">
+      <!-- Dimension Glossary -->
+      <details class="glossary">
+        <summary>Dimension Glossary</summary>
+        <table class="glossary-table">
           <thead>
             <tr>
-              <th>Dimension</th>
-              <th>Category</th>
-              <th>What It Measures</th>
-              <th>Evidence Considered</th>
+              <th style="width: 18%;">Dimension</th>
+              <th style="width: 22%;">What It Measures</th>
+              <th style="width: 24%;">Evidence Considered</th>
+              <th style="width: 18%;">High Score (&gt;60)</th>
+              <th style="width: 18%;">Low Score (&lt;30)</th>
             </tr>
           </thead>
           <tbody>
-            <!-- Organization Dimensions -->
+            <tr><td colspan="5" class="glossary-cat-header">Organization</td></tr>
             <tr>
-              <td style="font-weight: 500;">Workforce AI Access</td>
-              <td>Organization</td>
-              <td style="font-size: 12px; line-height: 1.5;">The breadth and depth of AI tool availability across the enterprise workforce — from executive access to frontline tooling.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Job postings mentioning AI/ML tools, internal platform announcements, employee-facing AI features, partnership disclosures with AI vendors.</td>
+              <td>Workforce AI Access</td>
+              <td>% of workers with AI tools in daily workflows</td>
+              <td>Job postings, internal tool announcements, earnings call mentions</td>
+              <td>Majority of workforce has AI tools integrated into daily tasks</td>
+              <td>AI tools limited to IT/data science teams only</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Scaling Maturity</td>
-              <td>Organization</td>
-              <td style="font-size: 12px; line-height: 1.5;">The organization's ability to move AI from pilot projects to enterprise-scale deployment with repeatable processes.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Cloud infrastructure investments, platform architecture, API ecosystem maturity, production deployment evidence, MLOps indicators.</td>
+              <td>Scaling Maturity</td>
+              <td>% moved beyond pilots to enterprise-wide AI</td>
+              <td>Press releases, analyst reports, earnings guidance</td>
+              <td>Multiple AI systems in production at enterprise scale</td>
+              <td>Still in pilot phase, no production deployments</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Governance & Ethics</td>
-              <td>Organization</td>
-              <td style="font-size: 12px; line-height: 1.5;">The maturity of AI governance frameworks, ethical guidelines, and risk management infrastructure.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Published AI policies, responsible AI frameworks, data privacy incidents, board-level AI oversight, regulatory compliance posture.</td>
+              <td>Governance &amp; Ethics</td>
+              <td>Mature governance for autonomous AI agents</td>
+              <td>Published AI ethics policies, governance committee announcements, compliance disclosures</td>
+              <td>Formal AI governance framework with board oversight</td>
+              <td>No visible governance structure; reactive to incidents</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Talent & Upskilling</td>
-              <td>Organization</td>
-              <td style="font-size: 12px; line-height: 1.5;">The organization's investment in AI talent acquisition, retention, and workforce upskilling programs.</td>
-              <td style="font-size: 12px; line-height: 1.5;">AI/ML job postings, data science team size indicators, upskilling program announcements, academic partnerships, AI talent acquisition patterns.</td>
+              <td>Talent &amp; Upskilling</td>
+              <td>AI fluency, reskilling, workforce transformation</td>
+              <td>Job postings (AI/ML roles), training program announcements, LinkedIn signals</td>
+              <td>Active AI hiring and company-wide upskilling programs</td>
+              <td>No AI-specific roles; no visible training investment</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Measurable ROI</td>
-              <td>Organization</td>
-              <td style="font-size: 12px; line-height: 1.5;">Evidence of quantified business impact from AI investments — demonstrated returns rather than projected value.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Earnings call AI mentions with metrics, published case studies with outcomes, efficiency gain disclosures, revenue attribution to AI features.</td>
+              <td>Measurable ROI</td>
+              <td>Enterprise-level EBIT impact from AI</td>
+              <td>Earnings calls, SEC filings, analyst estimates, press releases</td>
+              <td>Disclosed, measurable financial impact from AI initiatives</td>
+              <td>No disclosed AI ROI; investments are cost-center only</td>
             </tr>
-            <!-- Brand Dimensions -->
+
+            <tr><td colspan="5" class="glossary-cat-header">Brand</td></tr>
             <tr>
-              <td style="font-weight: 500;">AI-Native Messaging</td>
-              <td>Brand</td>
-              <td style="font-size: 12px; line-height: 1.5;">How prominently and credibly the brand communicates AI capability in its market-facing messaging.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Website AI language, product marketing copy, executive thought leadership, press releases, investor communications mentioning AI.</td>
-            </tr>
-            <tr>
-              <td style="font-weight: 500;">Agent-Ready Infrastructure</td>
-              <td>Brand</td>
-              <td style="font-size: 12px; line-height: 1.5;">The brand's technical readiness for AI agent interaction — structured data, APIs, and machine-readable content.</td>
-              <td style="font-size: 12px; line-height: 1.5;">API availability, structured data markup, developer documentation, integration partnerships, chatbot/assistant presence.</td>
+              <td>AI-Native Messaging</td>
+              <td>Quality and credibility of AI in brand communications</td>
+              <td>Executive thought leadership, press releases, marketing language, conference presence</td>
+              <td>AI is central to brand identity; leadership speaks credibly about AI strategy</td>
+              <td>No AI messaging, or messaging is vague/aspirational only</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Market AI Perception</td>
-              <td>Brand</td>
-              <td style="font-size: 12px; line-height: 1.5;">How the market — analysts, media, partners — perceives the company's AI capability and positioning.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Analyst reports, media coverage framing, industry award recognition, conference speaking invitations, partner ecosystem positioning.</td>
+              <td>Agent-Ready Infrastructure</td>
+              <td>Structured data, APIs, machine-readable content</td>
+              <td>API documentation, developer portals, data format analysis, integration announcements</td>
+              <td>Published APIs, structured data feeds, developer ecosystem</td>
+              <td>No public APIs; content is static/unstructured</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Content AI-Readiness</td>
-              <td>Brand</td>
-              <td style="font-size: 12px; line-height: 1.5;">How well the brand's content ecosystem is optimized for AI consumption, discovery, and machine comprehension.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Content structure and schema markup, dynamic vs. static content, knowledge base architecture, SEO-to-AEO transition indicators.</td>
+              <td>Market AI Perception</td>
+              <td>Credibility as AI-competent vs AI-washing</td>
+              <td>Analyst mentions, media coverage, industry awards, Gartner/Forrester placement</td>
+              <td>Recognized by analysts and media as AI leader in category</td>
+              <td>Not mentioned in AI context by third parties</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">AI-First Orchestration</td>
-              <td>Brand</td>
-              <td style="font-size: 12px; line-height: 1.5;">The degree to which AI coordinates cross-channel brand experiences and marketing operations.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Marketing automation sophistication, personalization evidence, cross-channel consistency, AI-driven campaign optimization indicators.</td>
-            </tr>
-            <!-- Product Dimensions -->
-            <tr>
-              <td style="font-weight: 500;">AI Interaction Layer</td>
-              <td>Product</td>
-              <td style="font-size: 12px; line-height: 1.5;">The sophistication of AI-driven user interaction within the product — from smart features to conversational AI.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Product AI features, conversational interfaces, recommendation systems, smart automation, natural language capabilities.</td>
+              <td>Content AI-Readiness</td>
+              <td>Content optimized for AI consumption</td>
+              <td>Website analysis, content format assessment, schema markup, AEO readiness</td>
+              <td>Content is structured, machine-readable, optimized for AI retrieval</td>
+              <td>Static content, no schema markup, not machine-readable</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Agentic AI Deployment</td>
-              <td>Product</td>
-              <td style="font-size: 12px; line-height: 1.5;">Integration with third-party AI agent ecosystems and deployment of autonomous AI capabilities within the product.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Agent framework integrations, autonomous workflow capabilities, third-party AI ecosystem participation, MCP/tool-use support.</td>
+              <td>AI-First Orchestration</td>
+              <td>Marketing/brand ops managed by AI</td>
+              <td>Cross-channel coordination evidence, marketing automation signals</td>
+              <td>AI coordinates brand output across channels consistently</td>
+              <td>No cross-channel AI coordination detected</td>
+            </tr>
+
+            <tr><td colspan="5" class="glossary-cat-header">Product</td></tr>
+            <tr>
+              <td>AI Interaction Layer</td>
+              <td>Position on chatbot &rarr; assistant &rarr; agentic spectrum</td>
+              <td>Product documentation, user interface analysis, feature announcements</td>
+              <td>Agentic AI capabilities with autonomous task completion</td>
+              <td>No AI interaction features; traditional interface only</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">AI UX Maturity</td>
-              <td>Product</td>
-              <td style="font-size: 12px; line-height: 1.5;">The maturity of AI-specific user experience patterns — explainability, trust, error recovery, and transparency.</td>
-              <td style="font-size: 12px; line-height: 1.5;">AI explainability features, confidence indicators, user control over AI behavior, error handling, transparency disclosures.</td>
+              <td>Agentic AI Deployment</td>
+              <td>Scaled agentic systems in production</td>
+              <td>Integration announcements, developer documentation, partnership signals. Scope: OpenAI, Anthropic, Microsoft Copilot, Google Vertex, Salesforce Agentforce, and equivalent enterprise agent frameworks</td>
+              <td>Multiple agentic systems deployed with third-party ecosystem integration</td>
+              <td>No agentic deployment; limited to basic automation</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">Process Redesign</td>
-              <td>Product</td>
-              <td style="font-size: 12px; line-height: 1.5;">The degree to which AI has driven fundamental process transformation rather than surface-level automation.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Workflow automation depth, AI-driven process re-architecture evidence, operational transformation disclosures, patent filings.</td>
+              <td>AI UX Maturity</td>
+              <td>Trust, explainability, error recovery in AI features</td>
+              <td>Product analysis, user documentation, transparency features</td>
+              <td>AI features include explainability, confidence indicators, graceful error handling</td>
+              <td>AI features are opaque; no explainability or error recovery</td>
             </tr>
             <tr>
-              <td style="font-weight: 500;">AI Value Delivery</td>
-              <td>Product</td>
-              <td style="font-size: 12px; line-height: 1.5;">Measurable value the product delivers through AI capabilities — cost savings, efficiency gains, or new revenue streams for users.</td>
-              <td style="font-size: 12px; line-height: 1.5;">Published ROI metrics, customer case studies, product differentiation claims, pricing premium evidence, competitive win rates.</td>
+              <td>Process Redesign</td>
+              <td>Workflows rebuilt for AI vs surface-level automation</td>
+              <td>Case studies, process documentation, operational announcements</td>
+              <td>Core workflows redesigned around AI capabilities</td>
+              <td>Surface-level AI overlay on existing processes</td>
+            </tr>
+            <tr>
+              <td>AI Value Delivery</td>
+              <td>Measurable value from product AI features</td>
+              <td>Product metrics, customer case studies, feature adoption data</td>
+              <td>Demonstrated, measurable value from AI product features</td>
+              <td>No measurable value from AI; features are experimental</td>
             </tr>
           </tbody>
-        </table></div>
+        </table>
       </details>
-    </div>
+    </section>
 
   </main>
 
-  <!-- ============================================================ -->
-  <!-- FOOTER -->
-  <!-- ============================================================ -->
+  <!-- ========== FOOTER ========== -->
   <footer class="report-footer">
     <div class="container">
       <div style="display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
-          <a href="https://appliedidentities.com" class="footer-wordmark">Applied Identities →</a>
+          <a href="https://appliedidentities.com" class="footer-wordmark">Applied Identities &rarr;</a>
           <div class="footer-url">appliedidentities.com</div>
         </div>
         <div style="text-align: right;">
-          <div style="font-size: 13px; color: var(--text-muted);">RB-AGT3-001 · March 2026</div>
+          <div style="font-size: 13px; color: var(--text-muted);">RB-AGT3-001 &middot; March 11, 2026</div>
+          <div style="font-size: 11px; color: var(--text-faint); margin-top: 4px;">Independent analysis based on public sources only. Not endorsed by any company named herein.</div>
         </div>
       </div>
-      <p class="confidentiality">CONFIDENTIAL — For intended recipient only</p>
-      <p class="copyright">©2026 Applied Identities</p>
+      <p class="confidentiality">CONFIDENTIAL &mdash; For intended recipient only</p>
+      <p class="copyright">&copy;2026 Applied Identities</p>
     </div>
   </footer>
 
