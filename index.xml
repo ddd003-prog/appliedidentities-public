@@ -6,14 +6,21 @@
     <description>Recent content in Make AI Yours — Applied Identities on Applied Identities</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Jan 2026 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://appliedidentities.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>What Anthropic&#39;s Constitution Means for Your AI Deployment</title>
+      <title>Anthropic Just Published the Business Case for Identity Architecture</title>
       <link>https://appliedidentities.com/perspectives/claude-constitution/</link>
-      <pubDate>Thu, 22 Jan 2026 00:00:00 -0500</pubDate>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://appliedidentities.com/perspectives/claude-constitution/</guid>
-      <description>&lt;p&gt;Anthropic published Claude&amp;rsquo;s complete constitution in January 2026 — 23,000 words defining who their AI is, how it reasons through conflicts, and what it refuses to do regardless of who asks.&lt;/p&gt;&#xA;&lt;p&gt;The market validated the investment: 32% enterprise market share, 70% Fortune 100 adoption, valuation from $61.5B to $350B in nine months. Anthropic bet that identity architecture would become a competitive differentiator. The bet paid off.&lt;/p&gt;&#xA;&lt;p&gt;If the most successful AI company invested this deeply in identity infrastructure for one system, what does that suggest about the foundation required for yours?&lt;/p&gt;</description>
+      <description>&lt;p&gt;Anthropic captured 32% of enterprise AI market share in 2025 — more than OpenAI, more than Google. In January 2026, they published the document that explains how: a 23,000-word operational constitution that shapes every decision Claude makes.&lt;/p&gt;&#xA;&lt;p&gt;They didn&amp;rsquo;t call it a marketing asset. They didn&amp;rsquo;t publish it as a whitepaper. They released it as the foundational governance artifact for the most commercially successful AI model in enterprise deployment. And its architecture is structurally identical to what we build for our clients.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NVIDIA Built the Engine. We Built the Driver&#39;s License.</title>
+      <link>https://appliedidentities.com/perspectives/nemoclaw-vi-gateway/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://appliedidentities.com/perspectives/nemoclaw-vi-gateway/</guid>
+      <description>&lt;p&gt;Jensen Huang called OpenClaw &amp;ldquo;the operating system for personal AI.&amp;rdquo; On March 16, NVIDIA shipped the security and identity infrastructure to make that operating system enterprise-grade. What they didn&amp;rsquo;t ship — what the architecture explicitly requires and does not provide — is the layer that answers: who authorized this agent, what is it allowed to do, and can a third party verify that independently?&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s the slot we&amp;rsquo;re in. With running code, deployed on the same day.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
