@@ -16,7 +16,7 @@
       <description>&lt;p&gt;Jensen Huang called OpenClaw &amp;ldquo;the operating system for personal AI.&amp;rdquo; On March 16, NVIDIA shipped the security and identity infrastructure to make that operating system enterprise-grade. What they didn&amp;rsquo;t ship — what the architecture explicitly requires and does not provide — is the layer that answers: who authorized this agent, what is it allowed to do, and can a third party verify that independently?&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s the slot we&amp;rsquo;re in. With running code, deployed on the same day.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Anthropic Just Published the Business Case for Identity Architecture</title>
+      <title>What Anthropic&#39;s Claude Constitution says about Identity</title>
       <link>https://appliedidentities.com/perspectives/claude-constitution/</link>
       <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://appliedidentities.com/perspectives/claude-constitution/</guid>
