@@ -6,8 +6,15 @@
     <description>Recent content in Make AI Yours — Applied Identities on Applied Identities</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://appliedidentities.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Organizational Control Layer: Why Enterprise AI Deployments Keep Failing at the Same Place</title>
+      <link>https://appliedidentities.com/perspectives/organizational-control-layer/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://appliedidentities.com/perspectives/organizational-control-layer/</guid>
+      <description>&lt;p&gt;The enthusiasm for AI agents is genuine, and the investment behind it is real. Organizations are not moving slowly. What is moving slowly &amp;ndash; sometimes not moving at all &amp;ndash; is the distance between a compelling demonstration and a production deployment that actually holds up under operational conditions.&lt;/p&gt;&#xA;&lt;p&gt;The market is starting to say this out loud. Gartner projects that more than 40 percent of agentic AI projects will be canceled by end of 2027 due to escalating costs, unclear business value, or inadequate risk controls. Separately, Gartner has estimated that at least 30 percent of generative AI projects were abandoned after proof of concept for similar reasons. These are not soft analyst predictions. They are projections grounded in pattern recognition from what is already happening across industries, at scale.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>NVIDIA releases NemoClaw</title>
       <link>https://appliedidentities.com/perspectives/nemoclaw-vi-gateway/</link>
