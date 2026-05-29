@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Governance Gap Nobody Is Closing | Applied Identities</title>
+  <meta name="description" content="Three adjacent categories — LLMOps, GRC, and model evaluation — each solve real problems. None of them answers whether the agent is doing what you specified, and whether you can prove it independently.">
+
+  
+  <meta property="og:title" content="The Governance Gap Nobody Is Closing">
+  <meta property="og:description" content="Three adjacent categories — LLMOps, GRC, and model evaluation — each solve real problems. None of them answers whether the agent is doing what you specified, and whether you can prove it independently.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://appliedidentities.com/insights/governance-gap/">
+  <meta property="og:site_name" content="Applied Identities">
+
+  
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/ibm-plex-sans.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/newsreader.woff2" crossorigin>
+
+  
+  
+  <link rel="stylesheet" href="/css/main.d14b1a33d895288cd449f44fdc3a5e9133a128f807394bfa224283df1a002341.css" integrity="sha256-0UsaM9iVKIzUSfRP3DpekTOhKPgHOUv6IkKD3xoAI0E=">
+
+  
+  <link rel="icon" type="image/png" href="/images/brand-mark.png">
+
+  
+  
+
+
+
+
+  
+
+  
+  <script defer src="https://analytics.appliedidentities.com/script.js" data-website-id="c9af12f9-17bd-4ec6-b651-20f79714dd1f"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+  <div class="wrap nav-row">
+    <a href="/" class="brand" aria-label="Applied Identities, home">
+      <span class="mark" aria-hidden="true"></span>Applied Identities
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      
+      
+        
+        <a href="/layer/">The Layer</a>
+      
+        
+        <a href="/architecture/">Architecture</a>
+      
+        
+        <a href="/insights/" class="active">Insights</a>
+      
+        
+        <a href="/contact/">Contact</a>
+      
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="/contact/">Start a conversation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+    <main id="main">
+      
+
+
+
+
+<div class="wrap">
+<article class="article">
+  <header class="article-hero">
+    <a href="/insights/" class="article-back">← All insights</a>
+    <div class="article-meta-row">
+      <span class="article-tag">Article</span>
+      <span class="article-date">May 2026</span>
+    </div>
+    <h1>The Governance Gap Nobody Is Closing</h1>
+    <div class="article-byline">Daniel Davenport</div>
+  </header>
+
+  <div class="article-body prose">
+    <p>Ninety-seven percent of executives say their company deployed AI agents in the past year. Fifty-seven percent are running multi-step workflows. Sixteen percent have progressed to cross-functional agent processes spanning multiple teams. These numbers come from Anthropic&rsquo;s 2026 State of AI Agents report, and they describe an enterprise adoption curve that has moved faster than any comparable technology deployment in the past thirty years.</p>
+<p>Here is what those numbers do not describe: how many of those organizations can answer a basic question about any agent they have deployed. Not &ldquo;is it performing well?&rdquo; Not &ldquo;is it within latency targets?&rdquo; The question underneath all of those: <em>Is this agent doing what we specified it should do, and can we prove it to someone who has no reason to trust us?</em></p>
+<p>Most cannot. And the tooling market, for all its growth, has not built the infrastructure that would let them.</p>
+<h2 id="three-categories-one-missing-layer">Three categories, one missing layer</h2>
+<p>The enterprise AI tooling market has responded to the deployment surge with three adjacent categories, each growing rapidly, each solving a real problem, and none of them solving this one.</p>
+<p><strong>LLMOps</strong> manages operational performance. It handles model deployment, monitoring, cost optimization, and the lifecycle management that keeps agents running reliably in production. Research firms project the LLMOps market will reach between $5 billion and $8 billion in 2026, depending on category definition, with growth rates exceeding 30% annually through the end of the decade. It answers the question: <em>Is this agent running well?</em></p>
+<p><strong>GRC platforms</strong> (governance, risk, and compliance) map AI deployments to regulatory frameworks. They produce policy documents, risk registers, and compliance artifacts. They answer the question: <em>Can we demonstrate that we have a process for managing this agent?</em></p>
+<p><strong>Model evaluation</strong> assesses output quality. It benchmarks accuracy, tests for hallucination, measures performance against task-specific criteria. It answers the question: <em>Is this agent producing good outputs?</em></p>
+<p>Each category is necessary. Each is growing for legitimate reasons. And each optimizes for its own dimension of the problem. What none of them answers is the question that sits underneath every deployment decision a board member, a CISO, or a Chief Risk Officer actually needs resolved: is this agent behaving in accordance with the values, boundaries, and authority we intended it to hold? Not once, at evaluation time. Continuously, in production, against a formal specification that exists independently of the agent&rsquo;s runtime environment. And can a third party verify that record without taking our word for it?</p>
+<p>That question defines a governance gap. Not a feature gap within any existing category, but a missing infrastructure layer between what the adjacent categories provide and what the enterprise deploying agents at scale actually requires.</p>
+<h2 id="how-the-gap-formed">How the gap formed</h2>
+<p>The gap is not an accident. It is a structural consequence of how the AI tooling market developed.</p>
+<p>The first wave of AI tooling was built for model builders. MLOps and its successor LLMOps emerged to help the teams training and deploying models manage increasingly complex operational lifecycles. The customer for these tools is the engineering team. The problem they solve is operational reliability. They were never designed to answer questions about whether an agent&rsquo;s behavior aligns with an organizational specification, because the organizations deploying agents had not yet needed to write organizational specifications.</p>
+<p>The second wave was built for compliance teams. GRC platforms extended their existing frameworks to accommodate AI as a new category of risk. The customer is the risk and compliance function. The problem they solve is regulatory readiness. They produce documentation. They do not produce behavioral evidence. The difference matters: documentation describes what an organization intends. Evidence demonstrates what an agent actually did.</p>
+<p>The third wave was built for quality assurance. Model evaluation tools test whether agent outputs meet accuracy and safety thresholds. The customer is the product team. The problem they solve is output quality at the point of evaluation. They were not designed for continuous behavioral observation against a specification, because the concept of an agent behavioral specification barely existed when most evaluation frameworks were designed.</p>
+<p>Each wave built tooling for the buyer who was writing the check at that moment in the adoption curve. Model builders came first. Compliance teams came second. Quality teams came third. None of them built for the buyer who is emerging now: the enterprise executive who needs to govern agents as a workforce, not as a technology stack.</p>
+<h2 id="why-the-gap-persists">Why the gap persists</h2>
+<p>Two reinforcing dynamics keep the gap open. A third, structural dynamic explains why the most powerful players in the ecosystem will not close it.</p>
+<p>On the vendor side, each adjacent category has incentives to deepen its own dimension rather than expand into governance. LLMOps vendors compete on operational sophistication. GRC vendors compete on regulatory coverage. Evaluation vendors compete on benchmark breadth. Closing the governance gap would require a fundamentally different data architecture, one built around formal behavioral specifications, continuous observational measurement, and independent verification chains. That is not an extension of what any adjacent category already does. It is a different product, for a different buyer, solving a different problem.</p>
+<p>On the client side, the gap is felt most acutely not by platform engineers but by the executives responsible for the agents&rsquo; presence in the organization. Consider the CTO at a large financial institution. One division runs Anthropic agents for document analysis. Another runs OpenAI agents for customer engagement. A third has deployed a vertical vendor&rsquo;s proprietary agents for compliance workflows. Each vendor&rsquo;s tooling is optimized for its own platform. The LLMOps stack monitoring the Anthropic deployment has no visibility into the OpenAI deployment. The GRC framework configured for the compliance agents does not map to the customer engagement agents. No single tool gives this CTO a unified governance surface across every agent vendor, every deployment context, and every team building new workflows on an organizational shape that is still forming.</p>
+<p>This multi-vendor reality is not an edge case. It is the emerging default. MCP, Google ADK, open agent frameworks, and vendor-agnostic orchestration layers are making multi-vendor agent deployment easier every quarter. Open protocols reduce switching costs, which accelerates multi-vendor adoption, which deepens the cross-cutting governance need that no single-vendor tool can serve.</p>
+<p>The hyperscalers will not close this gap either. Each has shipped governance-adjacent tooling: AWS Bedrock Guardrails, Azure&rsquo;s responsible AI stack, Google&rsquo;s Vertex AI governance features. Each tool governs agents running on that platform. None governs agents running on a competitor&rsquo;s platform. And none has a business-model incentive to do so, because the commercial logic of the hyperscaler model is to keep workloads and the tooling that manages them inside the platform boundary.</p>
+<p>The parallel to cloud economics is instructive. AWS built Cost Explorer. Azure built Cost Management. Google built its billing dashboards. Each optimized for its own platform. Each was adequate as long as the enterprise was single-cloud. The moment multi-cloud became the operational reality, the single-platform cost tools could not provide what the enterprise needed: cost governance across all of them. FinOps emerged as an independent discipline and an independent tooling category specifically because the cross-vendor visibility problem could not be solved by any single provider without working against its own commercial interests.</p>
+<p>Agent governance is reaching the same inflection on a compressed timeline. And once multi-vendor agent deployment is the default rather than the exception, the governance question stops being &ldquo;how do I govern agents on Platform X&rdquo; and becomes &ldquo;how do I govern agents across every platform and every vendor.&rdquo; No hyperscaler will answer that question. The business model will not permit it. And the credibility requirement makes independence structural, not merely preferential: a governance layer that verifies agent behavior must be independent of the platform running the agent. If the platform provider is also the governance provider, the verification chain collapses into self-attestation.</p>
+<h2 id="what-the-gap-leaves-unresolved">What the gap leaves unresolved</h2>
+<p>The governance gap is not theoretical. It shows up in specific, recurring failures that most enterprises have already encountered and few have language for.</p>
+<p>An agent drifts from its intended behavior gradually, across weeks of production operation, and nobody detects the drift because no system is measuring behavior against specification. The agent is performing well by every operational metric. Its outputs pass quality checks. Its compliance documentation is current. And it is slowly acting outside the boundaries its deployers intended, because nobody wrote a formal specification for those boundaries, and no system is watching for deviation.</p>
+<p>A regulator or insurer asks for evidence of agent governance, and the organization produces policy documents, risk registers, and evaluation scores. None of these constitute evidence that the agent&rsquo;s actual behavior matches its intended behavior over time. The organization has documentation of governance intent. It does not have evidence of governance in operation. The gap between those two things is precisely the gap that regulatory enforcement, beginning with the EU AI Act&rsquo;s August 2026 deadline for high-risk systems, will expose.</p>
+<h2 id="the-shape-of-what-fills-it">The shape of what fills it</h2>
+<p>Every enterprise deploying agents at scale is building what amounts to a blended workforce, whether it intended to or not. Humans and agents share decision authority, hand tasks to each other, and operate in overlapping domains. Both are participants in organizational workflows — not tools and users but co-workers operating under the same organizational values. This is the recognition at the heart of <a href="/insights/janus-brands/">Janus Brands</a>: in the economy that is forming, both humans and agents are first-class participants in every commercial and operational interaction, and the organizations that treat agents as participants rather than tools will govern them accordingly. The moment both are participants, the organization&rsquo;s values, boundaries, and operating standards must be legible to both.</p>
+<p>That recognition reshapes what governance infrastructure must provide.</p>
+<p><strong>Specification.</strong> If both humans and agents are operating against organizational values, those values must be compiled into formal, versioned, independently inspectable artifacts. Not system prompts. Not configuration files. Governance documents that can be audited, compared across versions, and verified by someone with no access to the agent&rsquo;s runtime. In <a href="/insights/compiled-corporation/">The Compiled Corporation</a>, I described how the agentic workforce transition requires organizations to translate their operational identity from tacit knowledge into explicit specification — to compile the way they work, decide, and create value into formal structures that both humans and agents can operate against. The compilation is bidirectional. The agent needs a specification it can execute against. The human working alongside that agent needs a specification they can supervise against. Same source values, two compiled outputs. Without the formal specification, there is nothing to govern against.</p>
+<p><strong>Continuous measurement.</strong> Specification without measurement is declaration. The governance layer must evaluate whether agents are behaving in accordance with what they were specified to hold, and it must do so continuously, because drift is continuous. A quarterly audit finds what went wrong three months ago. Continuous measurement finds what is going wrong now. In <a href="/insights/decision-surfaces/">Decision Surfaces</a>, I described the boundary architecture between human judgment and agent execution — the interfaces where humans delegate decisions to agents, where agents escalate decisions back, where both participate in shared workflows. Those boundaries are only maintainable if a measurement system is watching whether agents are operating within them, in real time, across every deployment context.</p>
+<p><strong>Independent verification.</strong> The chain from specification through measurement to behavioral record must be inspectable by someone outside the organization. A regulator. An insurer. A customer&rsquo;s procurement team. If accountability depends on trusting the organization&rsquo;s own reporting, the chain collapses into self-attestation. The infrastructure must make the chain independently verifiable without requiring access to proprietary systems or raw operational data.</p>
+<p><strong>Governed evolution.</strong> Agents mature. Their capabilities expand. The boundaries of appropriate behavior shift as trust develops and organizational needs change. The specification must evolve through a documented, auditable lifecycle, not through ad hoc prompt changes that no one tracks. And because both classes of participant are evolving, the human-side specifications must evolve in concert with the agent-side specifications. The governance lifecycle is not a single thread. It is the coordinated evolution of both sides of every workflow boundary.</p>
+<p>These four capabilities are not idiosyncratic requirements. They are what three independent regulatory frameworks have converged on from different starting points. The EU AI Act requires documentation of high-risk AI systems that includes behavioral specifications, risk management, and ongoing monitoring. The NIST AI RMF structures governance around four functions — govern, map, measure, and manage — that map to specification and continuous measurement. In February 2026, NIST launched a dedicated initiative to develop standards specifically for autonomous AI agents. ISO/IEC 42001 requires an AI management system with documented policies, risk assessment, and performance evaluation.</p>
+<p>Each framework, arrived at independently, describes the same structural requirements. The convergence reflects what agent governance actually demands.</p>
+<h2 id="the-window">The window</h2>
+<p>The AI governance market is growing at roughly 40–45% annually according to multiple industry analyses, but the market as currently defined conflates governance-as-compliance with governance-as-infrastructure. The first produces documentation. The second produces evidence. The first is a feature of GRC. The second is its own category.</p>
+<p>The category comparison clarifies the distinction. LLMOps is the platform-native operational layer, the equivalent of each cloud provider&rsquo;s built-in monitoring. GRC is the compliance overlay. Model evaluation is the QA function. Governance infrastructure is the FinOps-equivalent layer: the independent, cross-vendor discipline that emerges when multi-vendor deployment makes single-platform governance tools structurally insufficient.</p>
+<p>The organizations deploying agents at scale over the next eighteen months will discover the governance gap the same way enterprises discovered the cloud cost management gap: through failures that their existing tooling categories were not designed to prevent. The multi-vendor reality is already here. The open protocol developments are accelerating it. The regulatory deadlines are converting to procurement conditions.</p>
+<p>The adjacent categories have revealed what they will and will not cover. The hyperscalers have revealed what their business models will and will not permit. The regulatory frameworks have converged on what governance requires. The deployment velocity has created the demand.</p>
+<p>The gap is named. The shape of what fills it is clear. The infrastructure is what remains.</p>
+<hr>
+<p><em>Daniel Davenport is co-founder and Chief Identity Officer of Applied Identities, the governance infrastructure company for the agentic workforce. A business strategist and early-stage technology adopter across four waves — internet, mobile, cloud, AI — he writes about what changes when autonomous agents stop being tools and start being workers, and what enterprises need in place before that transition is safe to make at scale.</em></p>
+
+  </div>
+
+  
+  
+  
+  <aside class="article-related">
+    <div class="article-related-label">More from Insights</div>
+    
+    <a class="insight-row" href="/insights/accountability-infrastructure/">
+      <span class="insight-tag">Article</span>
+      <span class="insight-text">What Accountability Infrastructure Looks Like</span>
+      <span class="insight-arrow">→</span>
+    </a>
+    
+    <a class="insight-row" href="/insights/interaction-layer/">
+      <span class="insight-tag">Article</span>
+      <span class="insight-text">The Interaction Layer: Designing the Human-Agent Workforce</span>
+      <span class="insight-arrow">→</span>
+    </a>
+    
+    <a class="insight-row" href="/insights/organizational-control-layer/">
+      <span class="insight-tag">Article</span>
+      <span class="insight-text">The Organizational Control Layer: Why Enterprise AI Deployments Keep Failing at the Same Place</span>
+      <span class="insight-arrow">→</span>
+    </a>
+    
+  </aside>
+  
+</article>
+</div>
+
+
+
+
+
+<section class="band-amber cta-band">
+  <div class="wrap">
+    <h2>Tell us what you are building.</h2>
+    <p>No demo queue. No sales deck. We will tell you how governance fits.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/contact/">Get in touch</a>
+      <a class="btn btn-ghost" href="/insights/">Read the Insights</a>
+    </div>
+  </div>
+</section>
+
+
+
+    </main>
+
+    <footer class="footer">
+  <div class="wrap">
+    <div class="foot-row">
+      <div>
+        <div class="foot-brand">Applied Identities</div>
+        <p class="foot-desc">Behavioral governance for AI agent workforces.</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="/layer/">The Layer</a>
+          <a href="/architecture/">Architecture</a>
+          <a href="/insights/">Insights</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/verify/">Verify</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>&copy; 2026 Applied Identities</span>
+      <span>Behavioral governance, independently verifiable.</span>
+    </div>
+  </div>
+</footer>
+
+  </div>
+
+  <script src="/js/main.js" defer></script>
+  
+</body>
+</html>
