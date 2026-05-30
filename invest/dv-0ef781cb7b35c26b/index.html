@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dark Value &middot; An Investor Briefing from Applied Identities</title>
+  <meta name="description" content="What your agents are worth, and why your financials can't see it yet. A private investor briefing from Applied Identities.">
+
+  <!-- Chart.js 4.4.1 -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+  <!-- Privacy-respecting analytics. Replace data-domain with the real site id before sending links. -->
+  <!-- Plausible: -->
+  <script defer data-domain="REPLACE_WITH_PLAUSIBLE_DOMAIN" src="https://plausible.io/js/script.manual.pageview-props.js"></script>
+  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) };</script>
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main>
+    <!-- 1. HERO -->
+    <header class="hero" id="hero">
+      <div class="col">
+        <p class="eyebrow">An investor briefing from Applied Identities</p>
+        <h1>Dark Value</h1>
+        <p class="subtitle">What your agents are worth, and why your financials can't see it yet</p>
+        <p class="confidential" id="confidential-line">Private and confidential. Prepared for prospective investors.</p>
+      </div>
+    </header>
+
+    <!-- WHAT THIS IS (orienting intro) -->
+    <section class="prose" aria-labelledby="what-this-is">
+      <div class="col">
+        <h2 id="what-this-is">What this is</h2>
+        <p>This briefing explains a shift we are building a company around. AI capability is becoming abundant and cheap. The scarce thing is proof: the ability to show what an agent's work is actually worth, in terms a CFO, an auditor, a regulator, or an insurer will accept. We call the value that exists but cannot yet be seen Dark Value. The page below lays out where it comes from, why the market is about to pay for making it visible, and how Applied Identities turns it into recognized, defensible value. Near the end there is a model you can run yourself. It is about a six-minute read.</p>
+      </div>
+    </section>
+
+    <!-- 2. THE OPENER -->
+    <section class="prose" aria-labelledby="start-insurers">
+      <div class="col">
+        <h2 id="start-insurers">Start with the insurers</h2>
+        <p>The most revealing move in enterprise AI this year did not come from a model lab. It came from the insurance industry. Over the opening months of 2026, Berkshire Hathaway, Chubb, and Travelers won approval from state regulators to remove AI-related damages from standard commercial liability, and regulators signed off on more than four in five requests. The firms whose entire business is pricing risk looked at AI and decided, for now, not to price it. That deserves more attention than most product launches, because an underwriter is the market's final scorer. When the party that prices risk for a living steps back, it is saying it cannot yet see the risk clearly enough to put a number on it.</p>
+      </div>
+    </section>
+
+    <!-- 3. THE THING THE ACCOUNTS CAN'T SEE -->
+    <section class="prose" aria-labelledby="accounts">
+      <div class="col">
+        <h2 id="accounts">The thing the accounts can't see</h2>
+        <p>A recent SemiAnalysis piece by Malcolm Spittler and Dylan Patel gives the underlying logic a name worth borrowing: Dark Output, the value AI produces that national accounts cannot see. When an agent drafts a document a lawyer used to bill for, the receipt simply vanishes, and the statistics can record falling output and even rising prices in the exact place where productivity climbed. SemiAnalysis sells a paid monitor for this, so we separate their commercial interest from the structural claim. The structural claim is not new. Robert Solow noticed in 1987 that the computer age was visible everywhere except the productivity statistics, and the productivity J-curve later explained why: a general-purpose technology demands heavy, invisible investment before its gains surface. Dark Output is the sharpest current statement of a forty-year-old problem.</p>
+      </div>
+    </section>
+
+    <!-- 4. DARK VALUE -->
+    <section class="prose" aria-labelledby="dark-value">
+      <div class="col">
+        <h2 id="dark-value">Dark Value</h2>
+        <p>The macro accounts are blind to AI's output for structural reasons. The enterprise income statement is blind for the same reasons. Across the 2026 surveys the pattern repeats: the value is real, it is felt at the desk, and it does not survive the trip to the income statement, because nothing in the deployment was built to make it survive.</p>
+
+        <div class="stat-row" role="list" aria-label="Enterprise AI ROI gap, 2026 surveys">
+          <div class="stat-card" role="listitem">
+            <div class="stat-figure">~80%</div>
+            <div class="stat-label">of organizations now use generative AI in at least one function</div>
+          </div>
+          <div class="stat-card" role="listitem">
+            <div class="stat-figure">Majority</div>
+            <div class="stat-label">report no enterprise-wide effect on the bottom line</div>
+          </div>
+          <div class="stat-card" role="listitem">
+            <div class="stat-figure">~1 in 3</div>
+            <div class="stat-label">can point to significant ROI from generative AI</div>
+          </div>
+          <div class="stat-card" role="listitem">
+            <div class="stat-figure">Near-universal</div>
+            <div class="stat-label">individual-level benefit reported by executives</div>
+          </div>
+        </div>
+
+        <p>That gap is Dark Value, and most companies are generating it and throwing it away. The strategic point follows: legibility, not capability, is the scarce input, and scarce inputs are where value accrues.</p>
+      </div>
+    </section>
+
+    <!-- 5. THE SUBSTITUTION HALF -->
+    <section class="prose" aria-labelledby="substitution">
+      <div class="col">
+        <h2 id="substitution">How value becomes real: it has to climb</h2>
+        <p>Proof comes in strengths, not as a yes or no. A benchmark is a claim about software under test. A company's own report on its own agent is, from the outside, hard to tell apart from marketing. A production deployment a customer can inspect is stronger. An assessment an outside party will sign is stronger still. At the top sits a risk an insurer will underwrite, because a disinterested third party has examined the work, priced the failure, and agreed to carry it. The work itself does not change as it climbs. What changes is who, outside the company, will stand behind it. Legibility is manufactured by independence, the same way external audit superseded internal controls after the accounting scandals of the early 2000s. And the top of that ladder is becoming a live market right now. Independent analyses from Lockton Re with Armilla and from Gallagher Re find that standard liability was never built to model AI risk, the exposure lands on the company that deploys the agent, and coverage increasingly goes only to firms that can document their deployments and prove their controls work. The asset is not the policy. It is the verifiable record that makes the policy writable.</p>
+      </div>
+    </section>
+
+    <!-- 6. THE NEW HALF -->
+    <section class="prose" aria-labelledby="compounds">
+      <div class="col">
+        <h2 id="compounds">The part that compounds</h2>
+        <p>Substitution is the smaller story. The larger one is new work, tasks no one would have paid a human to do, now done constantly because the cost collapsed. The same holds inside a single company. A specification says what an agent should do; continuous measurement records what it actually did, and the space between the two is not only error to correct. Some of it is value no one scoped, invisible until something is watching closely enough to catch it. Caught and verified, it can be promoted into the accountable record and recognized. A company that measures only against its original plan sees substitution. A company that measures continuously sees substitution plus the emergent share, and the emergent share is the part that compounds. A firm with a year of that record holds an asset a competitor starting today cannot reconstruct at any budget.</p>
+      </div>
+    </section>
+
+    <!-- 7. THE SIMULATOR -->
+    <section class="sim-band" aria-labelledby="sim-heading">
+      <div class="sim-inner">
+        <h2 id="sim-heading">The model</h2>
+        <p class="sim-leadin">The model below puts numbers on the argument. Set how many agents a company governs, what their work is worth, how much of that value the company keeps, and how strongly the work is independently verified, then choose a hold period. The first chart shows the value an agent program delivers, split between the work it was scoped to do and the emergent value continuous measurement surfaces over time; watch the emergent share overtake the specified base. The second chart shows how that value lands as recognized enterprise value once it is verified. Move the verification dial from an internal claim to insurer-grade and watch how much more of the same value the market will credit. The figures are illustrative and model the mechanic. They show value created for a company that deploys us, not a return projected to an investor.</p>
+
+        <div class="sim-grid">
+          <!-- Controls -->
+          <div class="sim-controls" aria-label="Simulator controls">
+            <div class="control">
+              <label for="agents">Governed agents <span class="val" id="agents-val">40</span></label>
+              <input type="range" id="agents" min="5" max="100" step="1" value="40" aria-label="Governed agents">
+            </div>
+            <div class="control">
+              <label for="valuePer">Value per agent / year ($K) <span class="val" id="valuePer-val">250</span></label>
+              <input type="range" id="valuePer" min="50" max="600" step="10" value="250" aria-label="Value per agent per year in thousands of dollars">
+            </div>
+            <div class="control">
+              <label for="attainment">Delivery-objective attainment (%) <span class="val" id="attainment-val">75</span></label>
+              <input type="range" id="attainment" min="10" max="100" step="5" value="75" aria-label="Delivery objective attainment percent">
+            </div>
+            <div class="control">
+              <label for="capture">Value capture rate (%) <span class="val" id="capture-val">60</span></label>
+              <input type="range" id="capture" min="20" max="100" step="5" value="60" aria-label="Value capture rate percent">
+            </div>
+            <div class="control">
+              <label for="verify">Independent verification <span class="val" id="verify-val">Independently audited</span></label>
+              <input type="range" id="verify" min="0" max="3" step="1" value="2" aria-label="Independent verification level">
+              <p class="verify-caption" id="verify-caption"></p>
+            </div>
+            <div class="control">
+              <label for="hold">Hold period (years) <span class="val" id="hold-val">4</span></label>
+              <input type="range" id="hold" min="1" max="7" step="1" value="4" aria-label="Hold period in years">
+            </div>
+            <div class="control">
+              <label for="entry">Illustrative client enterprise value ($M) <span class="val" id="entry-val">100</span></label>
+              <input type="range" id="entry" min="50" max="300" step="5" value="100" aria-label="Illustrative client enterprise value in millions of dollars">
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div class="sim-output">
+            <div class="metric-row">
+              <div class="metric-card">
+                <div class="metric-label">Value delivered (exit)</div>
+                <div class="metric-figure" id="m-delivered">$0M</div>
+                <div class="metric-sub" id="m-delivered-sub">&nbsp;</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Emergent share</div>
+                <div class="metric-figure" id="m-emergent">0%</div>
+                <div class="metric-sub">value the spec never scoped</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Recognized value</div>
+                <div class="metric-figure" id="m-recognized">$0M</div>
+                <div class="metric-sub">value &times; capture &times; verification</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Illustrative exit value</div>
+                <div class="metric-figure" id="m-exit">$0M</div>
+                <div class="metric-sub" id="m-exit-sub">&nbsp;</div>
+              </div>
+            </div>
+
+            <div class="chart-wrap">
+              <h3 class="chart-title">Compounding trajectory</h3>
+              <canvas id="chartA" aria-label="Compounding trajectory: specified value versus emergent value over the hold period" role="img"></canvas>
+            </div>
+            <div class="chart-wrap">
+              <h3 class="chart-title">Value-creation bridge</h3>
+              <canvas id="chartB" aria-label="Value-creation bridge: entry value, recognized value, multiple expansion, exit value" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <p class="sim-disclaimer">Illustrative client value-creation, modeling the mechanic, not a forecast. The emergent compounding rate and capitalization multiple are assumptions. These figures illustrate value created for a company that deploys us; they are not a projection of returns to an investor in Applied Identities.</p>
+      </div>
+    </section>
+
+    <!-- 8. THE COMPANY CASE -->
+    <section class="prose" aria-labelledby="company-case">
+      <div class="col">
+        <h2 id="company-case">Why this is the company, and the investment</h2>
+        <p>Capability is becoming a commodity. The ability to prove what an agent's work is worth is not, and three forces are converging on it at once. The insurance market is repricing AI risk and will write coverage only against evidence. The regulatory regimes, the EU AI Act, the NIST framework and its 2026 extension to autonomous agents, and ISO/IEC 42001, ask for the same specification, ongoing measurement, and external verifiability. And enterprises are discovering they cannot bank the value they already feel. Applied Identities builds the instrument that makes agent value legible, defensible, and ultimately insurable. The case is two steps. Our product creates real, recognized, compounding value for the companies that deploy it; that value is the market; and we capture a share of it. The client value is the evidence, and our value follows from it. That is what we are building, and it is what we are inviting you to back.</p>
+      </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="prose" aria-labelledby="footer-heading">
+      <div class="col">
+        <h2 id="footer-heading" class="visually-hidden">About and sources</h2>
+        <p class="author-note">Daniel Davenport, co-founder and Chief Identity Officer. Will duPont, co-founder and CEO. Applied Identities, the governance infrastructure company for the agentic workforce.</p>
+
+        <h3 class="sources-heading">Sources</h3>
+        <ol class="sources">
+          <li>Berkshire Hathaway, Chubb Win Approval to Drop AI Insurance Coverage &ndash; <em>The Information</em>, 2026. <a href="https://www.theinformation.com/articles/berkshire-hathaway-chubb-win-approval-drop-ai-insurance-coverage" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>Big Insurance Backs Away From AI Risk and Startups Rush In &ndash; <em>PYMNTS</em>, 2026 (<a href="https://www.pymnts.com/artificial-intelligence-2/2026/big-insurance-backs-away-from-ai-risk-and-startups-rush-in/" rel="noopener noreferrer" target="_blank">link</a>); Corporate insurers are starting to back away from AI risk &ndash; <em>Fast Company</em>, 2026 (<a href="https://www.fastcompany.com/91539281/corporate-insurers-are-starting-to-back-away-from-ai-risk" rel="noopener noreferrer" target="_blank">link</a>).</li>
+          <li>Malcolm Spittler and Dylan Patel, "AI Dark Output: The Visible Cost of Invisible Output" &ndash; <em>SemiAnalysis</em> (a commercial research firm), May 2026. <a href="https://newsletter.semianalysis.com/p/ai-dark-output-the-visible-cost-of" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>Erik Brynjolfsson, Daniel Rock, and Chad Syverson, "Artificial Intelligence and the Modern Productivity Paradox" / "The Productivity J-Curve" &ndash; NBER, 2017&ndash;2019. <a href="https://www.nber.org/papers/w24001" rel="noopener noreferrer" target="_blank">link</a> (Solow's 1987 observation discussed in <a href="https://www.chicagobooth.edu/review/why-artificial-intelligence-isnt-boosting-economy-yet" rel="noopener noreferrer" target="_blank">Chicago Booth Review</a>).</li>
+          <li>"The state of AI in 2025: Agents, innovation, and transformation" &ndash; QuantumBlack / <em>McKinsey &amp; Company</em>, November 2025. <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>"AI Adoption in the Enterprise 2026" &ndash; <em>WRITER</em> (with Workplace Intelligence), April 2026. <a href="https://writer.com/blog/enterprise-ai-adoption-2026/" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>"The GenAI Divide: State of AI in Business 2025" &ndash; MIT Project NANDA, July 2025. <a href="https://finance.yahoo.com/news/mit-report-95-generative-ai-105412686.html" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>Lockton Re with Armilla AI (February 2026) and Gallagher Re analyses on AI risk and commercial liability, as reported in <em>Insurance Intel</em>, 2026. <a href="https://insuranceintel.substack.com/p/chubb-is-excluding-the-risk-its-own" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>"AI risk management insurance: what new exclusions mean for enterprises" &ndash; <em>Adversa AI</em>, 2026. <a href="https://adversa.ai/blog/ai-risk-management-insurance-what-the-new-exclusions-mean/" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>EU Artificial Intelligence Act &ndash; European Commission. <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>NIST AI Risk Management Framework &ndash; U.S. National Institute of Standards and Technology. <a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener noreferrer" target="_blank">link</a></li>
+          <li>ISO/IEC 42001:2023, Artificial intelligence management system &ndash; International Organization for Standardization. <a href="https://www.iso.org/standard/81230.html" rel="noopener noreferrer" target="_blank">link</a></li>
+        </ol>
+
+        <p class="legal">Private and confidential. This page is informational and is not an offer to sell or a solicitation to buy any security.</p>
+        <p class="copyright">&copy;2026 Applied Identities</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
