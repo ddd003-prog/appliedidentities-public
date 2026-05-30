@@ -27,8 +27,10 @@ soft gate for a friends-and-family distribution.
 
 ## Before sending any link
 
-1. Fill in the analytics domain. In `index.html`, replace `REPLACE_WITH_PLAUSIBLE_DOMAIN`
-   with the real Plausible site id (or swap the snippet for Fathom).
+1. Analytics is wired to Plausible with `data-domain="appliedidentities.com"`. For events to
+   record, `appliedidentities.com` must be a registered site in the Plausible account; the
+   `?v=` recipient token is sent as a custom `recipient` prop on the pageview. (Swap the
+   snippet for Fathom if preferred.)
 2. Route through Will duPont (CEO) for IP sign-off per AI-MEMO-DARKVALUE-2026-05-30-001.
 
 ## Deploy
