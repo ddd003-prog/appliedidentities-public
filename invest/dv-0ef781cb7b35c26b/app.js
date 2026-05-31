@@ -41,15 +41,16 @@
   var RECOGNITION_WEIGHT = [0.35, 0.58, 0.78, 0.94];
   var EXPANSION_FRACTION = [0.00, 0.06, 0.12, 0.18];
   var VERIFY_LABELS = ['Internal claim', 'In production', 'Independently audited', 'Insurer-grade'];
-  var G = 0.30;            // emergent compounding rate per year
   var CAP_MULTIPLE = 6;    // capitalization multiple
+  // Emergent compounding rate G is no longer fixed; it is driven by the
+  // "Emergent discovery rate" control (see compute()).
 
   // Brand palette
   var SLATE  = '#4F5D75';
   var SIGNAL = '#2E6DA4';
   var AMBER  = '#D4A03C';
 
-  var ids = ['agents', 'valuePer', 'attainment', 'capture', 'verify', 'hold', 'entry'];
+  var ids = ['agents', 'valuePer', 'attainment', 'capture', 'discovery', 'verify', 'hold', 'entry'];
   var els = {};
   var chartA = null, chartB = null;
 
@@ -63,6 +64,7 @@
       valuePer:   parseInt(els.valuePer.value, 10),     // $K per agent / yr
       attainment: parseInt(els.attainment.value, 10),   // %
       capture:    parseInt(els.capture.value, 10),      // %
+      discovery:  parseInt(els.discovery.value, 10),    // % per year (drives G)
       stop:       parseInt(els.verify.value, 10),       // 0..3
       hold:       parseInt(els.hold.value, 10),         // years
       entry:      parseInt(els.entry.value, 10)         // $M
@@ -71,6 +73,7 @@
 
   function compute(v) {
     // All money in $M.
+    var G = v.discovery / 100;   // emergent compounding rate, driven by the discovery-rate control
     var S0 = v.agents * (v.valuePer / 1000) * (v.attainment / 100);
 
     var specified = [], emergent = [], total = [];
@@ -106,6 +109,7 @@
     els['valuePer-val'].textContent   = v.valuePer;
     els['attainment-val'].textContent = v.attainment;
     els['capture-val'].textContent    = v.capture;
+    els['discovery-val'].textContent  = v.discovery;
     els['hold-val'].textContent       = v.hold;
     els['entry-val'].textContent      = v.entry;
     els['verify-val'].textContent     = VERIFY_LABELS[v.stop];
@@ -311,7 +315,7 @@
   function init() {
     // cache elements
     ids.forEach(function (id) { els[id] = $(id); });
-    ['agents-val','valuePer-val','attainment-val','capture-val','hold-val','entry-val','verify-val']
+    ['agents-val','valuePer-val','attainment-val','capture-val','discovery-val','hold-val','entry-val','verify-val']
       .forEach(function (id) { els[id] = $(id); });
 
     ids.forEach(function (id) {

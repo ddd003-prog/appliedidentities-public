@@ -116,6 +116,14 @@ a:hover { text-decoration: none; }
   line-height: 1.4;
   color: var(--slate);
 }
+.stat-cite {
+  font-size: 11px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.stat-cite a { color: var(--signal); text-decoration: none; }
+.stat-cite a:hover { text-decoration: underline; }
 
 /* ---------- Simulator band ---------- */
 .sim-band {
@@ -125,7 +133,7 @@ a:hover { text-decoration: none; }
   margin: 44px 0;
 }
 .sim-inner {
-  max-width: 1120px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
 }
