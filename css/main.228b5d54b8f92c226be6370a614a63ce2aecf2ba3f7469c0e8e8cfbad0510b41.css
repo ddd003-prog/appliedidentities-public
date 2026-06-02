@@ -235,22 +235,24 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
   color: var(--ink);
 }
 .brand .mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  flex: none;
+  object-fit: contain;
+  display: block;
+}
+.foot-mark {
   width: 26px;
   height: 26px;
-  border-radius: 7px;
-  background: var(--navy-900);
-  position: relative;
-  flex: none;
+  border-radius: 6px;
+  margin-right: 10px;
+  vertical-align: -7px;
+  object-fit: contain;
 }
-.brand .mark::after {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border-radius: 3px;
-  border: 1.5px solid var(--amber);
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  transform: rotate(45deg);
+.foot-brand {
+  display: flex;
+  align-items: center;
 }
 .nav-links {
   display: flex;
