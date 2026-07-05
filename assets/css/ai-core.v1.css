@@ -1,0 +1,407 @@
+/*
+  ai-core.v1.css
+  Applied Identities web estate: shared core (tokens + base + components).
+  Extracted from the two agentic-commerce comps, reconciled with brief
+  AI-BUILD-WEBCSS-2026-07-05-001 sections 4 and 5, amendments A1 and A2.
+  Themes (theme-www / theme-vi / theme-3jane) override :root tokens ONLY.
+  No component rule carries a raw color hex. Every color routes through a token.
+*/
+
+/* ============================================================
+   0. FONTS  (self-hosted, latin subset woff2, OFL; see fonts/OFL-*.txt)
+   Paths are relative to this file at /assets/css/, so /assets/fonts/ resolves
+   on every property origin. Cross-origin loads on vi.* and research.* rely on
+   the CORS header added at deploy (amendment A8).
+   ============================================================ */
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400;
+  font-display:swap;src:url('../fonts/playfair-display-400.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;
+  font-display:swap;src:url('../fonts/playfair-display-600.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400;
+  font-display:swap;src:url('../fonts/playfair-display-italic-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:300;
+  font-display:swap;src:url('../fonts/inter-300.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;
+  font-display:swap;src:url('../fonts/inter-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;
+  font-display:swap;src:url('../fonts/inter-500.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;
+  font-display:swap;src:url('../fonts/inter-600.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;
+  font-display:swap;src:url('../fonts/ibm-plex-mono-400.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;
+  font-display:swap;src:url('../fonts/ibm-plex-mono-500.woff2') format('woff2')}
+
+/* ============================================================
+   1. TOKENS  (:root defaults == the www baseline / comp values)
+   ============================================================ */
+:root{
+  /* surfaces (themeable) */
+  --surface:#0A1628;      /* base canvas */
+  --surface-2:#101E34;    /* raised panels */
+  --surface-3:#1F2A44;    /* highest surface */
+
+  /* text (themeable) */
+  --paper:#F7F7F5;
+  --paper-dim:rgba(247,247,245,0.62);
+  --paper-faint:rgba(247,247,245,0.34);
+
+  /* rules and borders (themeable) */
+  --line:rgba(247,247,245,0.14);
+  --line-strong:rgba(247,247,245,0.24);
+
+  /* fixed brand thread: governance is the one color that means the same
+     thing on every property. Never overridden by a theme. */
+  --governance:#D4A03C;
+  --amber-hot:#DD7932;    /* governance emphasis / hot node */
+  --slate:#5E7899;        /* third party infrastructure, other people's rails */
+
+  /* themeable accent slots (A2) */
+  --accent:var(--governance);          /* www: accent == governance amber */
+  --accent-dim:rgba(212,160,60,0.14);
+  --data:var(--slate);                 /* diagram and muted data */
+
+  /* money only (A1). www leaves it equal to governance (effectively unused). */
+  --commerce:var(--governance);
+
+  /* status (shared, from the live system) */
+  --ok:#57C787;
+  --warn:#E8A13D;
+  --danger:#E5534B;
+
+  /* type roles (A1: Playfair display, Inter body, IBM Plex Mono evidence) */
+  --display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+
+  /* rail + spacing scale (8px base) */
+  --rail-w:2.5px;
+  --sp-1:0.4rem;
+  --sp-2:0.7rem;
+  --sp-3:1.1rem;
+  --sp-4:1.6rem;
+  --sp-5:2.4rem;
+  --sp-6:3.2rem;
+  --radius:6px;
+  --radius-lg:10px;
+}
+
+/* ============================================================
+   2. RESET + BASE
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--surface);
+  color:var(--paper);
+  font-family:var(--body);
+  font-weight:300;
+  line-height:1.55;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ============================================================
+   3. TYPE ROLES
+   ============================================================ */
+.eyebrow{
+  font-family:var(--body);
+  font-size:11px;font-weight:500;
+  letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:1.6rem;
+}
+.eyebrow .rule{
+  display:inline-block;width:34px;height:1px;
+  background:var(--accent);vertical-align:middle;
+  margin:0 14px 3px;opacity:0.7;
+}
+h1,h2{
+  font-family:var(--display);font-weight:600;
+  line-height:1.12;letter-spacing:-0.01em;
+}
+h1{font-size:clamp(2.4rem,5.4vw,4.4rem)}
+h2{font-size:clamp(2rem,4.2vw,3.4rem)}
+.lede{
+  font-size:clamp(1rem,1.4vw,1.2rem);
+  color:var(--paper-dim);
+  max-width:620px;margin:1.5rem auto 0;
+}
+.viz{margin:3.2rem auto 0;width:100%}
+.sources{
+  margin-top:2.6rem;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--paper-faint);
+}
+
+/* ============================================================
+   4. LAYOUT SCAFFOLD
+   ============================================================ */
+.panel{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  padding:8vh 6vw;position:relative;
+}
+.panel-inner{max-width:1080px;width:100%;text-align:center}
+
+/* ============================================================
+   5. MOTION  (reveal / rail draw / pulse) + reduced motion
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}
+.reveal.d2{transition-delay:.24s}
+.reveal.d3{transition-delay:.36s}
+
+.draw .rail-line{
+  stroke-dasharray:1200;stroke-dashoffset:1200;
+  transition:stroke-dashoffset 1.6s ease .3s;
+}
+.draw.in .rail-line{stroke-dashoffset:0}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  .draw .rail-line{stroke-dashoffset:0!important;transition:none!important}
+  .pulse{animation:none!important}
+  *{animation:none!important}
+}
+
+/* ============================================================
+   6. RAIL PROGRESS INDICATOR (fixed left)
+   ============================================================ */
+#railnav{
+  position:fixed;left:26px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:10px;z-index:50;
+}
+#railnav span{
+  display:block;width:22px;height:2px;
+  background:var(--paper-faint);
+  transition:background .5s,width .5s;
+}
+#railnav span.lit-slate{background:var(--data);width:34px}
+#railnav span.lit-paper{background:var(--paper-dim);width:34px}
+#railnav span.lit-amber{background:var(--governance);width:34px}
+@media(max-width:760px){#railnav{display:none}}
+
+/* ============================================================
+   7. STORY COMPONENTS
+   ============================================================ */
+/* era figure (P1) */
+.era-figure{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(3rem,7vw,6rem);color:var(--accent);line-height:1;margin-top:.6rem;
+}
+.era-figure small{
+  font-family:var(--body);font-style:normal;font-size:12px;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--paper-dim);
+  display:block;margin-top:.9rem;
+}
+
+/* builders grid (P2) */
+.builders{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);border-left:1px solid var(--line);
+  margin-top:3rem;text-align:left;
+}
+.builder{
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:1.6rem 1.5rem 1.4rem;
+}
+.builder .who{font-family:var(--display);font-size:1.25rem;font-weight:600}
+.builder .what{
+  font-size:.8rem;color:var(--accent);letter-spacing:.14em;
+  text-transform:uppercase;margin-top:.35rem;
+}
+.builder .when{font-size:.78rem;color:var(--paper-faint);margin-top:.55rem}
+@media(max-width:760px){.builders{grid-template-columns:repeat(2,1fr)}}
+
+/* rail tags (P3 to P5) */
+.rail-tag{
+  display:inline-block;font-size:11px;font-weight:500;
+  letter-spacing:.3em;text-transform:uppercase;
+  padding:.45rem 1.1rem;border:1px solid;border-radius:2rem;
+  margin-bottom:1.5rem;
+}
+.tag-slate{color:var(--data);border-color:var(--data)}
+.tag-paper{color:var(--paper-dim);border-color:var(--paper-faint)}
+.tag-amber{color:var(--governance);border-color:var(--governance)}
+
+/* pull quote */
+.q{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(1.15rem,2vw,1.5rem);color:var(--paper);margin-top:2.2rem;
+}
+.q b{color:var(--accent);font-style:normal;font-weight:600}
+
+/* stat row */
+.stat-row{display:flex;justify-content:center;gap:4.5rem;margin-top:2.4rem;flex-wrap:wrap}
+.stat .n{font-family:var(--display);font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:600;color:var(--paper)}
+.stat .l{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-faint);margin-top:.4rem}
+
+/* independence line (P7) */
+.independence{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--paper);
+  max-width:680px;margin:2.4rem auto 0;padding-top:2.2rem;
+  border-top:1px solid var(--accent-dim);
+}
+
+/* doors (P8): standard + commercial */
+.doors{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:3rem;text-align:left}
+.door{
+  border:1px solid var(--line);padding:2rem 1.8rem 1.7rem;
+  transition:border-color .35s,background .35s;
+  display:block;text-decoration:none;color:var(--paper);position:relative;
+}
+.door:hover{border-color:var(--accent);background:var(--accent-dim)}
+.door .k{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.door .t{font-family:var(--display);font-size:1.45rem;font-weight:600;margin-top:.7rem}
+.door .d{font-size:.88rem;color:var(--paper-dim);margin-top:.6rem;line-height:1.5}
+.door .arrow{
+  position:absolute;right:1.6rem;top:1.8rem;color:var(--accent);
+  font-size:1.1rem;opacity:0;transform:translateX(-6px);transition:all .35s;
+}
+.door:hover .arrow{opacity:1;transform:none}
+/* commercial variant: money glows in the commerce token */
+.door-buy{border-color:var(--commerce);background:var(--accent-dim)}
+.door-buy .t,.door-buy .k{color:var(--commerce)}
+.door-buy:hover{border-color:var(--amber-hot);background:var(--accent-dim)}
+@media(max-width:700px){.doors{grid-template-columns:1fr}}
+
+/* ============================================================
+   8. PRODUCT PAGE COMPONENTS  (/start/)
+   ============================================================ */
+.hero{
+  min-height:62vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:14vh 6vw 6vh;
+}
+.hero-inner{max-width:860px}
+.crumb{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;margin-top:2.6rem}
+.crumb a{color:var(--paper-faint);text-decoration:none;transition:color .3s}
+.crumb a:hover{color:var(--accent)}
+
+/* ladder + vertical governance rail */
+.ladder{max-width:900px;margin:0 auto;padding:4vh 6vw 10vh;position:relative}
+.ladder::before{
+  content:"";position:absolute;left:calc(6vw + 10px);top:0;bottom:0;width:var(--rail-w);
+  background:linear-gradient(180deg,
+    transparent 0%,var(--governance) 8%,var(--amber-hot) 92%,transparent 100%);
+}
+.rung{position:relative;padding:0 0 5.5rem 64px}
+.rung::before{
+  content:"";position:absolute;left:3px;top:10px;width:17px;height:17px;border-radius:50%;
+  background:var(--surface);border:var(--rail-w) solid var(--governance);
+}
+.rung.hero-rung::before{
+  background:var(--amber-hot);border-color:var(--amber-hot);
+  box-shadow:0 0 0 8px var(--accent-dim);
+}
+.rung .step{font-size:10.5px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.rung h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.12;margin-top:.6rem}
+.rung .one{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(1.05rem,1.7vw,1.3rem);color:var(--paper-dim);margin-top:.7rem;
+}
+
+/* product card */
+.card{
+  border:1px solid var(--line);margin-top:1.8rem;padding:1.9rem 2rem;
+  display:grid;grid-template-columns:1.6fr 1fr;gap:2rem;background:var(--surface-2);
+}
+.hero-rung .card{border-color:var(--amber-hot);background:var(--accent-dim)}
+@media(max-width:720px){.card{grid-template-columns:1fr}}
+.card .h{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:.9rem}
+.card ul{list-style:none}
+.card li{font-size:.92rem;color:var(--paper-dim);padding:.32rem 0 .32rem 1.3rem;position:relative}
+/* bullet glyph: middle dot (swapped off the comp's em dash, house rule) */
+.card li::before{content:"\00B7";position:absolute;left:0;color:var(--accent);font-weight:700}
+.meta{display:flex;flex-direction:column;gap:1.1rem;justify-content:space-between}
+.meta .mrow .mv{font-family:var(--display);font-size:1.5rem;font-weight:600}
+.meta .mrow .ml{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-faint);margin-top:.15rem}
+
+/* CTA: outline / solid / disabled */
+.cta{
+  display:inline-block;text-align:center;text-decoration:none;
+  font-size:.85rem;font-weight:500;letter-spacing:.06em;
+  padding:.85rem 1.6rem;border:1px solid var(--accent);color:var(--accent);
+  transition:background .3s,color .3s;cursor:pointer;background:transparent;
+}
+.cta:hover{background:var(--accent);color:var(--surface)}
+.cta.solid{background:var(--amber-hot);border-color:var(--amber-hot);color:var(--surface)}
+.cta.solid:hover{background:var(--accent);border-color:var(--accent)}
+/* buy CTA renders in the commerce token */
+.cta.buy{border-color:var(--commerce);color:var(--commerce)}
+.cta.buy:hover{background:var(--commerce);color:var(--surface)}
+/* disabled: not a link, no pointer, muted (A5: href empty until provider decided) */
+.cta.is-disabled{
+  border-color:var(--paper-faint);color:var(--paper-faint);
+  background:transparent;cursor:not-allowed;pointer-events:none;opacity:.75;
+}
+.cta.is-disabled:hover{background:transparent;color:var(--paper-faint)}
+
+/* badge */
+.badge{
+  display:inline-block;font-size:10px;font-weight:500;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--amber-hot);border:1px solid var(--amber-hot);
+  padding:.35rem .9rem;border-radius:2rem;margin-bottom:1rem;
+}
+
+/* dashed partner callout */
+.partner{border:1px dashed var(--accent);padding:1.5rem 1.8rem;margin-top:1.4rem}
+.partner .pt{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--accent)}
+.partner p{font-size:.9rem;color:var(--paper-dim);margin-top:.5rem;max-width:56ch}
+
+/* proof strip + fine print */
+.proof{max-width:900px;margin:0 auto;padding:0 6vw 8vh;text-align:center}
+.proof .pline{font-size:.92rem;color:var(--paper-dim)}
+.proof a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-dim)}
+.proof a:hover{border-color:var(--accent)}
+.fine{
+  max-width:900px;margin:0 auto;padding:0 6vw 4vh;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--paper-faint);text-align:center;
+}
+
+/* ============================================================
+   9. EVIDENCE COMPONENTS  (mono data block + data table)
+   for vi and 3jane verification surfaces (brief section 4)
+   ============================================================ */
+.mono-block{
+  font-family:var(--mono);font-size:12.5px;line-height:1.7;
+  color:var(--paper);background:var(--surface-2);
+  border:1px solid var(--line-strong);border-left:3px solid var(--accent);
+  border-radius:var(--radius);padding:16px 18px;
+  word-break:break-all;font-variant-numeric:tabular-nums;
+}
+.mono-block .k{color:var(--paper-faint);text-transform:uppercase;letter-spacing:.06em}
+.mono-block .amount{color:var(--commerce)}
+
+.data-table{
+  width:100%;border-collapse:collapse;font-size:14px;
+  font-variant-numeric:tabular-nums;text-align:left;
+}
+.data-table th,.data-table td{padding:12px 14px;border-bottom:1px solid var(--line)}
+.data-table thead th{
+  background:var(--surface-3);color:var(--paper-dim);
+  font-family:var(--body);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.data-table tbody td{color:var(--paper-dim)}
+.data-table td.num,.data-table td.mono{font-family:var(--mono);color:var(--paper)}
+.data-table .price{font-family:var(--mono);color:var(--commerce);font-weight:600}
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+footer{
+  text-align:center;padding:3rem 6vw 3.4rem;
+  font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--paper-faint);border-top:1px solid var(--line);
+}
+
+/* svg text inherits estate faces */
+svg text{font-family:var(--body)}
+svg .svg-display{font-family:var(--display)}

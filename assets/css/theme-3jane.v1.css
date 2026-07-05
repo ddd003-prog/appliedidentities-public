@@ -1,0 +1,35 @@
+/*
+  theme-3jane.v1.css
+  3Jane property theme: the governed business in production (research.*).
+  Token overrides ONLY (brief section 5, amendment A2).
+  Values EXTRACTED from the live research.appliedidentities.com stylesheet
+  (/assets/research.css :root), not invented. Darkest of the three properties,
+  teal signal, ledger amber for money. The governance amber thread is NOT
+  overridden here: wherever 3Jane presents chain verification or governance
+  state it must render in the shared --governance amber (brief section 5).
+  Type is NOT themed: Playfair / Inter / IBM Plex Mono estate-wide (A1); the
+  live site's Iowan/Plex-Sans faces are replaced at retrofit, not here.
+*/
+:root{
+  /* surfaces: ink / panel / panel-2 (live values) */
+  --surface:#0B0F14;
+  --surface-2:#111721;
+  --surface-3:#161E2A;
+
+  /* text: live text / muted / faint */
+  --paper:#E6EDF3;
+  --paper-dim:#93A4B4;
+  --paper-faint:#5C6B7A;
+
+  /* live line tokens */
+  --line:#1F2A38;
+  --line-strong:#2C3B4E;
+
+  /* accent: signal teal-cyan */
+  --accent:#45D6C4;
+  --accent-dim:rgba(69,214,196,0.14);
+  --data:#93A4B4;
+
+  /* money only: live ledger amber */
+  --commerce:#EFB35C;
+}
