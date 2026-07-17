@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NELLARC: proof of governed cross-rail settlement (testnet) · Applied Identities</title>
+<meta name="description" content="On-chain testnet proof: one governed agent payment on Base Sepolia settled onto Arc via Circle Gateway, with the Verifiable Intent governance chain unchanged. Every transaction hash is independently verifiable.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://appliedidentities.com/verify/nellarc/">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://appliedidentities.com/verify/nellarc/">
+<meta property="og:title" content="NELLARC: proof of governed cross-rail settlement (testnet)">
+<meta property="og:description" content="One governed payment on Base Sepolia settled onto Arc via Circle Gateway; the governance chain did not move. Independently verifiable on-chain.">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --bg: #eceef0;
+    --surface: #f7f8f9;
+    --surface-2: #eef1f2;
+    --ink: #0e1519;
+    --ink-soft: #4a5860;
+    --ink-faint: #77848b;
+    --hairline: #ccd4d8;
+    --hairline-strong: #b3bec3;
+    --accent: #0c8072;
+    --accent-ink: #063f38;
+    --accent-soft: #d8ebe7;
+    --seal: #93641c;
+    --seal-soft: #ede0c8;
+    --good: #10795a;
+    --shadow: 0 1px 2px rgba(14,21,25,.06), 0 8px 30px rgba(14,21,25,.06);
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1013;
+      --surface: #121a1f;
+      --surface-2: #0f171b;
+      --ink: #e7eef1;
+      --ink-soft: #93a3ab;
+      --ink-faint: #647079;
+      --hairline: #223038;
+      --hairline-strong: #33454f;
+      --accent: #2bb6a4;
+      --accent-ink: #9fe4d9;
+      --accent-soft: #0f312d;
+      --seal: #c79a4e;
+      --seal-soft: #2a2113;
+      --good: #34c08c;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 40px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #eceef0; --surface: #f7f8f9; --surface-2: #eef1f2; --ink: #0e1519;
+    --ink-soft: #4a5860; --ink-faint: #77848b; --hairline: #ccd4d8; --hairline-strong: #b3bec3;
+    --accent: #0c8072; --accent-ink: #063f38; --accent-soft: #d8ebe7; --seal: #93641c;
+    --seal-soft: #ede0c8; --good: #10795a; --shadow: 0 1px 2px rgba(14,21,25,.06), 0 8px 30px rgba(14,21,25,.06);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1013; --surface: #121a1f; --surface-2: #0f171b; --ink: #e7eef1;
+    --ink-soft: #93a3ab; --ink-faint: #647079; --hairline: #223038; --hairline-strong: #33454f;
+    --accent: #2bb6a4; --accent-ink: #9fe4d9; --accent-soft: #0f312d; --seal: #c79a4e;
+    --seal-soft: #2a2113; --good: #34c08c; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 40px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); line-height: 1.6;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: clamp(28px, 6vw, 72px) clamp(20px, 5vw, 40px) 64px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 20px; font-weight: 600;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .eyebrow .sep { color: var(--ink-faint); }
+
+  h1 {
+    font-size: clamp(28px, 5.2vw, 48px); line-height: 1.08; letter-spacing: -.025em;
+    font-weight: 680; margin: 0 0 18px; text-wrap: balance; max-width: 15ch;
+  }
+  h1 .rail { color: var(--accent); }
+  .lede { font-size: clamp(16px, 2.2vw, 19px); color: var(--ink-soft); margin: 0 0 28px; max-width: 60ch; }
+
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--hairline);
+    border-radius: 10px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow);
+  }
+  .meta div { padding: 12px 18px; border-right: 1px solid var(--hairline); flex: 1 1 auto; min-width: 120px; }
+  .meta div:last-child { border-right: 0; }
+  .meta dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 4px; }
+  .meta dd { margin: 0; font-size: 15px; font-weight: 560; }
+  .meta .live { color: var(--good); }
+
+  section { margin-top: clamp(44px, 8vw, 72px); }
+  .shead {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 0 0 20px; padding-bottom: 10px; border-bottom: 1px solid var(--hairline);
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  }
+  .shead b { color: var(--ink); font-weight: 600; }
+
+  /* ---- Governance spine + rails diagram ---- */
+  .diagram { display: flex; flex-direction: column; gap: 0; }
+
+  .spine {
+    position: relative; border: 1px solid var(--seal); border-radius: 12px;
+    background: var(--seal-soft); padding: 16px 20px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .spine::before {
+    content: ""; position: absolute; left: 22px; right: 22px; bottom: -1px; height: 0;
+  }
+  .spine .seal-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--seal); flex: none; box-shadow: 0 0 0 4px color-mix(in srgb, var(--seal) 22%, transparent); }
+  .spine .spine-label { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--seal); font-weight: 700; }
+  .spine .spine-note { color: var(--ink-soft); font-size: 13.5px; }
+  .spine .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+  .chip { font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--hairline-strong); color: var(--ink-soft); background: var(--surface); }
+
+  .drop { width: 2px; height: 26px; background: repeating-linear-gradient(var(--hairline-strong) 0 4px, transparent 4px 8px); margin: 0 auto; }
+
+  .rails { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 0; }
+  .station {
+    border: 1px solid var(--hairline); background: var(--surface); border-radius: 12px;
+    padding: 16px 16px 14px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px;
+  }
+  .station .top { display: flex; align-items: center; gap: 8px; }
+  .station .net { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); }
+  .station .marker { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+  .station.a .marker { background: var(--accent); }
+  .station.g .marker { background: var(--seal); }
+  .station.b .marker { background: var(--good); }
+  .station h3 { margin: 0; font-size: 15.5px; font-weight: 620; letter-spacing: -.01em; }
+  .station p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+  .station .val { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--ink); }
+  .station a.hash {
+    font-family: var(--mono); font-size: 12px; color: var(--accent); text-decoration: none;
+    word-break: break-all; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    padding-bottom: 1px; margin-top: 2px; transition: color .15s, border-color .15s;
+  }
+  .station a.hash:hover { color: var(--accent-ink); border-color: var(--accent); }
+  .connector { display: flex; align-items: center; justify-content: center; padding: 0 6px; color: var(--accent); }
+  .connector svg { width: 22px; height: 22px; }
+  .connector.toarc { color: var(--good); }
+
+  @media (max-width: 680px) {
+    .rails { grid-template-columns: 1fr; }
+    .connector { padding: 4px 0; transform: rotate(90deg); }
+    .spine .chips { margin-left: 0; width: 100%; }
+  }
+
+  /* ---- Evidence list ---- */
+  .evidence { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+  .row { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 16px 20px; border-bottom: 1px solid var(--hairline); align-items: start; }
+  .row:last-child { border-bottom: 0; }
+  .row .k { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); padding-top: 2px; }
+  .row .v { font-size: 14px; }
+  .row .v .sub { display: block; color: var(--ink-soft); font-size: 13px; margin-top: 3px; }
+  .row .v code, .row .v a { font-family: var(--mono); font-size: 12.5px; word-break: break-all; }
+  .row .v a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+  .row .v a:hover { color: var(--accent-ink); border-color: var(--accent); }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--good); }
+  .badge .tick { width: 14px; height: 14px; }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; gap: 6px; } }
+
+  /* ---- Verify strip ---- */
+  .verify { border: 1px dashed var(--hairline-strong); border-radius: 12px; padding: 20px 22px; background: var(--surface-2); }
+  .verify p { margin: 0 0 10px; font-size: 14px; color: var(--ink-soft); }
+  .verify ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  .verify ol code { font-family: var(--mono); font-size: 12.5px; background: color-mix(in srgb, var(--ink) 6%, transparent); padding: 1px 6px; border-radius: 5px; }
+  .verify a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--hairline); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--ink-faint); font-family: var(--mono); letter-spacing: .04em; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+    .rails .station:nth-child(1) { animation-delay: .05s; }
+    .rails .station:nth-child(3) { animation-delay: .15s; }
+    .rails .station:nth-child(5) { animation-delay: .25s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow"><span class="dot"></span> NELLARC <span class="sep">/</span> Testnet proof of governed cross-rail settlement</p>
+  <h1>The governance core does not move when the <span class="rail">settlement rail</span> moves.</h1>
+  <p class="lede">One autonomous agent made one governed payment on Base Sepolia, and the value settled onto Arc testnet through Circle Gateway. The credential chain that authorized it was identical to the one used on Base. This page is the on-chain record, not a demonstration you have to take on faith.</p>
+
+  <dl class="meta">
+    <div><dt>Agent</dt><dd>Nell Ashpool</dd></div>
+    <div><dt>Value</dt><dd>0.001 USDC</dd></div>
+    <div><dt>Rails</dt><dd>Base Sepolia &rarr; Arc</dd></div>
+    <div><dt>Network</dt><dd>Testnet</dd></div>
+    <div><dt>Executed</dt><dd class="live">2026-07-16 &middot; live</dd></div>
+  </dl>
+
+  <section>
+    <p class="shead"><b>How one transaction crossed two chains</b><span>read left to right</span></p>
+    <div class="diagram">
+      <div class="spine reveal">
+        <span class="seal-dot"></span>
+        <span class="spine-label">Governance chain</span>
+        <span class="spine-note">Verifiable Intent credential chain: identical shape on Base and on Arc. It did not move.</span>
+        <span class="chips">
+          <span class="chip">L1 active</span>
+          <span class="chip">Passport &middot; Soul &middot; Constitution</span>
+          <span class="chip">Tier 3-A</span>
+        </span>
+      </div>
+      <div class="drop" aria-hidden="true"></div>
+      <div class="rails">
+        <div class="station a reveal">
+          <div class="top"><span class="marker"></span><span class="net">Base Sepolia &middot; eip155:84532</span></div>
+          <h3>x402 payment</h3>
+          <p>$0.001 USDC, gasless for the payer, cleared through the VI gate.</p>
+          <a class="hash" href="https://sepolia.basescan.org/tx/0x0597a9061c591ef28550507a04e1f2b42ef5dfd423b418099cd17b06ac2d02ca" target="_blank" rel="noopener">0x0597a906&hellip;ac2d02ca &#8599;</a>
+        </div>
+        <div class="connector" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="station g reveal">
+          <div class="top"><span class="marker"></span><span class="net">Circle Gateway &middot; domain 26</span></div>
+          <h3>Deposit &amp; attestation</h3>
+          <p>USDC escrowed on Base Sepolia; Circle returns a signed attestation.</p>
+          <span class="val">attestation HTTP 201</span>
+          <a class="hash" href="https://sepolia.basescan.org/tx/0xce6f6f0a10e09f67203266e72c1df3e20dd104174de2f2a108a1812c98df6c0b" target="_blank" rel="noopener">deposit 0xce6f6f0a&hellip; &#8599;</a>
+        </div>
+        <div class="connector toarc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="station b reveal">
+          <div class="top"><span class="marker"></span><span class="net">Arc testnet &middot; eip155:5042002</span></div>
+          <h3>Settlement mint</h3>
+          <p>gatewayMint delivers 0.001 USDC on Arc. Gas paid in USDC.</p>
+          <a class="hash" href="https://testnet.arcscan.app/tx/0x688eb1b4e137733f41b1a950b3312e059be097d93fffcf05170f5a93ba10e0ec" target="_blank" rel="noopener">0x688eb1b4&hellip;ba10e0ec &#8599;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="shead"><b>The record, line by line</b><span>every value is on-chain</span></p>
+    <div class="evidence">
+      <div class="row">
+        <div class="k">Payment leg</div>
+        <div class="v">
+          <a href="https://sepolia.basescan.org/tx/0x0597a9061c591ef28550507a04e1f2b42ef5dfd423b418099cd17b06ac2d02ca" target="_blank" rel="noopener">0x0597a9061c591ef28550507a04e1f2b42ef5dfd423b418099cd17b06ac2d02ca</a>
+          <span class="sub">x402 on Base Sepolia via the x402.org facilitator, HTTP 200, block 44235065. <span class="badge"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg> confirmed</span></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">Gateway deposit</div>
+        <div class="v">
+          <a href="https://sepolia.basescan.org/tx/0xce6f6f0a10e09f67203266e72c1df3e20dd104174de2f2a108a1812c98df6c0b" target="_blank" rel="noopener">0xce6f6f0a10e09f67203266e72c1df3e20dd104174de2f2a108a1812c98df6c0b</a>
+          <span class="sub">USDC into Circle Gateway escrow on Base Sepolia, deposit sized value + fee = 0.011 USDC; attestation fee 0.01 USDC, HTTP 201.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">Arc settlement</div>
+        <div class="v">
+          <a href="https://testnet.arcscan.app/tx/0x688eb1b4e137733f41b1a950b3312e059be097d93fffcf05170f5a93ba10e0ec" target="_blank" rel="noopener">0x688eb1b4e137733f41b1a950b3312e059be097d93fffcf05170f5a93ba10e0ec</a>
+          <span class="sub">gatewayMint on Arc, block 52169522. <span class="badge"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg> success</span></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">Governance ledger</div>
+        <div class="v">
+          <code>reserve 201 &rarr; settle 200 &middot; settled</code>
+          <span class="sub">VI cross-rail ledger settled cleanly for this transaction (l2_id 1, rail x402). The gate authorized the spend and recorded settlement; nothing was released.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">Wallets</div>
+        <div class="v">
+          <code>0xc92379A5c7b42e1Dd4f3467F1652b00eA0675F92</code><span class="sub">Base Sepolia payer &amp; depositor</span>
+          <code>0x982BB76a8A1a70D25c08f59b6E819eCC43b5C8d6</code><span class="sub">Arc settlement recipient</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">Governance chain</div>
+        <div class="v">
+          <a href="https://vi.appliedidentities.com/api/v1/verify/chain/1" target="_blank" rel="noopener">GET /api/v1/verify/chain/1</a>
+          <span class="sub">L1 active to 2027-03-12 &middot; Passport AI-PASS-NELL-2026-001 &middot; Soul AI-SOUL-NELL-2026-002 &middot; Constitution AI-CONST-AI-2026-001 &middot; tier 3-A. Unchanged by the rail switch.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="shead"><b>Verify it yourself</b><span>no trust required</span></p>
+    <div class="verify">
+      <p>Every claim above is checkable without us in the room:</p>
+      <ol>
+        <li>Open the <a href="https://testnet.arcscan.app/tx/0x688eb1b4e137733f41b1a950b3312e059be097d93fffcf05170f5a93ba10e0ec" target="_blank" rel="noopener">Arc settlement tx</a> and confirm 0.001 USDC was minted to the recipient.</li>
+        <li>Open the <a href="https://sepolia.basescan.org/tx/0x0597a9061c591ef28550507a04e1f2b42ef5dfd423b418099cd17b06ac2d02ca" target="_blank" rel="noopener">Base Sepolia payment tx</a> to see the governed x402 payment that started it.</li>
+        <li>Call <code>verify/chain/1</code> and note the credential chain is the same one Nell presents on Base. That sameness is the proof.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <span>Applied Identities &middot; NELLARC act one, scope A</span>
+    <span>Testnet proof &middot; artifact AI-ARTIFACT-NELLARC-2026-07-15-001</span>
+  </footer>
+</div>
+</body>
+</html>
