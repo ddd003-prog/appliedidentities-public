@@ -158,6 +158,9 @@ a:hover{text-decoration-thickness:2.5px;}
 .estate-nav a:hover{color:var(--text);}
 .estate-nav a[aria-current="true"]{color:var(--text); border-bottom-color:var(--action);}
 .estate-nav .btn{margin-left:6px;}
+/* WEBTECH-2026-07-22 #1: .estate-nav a (0,1,1) beat .btn (0,1,0), collapsing the
+   header CTA's padding to 6px 0 at desktop widths. Re-assert button metrics. */
+.estate-nav a.btn{padding:10px 16px; border-bottom:none;}
 @media (max-width:960px){
   /* always-visible wrap: no JS, no hamburger. Mark + button on row one, links row below. */
   .estate-header .bar{position:relative; padding:12px 20px 0; gap:8px 14px;}
@@ -303,7 +306,81 @@ a:hover{text-decoration-thickness:2.5px;}
 .page-hero .lede{font-size:clamp(17px,1.6vw,20px); color:var(--text-2); margin-top:20px; max-width:58ch;}
 .page-hero .cta-row{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
 
+/* ---------- local sub-nav (property-level sections; added L3, 2026-07-21) ----- */
+.local-nav{display:flex; flex-wrap:wrap; gap:4px 18px; padding:16px 0 0; font-size:13.5px;}
+.local-nav a{color:var(--text-2); text-decoration:none; font-weight:500;}
+.local-nav a:hover{color:var(--text);}
+.local-nav a[aria-current="true"]{color:var(--text); border-bottom:2px solid var(--action); padding-bottom:2px;}
+
+/* ---------- ledger (dated proof list — vi; added L3, 2026-07-21) -------------- */
+.ledger{list-style:none; margin:0; padding:0;}
+.ledger li{display:grid; grid-template-columns:110px minmax(0,1fr); gap:20px; padding:24px 0; border-bottom:1px solid var(--line);}
+.ledger li:last-child{border-bottom:0;}
+.ledger .when{font-family:var(--mono); font-size:13px; color:var(--text-2); padding-top:2px;}
+.ledger .what{font-size:15px; line-height:1.65; color:var(--text);}
+.ledger .proof{font-family:var(--mono); font-size:12px; color:var(--text-3); margin-top:10px; line-height:1.8;}
+@media (max-width:620px){ .ledger li{grid-template-columns:1fr; gap:6px;} }
+
+/* ---------- content bands (promoted from L4/L3 supplements, 2026-07-21) ------- */
+.band{padding:44px 0 8px;border-top:1px solid var(--line);margin-top:44px;}
+.band h2{font-size:clamp(22px,2.6vw,30px);margin:10px 0 14px;}
+.body-copy{color:var(--text-2);max-width:70ch;}
+.body-copy p{margin:0 0 14px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:26px 0 8px;}
+.hero-actions .note{font-size:13px;color:var(--text-3);}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--elevated);font-weight:400;}
+.btn-ghost:hover{border-color:var(--action);}
+.cross-link{margin:40px 0;font-size:15px;}
+.sig-close{font-family:var(--mono);font-size:12.5px;color:var(--text-3);letter-spacing:.06em;margin:48px 0 8px;}
+
 /* ---------- utilities --------------------------------------------------------- */
 .center{text-align:center;}
 .demo-note{font-size:13px; color:var(--text-3);}  /* e.g. "demo environment" labels (R8) */
 hr{border:0; border-top:1px solid var(--line); margin:48px 0;}
+
+/* ---------- live-check (promoted from L1 partial, 2026-07-22; handoff §6) ------ */
+/* Walks the chain of authority link by link, resolving to mint pass states.
+   Static-first: HTML ships the most recent verified state; JS (optional, page-owned)
+   re-confirms against the live chain-verify endpoint and re-paints. No new colors. */
+.livecheck{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 28px; max-width:680px;}
+.livecheck-head{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;}
+.livecheck-head .eyebrow{margin-bottom:0;}
+.livecheck-summary{white-space:nowrap;}
+.livecheck-sub{font-size:14px; color:var(--text-2); margin:14px 0 20px;}
+.livecheck-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;}
+.livecheck-link{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
+}
+.livecheck-link:last-child{border-bottom:0;}
+.livecheck-mark{
+  width:22px; height:22px; border-radius:50%; flex:none;
+  border:2px solid var(--elevated); background:transparent; position:relative;
+  transition:border-color .3s ease, background-color .3s ease;
+}
+.livecheck-body{display:flex; flex-direction:column; gap:2px; min-width:0;}
+.livecheck-name{font-size:15px; font-weight:600; color:var(--text);}
+.livecheck-meta{font-size:12px; color:var(--text-3);}
+.livecheck-serial{
+  grid-column:2 / 3; justify-self:start;
+  font-family:var(--mono); font-size:11px; color:var(--text-2); word-break:break-all;
+}
+.livecheck-state{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--text-3); justify-self:end;
+}
+.livecheck-link.is-verified .livecheck-mark{border-color:var(--verified); background:rgba(41,248,148,.12);}
+.livecheck-link.is-verified .livecheck-mark::after{
+  content:""; position:absolute; left:6px; top:2.5px; width:5px; height:10px;
+  border:solid var(--verified); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.livecheck-link.is-verified .livecheck-state{color:var(--verified);}
+.livecheck-link.is-pending .livecheck-mark{border-color:var(--elevated); background:transparent;}
+.livecheck-link.is-pending .livecheck-mark::after{content:none;}
+.livecheck-link.is-pending .livecheck-state{color:var(--text-3);}
+.livecheck-anchor{font-size:13px; color:var(--text-3); margin:20px 0 0;}
+@media (max-width:520px){
+  .livecheck-link{grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto;}
+  .livecheck-state{grid-column:2 / 3; justify-self:start; margin-top:2px;}
+  .livecheck-serial{grid-column:2 / 3;}
+}

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chain of Authority | Applied Identities</title>
   <meta name="description" content="Verified AI governance from strategy to execution. Every document proves its own integrity. You own everything.">
+  <link rel="canonical" href="https://appliedidentities.com/verify/">
 
   
   <meta property="og:title" content="Chain of Authority">
@@ -12,20 +13,21 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://appliedidentities.com/verify/">
   <meta property="og:site_name" content="Applied Identities">
-  <meta property="og:image" content="https://appliedidentities.com/favicon-512.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
-  <meta property="og:image:alt" content="Applied Identities — radar mark">
-  <meta name="twitter:card" content="summary">
+  
+  <meta property="og:image" content="https://appliedidentities.com/estate-share-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Applied Identities — independent behavioral governance for AI agents">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chain of Authority">
   <meta name="twitter:description" content="Verified AI governance from strategy to execution. Every document proves its own integrity. You own everything.">
-  <meta name="twitter:image" content="https://appliedidentities.com/favicon-512.png">
+  <meta name="twitter:image" content="https://appliedidentities.com/estate-share-card.png">
 
   
   
   <link rel="preload" as="font" type="font/woff2" href="/fonts/figtree.woff2" crossorigin>
   
-  <link rel="stylesheet" href="/css/estate.3ad481a0de3593e0edb0e99d6a29f6b7bd9577b67263446f044245add118a641.css" integrity="sha256-OtSBoN41k&#43;DtsOmdain2t72Vd7ZyY0RvBEJFrdEYpkE=">
+  <link rel="stylesheet" href="/css/estate.b001ee5d01355af2e90423dffc30cdb4242f0615ea59385c4a48da1846845957.css" integrity="sha256-sAHuXQE1WvLpBCPf/DDNtCQvBhXqWThcSkjaGEaEWVc=">
   
 
   
@@ -168,50 +170,14 @@
 
 <style>
  
-.livecheck{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 28px; max-width:680px;}
-.livecheck-head{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;}
-.livecheck-head .eyebrow{margin-bottom:0;}
-.livecheck-summary{white-space:nowrap;}
-.livecheck-sub{font-size:14px; color:var(--text-2); margin:14px 0 20px;}
-.livecheck-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;}
-.livecheck-link{
-  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
-  align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
+.livecheck-link.is-revoked .livecheck-mark{border-color:var(--text-2); background:transparent;}
+.livecheck-link.is-revoked .livecheck-mark::after{
+  content:""; position:absolute; left:7px; top:9px; width:8px; height:2px;
+  background:var(--text-2); border:0; transform:none;
 }
-.livecheck-link:last-child{border-bottom:0;}
-.livecheck-mark{
-  width:22px; height:22px; border-radius:50%; flex:none;
-  border:2px solid var(--elevated); background:transparent; position:relative;
-  transition:border-color .3s ease, background-color .3s ease;
-}
-.livecheck-body{display:flex; flex-direction:column; gap:2px; min-width:0;}
-.livecheck-name{font-size:15px; font-weight:600; color:var(--text);}
-.livecheck-meta{font-size:12px; color:var(--text-3);}
-.livecheck-serial{
-  grid-column:2 / 3; justify-self:start;
-  font-family:var(--mono); font-size:11px; color:var(--text-2); word-break:break-all;
-}
-.livecheck-state{
-  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--text-3); justify-self:end;
-}
- 
-.livecheck-link.is-verified .livecheck-mark{border-color:var(--verified); background:rgba(41,248,148,.12);}
-.livecheck-link.is-verified .livecheck-mark::after{
-  content:""; position:absolute; left:6px; top:2.5px; width:5px; height:10px;
-  border:solid var(--verified); border-width:0 2px 2px 0; transform:rotate(45deg);
-}
-.livecheck-link.is-verified .livecheck-state{color:var(--verified);}
- 
-.livecheck-link.is-pending .livecheck-mark{border-color:var(--elevated); background:transparent;}
-.livecheck-link.is-pending .livecheck-mark::after{content:none;}
-.livecheck-link.is-pending .livecheck-state{color:var(--text-3);}
-.livecheck-anchor{font-size:13px; color:var(--text-3); margin:20px 0 0;}
-@media (max-width:520px){
-  .livecheck-link{grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto;}
-  .livecheck-state{grid-column:2 / 3; justify-self:start; margin-top:2px;}
-  .livecheck-serial{grid-column:2 / 3;}
-}
+.livecheck-link.is-revoked .livecheck-name{color:var(--text-2);}
+.livecheck-link.is-revoked .livecheck-state{color:var(--text-2);}
+.livecheck-summary.is-revoked::before{background:var(--text-2);}
 </style>
 
 <script>
@@ -227,54 +193,76 @@
     return y+'-'+m+'-'+day;
   }
   function resolve(data){
-    var gc = data.governance_chain || {};
-    var vi = data.vi_chain || {};
+    var gc = (data && data.governance_chain) || {};
+    var vi = (data && data.vi_chain) || {};
+    
+
+    var known = ('constitution_serial' in gc) || ('soul_serial' in gc) ||
+                ('passport_serial' in gc) || ('l1_status' in vi);
+    if(!known) return null;
+    var status = vi.l1_status;
     return {
       constitution: !!gc.constitution_serial,
       soul: !!gc.soul_serial,
       passport: !!gc.passport_serial,
-      credential: (vi.l1_status === 'active')
+      credential: (status === 'active'),
+      revoked: (status === 'revoked'),
+      status: status
     };
   }
-  function paint(states){
-    var passed = 0;
-    order.forEach(function(k){ if(states[k]) passed++; });
-    root.querySelectorAll('.livecheck-link').forEach(function(li){
-      var ok = states[li.getAttribute('data-link')];
-      li.classList.toggle('is-verified', !!ok);
-      li.classList.toggle('is-pending', !ok);
-    });
+  function markRevoked(li){
+    li.classList.remove('is-verified','is-pending');
+    li.classList.add('is-revoked');
+    var code = li.querySelector('.livecheck-serial'); if(code){ code.textContent = 'revoked'; }
+    var st = li.querySelector('.livecheck-state'); if(st){ st.textContent = 'revoked'; }
+  }
+  function apply(li, states){
+    var k = li.getAttribute('data-link');
+    
+
+    if(k === 'credential' && states.revoked){ markRevoked(li); return; }
+    li.classList.remove('is-revoked');
+    li.classList.toggle('is-verified', !!states[k]);
+    li.classList.toggle('is-pending', !states[k]);
+  }
+  function summarize(states){
     var sum = root.querySelector('.livecheck-summary');
-    if(sum){
-      var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
-      sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
+    if(!sum) return;
+    if(states.revoked){
+      sum.classList.remove('pill-verified');
+      sum.classList.add('is-revoked');
+      sum.textContent = 'Revoked · on the public record · ' + fmtDate(new Date());
+      return;
     }
+    var passed = 0; order.forEach(function(k){ if(states[k]) passed++; });
+    var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
+    sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
+  }
+  function paint(states){
+    root.querySelectorAll('.livecheck-link').forEach(function(li){ apply(li, states); });
+    summarize(states);
   }
   function walk(states){
     if(reduce){ paint(states); return; }
      
     root.querySelectorAll('.livecheck-link').forEach(function(li){
-      li.classList.remove('is-verified'); li.classList.add('is-pending');
+      li.classList.remove('is-verified','is-revoked'); li.classList.add('is-pending');
     });
     var i = 0;
     (function step(){
-      if(i >= order.length){
-        var passed = order.reduce(function(a,k){return a + (states[k]?1:0);},0);
-        var sum = root.querySelector('.livecheck-summary');
-        if(sum){
-          var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
-          sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
-        }
-        return;
-      }
+      if(i >= order.length){ summarize(states); return; }
       var li = root.querySelector('.livecheck-link[data-link="'+order[i]+'"]');
-      if(li && states[order[i]]){ li.classList.remove('is-pending'); li.classList.add('is-verified'); }
+      if(li){ apply(li, states); }
       i++; setTimeout(step, 260);
     })();
   }
   fetch(root.getAttribute('data-endpoint'), {method:'GET', mode:'cors', cache:'no-store'})
     .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r.json(); })
-    .then(function(data){ walk(resolve(data)); })
+    .then(function(data){
+      var states = resolve(data);
+      if(!states) return;  
+      walk(states);
+    })
     .catch(function(){   });
 })();
 </script>
@@ -388,25 +376,21 @@
     <a class="estate-mark" href="/">Applied Identities</a>
     <p>Independent behavioral governance for AI agents.</p>
   </div>
-  <div class="footer-cols">
-    <div><h4>Agent Identity</h4><ul>
-      <li><a href="https://agents.appliedidentities.com/">Agent registry</a></li>
-      <li><a href="https://agents.appliedidentities.com/nell">Record: Nell Ashpool</a></li>
-      <li><a href="https://agents.appliedidentities.com/3jane">Record: 3Jane</a></li>
+  <div class="footer-cols"><div><h4>Agent Identity</h4><ul>
+      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
+      <li><a href="https://agents.appliedidentities.com/nell">The operations agent</a></li>
+      <li><a href="https://agents.appliedidentities.com/3jane">The Digital Intelligence seller</a></li>
     </ul></div>
     <div><h4>Behavioral Governance</h4><ul>
       <li><a href="/governance/">How the layer works</a></li>
       <li><a href="/verify/">Verify a record</a></li>
       <li><a href="/insights/">Insights</a></li>
-    </ul></div>
-    <div><h4>Governed Commerce</h4><ul>
-      <li><a href="https://vi.appliedidentities.com/">Verified Intent</a></li>
+    </ul></div><div><h4>Governed Commerce</h4><ul>
+      <li><a href="https://vi.appliedidentities.com/">Governed Commerce</a></li>
       <li><a href="https://vi.appliedidentities.com/ledger/">The Ledger</a></li>
-      <li><a href="https://vi.appliedidentities.com/season-1/">Season 1</a></li>
-      <li><a href="https://vi.appliedidentities.com/season-2/">Season 2</a></li>
     </ul></div>
     <div><h4>Embodied Oversight</h4><ul>
-      <li><a href="/embodied/">Oversight for machines</a></li>
+      <li><a href="/embodied/">Oversight for agents with bodies</a></li>
     </ul></div>
     <div><h4>3Jane Digital Intelligence</h4><ul>
       <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
@@ -414,8 +398,9 @@
       <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
       <li><a href="https://research.appliedidentities.com/verify/">The agent's record</a></li>
     </ul></div>
-  </div>
-  <div class="footer-util">
+  </div><div class="footer-util">
+    <a href="/about/">About</a>
+    <a href="/insights/">Insights</a>
     <a href="/verify/">Verify</a>
     <a href="/contact/">Contact</a>
     <a href="https://research.appliedidentities.com/rights.json">Rights</a>
