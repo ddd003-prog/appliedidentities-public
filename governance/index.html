@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Behavioral Governance | Applied Identities</title>
-  <meta name="description" content="Independent attestation, action by action. You set the specification and the authority; an independent observer attests whether behavior matched.">
+  <meta name="description" content="Independent attestation, action by action. You write the Behavioral Manifest; an independent observer measures every action against it and signs what it saw.">
 
   
   <meta property="og:title" content="Behavioral Governance">
-  <meta property="og:description" content="Independent attestation, action by action. You set the specification and the authority; an independent observer attests whether behavior matched.">
+  <meta property="og:description" content="Independent attestation, action by action. You write the Behavioral Manifest; an independent observer measures every action against it and signs what it saw.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://appliedidentities.com/governance/">
   <meta property="og:site_name" content="Applied Identities">
@@ -18,7 +18,7 @@
   <meta property="og:image:alt" content="Applied Identities — radar mark">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Behavioral Governance">
-  <meta name="twitter:description" content="Independent attestation, action by action. You set the specification and the authority; an independent observer attests whether behavior matched.">
+  <meta name="twitter:description" content="Independent attestation, action by action. You write the Behavioral Manifest; an independent observer measures every action against it and signs what it saw.">
   <meta name="twitter:image" content="https://appliedidentities.com/favicon-512.png">
 
   
@@ -66,16 +66,16 @@
 <section class="page-hero">
   <p class="eyebrow">Behavioral Governance</p>
   <h1><em>Independent attestation, action by action.</em></h1>
-  <p class="lede">You set the specification and the authority. We watch the agent work and attest, one action at a time, whether behavior matched.</p>
+  <p class="lede">You write the Behavioral Manifest, the standard your agent works to. We measure every action against it and sign what we saw.</p>
   <div class="cta-row">
     <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
-    <a class="btn btn-secondary btn-lg" href="/verify/">Verify a record</a>
+    <a class="btn btn-secondary btn-lg" href="/verify/">See a record verified</a>
   </div>
 </section>
 
 <section class="section">
   <h2 class="section-title">The argument</h2>
-  <p class="lede">An organization vouching for its own agent&#39;s behavior is self-attestation, the same structural problem as a company grading its own compliance. The measured party cannot keep the score. Credible governance needs an observer with nothing to protect, which is the layer we build: independent of the company deploying the agent and of the vendor that built it.</p>
+  <p class="lede">An organization vouching for its own agent&#39;s behavior is self-attestation, the same structural problem as a company grading its own compliance. The measured party cannot keep the score. Credible governance needs an observer with nothing to protect: independent of the company deploying the agent, and of the vendor that built it.</p>
 </section>
 
 <section class="section">
@@ -83,16 +83,186 @@
   <p class="lede">Two planes.</p>
   <div class="card-grid">
     
-    <div class="card"><h3>The governance plane</h3><p>In the cloud, holding what you&#39;ve decided: the agent&#39;s specification and its authorization.</p></div>
+    <div class="card"><h3>The governance plane</h3><p>In the cloud, holding what you have decided: the agent&#39;s Behavioral Manifest and its authorization.</p></div>
     
-    <div class="card"><h3>The observation plane</h3><p>On the machine where the agent works. For each action, an independent attestation is recorded: performed or not performed, against the specification. Attestations compose into traces, and each trace is hashed, so the sequence of what happened is fixed and cannot be quietly edited.</p></div>
+    <div class="card"><h3>The observation plane</h3><p>Scribe runs on the machine where the agent works. Each action becomes an independent attestation, scored against the Manifest and signed. Attestations group into traces by interaction, and each trace is hashed, so the sequence of what happened is fixed and cannot be quietly edited. Traces accumulate in the agent&#39;s Action Log.</p></div>
     
   </div>
 </section>
 
 <section class="section">
-  <h2 class="section-title">The record</h2>
-  <p class="lede">Traces accumulate in the agent&#39;s action log, and compliance is computed over it as a standing view, current as of the last action rather than the last quarter. When an auditor, a partner, or your own board asks how the agent has behaved, the answer is a record, on file, attested by a party that isn&#39;t you.</p>
+  <h2 class="section-title">Behavioral Findings</h2>
+  <p class="lede">For the people accountable for an agent, the record rolls up into Behavioral Findings: five measured dimensions and a grade band, current as of the last action rather than the last quarter. You see current findings on every agent you run.</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Built to answer</h2>
+  <p class="lede">When an auditor, an insurer, or a regulator asks how an agent has behaved, the layer is built to answer with a signed judgment over a trace, without opening your logs. The judgment stands on its own; the underlying record stays yours.</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">See a record verified</h2>
+  <p class="lede" style="margin-bottom:32px">This is the chain of authority resolving link by link, on a live record. Each identity document checks against the one that authorizes it, down to the credential the agent works under.</p>
+  <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-07-22">
+  <div class="livecheck-head">
+    <span class="eyebrow">Chain of authority</span>
+    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-07-22">Chain verified · 4 of 4 links · 2026-07-22</span>
+  </div>
+  <p class="livecheck-sub">A live record resolving link by link: <a href="https://agents.appliedidentities.com/nell">Nell Ashpool</a>, an agent on the public registry.</p>
+  <ol class="livecheck-links">
+    <li class="livecheck-link is-verified" data-link="constitution">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Constitution</span>
+        <span class="livecheck-meta">The corporate authority the agent operates under</span>
+      </span>
+      <code class="livecheck-serial">AI-CONST-AI-2026-001</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="soul">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Soul</span>
+        <span class="livecheck-meta">How it works and speaks for the company</span>
+      </span>
+      <code class="livecheck-serial">AI-SOUL-NELL-2026-002</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="passport">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Passport</span>
+        <span class="livecheck-meta">What it is permitted to do, with permission keys</span>
+      </span>
+      <code class="livecheck-serial">AI-PASS-NELL-2026-001</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="credential">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Operating credential</span>
+        <span class="livecheck-meta">The active credential the agent works under</span>
+      </span>
+      <code class="livecheck-serial">active</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+  </ol>
+  <p class="livecheck-anchor">Anchored on Base mainnet, independently checkable: <a href="https://basescan.org/tx/0x48a2c8eb12e4f97d153358cad3d96b0a944c0ba1f8974b3cc999990839a06c39" rel="noopener">view the on-chain registration</a>.</p>
+</div>
+
+<style>
+ 
+.livecheck{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 28px; max-width:680px;}
+.livecheck-head{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;}
+.livecheck-head .eyebrow{margin-bottom:0;}
+.livecheck-summary{white-space:nowrap;}
+.livecheck-sub{font-size:14px; color:var(--text-2); margin:14px 0 20px;}
+.livecheck-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;}
+.livecheck-link{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
+}
+.livecheck-link:last-child{border-bottom:0;}
+.livecheck-mark{
+  width:22px; height:22px; border-radius:50%; flex:none;
+  border:2px solid var(--elevated); background:transparent; position:relative;
+  transition:border-color .3s ease, background-color .3s ease;
+}
+.livecheck-body{display:flex; flex-direction:column; gap:2px; min-width:0;}
+.livecheck-name{font-size:15px; font-weight:600; color:var(--text);}
+.livecheck-meta{font-size:12px; color:var(--text-3);}
+.livecheck-serial{
+  grid-column:2 / 3; justify-self:start;
+  font-family:var(--mono); font-size:11px; color:var(--text-2); word-break:break-all;
+}
+.livecheck-state{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--text-3); justify-self:end;
+}
+ 
+.livecheck-link.is-verified .livecheck-mark{border-color:var(--verified); background:rgba(41,248,148,.12);}
+.livecheck-link.is-verified .livecheck-mark::after{
+  content:""; position:absolute; left:6px; top:2.5px; width:5px; height:10px;
+  border:solid var(--verified); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.livecheck-link.is-verified .livecheck-state{color:var(--verified);}
+ 
+.livecheck-link.is-pending .livecheck-mark{border-color:var(--elevated); background:transparent;}
+.livecheck-link.is-pending .livecheck-mark::after{content:none;}
+.livecheck-link.is-pending .livecheck-state{color:var(--text-3);}
+.livecheck-anchor{font-size:13px; color:var(--text-3); margin:20px 0 0;}
+@media (max-width:520px){
+  .livecheck-link{grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto;}
+  .livecheck-state{grid-column:2 / 3; justify-self:start; margin-top:2px;}
+  .livecheck-serial{grid-column:2 / 3;}
+}
+</style>
+
+<script>
+
+
+(function(){
+  var root = document.querySelector('.livecheck[data-endpoint]');
+  if(!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var order = ['constitution','soul','passport','credential'];
+  function fmtDate(d){
+    var y=d.getFullYear(), m=('0'+(d.getMonth()+1)).slice(-2), day=('0'+d.getDate()).slice(-2);
+    return y+'-'+m+'-'+day;
+  }
+  function resolve(data){
+    var gc = data.governance_chain || {};
+    var vi = data.vi_chain || {};
+    return {
+      constitution: !!gc.constitution_serial,
+      soul: !!gc.soul_serial,
+      passport: !!gc.passport_serial,
+      credential: (vi.l1_status === 'active')
+    };
+  }
+  function paint(states){
+    var passed = 0;
+    order.forEach(function(k){ if(states[k]) passed++; });
+    root.querySelectorAll('.livecheck-link').forEach(function(li){
+      var ok = states[li.getAttribute('data-link')];
+      li.classList.toggle('is-verified', !!ok);
+      li.classList.toggle('is-pending', !ok);
+    });
+    var sum = root.querySelector('.livecheck-summary');
+    if(sum){
+      var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
+      sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
+    }
+  }
+  function walk(states){
+    if(reduce){ paint(states); return; }
+     
+    root.querySelectorAll('.livecheck-link').forEach(function(li){
+      li.classList.remove('is-verified'); li.classList.add('is-pending');
+    });
+    var i = 0;
+    (function step(){
+      if(i >= order.length){
+        var passed = order.reduce(function(a,k){return a + (states[k]?1:0);},0);
+        var sum = root.querySelector('.livecheck-summary');
+        if(sum){
+          var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
+          sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
+        }
+        return;
+      }
+      var li = root.querySelector('.livecheck-link[data-link="'+order[i]+'"]');
+      if(li && states[order[i]]){ li.classList.remove('is-pending'); li.classList.add('is-verified'); }
+      i++; setTimeout(step, 260);
+    })();
+  }
+  fetch(root.getAttribute('data-endpoint'), {method:'GET', mode:'cors', cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r.json(); })
+    .then(function(data){ walk(resolve(data)); })
+    .catch(function(){   });
+})();
+</script>
+
 </section>
 
 <div class="cta-band">
@@ -132,7 +302,7 @@
       <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
       <li><a href="https://research.appliedidentities.com/morning/latest/">Morning brief</a></li>
       <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
-      <li><a href="https://research.appliedidentities.com/verify/">Verify the agent</a></li>
+      <li><a href="https://research.appliedidentities.com/verify/">The agent's record</a></li>
     </ul></div>
   </div>
   <div class="footer-util">

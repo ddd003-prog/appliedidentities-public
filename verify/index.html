@@ -99,11 +99,11 @@
 <h2 id="why-this-exists">Why This Exists</h2>
 <p>When you have fifteen agent classes operating across your organization — each with their own behavioral specifications, each potentially modified by different teams, each subject to model updates — the connection between what leadership approved and what the system actually does becomes difficult to verify. Your board, your PE sponsor, a regulator, your own CIO six months from now should be able to ask &ldquo;is this system running the way we intended?&rdquo; and get an answer backed by evidence, not assurance.</p>
 <h2 id="how-it-works">How It Works</h2>
-<p>Every Identity Architecture deliverable carries embedded cryptographic verification — a <code>hashInputSpec</code> block with a SHA-256 content hash, serial identifier, and chain references. Every specification traces back to a single strategic root (the Company Constitution). Every document proves its own integrity without any external service, API call, or dependency on Applied Identities. Heartbeat Reports chain temporally, building an append-only audit trail of behavioral measurement against authenticated specifications. You own everything — end the engagement tomorrow and your complete governance record works without us.</p>
+<p>Every Identity Architecture deliverable carries embedded cryptographic verification — a <code>hashInputSpec</code> block with a SHA-256 content hash, serial identifier, and chain references. Every specification traces back to a single strategic root (the Company Constitution). Every document proves its own integrity without any external service, API call, or dependency on Applied Identities. Attestations chain temporally, building an append-only audit trail of behavioral measurement against authenticated specifications. You own everything — end the engagement tomorrow and your complete governance record works without us.</p>
 <h2 id="see-it-running">See It Running</h2>
 <p>None of this is an abstraction — it runs in production today, and you can inspect it live, without an account and without asking us:</p>
 <ul>
-<li><strong><a href="https://vi.appliedidentities.com/">Verified Intent</a></strong> — how agentic commerce is made safe: a decline that fires before money moves, a kill switch that provably works, receipts from production.</li>
+<li><strong><a href="https://vi.appliedidentities.com/">Verified Intent</a></strong> — how agentic commerce is made safe: a decline that fires before money moves, a credential revoked the moment it is pulled, receipts from production.</li>
 <li><strong><a href="https://vi.appliedidentities.com/ledger/">The public Ledger</a></strong> — dated governance events, live from the credential plane.</li>
 <li><strong><a href="https://agents.appliedidentities.com/">The agent registry</a></strong> — ERC-8004 records for our registered agents: read the card, check the chain, verify before any transaction.</li>
 <li><strong><a href="https://research.appliedidentities.com/">3Jane Digital Intelligence</a></strong> — a working research business whose every sale is governed by this architecture.</li>
@@ -114,6 +114,172 @@
 
 </section>
 
+
+
+<section class="section" style="padding-top:0">
+  <h2 class="section-title" style="margin-bottom:12px">See the chain verify</h2>
+  <p class="muted" style="max-width:62ch;margin-bottom:28px">The chain of authority resolves link by link, from an agent's Constitution down to the credential it works under. The most recent verified state is shown; with scripting it re-confirms against the live record.</p>
+  <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-07-22">
+  <div class="livecheck-head">
+    <span class="eyebrow">Chain of authority</span>
+    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-07-22">Chain verified · 4 of 4 links · 2026-07-22</span>
+  </div>
+  <p class="livecheck-sub">A live record resolving link by link: <a href="https://agents.appliedidentities.com/nell">Nell Ashpool</a>, an agent on the public registry.</p>
+  <ol class="livecheck-links">
+    <li class="livecheck-link is-verified" data-link="constitution">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Constitution</span>
+        <span class="livecheck-meta">The corporate authority the agent operates under</span>
+      </span>
+      <code class="livecheck-serial">AI-CONST-AI-2026-001</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="soul">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Soul</span>
+        <span class="livecheck-meta">How it works and speaks for the company</span>
+      </span>
+      <code class="livecheck-serial">AI-SOUL-NELL-2026-002</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="passport">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Passport</span>
+        <span class="livecheck-meta">What it is permitted to do, with permission keys</span>
+      </span>
+      <code class="livecheck-serial">AI-PASS-NELL-2026-001</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="credential">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Operating credential</span>
+        <span class="livecheck-meta">The active credential the agent works under</span>
+      </span>
+      <code class="livecheck-serial">active</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+  </ol>
+  <p class="livecheck-anchor">Anchored on Base mainnet, independently checkable: <a href="https://basescan.org/tx/0x48a2c8eb12e4f97d153358cad3d96b0a944c0ba1f8974b3cc999990839a06c39" rel="noopener">view the on-chain registration</a>.</p>
+</div>
+
+<style>
+ 
+.livecheck{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 28px; max-width:680px;}
+.livecheck-head{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;}
+.livecheck-head .eyebrow{margin-bottom:0;}
+.livecheck-summary{white-space:nowrap;}
+.livecheck-sub{font-size:14px; color:var(--text-2); margin:14px 0 20px;}
+.livecheck-links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;}
+.livecheck-link{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
+}
+.livecheck-link:last-child{border-bottom:0;}
+.livecheck-mark{
+  width:22px; height:22px; border-radius:50%; flex:none;
+  border:2px solid var(--elevated); background:transparent; position:relative;
+  transition:border-color .3s ease, background-color .3s ease;
+}
+.livecheck-body{display:flex; flex-direction:column; gap:2px; min-width:0;}
+.livecheck-name{font-size:15px; font-weight:600; color:var(--text);}
+.livecheck-meta{font-size:12px; color:var(--text-3);}
+.livecheck-serial{
+  grid-column:2 / 3; justify-self:start;
+  font-family:var(--mono); font-size:11px; color:var(--text-2); word-break:break-all;
+}
+.livecheck-state{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--text-3); justify-self:end;
+}
+ 
+.livecheck-link.is-verified .livecheck-mark{border-color:var(--verified); background:rgba(41,248,148,.12);}
+.livecheck-link.is-verified .livecheck-mark::after{
+  content:""; position:absolute; left:6px; top:2.5px; width:5px; height:10px;
+  border:solid var(--verified); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.livecheck-link.is-verified .livecheck-state{color:var(--verified);}
+ 
+.livecheck-link.is-pending .livecheck-mark{border-color:var(--elevated); background:transparent;}
+.livecheck-link.is-pending .livecheck-mark::after{content:none;}
+.livecheck-link.is-pending .livecheck-state{color:var(--text-3);}
+.livecheck-anchor{font-size:13px; color:var(--text-3); margin:20px 0 0;}
+@media (max-width:520px){
+  .livecheck-link{grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto;}
+  .livecheck-state{grid-column:2 / 3; justify-self:start; margin-top:2px;}
+  .livecheck-serial{grid-column:2 / 3;}
+}
+</style>
+
+<script>
+
+
+(function(){
+  var root = document.querySelector('.livecheck[data-endpoint]');
+  if(!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var order = ['constitution','soul','passport','credential'];
+  function fmtDate(d){
+    var y=d.getFullYear(), m=('0'+(d.getMonth()+1)).slice(-2), day=('0'+d.getDate()).slice(-2);
+    return y+'-'+m+'-'+day;
+  }
+  function resolve(data){
+    var gc = data.governance_chain || {};
+    var vi = data.vi_chain || {};
+    return {
+      constitution: !!gc.constitution_serial,
+      soul: !!gc.soul_serial,
+      passport: !!gc.passport_serial,
+      credential: (vi.l1_status === 'active')
+    };
+  }
+  function paint(states){
+    var passed = 0;
+    order.forEach(function(k){ if(states[k]) passed++; });
+    root.querySelectorAll('.livecheck-link').forEach(function(li){
+      var ok = states[li.getAttribute('data-link')];
+      li.classList.toggle('is-verified', !!ok);
+      li.classList.toggle('is-pending', !ok);
+    });
+    var sum = root.querySelector('.livecheck-summary');
+    if(sum){
+      var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
+      sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
+    }
+  }
+  function walk(states){
+    if(reduce){ paint(states); return; }
+     
+    root.querySelectorAll('.livecheck-link').forEach(function(li){
+      li.classList.remove('is-verified'); li.classList.add('is-pending');
+    });
+    var i = 0;
+    (function step(){
+      if(i >= order.length){
+        var passed = order.reduce(function(a,k){return a + (states[k]?1:0);},0);
+        var sum = root.querySelector('.livecheck-summary');
+        if(sum){
+          var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
+          sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
+        }
+        return;
+      }
+      var li = root.querySelector('.livecheck-link[data-link="'+order[i]+'"]');
+      if(li && states[order[i]]){ li.classList.remove('is-pending'); li.classList.add('is-verified'); }
+      i++; setTimeout(step, 260);
+    })();
+  }
+  fetch(root.getAttribute('data-endpoint'), {method:'GET', mode:'cors', cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r.json(); })
+    .then(function(data){ walk(resolve(data)); })
+    .catch(function(){   });
+})();
+</script>
+
+</section>
 
 <section class="section">
   <div class="card verify-tool__box">
@@ -246,7 +412,7 @@
       <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
       <li><a href="https://research.appliedidentities.com/morning/latest/">Morning brief</a></li>
       <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
-      <li><a href="https://research.appliedidentities.com/verify/">Verify the agent</a></li>
+      <li><a href="https://research.appliedidentities.com/verify/">The agent's record</a></li>
     </ul></div>
   </div>
   <div class="footer-util">
