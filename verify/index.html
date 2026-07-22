@@ -23,13 +23,9 @@
 
   
   
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/ibm-plex-sans.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/newsreader.woff2" crossorigin>
-
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/figtree.woff2" crossorigin>
   
-  
-  <link rel="stylesheet" href="/css/main.228b5d54b8f92c226be6370a614a63ce2aecf2ba3f7469c0e8e8cfbad0510b41.css" integrity="sha256-IotdVLj5LCJr5jcKYUpjzirs8ro/dGnA6OjPutBRC0E=">
+  <link rel="stylesheet" href="/css/estate.3ad481a0de3593e0edb0e99d6a29f6b7bd9577b67263446f044245add118a641.css" integrity="sha256-OtSBoN41k&#43;DtsOmdain2t72Vd7ZyY0RvBEJFrdEYpkE=">
   
 
   
@@ -53,39 +49,20 @@
 </head>
 <body>
   
-  <div class="page">
-    <header class="nav">
-  <div class="wrap nav-row">
-    <a href="/" class="brand" aria-label="Applied Identities, home">
-      <img class="mark" src="/favicon-180.png" alt="" aria-hidden="true" width="32" height="32">Applied Identities
-    </a>
+  <header class="estate-header"><div class="bar">
+  <a class="estate-mark" href="/">Applied Identities</a>
+  <nav class="estate-nav" aria-label="Estate">
+    <a href="/#agent-identity">Agent Identity</a>
+    <a href="/#behavioral-governance" aria-current="true">Behavioral Governance</a>
+    <a href="/#governed-commerce">Governed Commerce</a>
+    <a href="/#embodied-oversight">Embodied Oversight</a>
+    <a class="btn btn-primary" href="/contact/">Talk to us</a>
+  </nav>
+</div></header>
 
-    <nav class="nav-links" id="nav-links" aria-label="Primary">
-      
-      
-        
-        <a href="/governance/">Governance</a>
-      
-        
-        <a href="/insights/">Insights</a>
-      
-        
-        <a href="/contact/">Contact</a>
-      
-    </nav>
+  <main id="main">
+    
 
-    <div class="nav-actions">
-      <a class="btn btn-primary" href="/contact/">Start a conversation</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-
-    <main id="main">
-      
 
 
 <script type="application/ld+json">
@@ -109,11 +86,15 @@
 }
 </script>
 
+<div class="wrap">
 
-<article class="prose">
-  <div class="container container--narrow">
-    <h1>Chain of Authority</h1>
-    <p><em>Verified AI Governance from Strategy to Execution</em></p>
+<section class="page-hero">
+  <h1>Chain of Authority</h1>
+</section>
+
+
+<section class="section" style="padding-top:0;max-width:70ch">
+  <p><em>Verified AI Governance from Strategy to Execution</em></p>
 <hr>
 <h2 id="why-this-exists">Why This Exists</h2>
 <p>When you have fifteen agent classes operating across your organization — each with their own behavioral specifications, each potentially modified by different teams, each subject to model updates — the connection between what leadership approved and what the system actually does becomes difficult to verify. Your board, your PE sponsor, a regulator, your own CIO six months from now should be able to ask &ldquo;is this system running the way we intended?&rdquo; and get an answer backed by evidence, not assurance.</p>
@@ -131,146 +112,151 @@
 <p>This registry indexes all signed Applied Identities content. To verify a document, paste its full content below. The hash is computed client-side — nothing is transmitted. A match confirms the document is authentic and unmodified.</p>
 <!-- Registry table and verification tool render via Hugo template below -->
 
-  </div>
-</article>
-
-
-<section class="verify-tool">
-  <div class="container">
-    <div class="verify-tool__box">
-      <h2>Verify a Document</h2>
-      <p>Paste the canonical content body from any Applied Identities deliverable. The hash is computed locally in your browser. Nothing is transmitted.</p>
-      <textarea id="verify-input" placeholder="Paste content between <!-- BEGIN VERIFIED CONTENT --> and <!-- END VERIFIED CONTENT --> markers..." rows="6"></textarea>
-      <div class="verify-tool__actions">
-        <button id="verify-btn" onclick="verifyContent()">Compute & Verify</button>
-        <button id="clear-btn" class="btn-secondary" onclick="clearVerification()">Clear</button>
-      </div>
-      <div id="verify-result" class="verify-result" style="display:none;"></div>
-    </div>
-  </div>
-</section>
-
-<section class="verify-registry">
-  <div class="container">
-    <div class="verify-registry__header">
-      <h2>Signed Content Blocks</h2>
-      <div class="verify-registry__meta">
-        <span class="meta-item">5 entries</span>
-        <span class="meta-sep">·</span>
-        <span class="meta-item">Last updated </span>
-        <span class="meta-sep">·</span>
-        <span class="meta-item">Registry </span>
-      </div>
-    </div>
-
-    <div class="registry-table">
-      <div class="registry-table__head">
-        <div class="col-serial">Serial</div>
-        <div class="col-title">Document</div>
-        <div class="col-type">Type</div>
-        <div class="col-hash">Content Hash (SHA-256)</div>
-        <div class="col-status">Status</div>
-      </div>
-      
-      
-      <div class="registry-table__row" data-hash="07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c" data-serial="AI-SITE-2026-001">
-        <div class="col-serial"><code>AI-SITE-2026-001</code></div>
-        <div class="col-title">
-          <span class="entry-title">Homepage - Your AI Doesn&#39;t Know Who It&#39;s Working For</span>
-          <span class="entry-date">2026-02-12T04:12:35Z</span>
-          
-        </div>
-        <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
-        <div class="col-hash"><code class="hash-display" title="07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c">07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c</code></div>
-        <div class="col-status"><span class="status-badge status-active">active</span></div>
-      </div>
-      
-      <div class="registry-table__row" data-hash="5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9" data-serial="AI-SITE-2026-002">
-        <div class="col-serial"><code>AI-SITE-2026-002</code></div>
-        <div class="col-title">
-          <span class="entry-title">Methodology - Identity Architecture</span>
-          <span class="entry-date">2026-02-12T04:12:42Z</span>
-          
-        </div>
-        <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
-        <div class="col-hash"><code class="hash-display" title="5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9">5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9</code></div>
-        <div class="col-status"><span class="status-badge status-active">active</span></div>
-      </div>
-      
-      <div class="registry-table__row" data-hash="b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a" data-serial="AI-SITE-2026-003">
-        <div class="col-serial"><code>AI-SITE-2026-003</code></div>
-        <div class="col-title">
-          <span class="entry-title">About - Two Principals, One Practice</span>
-          <span class="entry-date">2026-02-12T04:12:44Z</span>
-          
-        </div>
-        <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
-        <div class="col-hash"><code class="hash-display" title="b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a">b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a</code></div>
-        <div class="col-status"><span class="status-badge status-active">active</span></div>
-      </div>
-      
-      <div class="registry-table__row" data-hash="d77b18bd8b344d39cafc0af38baace495ef1ed1f884e0114000ef4bb99af5f4c" data-serial="AI-CONST-2026-001">
-        <div class="col-serial"><code>AI-CONST-2026-001</code></div>
-        <div class="col-title">
-          <span class="entry-title">Company Constitution</span>
-          <span class="entry-date">2026-02-16T14:28:14Z</span>
-          
-        </div>
-        <div class="col-type"><span class="type-badge type-company-constitution">company-constitution</span></div>
-        <div class="col-hash"><code class="hash-display" title="d77b18bd8b344d39cafc0af38baace495ef1ed1f884e0114000ef4bb99af5f4c">d77b18bd8b344d39cafc0af38baace495ef1ed1f884e0114000ef4bb99af5f4c</code></div>
-        <div class="col-status"><span class="status-badge status-active">active</span></div>
-      </div>
-      
-      <div class="registry-table__row" data-hash="057a3d86051ed6db06d4e56b51554d6d36c459a6c29dad5e630d7587f4f4e355" data-serial="AI-CONST-AI-2026-001">
-        <div class="col-serial"><code>AI-CONST-AI-2026-001</code></div>
-        <div class="col-title">
-          <span class="entry-title">Applied Identities — Company Constitution</span>
-          <span class="entry-date">2026-03-01T11:59:33Z</span>
-          
-        </div>
-        <div class="col-type"><span class="type-badge type-company-constitution">company-constitution</span></div>
-        <div class="col-hash"><code class="hash-display" title="057a3d86051ed6db06d4e56b51554d6d36c459a6c29dad5e630d7587f4f4e355">057a3d86051ed6db06d4e56b51554d6d36c459a6c29dad5e630d7587f4f4e355</code></div>
-        <div class="col-status"><span class="status-badge status-active">active</span></div>
-      </div>
-      
-    </div>
-  </div>
 </section>
 
 
-
-    </main>
-
-    <footer class="footer">
-  <div class="wrap">
-    <div class="foot-row">
-      <div>
-        <div class="foot-brand"><img class="foot-mark" src="/favicon-180.png" alt="" aria-hidden="true" width="28" height="28">Applied Identities</div>
-        <p class="foot-desc">Behavioral governance for AI agent workforces.</p>
-      </div>
-      <div class="foot-cols">
-        <div>
-          <h4>Product</h4>
-          <a href="/governance/">Governance</a>
-          <a href="/insights/">Insights</a>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <a href="/contact/">Contact</a>
-          <a href="/verify/">Verify</a>
-        </div>
-      </div>
+<section class="section">
+  <div class="card verify-tool__box">
+    <h2>Verify a Document</h2>
+    <p class="muted">Paste the canonical content body from any Applied Identities deliverable. The hash is computed locally in your browser. Nothing is transmitted.</p>
+    <textarea id="verify-input" placeholder="Paste content between &lt;!-- BEGIN VERIFIED CONTENT --&gt; and &lt;!-- END VERIFIED CONTENT --&gt; markers..." rows="6" style="width:100%;margin-top:16px;background:var(--elevated);border:1px solid var(--line);border-radius:8px;padding:12px 14px;color:var(--text);font-family:var(--mono);font-size:14px"></textarea>
+    <div class="verify-tool__actions" style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap">
+      <button id="verify-btn" class="btn btn-primary" onclick="verifyContent()">Compute &amp; Verify</button>
+      <button id="clear-btn" class="btn btn-secondary" onclick="clearVerification()">Clear</button>
     </div>
-    <div class="foot-base">
-      <span>&copy; 2026 Applied Identities</span>
-      <span>Behavioral governance, independently verifiable.</span>
+    <div id="verify-result" class="verify-result" style="display:none;margin-top:16px"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="verify-registry__header" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:baseline;margin-bottom:20px">
+    <h2 class="section-title" style="margin-bottom:0">Signed Content Blocks</h2>
+    <div class="verify-registry__meta mono muted" style="font-size:13px">
+      <span class="meta-item">5 entries</span>
+      <span class="meta-sep">&middot;</span>
+      <span class="meta-item">Last updated </span>
+      <span class="meta-sep">&middot;</span>
+      <span class="meta-item">Registry </span>
     </div>
   </div>
-</footer>
 
+  <div class="registry-table">
+    <div class="registry-table__head">
+      <div class="col-serial">Serial</div>
+      <div class="col-title">Document</div>
+      <div class="col-type">Type</div>
+      <div class="col-hash">Content Hash (SHA-256)</div>
+      <div class="col-status">Status</div>
+    </div>
+
+    
+    <div class="registry-table__row" data-hash="07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c" data-serial="AI-SITE-2026-001">
+      <div class="col-serial"><code>AI-SITE-2026-001</code></div>
+      <div class="col-title">
+        <span class="entry-title">Homepage - Your AI Doesn&#39;t Know Who It&#39;s Working For</span>
+        <span class="entry-date">2026-02-12T04:12:35Z</span>
+        
+      </div>
+      <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
+      <div class="col-hash"><code class="hash-display" title="07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c">07566ba7a109853cddba8960a817d78ae6a5ecd302a12f74ddb18b2b7c8f6e9c</code></div>
+      <div class="col-status"><span class="status-badge status-active">active</span></div>
+    </div>
+    
+    <div class="registry-table__row" data-hash="5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9" data-serial="AI-SITE-2026-002">
+      <div class="col-serial"><code>AI-SITE-2026-002</code></div>
+      <div class="col-title">
+        <span class="entry-title">Methodology - Identity Architecture</span>
+        <span class="entry-date">2026-02-12T04:12:42Z</span>
+        
+      </div>
+      <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
+      <div class="col-hash"><code class="hash-display" title="5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9">5c0a9592d328e988ae5e5d3d207ec6b16b752f6f660e9e0e38f56d22ce82f6d9</code></div>
+      <div class="col-status"><span class="status-badge status-active">active</span></div>
+    </div>
+    
+    <div class="registry-table__row" data-hash="b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a" data-serial="AI-SITE-2026-003">
+      <div class="col-serial"><code>AI-SITE-2026-003</code></div>
+      <div class="col-title">
+        <span class="entry-title">About - Two Principals, One Practice</span>
+        <span class="entry-date">2026-02-12T04:12:44Z</span>
+        
+      </div>
+      <div class="col-type"><span class="type-badge type-site-content">site-content</span></div>
+      <div class="col-hash"><code class="hash-display" title="b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a">b15a3ec33ae216bea0eb8bea59d0bb6682048baa828c75b7b8656b422b94439a</code></div>
+      <div class="col-status"><span class="status-badge status-active">active</span></div>
+    </div>
+    
+    <div class="registry-table__row" data-hash="d77b18bd8b344d39cafc0af38baace495ef1ed1f884e0114000ef4bb99af5f4c" data-serial="AI-CONST-2026-001">
+      <div class="col-serial"><code>AI-CONST-2026-001</code></div>
+      <div class="col-title">
+        <span class="entry-title">Company Constitution</span>
+        <span class="entry-date">2026-02-16T14:28:14Z</span>
+        
+      </div>
+      <div class="col-type"><span class="type-badge type-company-constitution">company-constitution</span></div>
+      <div class="col-hash"><code class="hash-display" title="d77b18bd8b344d39cafc0af38baace495ef1ed1f884e0114000ef4bb99af5f4c">d77b18bd8b344d39cafc0af38baace495ef1ed1f884e0114000ef4bb99af5f4c</code></div>
+      <div class="col-status"><span class="status-badge status-active">active</span></div>
+    </div>
+    
+    <div class="registry-table__row" data-hash="057a3d86051ed6db06d4e56b51554d6d36c459a6c29dad5e630d7587f4f4e355" data-serial="AI-CONST-AI-2026-001">
+      <div class="col-serial"><code>AI-CONST-AI-2026-001</code></div>
+      <div class="col-title">
+        <span class="entry-title">Applied Identities — Company Constitution</span>
+        <span class="entry-date">2026-03-01T11:59:33Z</span>
+        
+      </div>
+      <div class="col-type"><span class="type-badge type-company-constitution">company-constitution</span></div>
+      <div class="col-hash"><code class="hash-display" title="057a3d86051ed6db06d4e56b51554d6d36c459a6c29dad5e630d7587f4f4e355">057a3d86051ed6db06d4e56b51554d6d36c459a6c29dad5e630d7587f4f4e355</code></div>
+      <div class="col-status"><span class="status-badge status-active">active</span></div>
+    </div>
+    
   </div>
+</section>
 
-  <script src="/js/main.js" defer></script>
+</div>
+
+
+  </main>
+  <footer class="estate-footer"><div class="inner">
+  <div class="identity">
+    <a class="estate-mark" href="/">Applied Identities</a>
+    <p>Independent behavioral governance for AI agents.</p>
+  </div>
+  <div class="footer-cols">
+    <div><h4>Agent Identity</h4><ul>
+      <li><a href="https://agents.appliedidentities.com/">Agent registry</a></li>
+      <li><a href="https://agents.appliedidentities.com/nell">Record: Nell Ashpool</a></li>
+      <li><a href="https://agents.appliedidentities.com/3jane">Record: 3Jane</a></li>
+    </ul></div>
+    <div><h4>Behavioral Governance</h4><ul>
+      <li><a href="/governance/">How the layer works</a></li>
+      <li><a href="/verify/">Verify a record</a></li>
+      <li><a href="/insights/">Insights</a></li>
+    </ul></div>
+    <div><h4>Governed Commerce</h4><ul>
+      <li><a href="https://vi.appliedidentities.com/">Verified Intent</a></li>
+      <li><a href="https://vi.appliedidentities.com/ledger/">The Ledger</a></li>
+      <li><a href="https://vi.appliedidentities.com/season-1/">Season 1</a></li>
+      <li><a href="https://vi.appliedidentities.com/season-2/">Season 2</a></li>
+    </ul></div>
+    <div><h4>Embodied Oversight</h4><ul>
+      <li><a href="/embodied/">Oversight for machines</a></li>
+    </ul></div>
+    <div><h4>3Jane Digital Intelligence</h4><ul>
+      <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
+      <li><a href="https://research.appliedidentities.com/morning/latest/">Morning brief</a></li>
+      <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
+      <li><a href="https://research.appliedidentities.com/verify/">Verify the agent</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-util">
+    <a href="/verify/">Verify</a>
+    <a href="/contact/">Contact</a>
+    <a href="https://research.appliedidentities.com/rights.json">Rights</a>
+    <span>&copy; 2026 Applied Identities · Atlanta, GA</span>
+  </div>
+</div></footer>
+
   
   
 <script>
@@ -300,22 +286,22 @@ async function computeSHA256(text) {
 async function verifyContent() {
   const input = document.getElementById('verify-input').value;
   const resultEl = document.getElementById('verify-result');
-  
+
   if (!input.trim()) {
     resultEl.style.display = 'block';
     resultEl.className = 'verify-result verify-result--error';
     resultEl.innerHTML = 'Paste content to verify.';
     return;
   }
-  
+
   const normalized = normalizeContent(input);
   const hash = await computeSHA256(normalized);
-  
+
   
   const match = REGISTRY.find(e => e.contentHash === hash);
-  
+
   resultEl.style.display = 'block';
-  
+
   if (match) {
     resultEl.className = 'verify-result verify-result--verified';
     resultEl.innerHTML = `
