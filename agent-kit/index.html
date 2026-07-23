@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Agent Kit | Applied Identities</title>
-  <meta name="description" content="The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer is built on it.">
+  <meta name="description" content="The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer is built on it - start with the kit, add what you need.">
   <link rel="canonical" href="https://appliedidentities.com/agent-kit/">
 
   
   <meta property="og:title" content="Agent Kit">
-  <meta property="og:description" content="The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer is built on it.">
+  <meta property="og:description" content="The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer is built on it - start with the kit, add what you need.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://appliedidentities.com/agent-kit/">
   <meta property="og:site_name" content="Applied Identities">
@@ -20,7 +20,7 @@
   <meta property="og:image:alt" content="Applied Identities — independent behavioral governance for AI agents">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Agent Kit">
-  <meta name="twitter:description" content="The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer is built on it.">
+  <meta name="twitter:description" content="The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer is built on it - start with the kit, add what you need.">
   <meta name="twitter:image" content="https://appliedidentities.com/estate-share-card.png">
 
   
@@ -44,6 +44,40 @@
 
   
 
+<style>
+.kit-page .kit-frame{padding-top:8px;}
+.kit-page .kit-frame .eyebrow{margin-bottom:20px;}
+.kit-page .kit-frame h1{font-size:clamp(34px,5.4vw,60px);font-weight:700;line-height:1.06;
+  letter-spacing:-.02em;max-width:18ch;}
+.kit-page .kit-frame .lede{font-size:clamp(17px,1.6vw,20px);color:var(--text-2);max-width:56ch;
+  margin-top:24px;line-height:1.55;}
+.kit-page .kit-frame .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+
+.kit-page .kit-diagram{margin:64px 0 8px;max-width:960px;}
+.kit-page .kit-diagram svg{width:100%;height:auto;display:block;overflow:visible;}
+ 
+.kit-page .kit-diagram .strand{fill:none;stroke:var(--text-3);stroke-width:1.75;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:kitdraw 1.3s ease forwards;}
+.kit-page .kit-diagram .strand.s2{animation-delay:.16s;}
+.kit-page .kit-diagram .strand.s3{stroke:var(--blue);stroke-width:2.5;animation-delay:.32s;}
+@keyframes kitdraw{to{stroke-dashoffset:0;}}
+.kit-page .kit-diagram .strand-label{font-family:var(--mono);font-size:13px;letter-spacing:.18em;
+  fill:var(--text-2);text-transform:uppercase;}
+.kit-page .kit-diagram .strand-label.is-proof{fill:var(--blue);}
+.kit-page .kit-diagram .node,.kit-page .kit-diagram .node-label{opacity:0;animation:kitfade .7s ease 1.15s forwards;}
+.kit-page .kit-diagram .node-ring{fill:none;stroke:var(--blue);stroke-width:1.5;}
+.kit-page .kit-diagram .node-dot{fill:var(--blue);}
+.kit-page .kit-diagram .node-label{font-family:var(--sans);font-size:19px;font-weight:600;fill:var(--text);}
+@keyframes kitfade{to{opacity:1;}}
+@media(prefers-reduced-motion:reduce){
+  .kit-page .kit-diagram .strand{stroke-dashoffset:0;animation:none;}
+  .kit-page .kit-diagram .node,.kit-page .kit-diagram .node-label{opacity:1;animation:none;}
+}
+
+.kit-page .kit-cta-inline{margin-top:16px;}
+</style>
+
+
   
   <script defer src="https://analytics.appliedidentities.com/script.js" data-website-id="c9af12f9-17bd-4ec6-b651-20f79714dd1f"></script>
 </head>
@@ -65,27 +99,99 @@
   <main id="main">
     
 
-<div class="wrap">
-  <section class="page-hero">
-    <p class="eyebrow">Foundation · Agent Kit</p>
-    <h1>One kit under every offer.</h1>
-    <p class="lede">The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer is built on it - start with the kit, add what you need.</p>
+<div class="wrap kit-page">
+
+  <section class="page-hero kit-frame">
+    <p class="eyebrow">Agent Kit</p>
+    <h1>Every agent is a new employee.<br>None of them were onboarded.</h1>
+    <p class="lede">An agent in production sends the email, quotes the price, and answers the customer under your name. A person doing that work gets an identity, a defined role, boundaries, and a review. Agents just get deployed. The Agent Kit is the system that was missing: who each agent is, what it may do, and proof of how it behaved.</p>
     <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
+      <a class="btn btn-primary btn-lg" href="https://agents.appliedidentities.com/registry">Browse the agent registry</a>
+      <a class="btn btn-secondary btn-lg" href="https://agents.appliedidentities.com/nell">See a live record</a>
+    </div>
+
+    
+    <div class="kit-diagram">
+      <svg viewBox="0 0 1240 380" role="img" aria-label="Three strands, identity, authority, and proof, converge into a single node: a governed workforce.">
+        
+        <text class="strand-label" x="6" y="92">Identity</text>
+        <text class="strand-label" x="6" y="196">Authority</text>
+        <text class="strand-label is-proof" x="6" y="300">Proof</text>
+        
+        <path class="strand s1" pathLength="1" d="M8,108 C 300,108 470,210 720,210"/>
+        <path class="strand s2" pathLength="1" d="M8,210 C 300,210 470,210 720,210"/>
+        <path class="strand s3" pathLength="1" d="M8,316 C 300,316 470,210 720,210"/>
+        
+        <g class="node">
+          <circle class="node-ring" cx="720" cy="210" r="21"/>
+          <circle class="node-dot" cx="720" cy="210" r="8"/>
+        </g>
+        <text class="node-label" x="756" y="217">A governed workforce</text>
+      </svg>
+    </div>
+    
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">What the kit issues</h2>
+    <p class="lede">Four things every agent gets on day one - the same things a person gets when a company gives them authority to act on its behalf.</p>
+    <div class="card-grid">
+      
+      <div class="card"><h3>Specification</h3><p>A written role, authority, and limits for every agent. The document that says what the agent is for, what it may decide, and where its authority ends.</p></div>
+      
+      <div class="card"><h3>Authorization</h3><p>Signed, scoped credentials that say what it may do. Each credential is narrow, verifiable, and revocable - not a shared key with standing access.</p></div>
+      
+      <div class="card"><h3>Public record</h3><p>A live, verifiable ERC-8004 file anyone can read. Identity, chains, and current status resolve on demand at the registry, never cached.</p></div>
+      
+      <div class="card"><h3>Immediate revocation</h3><p>Revoke a credential and stop the agent on demand. From that moment every verification path rejects it - proven on the live server on July 17.</p></div>
+      
     </div>
   </section>
-  <div class="card-grid">
-    
-    <div class="card"><h3>Specification</h3><p>A written role, authority, and limits for every agent.</p></div>
-    
-    <div class="card"><h3>Authorization</h3><p>Signed, scoped credentials that say what it may do.</p></div>
-    
-    <div class="card"><h3>Public record</h3><p>A live, verifiable ERC-8004 file anyone can read.</p></div>
-    
-    <div class="card"><h3>Revocation</h3><p>Revoke a credential and stop the agent on demand.</p></div>
-    
-  </div>
+
+  <section class="section" style="padding-top:0">
+    <h2 class="section-title">One foundation, four offers</h2>
+    <p class="lede">Each offer is built on the kit and adoptable on its own. Start with identity; add governance, commerce, or embodied oversight when you need them.</p>
+    <div class="card-grid">
+      
+      <div class="card">
+        <h3>Agent Identity</h3>
+        <p>Every agent on the public record, with a file that follows its work.</p>
+        <p style="margin-top:12px"><a href="/#agent-identity">See the offer →</a></p>
+      </div>
+      
+      <div class="card">
+        <h3>Behavioral Governance</h3>
+        <p>Independent measurement against the standard your company writes.</p>
+        <p style="margin-top:12px"><a href="/#behavioral-governance">See the offer →</a></p>
+      </div>
+      
+      <div class="card">
+        <h3>Governed Commerce</h3>
+        <p>Scoped credentials, a price ceiling, and immediate revocation on the record.</p>
+        <p style="margin-top:12px"><a href="/#governed-commerce">See the offer →</a></p>
+      </div>
+      
+      <div class="card">
+        <h3>Embodied Oversight</h3>
+        <p>The same chain of authority when an agent drives a machine.</p>
+        <p style="margin-top:12px"><a href="/#embodied-oversight">See the offer →</a></p>
+      </div>
+      
+    </div>
+  </section>
+
   
+  <section class="section" style="padding-top:0">
+    <p class="lede">Running in production today: the registry is public, and Nell Ashpool is on the record with a signed, verifiable file.</p>
+    <p style="margin-top:10px"><a href="https://agents.appliedidentities.com/nell">See a live record →</a></p>
+  </section>
+  
+
+  <div class="cta-band">
+    <h2>Talk to us.</h2>
+    <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
+  </div>
+
 </div>
 
   </main>

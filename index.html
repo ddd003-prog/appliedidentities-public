@@ -126,6 +126,35 @@
   letter-spacing:-.015em;margin-top:14px;}
 
  
+.home-v4 .bridge .lede{font-size:clamp(17px,1.6vw,19px);color:var(--text-2);max-width:40em;margin:0 0 18px;line-height:1.55;}
+.home-v4 .bridge .lede strong{color:var(--text);}
+.home-v4 .loop-diagram{margin:40px 0 0;max-width:880px;}
+.home-v4 .loop-figure{display:flex;flex-direction:column;gap:0;margin:0;}
+.home-v4 .loop-layer{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:var(--surface);}
+.home-v4 .loop-layer--governance{border-color:var(--blue);box-shadow:inset 3px 0 0 var(--blue);}
+.home-v4 .loop-layer--loop{background:var(--canvas);}
+.home-v4 .loop-tag{display:block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-2);margin-bottom:12px;}
+.home-v4 .loop-layer--governance .loop-tag{color:var(--text);}
+.home-v4 .loop-cells{display:flex;flex-wrap:wrap;gap:8px;}
+.home-v4 .loop-cells span{flex:1 1 auto;min-width:120px;text-align:center;padding:12px 14px;border-radius:8px;
+  font-size:14px;background:var(--elevated);color:var(--text-2);}
+.home-v4 .loop-layer--governance .loop-cells span{color:var(--text);font-weight:600;}
+.home-v4 .loop-layer--loop .loop-cells span{color:var(--text-3);}
+.home-v4 .loop-link{align-self:center;width:2px;height:26px;background:var(--line);margin:2px 0;}
+.home-v4 .loop-caption{font-family:var(--mono);font-size:12px;color:var(--text-3);margin-top:14px;}
+
+ 
+.home-v4 .offer-band{border-top:1px solid var(--line);padding:80px 0;}
+.home-v4 .offer-band--alt{background:var(--surface);}
+.home-v4 .offer-band section.offer{padding:0;}
+ 
+.home-v4 .offer-band--alt .record-card,
+.home-v4 .offer-band--alt .flow-graphic,
+.home-v4 .offer-band--alt .term,
+.home-v4 .offer-band--alt .reg-status{background:var(--canvas);}
+
+ 
 .home-v4 .kit{margin-top:40px;background:var(--surface);border:1px solid var(--line);
   border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;}
 @media(max-width:820px){.home-v4 .kit{grid-template-columns:1fr;padding:28px;}}
@@ -322,6 +351,33 @@
 
 
 <div class="wrap-narrow">
+  <section class="bridge">
+    <div class="eyebrow">Above the loop</div>
+    <p class="lede">Every company now runs the same operational loop: agents, orchestration, workflows, and the models underneath, rented from the same vendors at the same speed. Capability stopped being an advantage when everyone could buy it.</p>
+    <p class="lede">What stays scarce sits <strong>above the loop</strong>: the standard your company writes, measurement someone independent performs, and a record that survives scrutiny. That layer is the work below.</p>
+    
+<figure class="loop-diagram" role="img" aria-label="The governance layer, the standard you write plus independent measurement plus a record that survives scrutiny, sits above the commodity operational loop of agents, orchestration, workflows, and models.">
+  <div class="loop-figure">
+    <div class="loop-layer loop-layer--governance">
+      <span class="loop-tag">Above the loop, what stays scarce</span>
+      <div class="loop-cells"><span>The standard you write</span><span>Independent measurement</span><span>A record that survives scrutiny</span></div>
+    </div>
+    <div class="loop-link" aria-hidden="true"></div>
+    <div class="loop-layer loop-layer--loop">
+      <span class="loop-tag">The operational loop, rented by everyone</span>
+      <div class="loop-cells"><span>Agents</span><span>Orchestration</span><span>Workflows</span><span>Models</span></div>
+    </div>
+  </div>
+  <figcaption class="loop-caption">Everyone rents the loop at the same speed. The scarce layer sits above it.</figcaption>
+</figure>
+
+  </section>
+</div>
+
+
+
+
+<div class="wrap-narrow">
   <section id="agent-kit-foundation">
     <div class="eyebrow">Built on the Agent Kit</div>
     <h2 class="kicker">Four offers, one foundation. Each builds on the Agent Kit - adopt any on its own.</h2>
@@ -340,7 +396,7 @@
         
         <div class="cap"><h4>PUBLIC RECORD</h4><p>A live, verifiable ERC-8004 file anyone can read.</p></div>
         
-        <div class="cap"><h4>REVOCATION</h4><p>Revoke a credential and stop the agent on demand.</p></div>
+        <div class="cap"><h4>IMMEDIATE REVOCATION</h4><p>Revoke a credential and stop the agent on demand.</p></div>
         
       </div>
     </div>
@@ -349,8 +405,9 @@
 
 
 
-<div class="wrap-narrow">
-  
+
+<div class="offer-band">
+  <div class="wrap-narrow">
   <section class="offer" id="agent-identity">
     <div class="offer-head"><span class="num">01</span><span class="name">Agent Identity</span></div>
     <div class="offer-grid">
@@ -381,7 +438,11 @@
       </div>
     </div>
   </section>
-  
+  </div>
+</div>
+
+<div class="offer-band offer-band--alt">
+  <div class="wrap-narrow">
   <section class="offer" id="behavioral-governance">
     <div class="offer-head"><span class="num">02</span><span class="name">Behavioral Governance</span></div>
     <div class="offer-grid">
@@ -554,7 +615,11 @@
       </div>
     </div>
   </section>
-  
+  </div>
+</div>
+
+<div class="offer-band">
+  <div class="wrap-narrow">
   <section class="offer" id="governed-commerce">
     <div class="offer-head"><span class="num">03</span><span class="name">Governed Commerce</span></div>
     <div class="offer-grid">
@@ -584,7 +649,11 @@
       </div>
     </div>
   </section>
-  
+  </div>
+</div>
+
+<div class="offer-band offer-band--alt">
+  <div class="wrap-narrow">
   <section class="offer" id="embodied-oversight">
     <div class="offer-head"><span class="num">04</span><span class="name">Embodied Oversight</span><span class="roadmap-tag">WHERE THIS GOES NEXT</span></div>
     <div class="offer-grid">
@@ -616,8 +685,9 @@
       </div>
     </div>
   </section>
-  
+  </div>
 </div>
+
 
 
 <script>
