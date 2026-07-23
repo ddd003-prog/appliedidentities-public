@@ -76,6 +76,115 @@
 
 .kit-page .kit-cta-inline{margin-top:16px;}
 </style>
+<style>
+ 
+.estate-fx .eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:0;}
+.estate-fx .go{display:inline-block;font-family:var(--mono);font-size:13.5px;color:var(--blue);text-decoration:none;}
+.estate-fx .go:hover{text-decoration:underline;text-underline-offset:3px;}
+
+ 
+.estate-fx .fx-band{border-top:1px solid var(--line);padding:72px 0;}
+.estate-fx .fx-band:first-of-type{border-top:0;}
+.estate-fx .fx-band--alt{background:var(--surface);}
+ 
+.estate-fx .fx-band--alt .gpanel,
+.estate-fx .fx-band--alt .term,
+.estate-fx .fx-band--alt .plane,
+.estate-fx .fx-band--alt .scorecard{background:var(--canvas);}
+
+ 
+.estate-fx .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+@media(max-width:860px){.estate-fx .split{grid-template-columns:1fr;gap:32px;}}
+.estate-fx .split .section-title{margin-top:0;}
+
+ 
+.estate-fx .gpanel{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.estate-fx .panel-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;color:var(--text-2);}
+.estate-fx .panel-bar .lights{display:flex;gap:6px;flex:none;}
+.estate-fx .panel-bar .lights i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;}
+.estate-fx .panel-bar .fname{margin-left:4px;word-break:break-all;}
+.estate-fx .gpill{margin-left:auto;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-family:var(--mono);font-size:11.5px;color:var(--verified);}
+.estate-fx .gpill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+.estate-fx .gpill.sim{color:var(--text-3);}
+.estate-fx .gpill.sim::before{background:var(--text-3);}
+.estate-fx .gpill.stop{color:var(--orange);}
+.estate-fx .gpill.stop::before{background:var(--orange);}
+.estate-fx .panel-foot{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;
+  border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--text-2);flex-wrap:wrap;}
+.estate-fx .panel-foot a{color:var(--text-2);text-decoration:none;}
+.estate-fx .panel-foot a:hover{color:var(--blue);}
+
+ 
+.estate-fx .rec-rows{display:grid;grid-template-columns:120px minmax(0,1fr);}
+.estate-fx .rec-rows .k{padding:11px 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--text-2);}
+.estate-fx .rec-rows .v{padding:11px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);
+  font-size:12.5px;color:var(--text);word-break:break-all;}
+.estate-fx .rec-rows .v b{color:var(--verified);font-weight:500;}
+.estate-fx .rec-rows > :nth-last-child(-n+2){border-bottom:0;}
+@media(max-width:520px){.estate-fx .rec-rows{grid-template-columns:1fr;}
+  .estate-fx .rec-rows .k{border-bottom:0;padding-bottom:2px;}}
+
+ 
+.estate-fx .term{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  font-family:var(--mono);font-size:13px;line-height:1.7;}
+.estate-fx .term-body{padding:16px 18px;overflow-x:auto;}
+.estate-fx .term-body div{color:var(--text-2);white-space:nowrap;}
+.estate-fx .term-body div::before{content:"› ";color:color-mix(in srgb, var(--blue) 55%, transparent);}
+.estate-fx .term-body .ok{color:var(--text);}
+.estate-fx .term-body .ok b{color:var(--verified);font-weight:500;}
+.estate-fx .term-body .no{color:var(--text);}
+.estate-fx .term-body .no b{color:var(--orange);font-weight:500;}
+
+ 
+.estate-fx .reg-status{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin-bottom:16px;
+  padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;font-family:var(--mono);}
+.estate-fx .fx-band--alt .reg-status{background:var(--canvas);}
+.estate-fx .reg-status .reg-label{color:var(--text-2);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px;}
+.estate-fx .reg-agent{display:inline-flex;align-items:center;gap:6px;color:var(--text);font-size:12px;}
+.estate-fx .reg-agent::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+
+ 
+.estate-fx .flow-steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 16px 8px;}
+.estate-fx .flow-step{font-family:var(--mono);font-size:12.5px;color:var(--text);border:1px solid var(--blue);
+  border-radius:6px;padding:7px 12px;}
+.estate-fx .flow-step:not(:last-child)::after{content:"→";margin-left:8px;color:var(--text-3);}
+.estate-fx .flow-guards{display:flex;flex-wrap:wrap;gap:6px 8px;padding:2px 16px 16px;}
+.estate-fx .guard{font-family:var(--mono);font-size:11px;color:var(--text-2);border:1px solid var(--line);
+  border-radius:999px;padding:4px 10px;}
+.estate-fx .guard::before{content:"▪ ";color:var(--blue);}
+
+ 
+.estate-fx .planes{display:flex;flex-direction:column;gap:0;margin:0;max-width:520px;}
+.estate-fx .plane{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:var(--surface);}
+.estate-fx .plane--gov{border-color:var(--blue);box-shadow:inset 3px 0 0 var(--blue);}
+.estate-fx .plane--obs{background:var(--canvas);}
+.estate-fx .plane-tag{display:block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-2);margin-bottom:10px;}
+.estate-fx .plane--gov .plane-tag{color:var(--text);}
+.estate-fx .plane p{font-size:14px;color:var(--text-2);margin:0;line-height:1.55;}
+.estate-fx .plane-link{align-self:center;width:2px;height:26px;background:var(--line);margin:2px 0;}
+
+ 
+.estate-fx .scorecard{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.estate-fx .sc-row{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;align-items:center;gap:14px;
+  padding:12px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12.5px;}
+.estate-fx .sc-row:last-child{border-bottom:0;}
+.estate-fx .sc-row .sc-dim{color:var(--text-2);}
+.estate-fx .sc-bar{height:6px;background:var(--canvas);border:1px solid var(--line);border-radius:999px;overflow:hidden;}
+.estate-fx .fx-band--alt .sc-bar{background:var(--surface);}
+.estate-fx .sc-bar i{display:block;height:100%;background:var(--verified);}
+.estate-fx .sc-val{color:var(--verified);text-align:right;font-variant-numeric:tabular-nums;font-weight:500;}
+.estate-fx .sc-grade{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:14px 18px;border-top:1px solid var(--line);font-family:var(--mono);}
+.estate-fx .sc-grade .sc-grade-label{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);}
+.estate-fx .sc-grade .sc-grade-val{font-size:18px;font-weight:600;color:var(--verified);letter-spacing:.15em;}
+
+.estate-fx a:focus-visible,.estate-fx .btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
+</style>
+
 
 
   
@@ -99,8 +208,9 @@
   <main id="main">
     
 
-<div class="wrap kit-page">
+<div class="estate-fx kit-page">
 
+<div class="wrap">
   <section class="page-hero kit-frame">
     <p class="eyebrow">Agent Kit</p>
     <h1>Every agent is a new employee.<br>None of them were onboarded.</h1>
@@ -131,24 +241,43 @@
     </div>
     
   </section>
+</div>
 
-  <section class="section">
+<div class="fx-band fx-band--alt">
+<div class="wrap">
+  <section>
     <h2 class="section-title">What the kit issues</h2>
-    <p class="lede">Four things every agent gets on day one - the same things a person gets when a company gives them authority to act on its behalf.</p>
-    <div class="card-grid">
-      
-      <div class="card"><h3>Specification</h3><p>A written role, authority, and limits for every agent. The document that says what the agent is for, what it may decide, and where its authority ends.</p></div>
-      
-      <div class="card"><h3>Authorization</h3><p>Signed, scoped credentials that say what it may do. Each credential is narrow, verifiable, and revocable - not a shared key with standing access.</p></div>
-      
-      <div class="card"><h3>Public record</h3><p>A live, verifiable ERC-8004 file anyone can read. Identity, chains, and current status resolve on demand at the registry, never cached.</p></div>
-      
-      <div class="card"><h3>Immediate revocation</h3><p>Revoke a credential and stop the agent on demand. From that moment every verification path rejects it - proven on the live server on July 17.</p></div>
-      
+    <p class="lede" style="margin-bottom:36px">Four things every agent gets on day one - the same things a person gets when a company gives them authority to act on its behalf.</p>
+    <div class="split">
+      <div class="gpanel" role="img" aria-label="An agent's issued kit on the record: a signed specification, scoped authorization, a public ERC-8004 file, and revocation on demand.">
+        <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">registry://nell-ashpool</span><span class="gpill">issued</span></div>
+        <div class="rec-rows">
+          <div class="k">Specification</div><div class="v">signed role + limits</div>
+          <div class="k">Authorization</div><div class="v">scoped credential</div>
+          <div class="k">Public record</div><div class="v">ERC-8004 · <b>live</b></div>
+          <div class="k">Revocation</div><div class="v">on demand · proven 07-17</div>
+        </div>
+        <div class="panel-foot"><span>issued day one · resolves at the registry, never cached</span><a href="https://agents.appliedidentities.com/nell">See a live record →</a></div>
+      </div>
+      <div class="card-grid" style="margin:0;grid-template-columns:1fr 1fr">
+        
+        <div class="card"><h3>Specification</h3><p>A written role, authority, and limits for every agent. The document that says what the agent is for, what it may decide, and where its authority ends.</p></div>
+        
+        <div class="card"><h3>Authorization</h3><p>Signed, scoped credentials that say what it may do. Each credential is narrow, verifiable, and revocable - not a shared key with standing access.</p></div>
+        
+        <div class="card"><h3>Public record</h3><p>A live, verifiable ERC-8004 file anyone can read. Identity, chains, and current status resolve on demand at the registry, never cached.</p></div>
+        
+        <div class="card"><h3>Immediate revocation</h3><p>Revoke a credential and stop the agent on demand. From that moment every verification path rejects it - proven on the live server on July 17.</p></div>
+        
+      </div>
     </div>
   </section>
+</div>
+</div>
 
-  <section class="section" style="padding-top:0">
+<div class="fx-band">
+<div class="wrap">
+  <section>
     <h2 class="section-title">One foundation, four offers</h2>
     <p class="lede">Each offer is built on the kit and adoptable on its own. Start with identity; add governance, commerce, or embodied oversight when you need them.</p>
     <div class="card-grid">
@@ -178,19 +307,20 @@
       </div>
       
     </div>
-  </section>
-
-  
-  <section class="section" style="padding-top:0">
-    <p class="lede">Running in production today: the registry is public, and Nell Ashpool is on the record with a signed, verifiable file.</p>
+    
+    <p class="lede" style="margin-top:32px">Running in production today: the registry is public, and Nell Ashpool is on the record with a signed, verifiable file.</p>
     <p style="margin-top:10px"><a href="https://agents.appliedidentities.com/nell">See a live record →</a></p>
+    
   </section>
-  
+</div>
+</div>
 
+<div class="wrap">
   <div class="cta-band">
     <h2>Talk to us.</h2>
     <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
   </div>
+</div>
 
 </div>
 

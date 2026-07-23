@@ -43,6 +43,116 @@
 
 
   
+<style>
+ 
+.estate-fx .eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:0;}
+.estate-fx .go{display:inline-block;font-family:var(--mono);font-size:13.5px;color:var(--blue);text-decoration:none;}
+.estate-fx .go:hover{text-decoration:underline;text-underline-offset:3px;}
+
+ 
+.estate-fx .fx-band{border-top:1px solid var(--line);padding:72px 0;}
+.estate-fx .fx-band:first-of-type{border-top:0;}
+.estate-fx .fx-band--alt{background:var(--surface);}
+ 
+.estate-fx .fx-band--alt .gpanel,
+.estate-fx .fx-band--alt .term,
+.estate-fx .fx-band--alt .plane,
+.estate-fx .fx-band--alt .scorecard{background:var(--canvas);}
+
+ 
+.estate-fx .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+@media(max-width:860px){.estate-fx .split{grid-template-columns:1fr;gap:32px;}}
+.estate-fx .split .section-title{margin-top:0;}
+
+ 
+.estate-fx .gpanel{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.estate-fx .panel-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;color:var(--text-2);}
+.estate-fx .panel-bar .lights{display:flex;gap:6px;flex:none;}
+.estate-fx .panel-bar .lights i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;}
+.estate-fx .panel-bar .fname{margin-left:4px;word-break:break-all;}
+.estate-fx .gpill{margin-left:auto;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-family:var(--mono);font-size:11.5px;color:var(--verified);}
+.estate-fx .gpill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+.estate-fx .gpill.sim{color:var(--text-3);}
+.estate-fx .gpill.sim::before{background:var(--text-3);}
+.estate-fx .gpill.stop{color:var(--orange);}
+.estate-fx .gpill.stop::before{background:var(--orange);}
+.estate-fx .panel-foot{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;
+  border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--text-2);flex-wrap:wrap;}
+.estate-fx .panel-foot a{color:var(--text-2);text-decoration:none;}
+.estate-fx .panel-foot a:hover{color:var(--blue);}
+
+ 
+.estate-fx .rec-rows{display:grid;grid-template-columns:120px minmax(0,1fr);}
+.estate-fx .rec-rows .k{padding:11px 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--text-2);}
+.estate-fx .rec-rows .v{padding:11px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);
+  font-size:12.5px;color:var(--text);word-break:break-all;}
+.estate-fx .rec-rows .v b{color:var(--verified);font-weight:500;}
+.estate-fx .rec-rows > :nth-last-child(-n+2){border-bottom:0;}
+@media(max-width:520px){.estate-fx .rec-rows{grid-template-columns:1fr;}
+  .estate-fx .rec-rows .k{border-bottom:0;padding-bottom:2px;}}
+
+ 
+.estate-fx .term{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  font-family:var(--mono);font-size:13px;line-height:1.7;}
+.estate-fx .term-body{padding:16px 18px;overflow-x:auto;}
+.estate-fx .term-body div{color:var(--text-2);white-space:nowrap;}
+.estate-fx .term-body div::before{content:"› ";color:color-mix(in srgb, var(--blue) 55%, transparent);}
+.estate-fx .term-body .ok{color:var(--text);}
+.estate-fx .term-body .ok b{color:var(--verified);font-weight:500;}
+.estate-fx .term-body .no{color:var(--text);}
+.estate-fx .term-body .no b{color:var(--orange);font-weight:500;}
+
+ 
+.estate-fx .reg-status{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin-bottom:16px;
+  padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;font-family:var(--mono);}
+.estate-fx .fx-band--alt .reg-status{background:var(--canvas);}
+.estate-fx .reg-status .reg-label{color:var(--text-2);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px;}
+.estate-fx .reg-agent{display:inline-flex;align-items:center;gap:6px;color:var(--text);font-size:12px;}
+.estate-fx .reg-agent::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+
+ 
+.estate-fx .flow-steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 16px 8px;}
+.estate-fx .flow-step{font-family:var(--mono);font-size:12.5px;color:var(--text);border:1px solid var(--blue);
+  border-radius:6px;padding:7px 12px;}
+.estate-fx .flow-step:not(:last-child)::after{content:"→";margin-left:8px;color:var(--text-3);}
+.estate-fx .flow-guards{display:flex;flex-wrap:wrap;gap:6px 8px;padding:2px 16px 16px;}
+.estate-fx .guard{font-family:var(--mono);font-size:11px;color:var(--text-2);border:1px solid var(--line);
+  border-radius:999px;padding:4px 10px;}
+.estate-fx .guard::before{content:"▪ ";color:var(--blue);}
+
+ 
+.estate-fx .planes{display:flex;flex-direction:column;gap:0;margin:0;max-width:520px;}
+.estate-fx .plane{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:var(--surface);}
+.estate-fx .plane--gov{border-color:var(--blue);box-shadow:inset 3px 0 0 var(--blue);}
+.estate-fx .plane--obs{background:var(--canvas);}
+.estate-fx .plane-tag{display:block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-2);margin-bottom:10px;}
+.estate-fx .plane--gov .plane-tag{color:var(--text);}
+.estate-fx .plane p{font-size:14px;color:var(--text-2);margin:0;line-height:1.55;}
+.estate-fx .plane-link{align-self:center;width:2px;height:26px;background:var(--line);margin:2px 0;}
+
+ 
+.estate-fx .scorecard{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.estate-fx .sc-row{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;align-items:center;gap:14px;
+  padding:12px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12.5px;}
+.estate-fx .sc-row:last-child{border-bottom:0;}
+.estate-fx .sc-row .sc-dim{color:var(--text-2);}
+.estate-fx .sc-bar{height:6px;background:var(--canvas);border:1px solid var(--line);border-radius:999px;overflow:hidden;}
+.estate-fx .fx-band--alt .sc-bar{background:var(--surface);}
+.estate-fx .sc-bar i{display:block;height:100%;background:var(--verified);}
+.estate-fx .sc-val{color:var(--verified);text-align:right;font-variant-numeric:tabular-nums;font-weight:500;}
+.estate-fx .sc-grade{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:14px 18px;border-top:1px solid var(--line);font-family:var(--mono);}
+.estate-fx .sc-grade .sc-grade-label{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);}
+.estate-fx .sc-grade .sc-grade-val{font-size:18px;font-weight:600;color:var(--verified);letter-spacing:.15em;}
+
+.estate-fx a:focus-visible,.estate-fx .btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
+</style>
+
+
 
   
   <script defer src="https://analytics.appliedidentities.com/script.js" data-website-id="c9af12f9-17bd-4ec6-b651-20f79714dd1f"></script>
@@ -65,46 +175,147 @@
   <main id="main">
     
 
+<div class="estate-fx">
+
 <div class="wrap">
-
 <section class="page-hero">
-  <p class="eyebrow">Behavioral Governance</p>
-  <h1><em>Independent attestation, action by action.</em></h1>
-  <p class="lede">You write the Behavioral Manifest, the standard your agent works to. We measure every action against it and sign what we saw.</p>
-  
-  <div class="cta-row">
-    <a class="btn btn-primary btn-lg" href="/verify/">See a record verified</a>
+  <div class="split">
+    <div>
+      <p class="eyebrow">Behavioral Governance</p>
+      <h1><em>Independent attestation, action by action.</em></h1>
+      <p class="lede">You write the Behavioral Manifest, the standard your agent works to. We measure every action against it and sign what we saw.</p>
+      
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="/verify/">See a record verified</a>
+      </div>
+    </div>
+    <div class="gpanel" role="img" aria-label="An example attestation record: a refund action measured against the Behavioral Manifest and signed by an independent observer.">
+      <div class="panel-bar">
+        <span class="lights"><i></i><i></i><i></i></span>
+        <span class="fname">agent://acme-refunds/action-4417.attestation</span>
+        <span class="gpill">verified</span>
+      </div>
+      <div class="rec-rows">
+        <div class="k">Manifest</div><div class="v">refund_limit ≤ $500</div>
+        <div class="k">Action</div><div class="v">issue_refund $480.00</div>
+        <div class="k">Measure</div><div class="v"><b>within limit</b></div>
+        <div class="k">Signed</div><div class="v">observer:applied-identities</div>
+      </div>
+      <div class="panel-foot"><span>independent · nothing at stake</span><a href="/verify/">See the chain →</a></div>
+    </div>
   </div>
 </section>
+</div>
 
-<section class="section">
-  <h2 class="section-title">The argument</h2>
-  <p class="lede">An organization vouching for its own agent&#39;s behavior is self-attestation. No company signs off on its own books; the measured party cannot keep the score. Credible governance needs an observer with nothing at stake in the outcome: independent of the company deploying the agent, and of the vendor that built it.</p>
+<div class="fx-band fx-band--alt">
+<div class="wrap">
+<section class="split">
+  <div>
+    <h2 class="section-title">The argument</h2>
+    <p class="lede">An organization vouching for its own agent&#39;s behavior is self-attestation. No company signs off on its own books; the measured party cannot keep the score. Credible governance needs an observer with nothing at stake in the outcome: independent of the company deploying the agent, and of the vendor that built it.</p>
+  </div>
+  <div class="term" role="img" aria-label="An organization cannot sign off on its own books; the score is kept by an observer with nothing at stake.">
+    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">who-keeps-the-score</span></div>
+    <div class="term-body">
+      <div class="no">self-attestation: measured party keeps the score <b>rejected</b></div>
+      <div>company vouches for its own agent</div>
+      <div>vendor vouches for the agent it built</div>
+      <div class="ok">independent observer: nothing at stake <b>accepted</b></div>
+    </div>
+  </div>
 </section>
+</div>
+</div>
 
-<section class="section">
+<div class="fx-band">
+<div class="wrap">
+<section>
   <h2 class="section-title">How it works</h2>
-  <p class="lede">Two planes.</p>
-  <div class="card-grid">
-    
-    <div class="card"><h3>The governance plane</h3><p>In the cloud, holding what you have decided: the agent&#39;s Behavioral Manifest and its authorization.</p></div>
-    
-    <div class="card"><h3>The observation plane</h3><p>Scribe runs on the machine where the agent works. Each action becomes an independent attestation, scored against the Manifest and signed. Attestations group into traces by interaction, and each trace is hashed, so the sequence of what happened is fixed and cannot be quietly edited. Traces accumulate in the agent&#39;s Action Log.</p></div>
-    
+  <p class="lede" style="margin-bottom:36px">Two planes.</p>
+  <div class="split">
+    <div class="planes">
+      
+      <div class="plane plane--gov">
+        <span class="plane-tag">The governance plane · in the cloud</span>
+        <p>In the cloud, holding what you have decided: the agent&#39;s Behavioral Manifest and its authorization.</p>
+      </div>
+      
+      <div class="plane-link" aria-hidden="true"></div>
+      
+      <div class="plane plane--obs">
+        <span class="plane-tag">The observation plane · on the machine</span>
+        <p>Scribe runs on the machine where the agent works. Each action becomes an independent attestation, scored against the Manifest and signed. Attestations group into traces by interaction, and each trace is hashed, so the sequence of what happened is fixed and cannot be quietly edited. Traces accumulate in the agent&#39;s Action Log.</p>
+      </div>
+      
+    </div>
+    <div class="gpanel" role="img" aria-label="On the machine, each action becomes an attestation, attestations group into hashed traces, and traces accumulate in the agent's Action Log.">
+      <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">scribe · observation plane</span><span class="gpill">live</span></div>
+      <div class="flow-steps">
+        <span class="flow-step">action</span>
+        <span class="flow-step">attestation</span>
+        <span class="flow-step">trace (hashed)</span>
+        <span class="flow-step">Action Log</span>
+      </div>
+      <div class="flow-guards">
+        <span class="guard">scored against Manifest</span>
+        <span class="guard">signed</span>
+        <span class="guard">sequence fixed</span>
+      </div>
+      <div class="panel-foot"><span>each trace hashed · cannot be quietly edited</span></div>
+    </div>
   </div>
 </section>
+</div>
+</div>
 
-<section class="section">
-  <h2 class="section-title">Behavioral Findings</h2>
-  <p class="lede">For the people accountable for an agent, the record rolls up into Behavioral Findings: five measured dimensions and a grade band, current as of the last action rather than the last quarter. The record rolls up into current findings on every agent.</p>
+<div class="fx-band fx-band--alt">
+<div class="wrap">
+<section class="split">
+  <div>
+    <h2 class="section-title">Behavioral Findings</h2>
+    <p class="lede">For the people accountable for an agent, the record rolls up into Behavioral Findings: five measured dimensions and a grade band, current as of the last action rather than the last quarter. The record rolls up into current findings on every agent.</p>
+  </div>
+  <div class="scorecard" role="img" aria-label="The record rolls up into current findings: five measured dimensions and a grade band, current as of the last action.">
+    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">agent://acme-refunds/findings</span><span class="gpill">current</span></div>
+    <div class="flow-steps" style="padding-bottom:14px">
+      <span class="flow-step">attestations</span>
+      <span class="flow-step">traces</span>
+      <span class="flow-step">findings</span>
+    </div>
+    <div class="sc-row"><span class="sc-dim">dimension 1</span><span class="sc-bar"><i style="width:94%"></i></span><span class="sc-val">·</span></div>
+    <div class="sc-row"><span class="sc-dim">dimension 2</span><span class="sc-bar"><i style="width:88%"></i></span><span class="sc-val">·</span></div>
+    <div class="sc-row"><span class="sc-dim">dimension 3</span><span class="sc-bar"><i style="width:97%"></i></span><span class="sc-val">·</span></div>
+    <div class="sc-row"><span class="sc-dim">dimension 4</span><span class="sc-bar"><i style="width:91%"></i></span><span class="sc-val">·</span></div>
+    <div class="sc-row"><span class="sc-dim">dimension 5</span><span class="sc-bar"><i style="width:85%"></i></span><span class="sc-val">·</span></div>
+    <div class="sc-grade"><span class="sc-grade-label">grade band · current as of last action</span><span class="sc-grade-val">▪▪▪▪▫</span></div>
+  </div>
 </section>
+</div>
+</div>
 
-<section class="section">
-  <h2 class="section-title">Built to answer</h2>
-  <p class="lede">When an auditor, an insurer, or a regulator asks how an agent has behaved, the layer is built to answer with a signed judgment over a trace, without opening your logs. The judgment stands on its own; the underlying record stays yours.</p>
+<div class="fx-band">
+<div class="wrap">
+<section class="split">
+  <div>
+    <h2 class="section-title">Built to answer</h2>
+    <p class="lede">When an auditor, an insurer, or a regulator asks how an agent has behaved, the layer is built to answer with a signed judgment over a trace, without opening your logs. The judgment stands on its own; the underlying record stays yours.</p>
+  </div>
+  <div class="term" role="img" aria-label="An auditor asks how an agent has behaved; the layer answers with a signed judgment over a trace, without opening your logs.">
+    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">assurance-query</span><span class="gpill">signed</span></div>
+    <div class="term-body">
+      <div>auditor: how has agent-4417 behaved under refund policy?</div>
+      <div class="ok">→ signed judgment issued over trace t-0912 <b>verified</b></div>
+      <div class="ok">→ underlying logs stayed sealed <b>yours</b></div>
+      <div>the judgment stands on its own</div>
+    </div>
+  </div>
 </section>
+</div>
+</div>
 
-<section class="section">
+<div class="fx-band fx-band--alt">
+<div class="wrap">
+<section>
   <h2 class="section-title">See a record verified</h2>
   <p class="lede" style="margin-bottom:32px">We run under the same governance we sell; the record below is ours, and it is public. This is the chain of authority resolving link by link, on a live record. Each identity document checks against the one that authorizes it, down to the credential the agent works under.</p>
   <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-07-23">
@@ -254,10 +465,14 @@
 </script>
 
 </section>
+</div>
+</div>
 
+<div class="wrap">
 <div class="cta-band">
   <h2><em>Put your agents on the record.</em></h2>
   <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
+</div>
 </div>
 
 </div>
