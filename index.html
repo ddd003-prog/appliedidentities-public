@@ -93,21 +93,172 @@
   
 
 <style>
-.bridge{border-top:1px solid var(--line);}
-.bridge .lede + .lede{margin-top:20px;}
-.loop-diagram{margin:44px 0 8px; max-width:840px;}
-.loop-figure{display:flex; flex-direction:column; gap:0; margin:0;}
-.loop-layer{border:1px solid var(--line); border-radius:12px; padding:18px 20px; background:var(--surface);}
-.loop-layer--governance{border-color:var(--action); box-shadow:inset 3px 0 0 var(--action);}
-.loop-layer--loop{background:var(--canvas);}
-.loop-tag{display:block; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-2); margin-bottom:12px;}
-.loop-layer--governance .loop-tag{color:var(--text);}
-.loop-cells{display:flex; flex-wrap:wrap; gap:8px;}
-.loop-cells span{flex:1 1 auto; min-width:120px; text-align:center; padding:12px 14px; border-radius:8px; font-size:14px; background:var(--elevated);}
-.loop-layer--governance .loop-cells span{color:var(--text); font-weight:600;}
-.loop-layer--loop .loop-cells span{color:var(--text-3);}
-.loop-link{align-self:center; width:2px; height:26px; background:var(--line); margin:2px 0;}
-.loop-caption{font-size:12px; color:var(--text-3); margin-top:14px;}
+.home-v4 .wrap-narrow{max-width:1040px;margin:0 auto;padding:0 24px;}
+.home-v4 .eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:0;}
+.home-v4 .go{display:inline-block;font-family:var(--mono);font-size:13.5px;color:var(--blue);text-decoration:none;}
+.home-v4 .go:hover{text-decoration:underline;text-underline-offset:3px;}
+
+ 
+.home-v4 .hero{padding:88px 0 44px;}
+.home-v4 .hero h1{font-size:clamp(42px,6.5vw,72px);line-height:1.02;font-weight:700;
+  letter-spacing:-.02em;max-width:15ch;}
+.home-v4 .hero .sub{margin-top:26px;font-size:clamp(17px,1.6vw,19px);color:var(--text-2);max-width:34em;}
+.home-v4 .hero .kept{margin-top:18px;font-family:var(--mono);font-size:15px;color:var(--text);}
+.home-v4 .hero .kept::before{content:"› ";color:var(--blue);}
+.home-v4 .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+
+ 
+.home-v4 .prod{margin:60px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;}
+.home-v4 .prod-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-2);margin-bottom:12px;}
+.home-v4 .prod ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 12px;}
+.home-v4 .prod a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+  font-size:12.5px;color:var(--text);border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;background:var(--surface);text-decoration:none;}
+.home-v4 .prod a:hover{border-color:var(--blue);}
+.home-v4 .dot{width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+.home-v4 .dot.stop{background:var(--orange);}
+
+ 
+.home-v4 section{padding:88px 0 0;}
+.home-v4 .kicker{max-width:26ch;font-size:clamp(28px,4vw,40px);font-weight:700;line-height:1.12;
+  letter-spacing:-.015em;margin-top:14px;}
+
+ 
+.home-v4 .kit{margin-top:40px;background:var(--surface);border:1px solid var(--line);
+  border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;}
+@media(max-width:820px){.home-v4 .kit{grid-template-columns:1fr;padding:28px;}}
+.home-v4 .kit .badge{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  background:var(--blue);color:#fff;border-radius:4px;padding:4px 10px;font-weight:500;}
+.home-v4 .kit .badge-side{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  color:var(--text-2);margin-left:10px;}
+.home-v4 .kit h3{font-size:clamp(30px,3.6vw,42px);font-weight:700;line-height:1.05;margin-top:18px;letter-spacing:-.015em;}
+.home-v4 .kit .body{margin-top:16px;color:var(--text-2);max-width:26em;}
+.home-v4 .kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;}
+@media(max-width:520px){.home-v4 .kit-grid{grid-template-columns:1fr;}}
+.home-v4 .cap{background:var(--canvas);border:1px solid var(--line);border-radius:10px;padding:18px;}
+.home-v4 .cap h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;font-weight:500;margin-bottom:8px;color:var(--text);}
+.home-v4 .cap h4::before{content:"▪ ";color:var(--blue);}
+.home-v4 .cap p{font-size:15px;color:var(--text-2);line-height:1.5;margin:0;}
+
+ 
+.home-v4 .offer-head{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;}
+.home-v4 .offer-head .num{color:var(--text-2);margin-right:12px;}
+.home-v4 .offer-head .name{text-transform:uppercase;color:var(--blue);}
+.home-v4 .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:18px;}
+@media(max-width:820px){.home-v4 .offer-grid{grid-template-columns:1fr;gap:32px;}}
+.home-v4 .offer h2{font-size:clamp(30px,4.4vw,46px);font-weight:700;line-height:1.06;letter-spacing:-.018em;max-width:14ch;}
+.home-v4 .offer .body{margin-top:20px;color:var(--text-2);max-width:28em;}
+.home-v4 .attest{margin-top:22px;max-width:28em;font-size:17.5px;color:var(--text);
+  border-left:2px solid var(--blue);padding-left:16px;}
+
+ 
+.home-v4 .term{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  font-family:var(--mono);font-size:13px;line-height:1.7;}
+.home-v4 .term-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;
+  border-bottom:1px solid var(--line);color:var(--text-2);font-size:12px;}
+.home-v4 .term-bar .lights{display:flex;gap:6px;}
+.home-v4 .term-bar .lights i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;}
+.home-v4 .term-bar .fname{margin-left:4px;word-break:break-all;}
+.home-v4 .term-bar .live{margin-left:auto;color:var(--verified);white-space:nowrap;}
+.home-v4 .term-bar .live::before{content:"● ";font-size:9px;}
+.home-v4 .term-bar .sim{margin-left:auto;color:var(--text-3);white-space:nowrap;}
+.home-v4 .term-bar .sim::before{content:"● ";font-size:9px;}
+.home-v4 .term-body{padding:16px 18px;overflow-x:auto;}
+.home-v4 .term-body div{color:var(--text-2);white-space:nowrap;}
+.home-v4 .term-body div::before{content:"› ";color:color-mix(in srgb, var(--blue) 55%, transparent);}
+.home-v4 .term-body .ok{color:var(--text);}
+.home-v4 .term-body .ok b{color:var(--verified);font-weight:500;}
+.home-v4 .term-body .no{color:var(--text);}
+.home-v4 .term-body .no b{color:var(--orange);font-weight:500;}
+.home-v4 .cursor{display:inline-block;width:8px;height:15px;background:var(--blue);
+  vertical-align:-2px;animation:hv4blink 1.1s steps(1) infinite;}
+@keyframes hv4blink{50%{opacity:0;}}
+.home-v4 .term-foot{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;
+  border-top:1px solid var(--line);color:var(--text-2);font-size:11.5px;flex-wrap:wrap;}
+.home-v4 .term-foot a{color:var(--text-2);text-decoration:none;}
+.home-v4 .term-foot a:hover{color:var(--blue);}
+.home-v4 .roadmap-tag{display:inline-block;margin-left:12px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.12em;color:var(--text-3);
+  border:1px solid color-mix(in srgb, var(--text-3) 40%, transparent);
+  border-radius:4px;padding:2px 8px;vertical-align:2px;}
+
+ 
+.home-v4 .whynow{margin-top:104px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--surface);}
+.home-v4 .whynow .inner{max-width:1040px;margin:0 auto;padding:72px 24px;}
+.home-v4 .whynow h2{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.015em;max-width:18ch;margin-top:14px;}
+.home-v4 .whynow p{margin:18px 0 0;color:var(--text-2);max-width:34em;font-size:clamp(17px,1.6vw,19px);}
+.home-v4 .whynow strong{color:var(--text);}
+
+ 
+.home-v4 .close{padding:104px 0 112px;text-align:center;}
+.home-v4 .close h2{font-size:clamp(36px,6vw,60px);font-weight:700;letter-spacing:-.02em;line-height:1.05;}
+.home-v4 .close .cta-row{justify-content:center;margin-top:32px;}
+
+ 
+.home-v4 .record-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.home-v4 .record-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--text-2);}
+.home-v4 .record-bar .lights{display:flex;gap:6px;}
+.home-v4 .record-bar .lights i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;}
+.home-v4 .record-bar .fname{margin-left:4px;word-break:break-all;}
+.home-v4 .verified-pill{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--verified);font-family:var(--mono);font-size:11.5px;white-space:nowrap;}
+.home-v4 .verified-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+.home-v4 .rec-rows{display:grid;grid-template-columns:110px minmax(0,1fr);}
+.home-v4 .rec-rows .k{padding:11px 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--text-2);}
+.home-v4 .rec-rows .v{padding:11px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12.5px;color:var(--text);word-break:break-all;}
+.home-v4 .rec-rows > :nth-last-child(-n+2){border-bottom:0;}
+.home-v4 .record-foot{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--text-2);flex-wrap:wrap;}
+.home-v4 .record-foot a{color:var(--text-2);text-decoration:none;}
+.home-v4 .record-foot a:hover{color:var(--blue);}
+@media(max-width:520px){.home-v4 .rec-rows{grid-template-columns:1fr;}.home-v4 .rec-rows .k{border-bottom:0;padding-bottom:2px;}}
+
+ 
+.home-v4 .reg-status{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin-bottom:16px;
+  padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;font-family:var(--mono);}
+.home-v4 .reg-status .reg-label{color:var(--text-2);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px;}
+.home-v4 .reg-agent{display:inline-flex;align-items:center;gap:6px;color:var(--text);font-size:12px;}
+.home-v4 .reg-agent::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+.home-v4 .verify-note{margin:12px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--text-3);}
+
+ 
+.home-v4 .flow-graphic{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.home-v4 .flow-bar{padding:11px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--text-2);}
+.home-v4 .flow-steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 16px 8px;}
+.home-v4 .flow-step{font-family:var(--mono);font-size:12.5px;color:var(--text);border:1px solid var(--blue);border-radius:6px;padding:7px 12px;}
+.home-v4 .flow-step:not(:last-child)::after{content:"→";margin-left:8px;color:var(--text-3);}
+.home-v4 .flow-guards{display:flex;flex-wrap:wrap;gap:6px 8px;padding:2px 16px 16px;}
+.home-v4 .guard{font-family:var(--mono);font-size:11px;color:var(--text-2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;}
+.home-v4 .guard::before{content:"▪ ";color:var(--blue);}
+.home-v4 .flow-events{border-top:1px solid var(--line);padding:14px 16px;}
+.home-v4 .events-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;}
+.home-v4 .event{display:flex;gap:10px;align-items:baseline;font-family:var(--mono);font-size:12.5px;padding:4px 0;color:var(--text);}
+.home-v4 .event::before{flex:none;font-weight:500;}
+.home-v4 .event.ok::before{content:"✓";color:var(--verified);}
+.home-v4 .event.no::before{content:"✕";color:var(--orange);}
+.home-v4 .event .when{color:var(--text-2);white-space:nowrap;}
+.home-v4 .event.ok .when{color:var(--verified);}
+.home-v4 .event.no .when{color:var(--orange);}
+.home-v4 .flow-foot{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--text-2);flex-wrap:wrap;}
+.home-v4 .flow-foot a{color:var(--text-2);text-decoration:none;}
+.home-v4 .flow-foot a:hover{color:var(--blue);}
+
+ 
+.home-v4 .simlog .sim-metric::before,.home-v4 .simlog .sim-bar::before{content:none;}
+.home-v4 .simlog .sim-metric{display:flex;align-items:center;gap:10px;margin-top:8px;color:var(--text-2);white-space:nowrap;}
+.home-v4 .simlog .sim-metric-label{color:var(--text-2);}
+.home-v4 .simlog .sim-val{color:var(--verified);font-weight:500;font-variant-numeric:tabular-nums;}
+.home-v4 .sim-bar{margin-top:12px;height:6px;background:var(--canvas);border:1px solid var(--line);border-radius:999px;overflow:hidden;}
+.home-v4 .sim-bar i{display:block;height:100%;width:97%;background:var(--verified);transition:width .7s ease;}
+
+ 
+.home-v4 a:focus-visible,.home-v4 .btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
+
+ 
+@media (prefers-reduced-motion: reduce){
+  .home-v4 .cursor{animation:none !important;}
+}
 </style>
 
 
@@ -119,173 +270,398 @@
   <header class="estate-header"><div class="bar">
   <a class="estate-mark" href="/">Applied Identities</a>
   <nav class="estate-nav" aria-label="Estate">
-    <a href="/#agent-identity">Agent Identity</a>
-    <a href="/#behavioral-governance">Behavioral Governance</a>
-    <a href="/#governed-commerce">Governed Commerce</a>
-    <a href="/#embodied-oversight">Embodied Oversight</a>
+    <a href="/agent-kit/">Agent Kit</a>
+    <a href="https://agents.appliedidentities.com/">Identity</a>
+    <a href="/governance/">Governance</a>
+    <a href="https://vi.appliedidentities.com/">Commerce</a>
+    <a href="/embodied/">Embodied</a>
+    <a href="https://research.appliedidentities.com/">Research</a>
     <a class="btn btn-primary" href="/contact/">Talk to us</a>
   </nav>
 </div></header>
 
   <main id="main">
     
+<div class="home-v4">
 
 
-<section class="panel panel-hero">
-  <div class="panel-inner">
-    <p class="eyebrow">Applied Identities</p>
-    <h1>Who makes sure your agent represents your company?</h1>
-    <p class="lede">Before an agent can carry your name, four things have to be true: a specification, written authority, independent measurement, and a record.</p>
-    <p class="onrecord" style="font-size:14px;color:var(--text-2);margin-top:16px">On the record since March 2026: settled sales on a public ledger · a purchase declined before money moved · a credential revoked in public view</p>
-    <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
-      <a class="btn btn-secondary btn-lg" href="https://agents.appliedidentities.com/registry">Browse the agent registry</a>
-    </div>
+
+<div class="wrap-narrow hero">
+  <h1>Who makes sure your agent represents your company?</h1>
+  <p class="sub">Independent behavioral governance for AI agents. Four offers - agent identity, behavioral governance, governed commerce, and embodied oversight - each built on the Agent Kit, each adoptable on its own.</p>
+  <p class="kept">the measured party cannot keep the score</p>
+  <div class="cta-row">
+    <a class="btn btn-primary btn-lg" href="https://agents.appliedidentities.com/registry">Browse the agent registry →</a>
+    <a class="btn btn-ghost btn-lg" href="https://vi.appliedidentities.com/ledger/">Read the Ledger →</a>
   </div>
-</section>
+</div>
 
 
-<section class="section bridge">
-  <div class="wrap" style="max-width:840px">
-    <p class="lede">Every company now runs the same operational loop: agents, orchestration, workflows, and the models underneath, rented from the same vendors at the same speed. Capability stopped being an advantage when everyone could buy it.</p>
-    <p class="lede">What stays scarce sits above the loop: the standard your company writes, measurement someone independent performs, and a record that survives scrutiny. That layer is the work below.</p>
-    <figure class="loop-diagram" role="img" aria-label="The governance layer, the standard you write plus independent measurement plus a record that survives scrutiny, sits above the commodity operational loop of agents, orchestration, workflows, and models.">
-      <div class="loop-figure">
-        <div class="loop-layer loop-layer--governance">
-          <span class="loop-tag">Above the loop, what stays scarce</span>
-          <div class="loop-cells">
-            <span>The standard you write</span>
-            <span>Independent measurement</span>
-            <span>A record that survives scrutiny</span>
-          </div>
-        </div>
-        <div class="loop-link" aria-hidden="true"></div>
-        <div class="loop-layer loop-layer--loop">
-          <span class="loop-tag">The operational loop, rented by everyone</span>
-          <div class="loop-cells">
-            <span>Agents</span>
-            <span>Orchestration</span>
-            <span>Workflows</span>
-            <span>Models</span>
-          </div>
-        </div>
+
+
+<div class="wrap-narrow">
+  <div class="prod">
+    <div class="prod-label">Running in production today</div>
+    <ul>
+      
+      <li><a href="https://agents.appliedidentities.com/registry"><span class="dot"></span>Public registry · ERC-8004</a></li>
+      
+      <li><a href="https://vi.appliedidentities.com/ledger/"><span class="dot"></span>First a2a sale settled · #511 · 07-01</a></li>
+      
+      <li><a href="https://vi.appliedidentities.com/ledger/"><span class="dot stop"></span>Purchase declined · 06-12</a></li>
+      
+      <li><a href="https://vi.appliedidentities.com/ledger/"><span class="dot stop"></span>Credential revoked · 07-17</a></li>
+      
+      <li><a href="https://research.appliedidentities.com/"><span class="dot"></span>Research, weekly</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+<div class="wrap-narrow">
+  <section id="agent-kit-foundation">
+    <div class="eyebrow">Built on the Agent Kit</div>
+    <h2 class="kicker">Four offers, one foundation. Each builds on the Agent Kit - adopt any on its own.</h2>
+    <div class="kit">
+      <div>
+        <span class="badge">FOUNDATION</span><span class="badge-side">AGENT KIT</span>
+        <h3>One kit under every offer.</h3>
+        <p class="body">The Agent Kit issues each agent its specification, authorization, scoped credentials, and a public record. Every offer below is built on it - start with the kit, add what you need.</p>
+        <a class="go" href="/agent-kit/">Start with the Agent Kit →</a>
       </div>
-      <figcaption class="loop-caption">Everyone rents the loop at the same speed. The scarce layer sits above it.</figcaption>
-    </figure>
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="wrap" style="max-width:840px">
-    <p class="lede">An agent that represents your company deserves the treatment you give a hire. Papers on day one. A review conducted by someone who doesn&#39;t report to you. And only then: customers, and the company card.</p>
-    <p class="lede">That lifecycle is the platform.</p>
-  </div>
-</section>
-
-
-
-<section class="panel" id="agent-identity">
-  <div class="panel-inner">
-    <p class="eyebrow">Agent Identity</p>
-    <h2>Identity your company stands behind.</h2>
-    <p class="lede">Before an agent works for your company, it needs what an employee gets on day one: a defined role, an understanding of how your company operates, and authority in writing. The platform issues each agent that identity as signed documents covering who it is, how it works, and what it is permitted to do, with permissions that can be read and revoked at any time. Each identity is anchored in a public registry.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://agents.appliedidentities.com/registry">See how agent identity works</a>
-      
+      <div class="kit-grid">
+        
+        <div class="cap"><h4>SPECIFICATION</h4><p>A written role, authority, and limits for every agent.</p></div>
+        
+        <div class="cap"><h4>AUTHORIZATION</h4><p>Signed, scoped credentials that say what it may do.</p></div>
+        
+        <div class="cap"><h4>PUBLIC RECORD</h4><p>A live, verifiable ERC-8004 file anyone can read.</p></div>
+        
+        <div class="cap"><h4>KILL SWITCH</h4><p>Revoke a credential and stop the agent on demand.</p></div>
+        
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<section class="panel" id="behavioral-governance">
-  <div class="panel-inner">
-    <p class="eyebrow">Behavioral Governance</p>
-    <h2>Your agents, independently measured.</h2>
-    <p class="lede">You set the standard for how your agents behave. An independent observer measures every action against it as it happens, signs the result, and keeps it in a record neither you nor your vendor can edit. Grading your own agents is self-attestation; the measured party cannot keep the score. The record rolls up into current findings on every agent.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/governance/">See how the layer works</a>
-      
+
+
+<div class="wrap-narrow">
+  
+  <section class="offer" id="agent-identity">
+    <div class="offer-head"><span class="num">01</span><span class="name">Agent Identity</span></div>
+    <div class="offer-grid">
+      <div>
+        <h2>Every agent, on the record.</h2>
+        <p class="body">An agent working for your company needs what an employee gets on day one - a written role, defined authority, and a file that follows its work. The registry is public and live today.</p>
+        <p class="attest">When someone asks what you authorized this agent to do, the answer is a signed document - not a Slack thread.</p>
+        <a class="go" href="https://agents.appliedidentities.com/registry">Browse the agent registry →</a>
+      </div>
+      <div class="offer-graphic">
+        
+        
+        
+        <div class="record-card" role="img" aria-label="Public record for Nell Ashpool">
+          <div class="record-bar">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span class="fname">agents.appliedidentities.com/nell</span>
+            <span class="verified-pill">on the record</span>
+          </div>
+          <div class="rec-rows">
+            <div class="k">name</div><div class="v">Nell Ashpool</div><div class="k">tier</div><div class="v">Assisted Commerce</div><div class="k">commerce</div><div class="v">Base #37852 · nellashpool.base.eth</div><div class="k">governance</div><div class="v">Gnosis #3316 · reserve Monad #8369</div><div class="k">registry</div><div class="v">0x8004A169…a432</div><div class="k">chains</div><div class="v">eip155:8453 · 100 · 143</div>
+          </div>
+          <div class="record-foot"><span>signed, public, verifiable</span><a href="https://agents.appliedidentities.com/nell">See the full record →</a></div>
+        </div>
+        
+
+        
+      </div>
     </div>
+  </section>
+  
+  <section class="offer" id="behavioral-governance">
+    <div class="offer-head"><span class="num">02</span><span class="name">Behavioral Governance</span></div>
+    <div class="offer-grid">
+      <div>
+        <h2>Your agents, independently measured.</h2>
+        <p class="body">You write the specification and set the authority; an independent observer measures whether behavior matches. The party being measured cannot be the one keeping score - so the scoring layer sits outside your walls and your vendor&#39;s.</p>
+        <p class="attest">When the board asks how you know your agents behave, the answer comes from a party with nothing to gain.</p>
+        <a class="go" href="/governance/">See how the layer works →</a>
+      </div>
+      <div class="offer-graphic">
+        
+        
+        <div class="verify-graphic">
+          
+          <div class="reg-status">
+            <span class="reg-label">Agents in the registry</span>
+            <span class="reg-agent">Nell Ashpool</span><span class="reg-agent">3Jane</span>
+          </div>
+          
+          <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-07-23">
+  <div class="livecheck-head">
+    <span class="eyebrow">Chain of authority</span>
+    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-07-23">Chain verified · 4 of 4 links · 2026-07-23</span>
   </div>
-</section>
+  <p class="livecheck-sub">A live record resolving link by link: <a href="https://agents.appliedidentities.com/nell">Nell Ashpool</a>, an agent on the public registry.</p>
+  <ol class="livecheck-links">
+    <li class="livecheck-link is-verified" data-link="constitution">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Constitution</span>
+        <span class="livecheck-meta">The corporate authority the agent operates under</span>
+      </span>
+      <code class="livecheck-serial">AI-CONST-AI-2026-001</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="soul">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Soul</span>
+        <span class="livecheck-meta">How it works and speaks for the company</span>
+      </span>
+      <code class="livecheck-serial">AI-SOUL-NELL-2026-002</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="passport">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Passport</span>
+        <span class="livecheck-meta">What it is permitted to do, with permission keys</span>
+      </span>
+      <code class="livecheck-serial">AI-PASS-NELL-2026-001</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+    <li class="livecheck-link is-verified" data-link="credential">
+      <span class="livecheck-mark" aria-hidden="true"></span>
+      <span class="livecheck-body">
+        <span class="livecheck-name">Operating credential</span>
+        <span class="livecheck-meta">The active credential the agent works under</span>
+      </span>
+      <code class="livecheck-serial">active</code>
+      <span class="livecheck-state">verified</span>
+    </li>
+  </ol>
+  <p class="livecheck-anchor">Anchored on Base mainnet, independently checkable: <a href="https://basescan.org/tx/0x48a2c8eb12e4f97d153358cad3d96b0a944c0ba1f8974b3cc999990839a06c39" rel="noopener">view the on-chain registration</a>.</p>
+</div>
 
-<section class="panel" id="governed-commerce">
-  <div class="panel-inner">
-    <p class="eyebrow">Governed Commerce</p>
-    <h2>An agent you&#39;d let talk to customers.</h2>
-    <p class="lede">A brand ambassador agent answers customers, recommends products, and closes the sale: work most companies won&#39;t hand to an agent yet, because they can&#39;t govern one. That is the work this governance exists for: written authority, independent measurement, and a public record when money moves. Scoped permissions, price ceilings, and immediate revocation are live today.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://vi.appliedidentities.com/">See it running</a>
-      
+<style>
+ 
+.livecheck-link.is-revoked .livecheck-mark{border-color:var(--text-2); background:transparent;}
+.livecheck-link.is-revoked .livecheck-mark::after{
+  content:""; position:absolute; left:7px; top:9px; width:8px; height:2px;
+  background:var(--text-2); border:0; transform:none;
+}
+.livecheck-link.is-revoked .livecheck-name{color:var(--text-2);}
+.livecheck-link.is-revoked .livecheck-state{color:var(--text-2);}
+.livecheck-summary.is-revoked::before{background:var(--text-2);}
+</style>
+
+<script>
+
+
+(function(){
+  var root = document.querySelector('.livecheck[data-endpoint]');
+  if(!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var order = ['constitution','soul','passport','credential'];
+  function fmtDate(d){
+    var y=d.getFullYear(), m=('0'+(d.getMonth()+1)).slice(-2), day=('0'+d.getDate()).slice(-2);
+    return y+'-'+m+'-'+day;
+  }
+  function resolve(data){
+    var gc = (data && data.governance_chain) || {};
+    var vi = (data && data.vi_chain) || {};
+    
+
+    var known = ('constitution_serial' in gc) || ('soul_serial' in gc) ||
+                ('passport_serial' in gc) || ('l1_status' in vi);
+    if(!known) return null;
+    var status = vi.l1_status;
+    return {
+      constitution: !!gc.constitution_serial,
+      soul: !!gc.soul_serial,
+      passport: !!gc.passport_serial,
+      credential: (status === 'active'),
+      revoked: (status === 'revoked'),
+      status: status
+    };
+  }
+  function markRevoked(li){
+    li.classList.remove('is-verified','is-pending');
+    li.classList.add('is-revoked');
+    var code = li.querySelector('.livecheck-serial'); if(code){ code.textContent = 'revoked'; }
+    var st = li.querySelector('.livecheck-state'); if(st){ st.textContent = 'revoked'; }
+  }
+  function apply(li, states){
+    var k = li.getAttribute('data-link');
+    
+
+    if(k === 'credential' && states.revoked){ markRevoked(li); return; }
+    li.classList.remove('is-revoked');
+    li.classList.toggle('is-verified', !!states[k]);
+    li.classList.toggle('is-pending', !states[k]);
+  }
+  function summarize(states){
+    var sum = root.querySelector('.livecheck-summary');
+    if(!sum) return;
+    if(states.revoked){
+      sum.classList.remove('pill-verified');
+      sum.classList.add('is-revoked');
+      sum.textContent = 'Revoked · on the public record · ' + fmtDate(new Date());
+      return;
+    }
+    var passed = 0; order.forEach(function(k){ if(states[k]) passed++; });
+    var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
+    sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
+  }
+  function paint(states){
+    root.querySelectorAll('.livecheck-link').forEach(function(li){ apply(li, states); });
+    summarize(states);
+  }
+  function walk(states){
+    if(reduce){ paint(states); return; }
+     
+    root.querySelectorAll('.livecheck-link').forEach(function(li){
+      li.classList.remove('is-verified','is-revoked'); li.classList.add('is-pending');
+    });
+    var i = 0;
+    (function step(){
+      if(i >= order.length){ summarize(states); return; }
+      var li = root.querySelector('.livecheck-link[data-link="'+order[i]+'"]');
+      if(li){ apply(li, states); }
+      i++; setTimeout(step, 260);
+    })();
+  }
+  fetch(root.getAttribute('data-endpoint'), {method:'GET', mode:'cors', cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r.json(); })
+    .then(function(data){
+      var states = resolve(data);
+      if(!states) return;  
+      walk(states);
+    })
+    .catch(function(){   });
+})();
+</script>
+
+          <p class="verify-note">current status resolves live - never cached</p>
+        </div>
+
+        
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  
+  <section class="offer" id="governed-commerce">
+    <div class="offer-head"><span class="num">03</span><span class="name">Governed Commerce</span></div>
+    <div class="offer-grid">
+      <div>
+        <h2>An agent you&#39;d let talk to customers.</h2>
+        <p class="body">A brand ambassador answers customers, recommends products, and closes the sale - work no company hands to an agent it cannot govern. Scoped credentials, a working kill switch, and a public revocation list are live today: on June 12 a $0.25 purchase was stopped against a $0.01 ceiling before money moved, and on July 17 a credential was revoked on the live server - every verification path rejected it afterward.</p>
+        <p class="attest">This is what unblocks the roadmap: agents doing revenue work your legal team will sign off on.</p>
+        <a class="go" href="https://vi.appliedidentities.com/">See it running →</a>
+      </div>
+      <div class="offer-graphic">
+        
+        
+        
+        <div class="flow-graphic" role="img" aria-label="The governed sale">
+          <div class="flow-bar">The governed sale</div>
+          <div class="flow-steps"><span class="flow-step">Customer</span><span class="flow-step">Recommend</span><span class="flow-step">Close</span></div>
+          <div class="flow-guards"><span class="guard">scoped credentials</span><span class="guard">price ceiling</span><span class="guard">kill switch armed</span></div>
+          <div class="flow-events">
+            <div class="events-title">On the public Ledger</div>
+            <div class="event ok"><span class="when">07-01</span><span class="what">sale settled · #511 · $0.005 USDC · tx 0x25ea9ea0…</span></div><div class="event no"><span class="when">06-12</span><span class="what">declined · $0.25 vs $0.01 ceiling · ESCALATION_REQUIRED</span></div><div class="event no"><span class="when">07-17</span><span class="what">revoked · mandate id 4 · 13:54:27 UTC</span></div>
+          </div>
+          <div class="flow-foot"><span>every event on the record</span><a href="https://vi.appliedidentities.com/ledger/">read the Ledger →</a></div>
+        </div>
+        
 
-<section class="panel" id="embodied-oversight">
-  <div class="panel-inner">
-    <p class="eyebrow">Embodied Oversight</p>
-    <h2>Oversight for agents with bodies.</h2>
-    <p class="lede">When agents drive robots, the same chain of authority applies and the measurement moves to the physical world: behavior observed live, divergence measured as it happens, evidence signed. A public demo runs the complete oversight pipeline against a simulated fleet. The robots are simulation scenes; the measurement is live computation.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/embodied/">Watch the fleet demo</a>
-      
+        
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  
+  <section class="offer" id="embodied-oversight">
+    <div class="offer-head"><span class="num">04</span><span class="name">Embodied Oversight</span><span class="roadmap-tag">WHERE THIS GOES NEXT</span></div>
+    <div class="offer-grid">
+      <div>
+        <h2>Oversight for machines with bodies.</h2>
+        <p class="body">When agents drive robots, governance has to watch actual behavior, and the same chain of authority applies. The demo runs a simulated fleet through a real pipeline: divergence measured, evidence signed, a trust index computed as it happens.</p>
+        <p class="attest">The governance layer was built to outlast any one form the agent takes.</p>
+        <a class="go" href="/embodied/">Watch the fleet demo →</a>
+      </div>
+      <div class="offer-graphic">
+        
+        
+        
+        <div class="term simlog" data-simlog role="img" aria-label="Simulated fleet oversight readout">
+          <div class="term-bar">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span class="fname">oversight.log</span>
+            <span class="sim">simulation</span>
+          </div>
+          <div class="term-body">
+            <div>fleet: 12 units · simulation</div><div>divergence measured live vs specification</div><div>evidence signed per interval</div>
+            <div class="sim-metric"><span class="sim-metric-label">trust index</span> <b class="sim-val" data-sim-val>0.97</b><span><span class="cursor" aria-hidden="true"></span></span></div>
+            <div class="sim-bar"><i data-sim-bar></i></div>
+          </div>
+          <div class="term-foot"><span>robots are scenes · measurement is live computation</span><a href="/embodied/">watch the fleet demo →</a></div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+</div>
+
+
+<script>
+(function(){
+  var box = document.querySelector('[data-simlog]');
+  if(!box) return;
+  var valEl = box.querySelector('[data-sim-val]');
+  var barEl = box.querySelector('[data-sim-bar]');
+  if(!valEl || !barEl) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce) return;  
+  var seq = [0.96, 0.97, 0.98, 0.97, 0.95, 0.97];
+  var i = 0;
+  setInterval(function(){
+    i = (i + 1) % seq.length;
+    var v = seq[i];
+    valEl.textContent = v.toFixed(2);
+    barEl.style.width = Math.round(v * 100) + '%';
+  }, 1900);
+})();
+</script>
 
 
 
-
-<section class="section">
-  <div class="wrap" style="max-width:840px">
+<div class="whynow">
+  <div class="inner">
+    <div class="eyebrow">Why now</div>
     <h2>A record cannot be created retroactively.</h2>
-    <p class="lede">The first incident, the first audit request, the first regulatory inquiry arrives with the first transaction. You cannot backfill a chain of custody. Companies that put their agents on the record now will be deploying while everyone else is still drafting policy.</p>
+    <p>The first incident, the first audit request, the first regulatory inquiry arrives with the first transaction. <strong>You cannot backfill a chain of custody.</strong> Companies that put their agents on the record now will be deploying while everyone else is still drafting policy.</p>
   </div>
-</section>
+</div>
 
 
-<section class="section">
-  <div class="wrap">
-    <p class="eyebrow">Running in production today</p>
-    <div class="proof-strip" style="margin-top:8px">
-      
-      <a class="stat" href="https://vi.appliedidentities.com/ledger/" style="text-decoration:none">
-        <div class="n">Decline</div>
-        <div class="l">2026-06-12 · a purchase declined before money moved</div>
-      </a>
-      
-      <a class="stat" href="https://vi.appliedidentities.com/ledger/" style="text-decoration:none">
-        <div class="n">Revocation</div>
-        <div class="l">2026-07-17 · a credential revoked on the public record</div>
-      </a>
-      
-      <a class="stat" href="https://vi.appliedidentities.com/ledger/" style="text-decoration:none">
-        <div class="n">A public record</div>
-        <div class="l">Settled x402 sales on the Ledger since March 2026</div>
-      </a>
-      
-      <a class="stat" href="https://agents.appliedidentities.com/registry" style="text-decoration:none">
-        <div class="n">A public registry</div>
-        <div class="l">Verifiable ERC-8004 records for every governed agent</div>
-      </a>
-      
-      <a class="stat" href="https://research.appliedidentities.com/" style="text-decoration:none">
-        <div class="n">Research, weekly</div>
-        <div class="l">Published by a governed agent team you can verify</div>
-      </a>
-      
-    </div>
+
+
+<div class="wrap-narrow close">
+  <h2>Put your agents<br>on the record.</h2>
+  <div class="cta-row">
+    <a class="btn btn-primary btn-lg" href="/contact/">Talk to us →</a>
   </div>
-</section>
+</div>
 
-<section><div class="wrap">
-  <div class="cta-band">
-    <h2>Put your agents on the record.</h2>
-    <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
-  </div>
-</div></section>
 
+</div>
 
   </main>
   <footer class="estate-footer"><div class="inner">
