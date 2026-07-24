@@ -45,7 +45,8 @@
   
 
 <style>
-.kit-page .kit-frame{padding-top:8px;}
+.kit-page .kit-frame{display:grid;grid-template-columns:1fr minmax(0,400px);gap:56px;align-items:center;padding-top:8px;}
+.kit-page .kit-frame .hero-txt{min-width:0;}
 .kit-page .kit-frame .eyebrow{margin-bottom:20px;}
 .kit-page .kit-frame h1{font-size:clamp(34px,5.4vw,60px);font-weight:700;line-height:1.06;
   letter-spacing:-.02em;max-width:18ch;}
@@ -53,7 +54,7 @@
   margin-top:24px;line-height:1.55;}
 .kit-page .kit-frame .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
 
-.kit-page .kit-diagram{margin:64px 0 8px;max-width:960px;}
+.kit-page .kit-diagram{margin:0;max-width:100%;}
 .kit-page .kit-diagram svg{width:100%;height:auto;display:block;overflow:visible;}
  
 .kit-page .kit-diagram .strand{fill:none;stroke:var(--text-3);stroke-width:1.75;
@@ -72,6 +73,10 @@
 @media(prefers-reduced-motion:reduce){
   .kit-page .kit-diagram .strand{stroke-dashoffset:0;animation:none;}
   .kit-page .kit-diagram .node,.kit-page .kit-diagram .node-label{opacity:1;animation:none;}
+}
+@media(max-width:960px){
+  .kit-page .kit-frame{grid-template-columns:1fr;}
+  .kit-page .kit-diagram{display:none;}
 }
 
 .kit-page .kit-cta-inline{margin-top:16px;}
@@ -212,27 +217,27 @@
 
 <div class="wrap">
   <section class="page-hero kit-frame">
-    <p class="eyebrow">Agent Kit</p>
-    <h1>Every agent is a new employee.<br>None of them were onboarded.</h1>
-    <p class="lede">An agent in production sends the email, quotes the price, and answers the customer under your name. A person doing that work gets an identity, a defined role, boundaries, and a review. Agents just get deployed. The Agent Kit is the system that was missing: who each agent is, what it may do, and proof of how it behaved.</p>
+    <div class="hero-txt">
+      <p class="eyebrow">Agent Kit</p>
+      <h1>Every agent is a new employee.<br>None of them were onboarded.</h1>
+      <p class="lede">An agent in production sends the email, quotes the price, and answers the customer under your name. A person doing that work gets an identity, a defined role, boundaries, and a review. Agents just get deployed. The Agent Kit is the system that was missing: who each agent is, what it may do, and proof of how it behaved.</p>
+    </div>
 
     
     <div class="kit-diagram">
-      <svg viewBox="0 0 1240 380" role="img" aria-label="Three strands, identity, authority, and proof, converge into a single node: a governed workforce.">
-        
-        <text class="strand-label" x="6" y="92">Identity</text>
-        <text class="strand-label" x="6" y="196">Authority</text>
-        <text class="strand-label is-proof" x="6" y="300">Proof</text>
-        
-        <path class="strand s1" pathLength="1" d="M8,108 C 300,108 470,210 720,210"/>
-        <path class="strand s2" pathLength="1" d="M8,210 C 300,210 470,210 720,210"/>
-        <path class="strand s3" pathLength="1" d="M8,316 C 300,316 470,210 720,210"/>
-        
+      
+      <svg viewBox="0 0 420 340" role="img" aria-label="Three strands, identity, authority, and proof, converge into a single node: a governed workforce.">
+        <text class="strand-label" x="4" y="42">Identity</text>
+        <text class="strand-label" x="4" y="150">Authority</text>
+        <text class="strand-label is-proof" x="4" y="282">Proof</text>
+        <path class="strand s1" pathLength="1" d="M8,58 C 165,58 205,170 300,170"/>
+        <path class="strand s2" pathLength="1" d="M8,170 C 165,170 205,170 300,170"/>
+        <path class="strand s3" pathLength="1" d="M8,300 C 165,300 205,170 300,170"/>
         <g class="node">
-          <circle class="node-ring" cx="720" cy="210" r="21"/>
-          <circle class="node-dot" cx="720" cy="210" r="8"/>
+          <circle class="node-ring" cx="300" cy="170" r="19"/>
+          <circle class="node-dot" cx="300" cy="170" r="7.5"/>
         </g>
-        <text class="node-label" x="756" y="217">A governed workforce</text>
+        <text class="node-label" x="300" y="214" text-anchor="middle">A governed workforce</text>
       </svg>
     </div>
     
