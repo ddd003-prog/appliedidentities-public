@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>Embodied Oversight | Applied Identities</title>
-  <meta name="description" content="The oversight pipeline for embodied fleets: behavior observed live, divergence measured as it happens, a trust index computed over the stream, evidence signed. A public demo runs the complete pipeline against a simulated fleet.">
-  <link rel="canonical" href="https://appliedidentities.com/embodied/">
+  <title>Consulting — Applied Identities</title>
+  <meta name="description" content="Consulting engagements for companies deploying AI agents: executive alignment, AI workforce budget planning, and the behavioral diagnostic that puts agents on a written standard.">
+  <link rel="canonical" href="https://appliedidentities.com/consulting/">
 
   
-  <meta property="og:title" content="Embodied Oversight">
-  <meta property="og:description" content="The oversight pipeline for embodied fleets: behavior observed live, divergence measured as it happens, a trust index computed over the stream, evidence signed. A public demo runs the complete pipeline against a simulated fleet.">
+  <meta property="og:title" content="Consulting">
+  <meta property="og:description" content="Consulting engagements for companies deploying AI agents: executive alignment, AI workforce budget planning, and the behavioral diagnostic that puts agents on a written standard.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://appliedidentities.com/embodied/">
+  <meta property="og:url" content="https://appliedidentities.com/consulting/">
   <meta property="og:site_name" content="Applied Identities">
   
   <meta property="og:image" content="https://appliedidentities.com/estate-share-card.png">
@@ -20,8 +20,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Applied Identities — independent behavioral governance for AI agents">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Embodied Oversight">
-  <meta name="twitter:description" content="The oversight pipeline for embodied fleets: behavior observed live, divergence measured as it happens, a trust index computed over the stream, evidence signed. A public demo runs the complete pipeline against a simulated fleet.">
+  <meta name="twitter:title" content="Consulting">
+  <meta name="twitter:description" content="Consulting engagements for companies deploying AI agents: executive alignment, AI workforce budget planning, and the behavioral diagnostic that puts agents on a written standard.">
   <meta name="twitter:image" content="https://appliedidentities.com/estate-share-card.png">
 
   
@@ -154,6 +154,31 @@
 </style>
 
 
+<style>
+.consulting .eng{border-top:1px solid var(--line);padding:40px 0;}
+.consulting .eng:first-of-type{border-top:0;padding-top:8px;}
+.consulting .eng-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.consulting .eng-num{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--blue);}
+.consulting .eng-name{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.015em;line-height:1.1;}
+.consulting .eng-for{margin:14px 0 0;font-size:17px;color:var(--text);max-width:60ch;
+  border-left:2px solid var(--blue);padding-left:16px;}
+.consulting .eng .body-copy{margin-top:18px;}
+.consulting .eng-leave{margin-top:16px;color:var(--text);max-width:70ch;}
+.consulting .eng-format{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);
+  border-top:1px solid var(--line);padding-top:14px;max-width:70ch;}
+.consulting .eng-format b{color:var(--text);font-weight:500;}
+.consulting .seasonal{margin-top:18px;display:flex;gap:10px;align-items:flex-start;
+  background:rgba(47,182,255,.08);border:1px solid color-mix(in srgb, var(--sky) 40%, transparent);
+  border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--text);max-width:70ch;}
+.consulting .seasonal::before{content:"›";color:var(--sky);font-family:var(--mono);flex:none;}
+.consulting .lede-lead{font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-.01em;
+  color:var(--text);margin:0 0 18px;max-width:26ch;}
+.consulting .boundary{margin-top:24px;padding:20px 22px;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;max-width:74ch;color:var(--text-2);}
+.consulting .boundary b{color:var(--text);font-weight:600;}
+.consulting .cta-row-2{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+</style>
+
 
   
   <script defer src="https://analytics.appliedidentities.com/script.js" data-website-id="c9af12f9-17bd-4ec6-b651-20f79714dd1f"></script>
@@ -162,12 +187,12 @@
   
   <header class="estate-header"><div class="bar">
   <a class="estate-mark" href="/">Applied Identities</a>
-  <nav class="estate-nav" aria-label="Estate"><a href="/consulting/">Consulting</a>
+  <nav class="estate-nav" aria-label="Estate"><a href="/consulting/" aria-current="true">Consulting</a>
     <a href="/agent-kit/">Agent Kit</a>
     <a href="https://agents.appliedidentities.com/">Identity</a>
     <a href="/governance/">Governance</a>
     <a href="https://vi.appliedidentities.com/">Commerce</a>
-    <a href="/embodied/" aria-current="true">Embodied</a>
+    <a href="/embodied/">Embodied</a>
     <a href="https://research.appliedidentities.com/">Research</a>
     <a class="btn btn-primary" href="/contact/">Talk to us</a>
   </nav>
@@ -176,98 +201,116 @@
   <main id="main">
     
 
-<div class="estate-fx">
+<div class="estate-fx consulting">
+
 
 <div class="wrap">
 <section class="page-hero">
-  <div class="split">
-    <div>
-      <p class="eyebrow">Embodied Oversight</p>
-      <h1>Oversight for agents with bodies.</h1>
-      <p class="lede">When agents drive robots, the same chain of authority applies and the measurement moves to the physical world. This is the oversight pipeline for embodied fleets: behavior observed live, divergence measured as it happens, a trust index computed over the stream, and evidence signed as it is recorded.</p>
-    </div>
-    <div class="term" role="img" aria-label="A simulated fleet oversight readout: an observer attached to the stream, divergence from specification, a signed oversight event, and a trust index computed over the stream.">
-      <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">fleet://embodied/oversight.stream</span><span class="gpill sim">simulation</span></div>
-      <div class="term-body">
-        <div class="ok">observer attached · 6 units on the stream <b>live</b></div>
-        <div>divergence: 0.03 from specification</div>
-        <div class="ok">oversight event signed <b>evt-2231</b></div>
-        <div>heartbeat: unit-04 last seen 0.4s ago</div>
-      </div>
-      <div style="padding:2px 18px 16px">
-        <div class="sc-row" style="grid-template-columns:110px minmax(0,1fr) 52px;border:0;padding:12px 0 4px">
-          <span class="sc-dim">trust index</span><span class="sc-bar"><i style="width:97%"></i></span><span class="sc-val">0.97</span>
-        </div>
-      </div>
-    </div>
+  <p class="eyebrow">Consulting</p>
+  <h1>Your company is about to manage a workforce it has never managed before.</h1>
+  <div class="body-copy" style="margin-top:22px">
+    <p>AI agents are taking on real work: answering customers, moving money, speaking in your company's name. Managing them well requires things most organizations have not built yet: a shared executive vocabulary, a plan and a budget, and a written standard for how each agent should behave.</p>
+    <p>Applied Identities' consulting practice builds all three. The engagements below stand alone or run in sequence, and every one of them uses the same framework the platform measures against, so nothing you buy here gets thrown away when you deploy.</p>
+  </div>
+  <div class="boundary">
+    One boundary, stated up front: we never build or operate agents. That is deliberate. The value of independent measurement depends on the measuring party having no stake in the agents' output, and we protect that position in every engagement.
   </div>
 </section>
 </div>
+
+
+<div class="fx-band fx-band--alt">
+<div class="wrap">
+<section id="engagements">
+  <p class="eyebrow">The three engagements</p>
+  <h2 class="section-title">Start where your organization actually is.</h2>
+
+  <div class="eng" id="executive-alignment">
+    <div class="eng-head"><span class="eng-num">01</span><span class="eng-name">Executive Alignment</span></div>
+    <p class="eng-for">For the team that needs a common language before it can make a decision.</p>
+    <div class="body-copy">
+      <p>A structured briefing for your executive team: what an AI agent workforce actually is, what separates the companies scaling it from the majority stalled at pilots, and what the emerging discipline of behavioral governance covers. Built on the current market record, real deployments, real incidents, real regulatory movement, translated into your industry's terms.</p>
+    </div>
+    <p class="eng-leave">You leave with a shared vocabulary, a map of where your organization stands, and the questions your team should be asking vendors, auditors, and each other.</p>
+    <p class="eng-format"><b>Format:</b> Half-day working session plus a written readout. Delivered on your calendar, at your site or remote.</p>
+  </div>
+
+  <div class="eng" id="planning-budget-sprint">
+    <div class="eng-head"><span class="eng-num">02</span><span class="eng-name">Planning and Budget Sprint</span></div>
+    <p class="eng-for">For the team building its 2027 plan right now.</p>
+    <div class="body-copy">
+      <p>Most companies enter budget season with AI spend scattered across departmental experiments and no structure for the decisions that matter: what to fund as a workforce program rather than a tool purchase, how to weigh building against renting, where governance and measurement belong in the budget, and what evidence the board will expect for the money.</p>
+      <p>The sprint gives your planning cycle that structure. We work with the executives who own the numbers to produce a budget framework for the AI workforce line: categories, decision criteria, sequencing, and the governance costs most first-year budgets miss.</p>
+    </div>
+    <p class="eng-format"><b>Format:</b> Two to three weeks, fixed fee, timed to your planning calendar. The deliverable is a framework your finance team puts to work in the current cycle.</p>
+    
+  </div>
+
+  <div class="eng" id="behavioral-diagnostic">
+    <div class="eng-head"><span class="eng-num">03</span><span class="eng-name">Behavioral Diagnostic</span></div>
+    <p class="eng-for">For the team ready to put its agents on the record.</p>
+    <div class="body-copy">
+      <p>The diagnostic turns how your company actually operates, decides, and speaks into a signed behavioral specification for every agent that represents you. We call the method Ground Truth, because that is what it produces: the authoritative written standard your agents are measured against from that point forward.</p>
+    </div>
+    <p class="eng-leave">You leave with a scored assessment of how your agents behave today, a signed specification set your organization owns, and a readiness read your board can act on. This is the first step of any platform deployment, and it stands on its own whether or not you deploy.</p>
+    <p class="eng-format"><b>Format:</b> Nine weeks baseline, fixed fee, sized to organizational complexity, with a two-to-three-week pre-engagement for scoping and access.</p>
+  </div>
+</section>
+</div>
+</div>
+
+
+<div class="fx-band">
+<div class="wrap">
+<section>
+  <p class="eyebrow">How they fit together</p>
+  <h2 class="section-title">Three engagements, one direction.</h2>
+  <div class="body-copy" style="margin-top:18px">
+    <p>Each engagement makes the next one cheaper and faster. The alignment session gives your team the language the budget conversation needs. The budget sprint funds the governance work as a planned 2027 line and spares you the mid-year fight for it. The diagnostic produces the specification that governs deployment and measurement.</p>
+    <p>Run in sequence, they take an organization from "we should probably talk about this" to agents on the record inside two quarters. Started anywhere, each one is complete on its own terms.</p>
+  </div>
+</section>
+</div>
+</div>
+
 
 <div class="fx-band fx-band--alt">
 <div class="wrap">
 <section>
-  <h2 class="section-title">The oversight pipeline</h2>
-  <div class="gpanel" role="img" aria-label="The oversight pipeline: behavior observed live, divergence measured, a trust index computed, evidence signed, connection reported by heartbeat." style="margin:26px 0 32px">
-    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">oversight-pipeline</span><span class="gpill sim">simulation</span></div>
-    <div class="flow-steps">
-      <span class="flow-step">observed live</span>
-      <span class="flow-step">divergence measured</span>
-      <span class="flow-step">trust index</span>
-      <span class="flow-step">evidence signed</span>
-    </div>
-    <div class="flow-guards">
-      <span class="guard">under specification + authorization</span>
-      <span class="guard">heartbeat: connection status</span>
-      <span class="guard">signed as recorded</span>
-    </div>
-  </div>
-  <div class="card-grid">
-    
-    <div class="card"><h3>Behavior observed live</h3><p>Each robot works under a specification and an authorization, the same records every governed agent carries. An independent observer watches actual behavior as the fleet runs, not after the fact.</p></div>
-    
-    <div class="card"><h3>Divergence measured</h3><p>The observer measures how far behavior drifts from the specification as it happens, so a problem is visible while it is still small.</p></div>
-    
-    <div class="card"><h3>A trust index, computed</h3><p>The stream of measurements resolves into a trust index for the fleet, computed continuously over live oversight events.</p></div>
-    
-    <div class="card"><h3>Signed evidence</h3><p>Each oversight event is signed as it is recorded, so the account of what the fleet did is fixed at the moment it happened.</p></div>
-    
-    <div class="card"><h3>Connection status by heartbeat</h3><p>A heartbeat reports which robots are connected and when each was last seen, so liveness is never assumed.</p></div>
-    
+  <p class="eyebrow">Why specification is where this ends up</p>
+  <h2 class="section-title">Governance without a specification is just surveillance.</h2>
+  <div class="body-copy" style="margin-top:18px">
+    <p>Whatever rung you start on, the work converges on the same object: a written, signed standard for how your agents behave. Measuring an agent against a standard nobody wrote down produces opinions. A finding requires a written standard the agent can meet or fail. Every measurement, every audit answer, and every piece of evidence downstream inherits its authority from that document.</p>
+    <p>This is why the consulting practice and the platform run as a single practice. The engagements produce the standard; the platform proves conduct against it, continuously, from a party with nothing to gain.</p>
   </div>
 </section>
 </div>
 </div>
+
 
 <div class="fx-band">
 <div class="wrap">
-<section class="split">
-  <div>
-    <h2 class="section-title">Watch the fleet demo</h2>
-    <p class="lede">A public demo runs the complete oversight pipeline against a simulated fleet: simulated robots, real oversight computation. The robots are simulation scenes; the observer, the divergence measurement, and the trust index are live. The demo is hosted in a partner environment on Railway.</p>
-    <div class="cta-row" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px">
-      <a class="btn btn-primary" href="https://build-r1-production.up.railway.app/fleet">Open the fleet demo</a>
-      <a class="btn btn-secondary" href="https://vi.appliedidentities.com/">The same chain, in commerce</a>
-    </div>
-    <p class="demo-note" style="margin-top:12px">Demo environment, partner-hosted (Railway).</p>
-  </div>
-  <div class="term" role="img" aria-label="Simulated fleet scenes with live oversight: robots are simulation scenes; the observer, divergence measurement, and trust index run for real.">
-    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">build-r1 · fleet demo</span><span class="gpill sim">simulation</span></div>
-    <div class="term-body">
-      <div>robots: simulation scenes</div>
-      <div class="ok">observer · divergence · trust index <b>real computation</b></div>
-      <div class="ok">each oversight event <b>signed</b></div>
-      <div>partner-hosted (Railway)</div>
-    </div>
+<section>
+  <p class="eyebrow">Who delivers it</p>
+  <h2 class="section-title">Direct, or through a certified partner.</h2>
+  <div class="body-copy" style="margin-top:18px">
+    <p>Applied Identities owns its methods and delivers them directly. Certified consulting partners deliver the same methods under license for larger or multi-region engagements. Either way, the standard your agents are measured against is produced under the method owner's direct authority, and the measurement that follows is performed by a party independent of whoever built or runs your agents.</p>
   </div>
 </section>
 </div>
 </div>
 
+
 <div class="wrap">
 <div class="cta-band">
-  <h2>Put your agents on the record.</h2>
-  <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
+  <h2>Start the conversation.</h2>
+  <div class="body-copy" style="margin:0 auto 8px;text-align:left">
+    <p>A first call covers three things: which agents are doing work that represents you today, which of the three engagements fits where your organization stands, and what the calendar looks like. If you are in your 2027 planning cycle, say so; the budget sprint is built to land inside it.</p>
+  </div>
+  <div class="cta-row-2">
+    <a class="btn btn-primary btn-lg" href="/contact/">Talk to us →</a>
+    
+  </div>
 </div>
 </div>
 

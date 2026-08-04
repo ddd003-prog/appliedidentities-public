@@ -4,6 +4,7 @@
 	<meta name="generator" content="Hugo 0.163.3">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <title>Applied Identities — Independent behavioral governance for AI agents</title>
   <meta name="description" content="Independent behavioral governance for AI agents. A written specification, defined authority, independent measurement, and a public record for every agent that represents your company.">
   <link rel="canonical" href="https://appliedidentities.com/">
@@ -242,6 +243,24 @@
 .home-v4 .whynow strong{color:var(--text);}
 
  
+.home-v4 .consulting-panel{border-top:1px solid var(--line);background:var(--surface);padding:80px 0;}
+.home-v4 .cpanel-intro{margin:14px 0 0;font-size:clamp(16px,1.5vw,18px);color:var(--text-2);max-width:46em;line-height:1.55;}
+.home-v4 .cpanel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;}
+@media(max-width:820px){.home-v4 .cpanel-grid{grid-template-columns:1fr;}}
+.home-v4 .ccard{display:flex;flex-direction:column;background:var(--canvas);border:1px solid var(--line);
+  border-radius:12px;padding:24px;text-decoration:none;color:inherit;}
+.home-v4 .ccard:hover{border-color:var(--blue);}
+.home-v4 .ccard h3{font-size:18px;font-weight:600;color:var(--text);margin:0 0 10px;letter-spacing:-.01em;}
+.home-v4 .ccard p{font-size:14.5px;color:var(--text-2);line-height:1.5;margin:0;}
+.home-v4 .ccard .go{margin-top:auto;padding-top:18px;}
+.home-v4 .cpanel-link{margin-top:28px;}
+.home-v4 .cpanel-seasonal{margin-top:26px;display:flex;gap:10px;align-items:flex-start;max-width:60em;
+  background:rgba(47,182,255,.08);border:1px solid color-mix(in srgb, var(--sky) 40%, transparent);
+  border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--text);text-decoration:none;}
+.home-v4 a.cpanel-seasonal:hover{border-color:var(--sky);}
+.home-v4 .cpanel-seasonal::before{content:"›";flex:none;color:var(--sky);font-family:var(--mono);}
+
+ 
 .home-v4 .close{padding:104px 0 112px;text-align:center;}
 .home-v4 .close h2{font-size:clamp(36px,6vw,60px);font-weight:700;letter-spacing:-.02em;line-height:1.05;}
 .home-v4 .close .cta-row{justify-content:center;margin-top:32px;}
@@ -318,7 +337,7 @@
   
   <header class="estate-header"><div class="bar">
   <a class="estate-mark" href="/">Applied Identities</a>
-  <nav class="estate-nav" aria-label="Estate">
+  <nav class="estate-nav" aria-label="Estate"><a href="/consulting/">Consulting</a>
     <a href="/agent-kit/">Agent Kit</a>
     <a href="https://agents.appliedidentities.com/">Identity</a>
     <a href="/governance/">Governance</a>
@@ -405,7 +424,7 @@
         
         <div class="cap"><h4>PUBLIC RECORD</h4><p>A live, verifiable ERC-8004 file anyone can read.</p></div>
         
-        <div class="cap"><h4>IMMEDIATE REVOCATION</h4><p>Revoke a credential and stop the agent on demand.</p></div>
+        <div class="cap"><h4>IMMEDIATE REVOCATION</h4><p>Revoke a credential on demand; every verification path rejects it afterward.</p></div>
         
       </div>
     </div>
@@ -471,10 +490,10 @@
             <span class="reg-agent">Nell Ashpool</span><span class="reg-agent">3Jane</span>
           </div>
           
-          <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-07-25">
+          <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-08-04">
   <div class="livecheck-head">
     <span class="eyebrow">Chain of authority</span>
-    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-07-25">Chain verified · 4 of 4 links · 2026-07-25</span>
+    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-08-04">Chain verified · 4 of 4 links · 2026-08-04</span>
   </div>
   <p class="livecheck-sub">A live record resolving link by link: <a href="https://agents.appliedidentities.com/nell">Nell Ashpool</a>, an agent on the public registry.</p>
   <ol class="livecheck-links">
@@ -754,10 +773,45 @@
 
 
 
+<div class="consulting-panel">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Consulting</div>
+    <h2 class="kicker">Start where your organization actually is.</h2>
+    <p class="cpanel-intro">Wherever your organization stands, there is a defined first step: a working session that gives your executive team a common language, a sprint that structures your 2027 budget, or a diagnostic that puts your agents&#39; behavior on a written standard.</p>
+    <div class="cpanel-grid">
+      
+      <a class="ccard" href="/consulting/#executive-alignment">
+        <h3>Executive Alignment</h3>
+        <p>A half-day working session that gives your leadership team a shared vocabulary for the agent workforce, and a map of where your organization stands.</p>
+        <span class="go">Learn more →</span>
+      </a>
+      
+      <a class="ccard" href="/consulting/#planning-budget-sprint">
+        <h3>Planning and Budget Sprint</h3>
+        <p>Two to three weeks, timed to your planning calendar, that structure the AI workforce line in your 2027 budget.</p>
+        <span class="go">Learn more →</span>
+      </a>
+      
+      <a class="ccard" href="/consulting/#behavioral-diagnostic">
+        <h3>Behavioral Diagnostic</h3>
+        <p>Nine weeks that put every agent representing your company on a signed, written behavioral standard, and score how your agents behave today.</p>
+        <span class="go">Learn more →</span>
+      </a>
+      
+    </div>
+    <a class="go cpanel-link" href="/consulting/#engagements">See the consulting engagements →</a>
+    
+  </div>
+</div>
+
+
+
+
 <div class="wrap-narrow close">
   <h2>Put your agents<br>on the record.</h2>
   <div class="cta-row">
     <a class="btn btn-primary btn-lg" href="/contact/">Talk to us →</a>
+    <a class="btn btn-ghost btn-lg" href="/consulting/#behavioral-diagnostic">Start with a diagnostic →</a>
   </div>
 </div>
 
@@ -793,6 +847,7 @@
       <li><a href="https://research.appliedidentities.com/verify/">The agent's record</a></li>
     </ul></div>
   </div><div class="footer-util">
+    <a href="/consulting/">Consulting</a>
     <a href="/about/">About</a>
     <a href="/insights/">Insights</a>
     <a href="/verify/">Verify</a>
