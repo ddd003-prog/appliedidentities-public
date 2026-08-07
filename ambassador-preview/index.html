@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ambassador preview</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font: 17px/1.6 system-ui, sans-serif;
+      max-width: 640px; margin: 12vh auto 0; padding: 0 24px;
+      color: #14171c; background: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e8eaee; background: #0e1116; }
+    }
+    h1 { font-size: 1.6rem; }
+    p  { opacity: .85; }
+  </style>
+</head>
+<body>
+  <h1>Meet Verity</h1>
+  <p>This is an unlisted preview page. Verity is an AI agent with a verified identity,
+     a nearly empty tool allowlist, and an independent behavioral record. Open the chat
+     in the corner and ask her what Applied Identities builds.</p>
+  <script src="/js/ambassador.js" defer
+          data-endpoint="/api/ambassador"
+          data-agent-name="Verity"
+          data-verify-url="https://agents.appliedidentities.com/registry"
+          data-turnstile-sitekey="0x4AAAAAAEI01TLrNFRUwgA4"></script>
+</body>
+</html>
