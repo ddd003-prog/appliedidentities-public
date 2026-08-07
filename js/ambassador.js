@@ -50,7 +50,8 @@
     '.wa-send:disabled{opacity:.5;cursor:default}' +
     '.wa-foot{padding:8px 14px;border-top:1px solid var(--wa-border);font-size:11.5px;color:var(--wa-muted);display:flex;justify-content:space-between;gap:8px}' +
     '.wa-foot a{color:var(--wa-accent);text-decoration:none}' +
-    '.wa-ts{padding:0 14px 8px}';
+    '.wa-ts{padding:0}' +
+    '.wa-ts.wa-ts-active{padding:0 14px 8px}';
 
   var style = document.createElement('style');
   style.textContent = css;
@@ -163,8 +164,12 @@
     window.__waTsReady = function () {
       window.turnstile.render(tsHost, {
         sitekey: cfg.turnstileSitekey,
-        callback: function (token) { tsToken = token; },
+        // Invisible unless a visitor actually has to click a challenge;
+        // hides again afterward. No persistent success banner.
+        appearance: 'interaction-only',
+        callback: function (token) { tsToken = token; tsHost.classList.remove('wa-ts-active'); },
         'error-callback': function () { tsToken = ''; },
+        'before-interactive-callback': function () { tsHost.classList.add('wa-ts-active'); },
       });
     };
     var s = document.createElement('script');
