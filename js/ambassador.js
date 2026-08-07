@@ -113,8 +113,30 @@
   document.body.appendChild(launch);
   document.body.appendChild(panel);
 
+  // Agent replies arrive with markdown-style **bold**. Render that one form
+  // as <strong> using DOM nodes only; everything else stays plain text so
+  // reply content can never become markup.
+  function renderAgentText(target, text) {
+    var parts = String(text).split(/\*\*([^*\n]+)\*\*/g);
+    for (var i = 0; i < parts.length; i++) {
+      if (!parts[i]) continue;
+      if (i % 2 === 1) {
+        var b = document.createElement('strong');
+        b.textContent = parts[i];
+        target.appendChild(b);
+      } else {
+        target.appendChild(document.createTextNode(parts[i]));
+      }
+    }
+  }
+
   function addMsg(cls, text) {
-    var m = el('div', 'wa-msg ' + cls, text);
+    var m = el('div', 'wa-msg ' + cls);
+    if (cls.indexOf('wa-agent') === 0 && cls.indexOf('wa-thinking') === -1) {
+      renderAgentText(m, text);
+    } else {
+      m.textContent = text;
+    }
     msgs.appendChild(m);
     msgs.scrollTop = msgs.scrollHeight;
     return m;
