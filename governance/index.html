@@ -379,155 +379,252 @@
     <a class="btn btn-ghost btn-lg" href="https://agents.appliedidentities.com/verity">See her record →</a>
   </div>
   
-  <h3 style="margin-top:56px;font-size:22px;font-weight:700">And verify the chain on a live record</h3>
-  <p class="lede" style="margin:10px 0 28px">We run under the same governance we sell; the record below is ours, and it is public. This is the chain of authority resolving link by link, on a live record. Each identity document checks against the one that authorizes it, down to the credential the agent works under.</p>
-  <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-08-20">
-  <div class="livecheck-head">
-    <span class="eyebrow">Chain of authority</span>
-    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-08-20">Chain verified · 4 of 4 links · 2026-08-20</span>
-  </div>
-  <p class="livecheck-sub">A live record resolving link by link: <a href="https://agents.appliedidentities.com/nell">Nell Ashpool</a>, an agent on the public registry.</p>
-  <ol class="livecheck-links">
-    <li class="livecheck-link is-verified" data-link="constitution">
-      <span class="livecheck-mark" aria-hidden="true"></span>
-      <span class="livecheck-body">
-        <span class="livecheck-name">Constitution</span>
-        <span class="livecheck-meta">The corporate authority the agent operates under</span>
-      </span>
-      <code class="livecheck-serial">AI-CONST-AI-2026-001</code>
-      <span class="livecheck-state">verified</span>
-    </li>
-    <li class="livecheck-link is-verified" data-link="soul">
-      <span class="livecheck-mark" aria-hidden="true"></span>
-      <span class="livecheck-body">
-        <span class="livecheck-name">Charter</span>
-        <span class="livecheck-meta">How it works and speaks for the company</span>
-      </span>
-      <code class="livecheck-serial">AI-SOUL-NELL-2026-002</code>
-      <span class="livecheck-state">verified</span>
-    </li>
-    <li class="livecheck-link is-verified" data-link="passport">
-      <span class="livecheck-mark" aria-hidden="true"></span>
-      <span class="livecheck-body">
-        <span class="livecheck-name">Passport</span>
-        <span class="livecheck-meta">What it is permitted to do, with permission keys</span>
-      </span>
-      <code class="livecheck-serial">AI-PASS-NELL-2026-001</code>
-      <span class="livecheck-state">verified</span>
-    </li>
-    <li class="livecheck-link is-verified" data-link="credential">
-      <span class="livecheck-mark" aria-hidden="true"></span>
-      <span class="livecheck-body">
-        <span class="livecheck-name">Operating credential</span>
-        <span class="livecheck-meta">The active credential the agent works under</span>
-      </span>
-      <code class="livecheck-serial">active</code>
-      <span class="livecheck-state">verified</span>
-    </li>
-  </ol>
-  <p class="livecheck-anchor">Anchored on Base mainnet, independently checkable: <a href="https://basescan.org/tx/0x48a2c8eb12e4f97d153358cad3d96b0a944c0ba1f8974b3cc999990839a06c39" rel="noopener">view the on-chain registration</a>.</p>
-</div>
-
-<style>
- 
-.livecheck-link.is-revoked .livecheck-mark{border-color:var(--text-2); background:transparent;}
-.livecheck-link.is-revoked .livecheck-mark::after{
-  content:""; position:absolute; left:7px; top:9px; width:8px; height:2px;
-  background:var(--text-2); border:0; transform:none;
-}
-.livecheck-link.is-revoked .livecheck-name{color:var(--text-2);}
-.livecheck-link.is-revoked .livecheck-state{color:var(--text-2);}
-.livecheck-summary.is-revoked::before{background:var(--text-2);}
+  <h3 style="margin-top:56px;font-size:22px;font-weight:700">And verify her right now</h3>
+  <p class="lede" style="margin:10px 0 28px">We run under the same governance we sell, and the proof does not require trusting us. The button below makes your browser run the checks itself: the public record, the registration on Base mainnet, and the governance chain.</p>
+  
+  <style>
+.vlive{max-width:760px;}
+.vlive .vl-agents{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+.vlive .vl-agent{font-family:var(--mono);font-size:13px;color:var(--text-2);background:var(--surface);
+  border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;}
+.vlive .vl-agent[aria-pressed="true"]{color:var(--text);border-color:var(--blue);}
+.vlive .vl-go{font-size:18px;height:56px;padding:14px 34px;}
+.vlive .vl-steps{list-style:none;margin:26px 0 0;padding:0;}
+.vlive .vl-step{display:grid;grid-template-columns:26px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start;}
+.vlive .vl-step:last-child{border-bottom:0;}
+.vlive .vl-dot{width:14px;height:14px;border-radius:50%;background:var(--elevated);margin-top:4px;justify-self:center;position:relative;}
+.vlive .vl-step.run .vl-dot{background:var(--blue);}
+.vlive .vl-step.run .vl-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--blue);opacity:.6;animation:vlping 1s ease-out infinite;}
+@keyframes vlping{0%{transform:scale(.6);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.vlive .vl-step.ok .vl-dot{background:var(--verified);}
+.vlive .vl-step.bad .vl-dot{background:var(--orange);}
+.vlive .vl-name{font-weight:600;color:var(--text);}
+.vlive .vl-what{font-size:13.5px;color:var(--text-2);margin-top:2px;}
+.vlive .vl-out{font-family:var(--mono);font-size:12.5px;color:var(--text-2);margin-top:8px;word-break:break-all;line-height:1.7;display:none;}
+.vlive .vl-step.ok .vl-out,.vlive .vl-step.bad .vl-out{display:block;}
+.vlive .vl-out b{color:var(--verified);font-weight:500;}
+.vlive .vl-step.bad .vl-out b{color:var(--orange);}
+.vlive .vl-verdict{display:none;margin-top:30px;border-radius:16px;padding:30px 28px;text-align:center;border:1px solid var(--line);}
+.vlive .vl-verdict.ok{display:block;background:rgba(41,248,148,.07);border-color:color-mix(in srgb, var(--verified) 45%, transparent);}
+.vlive .vl-verdict.bad{display:block;background:rgba(246,89,48,.07);border-color:color-mix(in srgb, var(--orange) 45%, transparent);}
+.vlive .vl-mark{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:44px;line-height:1;border:2.5px solid var(--verified);color:var(--verified);background:rgba(41,248,148,.1);}
+.vlive .vl-verdict.bad .vl-mark{border-color:var(--orange);color:var(--orange);background:rgba(246,89,48,.1);}
+.vlive .vl-title{font-size:clamp(26px,3.4vw,36px);font-weight:700;letter-spacing:-.015em;color:var(--text);}
+.vlive .vl-sub{font-family:var(--mono);font-size:12.5px;color:var(--text-2);margin-top:10px;}
+.vlive .vl-ping{margin:18px auto 0;max-width:560px;text-align:left;font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--text-2);border-top:1px solid var(--line);padding-top:14px;overflow-x:auto;}
+.vlive .vl-ping table{width:100%;border-collapse:collapse;}
+.vlive .vl-ping td{padding:1px 10px 1px 0;white-space:nowrap;vertical-align:baseline;}
+.vlive .vl-ping td:last-child{text-align:right;color:var(--text);padding-right:0;}
+.vlive .vl-ping .ep{color:var(--text-3);}
+.vlive .vl-ping .sum{margin-top:10px;color:var(--text);}
+.vlive .vl-ping .sum b{color:var(--verified);font-weight:500;}
+.vlive .vl-verdict.bad .vl-ping .sum b{color:var(--orange);}
+.vlive .vl-links{margin-top:16px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:14px;}
+.vlive .vl-links a{color:var(--text-2);}
+.vlive .vl-links a:hover{color:var(--text);}
+@media(prefers-reduced-motion:reduce){.vlive .vl-step.run .vl-dot::after{animation:none;display:none;}}
 </style>
 
+<div class="vlive" data-vlive>
+  <div class="vl-agents" role="group" aria-label="Choose an agent to verify">
+    <button class="vl-agent" data-slug="verity" aria-pressed="true">Verity · ambassador</button>
+    <button class="vl-agent" data-slug="nell" aria-pressed="false">Nell Ashpool · operations</button>
+    <button class="vl-agent" data-slug="3jane" aria-pressed="false">3Jane · research</button>
+  </div>
+  <button class="btn btn-primary vl-go" data-vl-go>Verify it live, from your browser</button>
+
+  <ol class="vl-steps">
+    <li class="vl-step" data-step="record">
+      <span class="vl-dot" aria-hidden="true"></span>
+      <span><span class="vl-name">Public record</span>
+        <span class="vl-what">Your browser asks our registry for the agent's ERC-8004 registration.</span>
+        <span class="vl-out" data-out></span></span>
+    </li>
+    <li class="vl-step" data-step="chainread">
+      <span class="vl-dot" aria-hidden="true"></span>
+      <span><span class="vl-name">Base mainnet, read live</span>
+        <span class="vl-what">Your browser queries the blockchain directly: does the registry contract really hold this registration? We are not in the loop.</span>
+        <span class="vl-out" data-out></span></span>
+    </li>
+    <li class="vl-step" data-step="governance">
+      <span class="vl-dot" aria-hidden="true"></span>
+      <span><span class="vl-name">Chain of authority</span>
+        <span class="vl-what">The governance documents the agent works under (Constitution, Charter, Passport) resolve from the live credential plane.</span>
+        <span class="vl-out" data-out></span></span>
+    </li>
+  </ol>
+
+  <div class="vl-verdict" data-verdict>
+    <div class="vl-mark" data-verdict-mark>✓</div>
+    <div class="vl-title" data-verdict-title>Verified</div>
+    <div class="vl-sub" data-verdict-sub></div>
+    <div class="vl-ping" data-verdict-ping></div>
+    <div class="vl-links" data-verdict-links></div>
+  </div>
+
+  <noscript>
+    <p class="muted" style="margin-top:22px;max-width:62ch">Scripting is off, so the live check cannot run in your browser. The records are still public: read <a href="https://agents.appliedidentities.com/verity">Verity's registration</a>, the <a href="https://agents.appliedidentities.com/registry">registry</a>, or the <a href="https://basescan.org/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432">registry contract on BaseScan</a>. None of them need us.</p>
+  </noscript>
+</div>
+
 <script>
+(function () {
+  var root = document.querySelector('[data-vlive]');
+  if (!root) return;
+  var RPC = ['https://mainnet.base.org', 'https://base.llamarpc.com'];
+  var slug = 'verity';
+  var running = false;
 
-
-(function(){
-  var root = document.querySelector('.livecheck[data-endpoint]');
-  if(!root) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var order = ['constitution','soul','passport','credential'];
-  function fmtDate(d){
-    var y=d.getFullYear(), m=('0'+(d.getMonth()+1)).slice(-2), day=('0'+d.getDate()).slice(-2);
-    return y+'-'+m+'-'+day;
-  }
-  function resolve(data){
-    var gc = (data && data.governance_chain) || {};
-    var vi = (data && data.vi_chain) || {};
-    
-
-    var known = ('constitution_serial' in gc) || ('soul_serial' in gc) ||
-                ('passport_serial' in gc) || ('l1_status' in vi);
-    if(!known) return null;
-    var status = vi.l1_status;
-    return {
-      constitution: !!gc.constitution_serial,
-      soul: !!gc.soul_serial,
-      passport: !!gc.passport_serial,
-      credential: (status === 'active'),
-      revoked: (status === 'revoked'),
-      status: status
-    };
-  }
-  function markRevoked(li){
-    li.classList.remove('is-verified','is-pending');
-    li.classList.add('is-revoked');
-    var code = li.querySelector('.livecheck-serial'); if(code){ code.textContent = 'revoked'; }
-    var st = li.querySelector('.livecheck-state'); if(st){ st.textContent = 'revoked'; }
-  }
-  function apply(li, states){
-    var k = li.getAttribute('data-link');
-    
-
-    if(k === 'credential' && states.revoked){ markRevoked(li); return; }
-    li.classList.remove('is-revoked');
-    li.classList.toggle('is-verified', !!states[k]);
-    li.classList.toggle('is-pending', !states[k]);
-  }
-  function summarize(states){
-    var sum = root.querySelector('.livecheck-summary');
-    if(!sum) return;
-    if(states.revoked){
-      sum.classList.remove('pill-verified');
-      sum.classList.add('is-revoked');
-      sum.textContent = 'Revoked · on the public record · ' + fmtDate(new Date());
-      return;
-    }
-    var passed = 0; order.forEach(function(k){ if(states[k]) passed++; });
-    var word = (passed === order.length) ? 'Chain verified' : 'Chain checked';
-    sum.textContent = word + ' · ' + passed + ' of ' + order.length + ' links · ' + fmtDate(new Date());
-  }
-  function paint(states){
-    root.querySelectorAll('.livecheck-link').forEach(function(li){ apply(li, states); });
-    summarize(states);
-  }
-  function walk(states){
-    if(reduce){ paint(states); return; }
-     
-    root.querySelectorAll('.livecheck-link').forEach(function(li){
-      li.classList.remove('is-verified','is-revoked'); li.classList.add('is-pending');
+  root.querySelectorAll('.vl-agent').forEach(function (b) {
+    b.addEventListener('click', function () {
+      root.querySelectorAll('.vl-agent').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      slug = b.getAttribute('data-slug');
+      reset();
     });
-    var i = 0;
-    (function step(){
-      if(i >= order.length){ summarize(states); return; }
-      var li = root.querySelector('.livecheck-link[data-link="'+order[i]+'"]');
-      if(li){ apply(li, states); }
-      i++; setTimeout(step, 260);
-    })();
+  });
+
+  function step(name) { return root.querySelector('[data-step="' + name + '"]'); }
+  function setState(name, state, html) {
+    var el = step(name);
+    el.classList.remove('run', 'ok', 'bad');
+    if (state) el.classList.add(state);
+    if (html !== undefined) el.querySelector('[data-out]').innerHTML = html;
   }
-  fetch(root.getAttribute('data-endpoint'), {method:'GET', mode:'cors', cache:'no-store'})
-    .then(function(r){ if(!r.ok) throw new Error('status '+r.status); return r.json(); })
-    .then(function(data){
-      var states = resolve(data);
-      if(!states) return;  
-      walk(states);
-    })
-    .catch(function(){   });
+  function reset() {
+    ['record', 'chainread', 'governance'].forEach(function (n) { setState(n, null, ''); });
+    var v = root.querySelector('[data-verdict]');
+    v.classList.remove('ok', 'bad');
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function short(a) { return a ? a.slice(0, 8) + '…' + a.slice(-4) : ''; }
+  function hex64(n) { return BigInt(n).toString(16).padStart(64, '0'); }
+  function decodeAbiString(hexResult) {
+    var h = hexResult.slice(2);
+    var off = parseInt(h.slice(0, 64), 16) * 2;
+    var len = parseInt(h.slice(off, off + 64), 16) * 2;
+    var bytes = h.slice(off + 64, off + 64 + len);
+    var out = '';
+    for (var i = 0; i < bytes.length; i += 2) out += String.fromCharCode(parseInt(bytes.substr(i, 2), 16));
+    return out;
+  }
+  function rpcCall(to, data, i) {
+    i = i || 0;
+    return fetch(RPC[i], {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_call', params: [{ to: to, data: data }, 'latest'] })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (j.error || !j.result) throw new Error('rpc');
+      return j.result;
+    }).catch(function (e) {
+      if (i + 1 < RPC.length) return rpcCall(to, data, i + 1);
+      throw e;
+    });
+  }
+
+  function verdict(ok, subtitle, ping, links) {
+    var v = root.querySelector('[data-verdict]');
+    root.querySelector('[data-verdict-mark]').textContent = ok ? '✓' : '✕';
+    root.querySelector('[data-verdict-title]').textContent = ok ? 'Verified' : 'Not verified';
+    root.querySelector('[data-verdict-sub]').innerHTML = subtitle;
+    root.querySelector('[data-verdict-ping]').innerHTML = ping || '';
+    root.querySelector('[data-verdict-links]').innerHTML = links || '';
+    v.classList.add(ok ? 'ok' : 'bad');
+    v.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function fmtBlock(n) { return '#' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function pingRow(name, ep, val, ms) {
+    return '<tr><td>' + name + '</td><td class="ep">' + ep + '</td><td>' + val + '</td><td>' + ms + ' ms</td></tr>';
+  }
+
+  root.querySelector('[data-vl-go]').addEventListener('click', function () {
+    if (running) return;
+    running = true;
+    reset();
+    var t0 = performance.now();
+    var t1, t2, t3, ms1, ms2, ms3;
+    var s = slug;
+    var reg, contract, agentId, agentName, owner, cardUri, blockNo, rpcHost, serialCount;
+
+    setState('record', 'run');
+    fetch('https://agents.appliedidentities.com/' + s, { headers: { Accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error('record ' + r.status); return r.json(); })
+      .then(function (j) {
+        agentName = j.name;
+        reg = (j.registrations || []).filter(function (r) { return String(r.agentRegistry).indexOf('eip155:8453:') === 0; })[0];
+        if (!reg) throw new Error('no Base registration in the public record');
+        contract = reg.agentRegistry.split(':')[2];
+        agentId = reg.agentId;
+        ms1 = Math.round(performance.now() - t0);
+        setState('record', 'ok', '<b>found</b> · ' + esc(agentName) + ' · agent #' + esc(agentId) + ' · registry ' + esc(short(contract)) + ' · Base (eip155:8453) · ' + ms1 + ' ms');
+
+        setState('chainread', 'run');
+        t2 = performance.now();
+        return Promise.all([
+          rpcCall(contract, '0x6352211e' + hex64(agentId)),           
+          rpcCall(contract, '0xc87b56dd' + hex64(agentId)),           
+          fetch(RPC[0], { method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_blockNumber', params: [] }) })
+            .then(function (r) { return r.json(); }).then(function (j) { return j.result; }).catch(function () { return null; })
+        ]);
+      })
+      .then(function (res) {
+        owner = '0x' + res[0].slice(-40);
+        if (/^0x0+$/.test(owner)) throw new Error('token does not exist on-chain');
+        cardUri = decodeAbiString(res[1]);
+        blockNo = res[2] ? parseInt(res[2], 16) : null;
+        rpcHost = 'mainnet.base.org';
+        ms2 = Math.round(performance.now() - t2);
+        setState('chainread', 'ok', '<b>on-chain</b> · registration #' + esc(agentId) + ' exists at ' + esc(short(contract)) + ' · holder ' + esc(short(owner)) + (blockNo ? ' · block ' + esc(fmtBlock(blockNo)) : '') + ' · ' + ms2 + ' ms');
+
+        setState('governance', 'run');
+        t3 = performance.now();
+        return fetch('https://vi.appliedidentities.com/api/v1/verify/chain/' + s).then(function (r) {
+          if (!r.ok) throw new Error('governance ' + r.status); return r.json();
+        });
+      })
+      .then(function (j) {
+        var gc = j.governance_chain || {};
+        var links = [
+          ['Constitution', gc.constitution_serial],
+          ['Charter', gc.soul_serial],
+          ['Passport', gc.passport_serial]
+        ].filter(function (p) { return p[1]; });
+        if (!links.length) throw new Error('governance chain empty');
+        serialCount = links.length;
+        ms3 = Math.round(performance.now() - t3);
+        setState('governance', 'ok', links.map(function (p) { return '<b>' + p[0] + '</b> ' + esc(String(p[1]).length > 44 ? String(p[1]).slice(0, 44) + '…' : p[1]); }).join(' · ') + ' · ' + ms3 + ' ms');
+
+        var ms = Math.round(performance.now() - t0);
+        var ping = '<table>' +
+          pingRow('registry', 'agents.appliedidentities.com', 'agent #' + esc(agentId), ms1) +
+          pingRow('base rpc', esc(rpcHost) + ' · eth_call ×2', (blockNo ? 'block ' + esc(fmtBlock(blockNo)) : 'chain 8453') + ' · holder ' + esc(short(owner)), ms2) +
+          pingRow('governance', 'vi.appliedidentities.com', serialCount + ' documents resolved', ms3) +
+          '</table>' +
+          '<div class="sum">3 checks transmitted · <b>3 verified</b> · 0 failed · ' + ms + ' ms total</div>';
+        verdict(true,
+          esc(agentName) + ' · your browser did this, live · ' + new Date().toISOString().slice(0, 10),
+          ping,
+          '<a href="https://agents.appliedidentities.com/' + esc(s) + '">Full record →</a>' +
+          '<a href="https://basescan.org/token/' + esc(contract) + '?a=' + esc(agentId) + '">On BaseScan →</a>');
+      })
+      .catch(function (e) {
+        ['record', 'chainread', 'governance'].forEach(function (n) {
+          var el = step(n);
+          if (el.classList.contains('run')) setState(n, 'bad', '<b>failed</b> · ' + esc(e.message || 'network error'));
+        });
+        verdict(false,
+          'A check did not resolve from your browser (' + esc(e.message || 'network error') + '). The records are still public; verify by hand:',
+          '<div class="sum">3 checks transmitted · <b>failed</b> · see the step above</div>',
+          '<a href="https://agents.appliedidentities.com/' + esc(s) + '">The record →</a>' +
+          '<a href="https://basescan.org/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432">Registry contract on BaseScan →</a>');
+      })
+      .finally(function () { running = false; });
+  });
 })();
 </script>
 
-  <p style="margin-top:22px"><a class="btn btn-ghost" href="/verify/">Verify an agent →</a></p>
+  <p class="next-door" style="margin-top:24px"><a href="/verify/">What these checks mean →</a></p>
   
 </section>
 </div>
@@ -610,7 +707,7 @@
   
   
 
-<script src="/js/ambassador.js?v=1787232306" defer
+<script src="/js/ambassador.js?v=1787232738" defer
         data-endpoint="/api/ambassador"
         data-agent-name="Verity"
         data-verify-url="https://agents.appliedidentities.com/verity"
