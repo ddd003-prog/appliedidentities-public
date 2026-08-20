@@ -39,8 +39,6 @@
   </url><url>
     <loc>https://appliedidentities.com/governance/</loc>
   </url><url>
-    <loc>https://appliedidentities.com/verify/</loc>
-  </url><url>
     <loc>https://appliedidentities.com/consulting/</loc>
   </url><url>
     <loc>https://appliedidentities.com/contact/</loc>
@@ -50,6 +48,8 @@
     <loc>https://appliedidentities.com/commerce/</loc>
   </url><url>
     <loc>https://appliedidentities.com/research/</loc>
+  </url><url>
+    <loc>https://appliedidentities.com/verify/</loc>
   </url><url>
     <loc>https://appliedidentities.com/verify/nellarc/</loc>
     <lastmod>2026-07-17T00:00:00+00:00</lastmod>
