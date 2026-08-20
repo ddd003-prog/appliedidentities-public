@@ -107,11 +107,12 @@
 .v3 .proofs li::before{content:"▪ ";color:var(--blue);}
 
  
-.v3 .sys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;}
-@media(max-width:820px){.v3 .sys-grid{grid-template-columns:1fr;}}
+.v3 .sys-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px;}
+@media(max-width:1000px){.v3 .sys-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.v3 .sys-grid{grid-template-columns:1fr;}}
 .v3 .sys{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 24px;}
 .v3 .sys .verbs{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);}
-.v3 .sys h3{font-size:24px;font-weight:700;letter-spacing:-.012em;margin:10px 0 0;}
+.v3 .sys h3{font-size:22px;font-weight:700;letter-spacing:-.012em;margin:10px 0 0;}
 .v3 .sys p{margin:12px 0 0;font-size:15.5px;color:var(--text-2);line-height:1.55;}
 .v3 .sys .go{margin-top:auto;padding-top:20px;}
 .v3 .sys-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
@@ -422,13 +423,11 @@
   
   <header class="estate-header"><div class="bar">
   <a class="estate-mark" href="/">Applied Identities</a>
-  <nav class="estate-nav" aria-label="Estate"><a href="/consulting/">Consulting</a>
-    <a href="/agent-kit/">Agent Kit</a>
-    <a href="https://agents.appliedidentities.com/">Identity</a>
+  <nav class="estate-nav" aria-label="Estate">
+    <a href="/consulting/">Consulting</a>
     <a href="/governance/">Governance</a>
-    <a href="https://vi.appliedidentities.com/">Commerce</a>
+    <a href="/commerce/">Commerce</a>
     <a href="/embodied/">Embodied</a>
-    <a href="https://research.appliedidentities.com/">Research</a>
     <a class="btn btn-primary" href="/contact/">Talk to us</a>
   </nav>
 </div></header>
@@ -446,7 +445,7 @@
     <p class="kept">the measured party cannot keep the score</p>
     <ul class="proofs"><li>Your standard</li><li>Independent measurement</li><li>Verifiable record</li></ul>
     <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="#system">See the system ↓</a>
+      <a class="btn btn-primary btn-lg" href="#system">See what we sell ↓</a>
       <a class="btn btn-ghost btn-lg" href="/contact/">Talk to us →</a>
     </div>
   </div>
@@ -495,31 +494,38 @@
 
 <div class="wrap-narrow">
   <section id="system">
-    <div class="eyebrow">The system</div>
+    <div class="eyebrow">What we sell</div>
     <h2 class="kicker">Define. Authorize. Measure. Prove. Transact.</h2>
-    <p class="layer-lede">Three parts, one foundation. Start with any of them.</p>
+    <p class="layer-lede">Four offers, one system. Start with any of them.</p>
     <div class="sys-strip" aria-label="Five verbs"><span>Define</span><span>Authorize</span><span>Measure</span><span>Prove</span><span>Transact</span></div>
     <div class="sys-grid">
       
       <div class="sys">
-        <div class="verbs">Define &#43; Authorize</div>
-        <h3>Agent Kit</h3>
-        <p>Every agent gets what an employee gets on day one: a written role, defined authority, and limits that someone signed. Revoke the authority and every door closes.</p>
-        <a class="go" href="/agent-kit/">Start with the Agent Kit →</a>
+        <div class="verbs">Start here</div>
+        <h3>Consulting</h3>
+        <p>A shared executive vocabulary, a plan and a budget, and a written behavioral standard for every agent that represents you. Wherever you stand, there is a defined first step.</p>
+        <a class="go" href="/consulting/">Start where you are →</a>
       </div>
       
       <div class="sys">
-        <div class="verbs">Measure &#43; Prove</div>
+        <div class="verbs">The core</div>
         <h3>Governance</h3>
-        <p>Your company writes the standard. An independent observer measures whether the agent&#39;s behavior matches it, action by action, and keeps a record you can defend.</p>
-        <a class="go" href="/governance/">See how measurement works →</a>
+        <p>Every agent gets what an employee gets on day one, and an independent observer measures whether behavior matches the standard your company wrote. A record you can defend, and a signal you can act on.</p>
+        <a class="go" href="/governance/">See how it works →</a>
       </div>
       
       <div class="sys">
         <div class="verbs">Transact</div>
         <h3>Commerce</h3>
         <p>An agent you&#39;d let talk to customers: it recommends, it closes the sale, and it works inside a price ceiling and a scope your company set. Every event lands on a public ledger.</p>
-        <a class="go" href="https://vi.appliedidentities.com/">See it running →</a>
+        <a class="go" href="/commerce/">See the governed sale →</a>
+      </div>
+      
+      <div class="sys">
+        <div class="verbs">The same, with a body</div>
+        <h3>Embodied</h3>
+        <p>When agents drive machines, the same standard, the same independent observer, and the same record apply. Oversight that does not care what form the agent takes.</p>
+        <a class="go" href="/embodied/">See the fleet demo →</a>
       </div>
       
     </div>
@@ -611,25 +617,25 @@
         <span class="go">See the engagements →</span>
       </a>
       
-      <a class="rung" href="/consulting/#behavioral-diagnostic">
+      <a class="rung" href="/consulting/#pilot">
         <span class="state">We want to try it.</span>
         <span class="offer">Pilot</span>
         <p>A time-boxed run that puts the first agents on a signed, written behavioral standard and scores how they behave today. The Behavioral Diagnostic is where it starts.</p>
-        <span class="go">Start with a diagnostic →</span>
+        <span class="go">See the pilot →</span>
       </a>
       
-      <a class="rung" href="/contact/">
+      <a class="rung" href="/consulting/#deployment">
         <span class="state">We&#39;re rolling out.</span>
         <span class="offer">Deployment</span>
         <p>The standard, the authorization, and the record stood up across the agents that represent the company, with our team alongside yours.</p>
-        <span class="go">Talk to us →</span>
+        <span class="go">See deployment →</span>
       </a>
       
-      <a class="rung" href="/contact/">
+      <a class="rung" href="/consulting/#managed-governance">
         <span class="state">We&#39;re operating.</span>
         <span class="offer">Managed Governance</span>
-        <p>Agent Kit, Governance, and Commerce in steady state: every agent on the record, independently measured, with evidence ready when it is asked for.</p>
-        <span class="go">Talk to us →</span>
+        <p>Governance, Commerce, and Embodied in steady state: every agent on the record, independently measured, with evidence ready when it is asked for.</p>
+        <span class="go">See steady state →</span>
       </a>
       
     </div>
@@ -658,34 +664,39 @@
     <a class="estate-mark" href="/">Applied Identities</a>
     <p>Independent behavioral governance for AI agents.</p>
   </div>
-  <div class="footer-cols"><div><h4>Agent Identity</h4><ul>
-      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
-      <li><a href="https://agents.appliedidentities.com/nell">The operations agent</a></li>
-      <li><a href="https://agents.appliedidentities.com/3jane">The Digital Intelligence seller</a></li>
+  <div class="footer-cols">
+    <div><h4>Consulting</h4><ul>
+      <li><a href="/consulting/">Where are you right now?</a></li>
+      <li><a href="/consulting/#engagements">The engagements</a></li>
+      <li><a href="/consulting/#pilot">The pilot</a></li>
     </ul></div>
-    <div><h4>Behavioral Governance</h4><ul>
+    <div><h4>Governance</h4><ul>
       <li><a href="/governance/">How the layer works</a></li>
+      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
       <li><a href="/verify/">Verify a record</a></li>
-      <li><a href="/insights/">Insights</a></li>
-    </ul></div><div><h4>Governed Commerce</h4><ul>
-      <li><a href="https://vi.appliedidentities.com/">Governed Commerce</a></li>
+    </ul></div>
+    <div><h4>Commerce</h4><ul>
+      <li><a href="/commerce/">An agent that sells, governed</a></li>
+      <li><a href="https://vi.appliedidentities.com/">Governed Commerce, running</a></li>
       <li><a href="https://vi.appliedidentities.com/ledger/">The Ledger</a></li>
     </ul></div>
-    <div><h4>Embodied Oversight</h4><ul>
+    <div><h4>Embodied</h4><ul>
       <li><a href="/embodied/">Oversight for agents with bodies</a></li>
     </ul></div>
-    <div><h4>3Jane Digital Intelligence</h4><ul>
+    <div><h4>About</h4><ul>
+      <li><a href="/about/">The company</a></li>
+      <li><a href="/insights/">Insights</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul></div>
+    <div><h4>3Jane Intelligence</h4><ul>
+      <li><a href="/research/">Research by a governed agent</a></li>
       <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
       <li><a href="https://research.appliedidentities.com/morning/latest/">Morning brief</a></li>
       <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
-      <li><a href="https://research.appliedidentities.com/verify/">The agent's record</a></li>
     </ul></div>
-  </div><div class="footer-util">
-    <a href="/consulting/">Consulting</a>
-    <a href="/about/">About</a>
-    <a href="/insights/">Insights</a>
+  </div>
+  <div class="footer-util">
     <a href="/verify/">Verify</a>
-    <a href="/contact/">Contact</a>
     <a href="https://research.appliedidentities.com/rights.json">Rights</a>
     <span>&copy; 2026 Applied Identities · Atlanta, GA</span>
   </div>
@@ -693,7 +704,7 @@
 
   
   
-<script src="/js/ambassador.js?v=1787189163" defer
+<script src="/js/ambassador.js?v=1787190019" defer
         data-endpoint="/api/ambassador"
         data-agent-name="Verity"
         data-verify-url="https://agents.appliedidentities.com/verity"

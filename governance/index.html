@@ -168,11 +168,12 @@
 .v3 .proofs li::before{content:"▪ ";color:var(--blue);}
 
  
-.v3 .sys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;}
-@media(max-width:820px){.v3 .sys-grid{grid-template-columns:1fr;}}
+.v3 .sys-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px;}
+@media(max-width:1000px){.v3 .sys-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.v3 .sys-grid{grid-template-columns:1fr;}}
 .v3 .sys{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 24px;}
 .v3 .sys .verbs{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);}
-.v3 .sys h3{font-size:24px;font-weight:700;letter-spacing:-.012em;margin:10px 0 0;}
+.v3 .sys h3{font-size:22px;font-weight:700;letter-spacing:-.012em;margin:10px 0 0;}
 .v3 .sys p{margin:12px 0 0;font-size:15.5px;color:var(--text-2);line-height:1.55;}
 .v3 .sys .go{margin-top:auto;padding-top:20px;}
 .v3 .sys-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
@@ -247,13 +248,11 @@
   
   <header class="estate-header"><div class="bar">
   <a class="estate-mark" href="/">Applied Identities</a>
-  <nav class="estate-nav" aria-label="Estate"><a href="/consulting/">Consulting</a>
-    <a href="/agent-kit/">Agent Kit</a>
-    <a href="https://agents.appliedidentities.com/">Identity</a>
+  <nav class="estate-nav" aria-label="Estate">
+    <a href="/consulting/">Consulting</a>
     <a href="/governance/" aria-current="true">Governance</a>
-    <a href="https://vi.appliedidentities.com/">Commerce</a>
+    <a href="/commerce/">Commerce</a>
     <a href="/embodied/">Embodied</a>
-    <a href="https://research.appliedidentities.com/">Research</a>
     <a class="btn btn-primary" href="/contact/">Talk to us</a>
   </nav>
 </div></header>
@@ -309,152 +308,79 @@
 </div>
 
 
+
+
 <div class="fx-band">
-<div class="wrap">
-<section class="split">
-  <div>
-    <h2 class="section-title">The argument</h2>
-    <p class="lede">An organization vouching for its own agent&#39;s behavior is self-attestation. No company signs off on its own books; the measured party cannot keep the score. Credible governance needs an observer with nothing at stake in the outcome: independent of the company deploying the agent, and of the vendor that built it. We build no functional agents, by design.</p>
-  </div>
-  <div class="term" role="img" aria-label="An organization cannot sign off on its own books; the score is kept by an observer with nothing at stake.">
-    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">who-keeps-the-score</span></div>
-    <div class="term-body">
-      <div class="no">self-attestation: measured party keeps the score <b>rejected</b></div>
-      <div>company vouches for its own agent</div>
-      <div>vendor vouches for the agent it built</div>
-      <div class="ok">independent observer: nothing at stake <b>accepted</b></div>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-
-
-<div class="fx-band fx-band--alt">
 <div class="wrap">
 <section>
-  <p class="layer-mark"><b>03</b>How it&#39;s built</p>
-  <h2 class="section-title">Two planes and a chain of authority.</h2>
-  <p class="lede" style="margin-bottom:36px">The governance plane holds what you decided. The observation plane watches what the agent does. A chain of signed documents connects the two, so every action traces back to the authority that permitted it.</p>
-  <div class="split">
-    <div class="planes">
-      
-      <div class="plane plane--gov">
-        <span class="plane-tag">The governance plane · in the cloud</span>
-        <p>In the cloud, holding what you have decided: the agent&#39;s Behavioral Manifest and its authorization.</p>
-      </div>
-      
-      <div class="plane-link" aria-hidden="true"></div>
-      
-      <div class="plane plane--obs">
-        <span class="plane-tag">The observation plane · on the machine</span>
-        <p>Scribe runs on the machine where the agent works. Each action becomes an independent attestation, scored against the Manifest and signed. Attestations group into traces by interaction, and each trace is hashed, so the sequence of what happened is fixed and cannot be quietly edited. Traces accumulate in the agent&#39;s Action Log.</p>
-      </div>
-      
-    </div>
-    <div class="gpanel" role="img" aria-label="On the machine, each action becomes an attestation, attestations group into hashed traces, and traces accumulate in the agent's Action Log.">
-      <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">scribe · observation plane</span><span class="gpill">live</span></div>
-      <div class="flow-steps">
-        <span class="flow-step">action</span>
-        <span class="flow-step">attestation</span>
-        <span class="flow-step">trace (hashed)</span>
-        <span class="flow-step">Action Log</span>
-      </div>
-      <div class="flow-guards">
-        <span class="guard">scored against Manifest</span>
-        <span class="guard">signed</span>
-        <span class="guard">sequence fixed</span>
-      </div>
-      <div class="panel-foot"><span>each trace hashed · cannot be quietly edited</span></div>
-    </div>
+  <p class="layer-mark"><b>03</b>What every agent gets</p>
+  <h2 class="section-title">Every agent is a new employee. None of them were onboarded.</h2>
+  <p class="lede">An agent in production sends the email, quotes the price, and answers the customer under your name. A person doing that work gets an identity, a defined role, boundaries, and a review. Agents just get deployed. Governance starts by issuing each agent what a person gets on day one.</p>
+  <div class="card-grid" style="margin-top:28px">
+    <div class="card"><h3>A job description</h3><p>What is this agent for, what may it decide, and where does its authority end? Written down, and signed.</p></div><div class="card"><h3>Defined authority</h3><p>Who gave it permission, and for what? Authority is granted narrowly, by name, and can be withdrawn on demand.</p></div><div class="card"><h3>Limits that hold</h3><p>Ceilings, scopes, and escalation rules that are enforced while the agent works, not reviewed after.</p></div><div class="card"><h3>A public record</h3><p>A live file anyone can check: who the agent is, who authorized it, and its current status. Never cached, never taken on faith.</p></div>
   </div>
+  <p class="next-door" style="margin-top:24px">The registry is public, and our own agents are on it. <a href="https://agents.appliedidentities.com/nell">See an actual agent →</a></p>
 </section>
 </div>
 </div>
 
 
 
-<div class="fx-band">
-<div class="wrap">
-<section class="split">
-  <div>
-    <h2 class="section-title">The chain of authority</h2>
-    <p class="lede">Every agent on the record carries these documents. Each one checks against the one that authorizes it, down to the credential the agent works under, and then to what it actually did.</p>
-  </div>
-  <ol class="chain">
-    
-    <li><span><span class="cname">Constitution</span><span class="cmeta">The corporate authority the agent operates under.</span></span></li>
-    
-    <li><span><span class="cname">Charter</span><span class="cmeta">How the agent works and speaks for the company. The behavioral standard starts here.</span></span></li>
-    
-    <li><span><span class="cname">Passport</span><span class="cmeta">What it is permitted to do, with permission keys.</span></span></li>
-    
-    <li><span><span class="cname">Operating credential</span><span class="cmeta">The active, scoped credential the agent works under. Revocable on demand; every verification path rejects it afterward.</span></span></li>
-    
-    <li class="obs"><span><span class="cname">Observed behavior</span><span class="cmeta">Each action attested on the machine, scored against the standard, signed.</span></span></li>
-    
-    <li class="obs"><span><span class="cname">Evidence</span><span class="cmeta">Hashed traces in the agent&#39;s Action Log, rolled up into current findings.</span></span></li>
-    
-  </ol>
-</section>
-</div>
-</div>
 
-
-<div class="fx-band fx-band--alt">
-<div class="wrap">
-<section class="split">
-  <div>
-    <h2 class="section-title">Behavioral Findings</h2>
-    <p class="lede">For the people accountable for an agent, the record rolls up into Behavioral Findings: five measured dimensions and a grade band, current as of the last action rather than the last quarter. The record rolls up into current findings on every agent.</p>
-  </div>
-  <div class="scorecard" role="img" aria-label="The record rolls up into current findings: five measured dimensions and a grade band, current as of the last action.">
-    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">agent://acme-refunds/findings</span><span class="gpill">current</span></div>
-    <div class="flow-steps" style="padding-bottom:14px">
-      <span class="flow-step">attestations</span>
-      <span class="flow-step">traces</span>
-      <span class="flow-step">findings</span>
-    </div>
-    <div class="sc-row"><span class="sc-dim">dimension 1</span><span class="sc-bar"><i style="width:94%"></i></span><span class="sc-val">·</span></div>
-    <div class="sc-row"><span class="sc-dim">dimension 2</span><span class="sc-bar"><i style="width:88%"></i></span><span class="sc-val">·</span></div>
-    <div class="sc-row"><span class="sc-dim">dimension 3</span><span class="sc-bar"><i style="width:97%"></i></span><span class="sc-val">·</span></div>
-    <div class="sc-row"><span class="sc-dim">dimension 4</span><span class="sc-bar"><i style="width:91%"></i></span><span class="sc-val">·</span></div>
-    <div class="sc-row"><span class="sc-dim">dimension 5</span><span class="sc-bar"><i style="width:85%"></i></span><span class="sc-val">·</span></div>
-    <div class="sc-grade"><span class="sc-grade-label">grade band · current as of last action</span><span class="sc-grade-val">▪▪▪▪▫</span></div>
-  </div>
-</section>
-</div>
-</div>
-
-<div class="fx-band">
-<div class="wrap">
-<section class="split">
-  <div>
-    <h2 class="section-title">Built to answer</h2>
-    <p class="lede">When an auditor, an insurer, or a regulator asks how an agent has behaved, the layer is built to answer with a signed judgment over a trace, without opening your logs. The judgment stands on its own; the underlying record stays yours.</p>
-  </div>
-  <div class="term" role="img" aria-label="An auditor asks how an agent has behaved; the layer answers with a signed judgment over a trace, without opening your logs.">
-    <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">assurance-query</span><span class="gpill">signed</span></div>
-    <div class="term-body">
-      <div>auditor: how has agent-4417 behaved under refund policy?</div>
-      <div class="ok">→ signed judgment issued over trace t-0912 <b>verified</b></div>
-      <div class="ok">→ underlying logs stayed sealed <b>yours</b></div>
-      <div>the judgment stands on its own</div>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-
-
-<div class="fx-band fx-band--alt" id="evidence">
+<div class="fx-band fx-band--alt" id="optimization">
 <div class="wrap">
 <section>
-  <p class="layer-mark"><b>04</b>Evidence</p>
-  <h2 class="section-title">See a record verified</h2>
-  <p class="lede" style="margin-bottom:32px">We run under the same governance we sell; the record below is ours, and it is public. This is the chain of authority resolving link by link, on a live record. Each identity document checks against the one that authorizes it, down to the credential the agent works under.</p>
+  <p class="layer-mark"><b>04</b>What you get</p>
+  <h2 class="section-title">Findings you can act on.</h2>
+  <p class="lede">The record rolls up into Behavioral Findings: five measured dimensions and a grade band, current as of the last action rather than the last quarter. Findings are built to be used, not filed. They tell your team and your vendor what to change, and then they prove whether the change worked. We never tune your agent; independence depends on that. We hand you the signal, and we measure the result.</p>
+  <div class="steps" role="img" aria-label="Measure, find the pattern, change the agent or the standard, measure again, prove it worked.">
+    <span class="obs">Measure</span><span>Find the pattern</span><span>Change the agent or the standard</span><span class="obs">Measure again</span><span class="obs">Prove it worked</span>
+  </div>
+  <div class="card-grid" style="margin-top:32px">
+    <div class="card"><h3>Find the pattern, not just the score</h3><p>Every finding traces back to the interactions that produced it, down to the action. A score says something is off. The trace says what, and where.</p></div><div class="card"><h3>See drift before it is a problem</h3><p>An agent that met the standard in week one and drifts by week nine shows up as a trend against its own history, not as an incident.</p></div><div class="card"><h3>Know how it holds under pressure</h3><p>People push agents: urgency, authority, incentives, social proof. The model measures whether behavior holds when it is pushed, not only when it is easy.</p></div><div class="card"><h3>Compare like with like</h3><p>One standard, applied the same way to every agent, every vendor, every version. Before and after a change. One agent against another. Build against buy.</p></div><div class="card"><h3>Change the standard on purpose</h3><p>When the business changes, the standard changes with it, as a new version. Every finding states which version it was scored against, so the history stays readable.</p></div><div class="card"><h3>Prove the fix worked</h3><p>After the change, the same measurement runs again. The grade moves or it does not, and either way it is on the record.</p></div>
+  </div>
+  <div class="split" style="margin-top:36px;align-items:start">
+    
+    <div class="gpanel" role="img" aria-label="Findings before and after a change the company made: two dimensions improve, three hold, measured against the same standard.">
+      <div class="panel-bar"><span class="lights"><i></i><i></i><i></i></span><span class="fname">agent://acme-refunds/findings · v3 → v4</span><span class="gpill">re-measured</span></div>
+      <div class="rec-rows">
+        <div class="k" style="color:var(--text-3)">before → after</div><div class="v" style="color:var(--text-3)">same standard, same measurement</div>
+        <div class="k">dimension 2</div><div class="v"><span style="color:var(--orange)">at risk</span> → <b>healthy</b></div><div class="k">dimension 4</div><div class="v"><span style="color:var(--orange)">watch</span> → <b>healthy</b></div><div class="k">dimensions 1, 3, 5</div><div class="v">healthy → <b>healthy</b></div>
+      </div>
+      <div class="term-body" style="border-top:1px solid var(--line)"><div style="white-space:normal">change made by the company: escalation rule rewritten, tool scope narrowed</div></div>
+      <div class="panel-foot"><span>same standard · same agent · same measurement · illustrative values</span></div>
+    </div>
+    
+    <div>
+      <h3 style="font-size:20px;font-weight:600;margin:0 0 10px">The loop, on one agent</h3>
+      <p class="lede" style="margin:0">The company reads the findings, sees the pattern in the traces, rewrites one rule and narrows one tool scope. The same measurement runs again. Two dimensions move, three hold, and the change is on the record against the same standard. That is the whole point of measuring: not a grade, a lever.</p>
+      <p class="next-door" style="margin-top:22px">Scoring today covers, on every action, whether the agent stayed within its authority and behaved the way its standard says. Consistency over time, behavior under pressure, and values expressed are defined in the model and activate by rubric release.</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+
+
+
+<div class="fx-band" id="evidence">
+<div class="wrap">
+<section>
+  <p class="layer-mark"><b>05</b>Evidence</p>
+  <h2 class="section-title">Meet a governed agent.</h2>
+  <p class="lede">Verity answers visitors&#39; questions on this site. She is also the demonstration: a governed agent, live, on the public record. Ask her something, then check her record.</p>
+  <div class="card-grid" style="margin-top:32px">
+    <div class="card"><h3>A standard she cannot edit</h3><p>She runs under an identity kit authored in the console, verified fail-closed on every start. If the kit does not verify, she does not start.</p></div><div class="card"><h3>Authority: almost none, by design</h3><p>Her tool allowlist is nearly empty. She holds no wallet authority and no payment capability. Non-commercial, on purpose.</p></div><div class="card"><h3>Every conversation scored</h3><p>Each conversation is measured on two categories: adherence to her standard, judged against her Charter, and deterministic compliance checks.</p></div><div class="card"><h3>On the public record</h3><p>Her registration is public, and her current governance facts resolve live at the verification endpoint.</p></div>
+  </div>
+  <div class="cta-row" style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+    
+    <a class="btn btn-primary btn-lg" href="https://agents.appliedidentities.com/verity" data-ask-verity>Ask Verity →</a>
+    <a class="btn btn-ghost btn-lg" href="https://agents.appliedidentities.com/verity">See her record →</a>
+  </div>
+  
+  <h3 style="margin-top:56px;font-size:22px;font-weight:700">And verify the chain on a live record</h3>
+  <p class="lede" style="margin:10px 0 28px">We run under the same governance we sell; the record below is ours, and it is public. This is the chain of authority resolving link by link, on a live record. Each identity document checks against the one that authorizes it, down to the credential the agent works under.</p>
   <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-08-20">
   <div class="livecheck-head">
     <span class="eyebrow">Chain of authority</span>
@@ -601,7 +527,8 @@
 })();
 </script>
 
-  <p style="margin-top:22px"><a class="btn btn-primary" href="/verify/">Verify an agent →</a></p>
+  <p style="margin-top:22px"><a class="btn btn-ghost" href="/verify/">Verify an agent →</a></p>
+  
 </section>
 </div>
 </div>
@@ -611,7 +538,7 @@
 
 <div class="wrap">
 <section>
-  <p class="layer-mark"><b>05</b>Next step</p>
+  <p class="layer-mark"><b>06</b>Next step</p>
   <div class="engage">
     <div>
       <h3>Don&#39;t have a behavioral standard yet?</h3>
@@ -622,7 +549,7 @@
       <a class="btn btn-ghost btn-lg" href="/contact/">Talk to us →</a>
     </div>
   </div>
-  <p class="next-door">Where this goes next: <a href="/embodied/">the same chain of authority, applied to agents with bodies →</a></p>
+  <p class="next-door">Agents with bodies: <a href="/embodied/">the same standard and observer, applied to machines →</a></p>
 </section>
 </div>
 
@@ -642,34 +569,39 @@
     <a class="estate-mark" href="/">Applied Identities</a>
     <p>Independent behavioral governance for AI agents.</p>
   </div>
-  <div class="footer-cols"><div><h4>Agent Identity</h4><ul>
-      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
-      <li><a href="https://agents.appliedidentities.com/nell">The operations agent</a></li>
-      <li><a href="https://agents.appliedidentities.com/3jane">The Digital Intelligence seller</a></li>
+  <div class="footer-cols">
+    <div><h4>Consulting</h4><ul>
+      <li><a href="/consulting/">Where are you right now?</a></li>
+      <li><a href="/consulting/#engagements">The engagements</a></li>
+      <li><a href="/consulting/#pilot">The pilot</a></li>
     </ul></div>
-    <div><h4>Behavioral Governance</h4><ul>
+    <div><h4>Governance</h4><ul>
       <li><a href="/governance/">How the layer works</a></li>
+      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
       <li><a href="/verify/">Verify a record</a></li>
-      <li><a href="/insights/">Insights</a></li>
-    </ul></div><div><h4>Governed Commerce</h4><ul>
-      <li><a href="https://vi.appliedidentities.com/">Governed Commerce</a></li>
+    </ul></div>
+    <div><h4>Commerce</h4><ul>
+      <li><a href="/commerce/">An agent that sells, governed</a></li>
+      <li><a href="https://vi.appliedidentities.com/">Governed Commerce, running</a></li>
       <li><a href="https://vi.appliedidentities.com/ledger/">The Ledger</a></li>
     </ul></div>
-    <div><h4>Embodied Oversight</h4><ul>
+    <div><h4>Embodied</h4><ul>
       <li><a href="/embodied/">Oversight for agents with bodies</a></li>
     </ul></div>
-    <div><h4>3Jane Digital Intelligence</h4><ul>
+    <div><h4>About</h4><ul>
+      <li><a href="/about/">The company</a></li>
+      <li><a href="/insights/">Insights</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul></div>
+    <div><h4>3Jane Intelligence</h4><ul>
+      <li><a href="/research/">Research by a governed agent</a></li>
       <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
       <li><a href="https://research.appliedidentities.com/morning/latest/">Morning brief</a></li>
       <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
-      <li><a href="https://research.appliedidentities.com/verify/">The agent's record</a></li>
     </ul></div>
-  </div><div class="footer-util">
-    <a href="/consulting/">Consulting</a>
-    <a href="/about/">About</a>
-    <a href="/insights/">Insights</a>
+  </div>
+  <div class="footer-util">
     <a href="/verify/">Verify</a>
-    <a href="/contact/">Contact</a>
     <a href="https://research.appliedidentities.com/rights.json">Rights</a>
     <span>&copy; 2026 Applied Identities · Atlanta, GA</span>
   </div>
@@ -677,5 +609,21 @@
 
   
   
+
+<script src="/js/ambassador.js?v=1787190019" defer
+        data-endpoint="/api/ambassador"
+        data-agent-name="Verity"
+        data-verify-url="https://agents.appliedidentities.com/verity"
+        data-turnstile-sitekey="0x4AAAAAAEI01TLrNFRUwgA4"></script>
+<script>
+(function(){
+  var b=document.querySelector('[data-ask-verity]'); if(!b) return;
+  b.addEventListener('click',function(e){
+    var l=document.querySelector('.wa-launch'); if(!l) return;
+    e.preventDefault(); l.click();
+  });
+})();
+</script>
+
 </body>
 </html>

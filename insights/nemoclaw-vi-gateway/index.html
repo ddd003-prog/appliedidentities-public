@@ -52,13 +52,11 @@
   
   <header class="estate-header"><div class="bar">
   <a class="estate-mark" href="/">Applied Identities</a>
-  <nav class="estate-nav" aria-label="Estate"><a href="/consulting/">Consulting</a>
-    <a href="/agent-kit/">Agent Kit</a>
-    <a href="https://agents.appliedidentities.com/">Identity</a>
-    <a href="/governance/" aria-current="true">Governance</a>
-    <a href="https://vi.appliedidentities.com/">Commerce</a>
+  <nav class="estate-nav" aria-label="Estate">
+    <a href="/consulting/">Consulting</a>
+    <a href="/governance/">Governance</a>
+    <a href="/commerce/">Commerce</a>
     <a href="/embodied/">Embodied</a>
-    <a href="https://research.appliedidentities.com/">Research</a>
     <a class="btn btn-primary" href="/contact/">Talk to us</a>
   </nav>
 </div></header>
@@ -104,7 +102,7 @@
 <h2 id="why-the-chain-is-the-innovation">Why the Chain Is the Innovation</h2>
 <p>Others have agent governance frameworks. Others have verifiable credential implementations. Others have MCP servers at the edge. What doesn&rsquo;t exist anywhere else is the connected chain from organizational constitution through governance documents through commercial credentials, served as a queryable tool at the global edge.</p>
 <p>The chain works because of a bridge that nobody else has built.</p>
-<p>The Agent Passport — the governance document that specifies an agent&rsquo;s authorization boundaries — carries a serial number that functions as the join key between two systems that have never been connected before. On the governance side, the Passport derives from the Soul Document, which derives from the Company Constitution. On the commerce side, the Passport&rsquo;s constraint parameters generate the cryptographic mandate that bounds what the agent can spend, where, and how much.</p>
+<p>The Agent Passport — the governance document that specifies an agent&rsquo;s authorization boundaries — carries a serial number that functions as the join key between two systems that have never been connected before. On the governance side, the Passport derives from the Agent Charter, which derives from the Company Constitution. On the commerce side, the Passport&rsquo;s constraint parameters generate the cryptographic mandate that bounds what the agent can spend, where, and how much.</p>
 <p>When our operational agent Nell executes a constrained commercial action, the Passport serial links the organizational policy (&ldquo;Nell is authorized to spend up to $500 per transaction on approved merchants with a $2,000 monthly budget&rdquo;) to the cryptographic enforcement (L2 mandate constraints validated against every L3 presentation). Same data, two formats: human-readable in the governance chain, cryptographically enforceable in the transaction chain.</p>
 <p>The Verified Intent credential specification — published by Mastercard on March 5, 2026, under Apache 2.0 license — defines the cryptographic layers. Our VI server, live at vi.appliedidentities.com since March 13, is one of the first non-reference implementations. The gateway, deployed March 16, makes that implementation queryable by any MCP client on Cloudflare&rsquo;s global network.</p>
 <h2 id="how-it-fits-nemoclaw">How It Fits NemoClaw</h2>
@@ -115,7 +113,7 @@
 <p>The transport matches too. The Agent Toolkit&rsquo;s recommended production deployment uses <code>streamable-http</code> MCP with authentication — which is exactly what the Verified Intent Gateway implements. Bearer token authentication today, with marked upgrade slots for DID-JWT verification, x402 micropayments, and Hedera immutable audit.</p>
 <h2 id="whats-verified--not-theoretical">What&rsquo;s Verified — Not Theoretical</h2>
 <p>Everything described here is running. Not mocked, not simulated, not a demo environment.</p>
-<p>The gateway&rsquo;s automated test suite exercises the complete path: Cloudflare edge → gateway authentication → VI server at vi.appliedidentities.com → Nell Ashpool&rsquo;s real governance chain (five levels deep: Constitution, Soul Document, Passport, L1 credential, L2 mandates) → response returned through the edge to the client. All tests pass. The chain data is the actual governance chain for Applied Identities&rsquo; operational AI agent — the same agent that runs daily operations, produces intelligence reports, and has been under continuous behavioral governance since early 2026.</p>
+<p>The gateway&rsquo;s automated test suite exercises the complete path: Cloudflare edge → gateway authentication → VI server at vi.appliedidentities.com → Nell Ashpool&rsquo;s real governance chain (five levels deep: Constitution, Charter, Passport, L1 credential, L2 mandates) → response returned through the edge to the client. All tests pass. The chain data is the actual governance chain for Applied Identities&rsquo; operational AI agent — the same agent that runs daily operations, produces intelligence reports, and has been under continuous behavioral governance since early 2026.</p>
 <p>The gateway health endpoint is public. The landing page is public. The VI server&rsquo;s JWKS endpoint — which serves the issuer&rsquo;s public keys for independent credential verification — is public. This isn&rsquo;t a whitepaper describing what could be built. It&rsquo;s infrastructure you can query right now.</p>
 <h2 id="what-this-means-for-enterprise-ai">What This Means for Enterprise AI</h2>
 <p>The convergence happening this month defines the market structure for enterprise agent identity.</p>
@@ -137,34 +135,39 @@
     <a class="estate-mark" href="/">Applied Identities</a>
     <p>Independent behavioral governance for AI agents.</p>
   </div>
-  <div class="footer-cols"><div><h4>Agent Identity</h4><ul>
-      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
-      <li><a href="https://agents.appliedidentities.com/nell">The operations agent</a></li>
-      <li><a href="https://agents.appliedidentities.com/3jane">The Digital Intelligence seller</a></li>
+  <div class="footer-cols">
+    <div><h4>Consulting</h4><ul>
+      <li><a href="/consulting/">Where are you right now?</a></li>
+      <li><a href="/consulting/#engagements">The engagements</a></li>
+      <li><a href="/consulting/#pilot">The pilot</a></li>
     </ul></div>
-    <div><h4>Behavioral Governance</h4><ul>
+    <div><h4>Governance</h4><ul>
       <li><a href="/governance/">How the layer works</a></li>
+      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
       <li><a href="/verify/">Verify a record</a></li>
-      <li><a href="/insights/">Insights</a></li>
-    </ul></div><div><h4>Governed Commerce</h4><ul>
-      <li><a href="https://vi.appliedidentities.com/">Governed Commerce</a></li>
+    </ul></div>
+    <div><h4>Commerce</h4><ul>
+      <li><a href="/commerce/">An agent that sells, governed</a></li>
+      <li><a href="https://vi.appliedidentities.com/">Governed Commerce, running</a></li>
       <li><a href="https://vi.appliedidentities.com/ledger/">The Ledger</a></li>
     </ul></div>
-    <div><h4>Embodied Oversight</h4><ul>
+    <div><h4>Embodied</h4><ul>
       <li><a href="/embodied/">Oversight for agents with bodies</a></li>
     </ul></div>
-    <div><h4>3Jane Digital Intelligence</h4><ul>
+    <div><h4>About</h4><ul>
+      <li><a href="/about/">The company</a></li>
+      <li><a href="/insights/">Insights</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul></div>
+    <div><h4>3Jane Intelligence</h4><ul>
+      <li><a href="/research/">Research by a governed agent</a></li>
       <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
       <li><a href="https://research.appliedidentities.com/morning/latest/">Morning brief</a></li>
       <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
-      <li><a href="https://research.appliedidentities.com/verify/">The agent's record</a></li>
     </ul></div>
-  </div><div class="footer-util">
-    <a href="/consulting/">Consulting</a>
-    <a href="/about/">About</a>
-    <a href="/insights/">Insights</a>
+  </div>
+  <div class="footer-util">
     <a href="/verify/">Verify</a>
-    <a href="/contact/">Contact</a>
     <a href="https://research.appliedidentities.com/rights.json">Rights</a>
     <span>&copy; 2026 Applied Identities · Atlanta, GA</span>
   </div>
