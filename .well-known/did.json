@@ -1,0 +1,29 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "did:web:appliedidentities.com",
+  "verificationMethod": [
+    {
+      "id": "did:web:appliedidentities.com#ai-vi-binding-2026-001",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:appliedidentities.com",
+      "publicKeyJwk": {
+        "kty": "OKP",
+        "crv": "Ed25519",
+        "x": "3gVgznxeZxMusgwlkbs_Sc-AU3ZLRGtXTNfhHK8myTk"
+      }
+    }
+  ],
+  "assertionMethod": [
+    "did:web:appliedidentities.com#ai-vi-binding-2026-001"
+  ],
+  "service": [
+    {
+      "id": "did:web:appliedidentities.com#fm-tenant-crossref",
+      "type": "LinkedTenantDID",
+      "serviceEndpoint": "did:webvh:verify.appliedidentities.com:tenants:7b2ad035-fd34-4492-8f91-7f244a38e6de"
+    }
+  ]
+}
