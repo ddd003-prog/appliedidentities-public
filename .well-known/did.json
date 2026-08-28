@@ -18,12 +18,5 @@
   ],
   "assertionMethod": [
     "did:web:appliedidentities.com#ai-vi-binding-2026-001"
-  ],
-  "service": [
-    {
-      "id": "did:web:appliedidentities.com#fm-tenant-crossref",
-      "type": "LinkedTenantDID",
-      "serviceEndpoint": "did:webvh:verify.appliedidentities.com:tenants:7b2ad035-fd34-4492-8f91-7f244a38e6de"
-    }
   ]
 }
