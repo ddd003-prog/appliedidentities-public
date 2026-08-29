@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>The Founding Decision | Applied Identities</title>
+  <meta name="description" content="We ran our decision infrastructure on ourselves first. The founding decision of our own ledger is signed, anchored, and publicly verifiable in five checks.">
+  <link rel="canonical" href="https://appliedidentities.com/governance/founding-decision/">
+
+  
+  <meta property="og:title" content="The Founding Decision">
+  <meta property="og:description" content="We ran our decision infrastructure on ourselves first. The founding decision of our own ledger is signed, anchored, and publicly verifiable in five checks.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://appliedidentities.com/governance/founding-decision/">
+  <meta property="og:site_name" content="Applied Identities">
+  
+  <meta property="og:image" content="https://appliedidentities.com/estate-share-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Applied Identities — independent behavioral governance for AI agents">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Founding Decision">
+  <meta name="twitter:description" content="We ran our decision infrastructure on ourselves first. The founding decision of our own ledger is signed, anchored, and publicly verifiable in five checks.">
+  <meta name="twitter:image" content="https://appliedidentities.com/estate-share-card.png">
+
+  
+  
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/figtree.woff2" crossorigin>
+  
+  <link rel="stylesheet" href="/css/estate.b001ee5d01355af2e90423dffc30cdb4242f0615ea59385c4a48da1846845957.css" integrity="sha256-sAHuXQE1WvLpBCPf/DDNtCQvBhXqWThcSkjaGEaEWVc=">
+  
+
+  
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+
+  
+  
+
+
+
+
+  
+<style>
+ 
+.estate-fx .eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:0;}
+.estate-fx .go{display:inline-block;font-family:var(--mono);font-size:13.5px;color:var(--blue);text-decoration:none;}
+.estate-fx .go:hover{text-decoration:underline;text-underline-offset:3px;}
+
+ 
+.estate-fx .fx-band{border-top:1px solid var(--line);padding:72px 0;}
+.estate-fx .fx-band:first-of-type{border-top:0;}
+.estate-fx .fx-band--alt{background:var(--surface);}
+ 
+.estate-fx .fx-band--alt .gpanel,
+.estate-fx .fx-band--alt .term,
+.estate-fx .fx-band--alt .plane,
+.estate-fx .fx-band--alt .scorecard{background:var(--canvas);}
+
+ 
+.estate-fx .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+@media(max-width:860px){.estate-fx .split{grid-template-columns:1fr;gap:32px;}}
+.estate-fx .split .section-title{margin-top:0;}
+
+ 
+.estate-fx .gpanel{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.estate-fx .panel-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;color:var(--text-2);}
+.estate-fx .panel-bar .lights{display:flex;gap:6px;flex:none;}
+.estate-fx .panel-bar .lights i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;}
+.estate-fx .panel-bar .fname{margin-left:4px;word-break:break-all;}
+.estate-fx .gpill{margin-left:auto;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-family:var(--mono);font-size:11.5px;color:var(--verified);}
+.estate-fx .gpill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+.estate-fx .gpill.sim{color:var(--text-3);}
+.estate-fx .gpill.sim::before{background:var(--text-3);}
+.estate-fx .gpill.stop{color:var(--orange);}
+.estate-fx .gpill.stop::before{background:var(--orange);}
+.estate-fx .panel-foot{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;
+  border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--text-2);flex-wrap:wrap;}
+.estate-fx .panel-foot a{color:var(--text-2);text-decoration:none;}
+.estate-fx .panel-foot a:hover{color:var(--blue);}
+
+ 
+.estate-fx .rec-rows{display:grid;grid-template-columns:120px minmax(0,1fr);}
+.estate-fx .rec-rows .k{padding:11px 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--text-2);}
+.estate-fx .rec-rows .v{padding:11px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);
+  font-size:12.5px;color:var(--text);word-break:break-all;}
+.estate-fx .rec-rows .v b{color:var(--verified);font-weight:500;}
+.estate-fx .rec-rows > :nth-last-child(-n+2){border-bottom:0;}
+@media(max-width:520px){.estate-fx .rec-rows{grid-template-columns:1fr;}
+  .estate-fx .rec-rows .k{border-bottom:0;padding-bottom:2px;}}
+
+ 
+.estate-fx .term{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  font-family:var(--mono);font-size:13px;line-height:1.7;}
+.estate-fx .term-body{padding:16px 18px;overflow-x:auto;}
+.estate-fx .term-body div{color:var(--text-2);white-space:nowrap;}
+.estate-fx .term-body div::before{content:"› ";color:color-mix(in srgb, var(--blue) 55%, transparent);}
+.estate-fx .term-body .ok{color:var(--text);}
+.estate-fx .term-body .ok b{color:var(--verified);font-weight:500;}
+.estate-fx .term-body .no{color:var(--text);}
+.estate-fx .term-body .no b{color:var(--orange);font-weight:500;}
+
+ 
+.estate-fx .reg-status{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin-bottom:16px;
+  padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;font-family:var(--mono);}
+.estate-fx .fx-band--alt .reg-status{background:var(--canvas);}
+.estate-fx .reg-status .reg-label{color:var(--text-2);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px;}
+.estate-fx .reg-agent{display:inline-flex;align-items:center;gap:6px;color:var(--text);font-size:12px;}
+.estate-fx .reg-agent::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--verified);flex:none;}
+
+ 
+.estate-fx .flow-steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 16px 8px;}
+.estate-fx .flow-step{font-family:var(--mono);font-size:12.5px;color:var(--text);border:1px solid var(--blue);
+  border-radius:6px;padding:7px 12px;}
+.estate-fx .flow-step:not(:last-child)::after{content:"→";margin-left:8px;color:var(--text-3);}
+.estate-fx .flow-guards{display:flex;flex-wrap:wrap;gap:6px 8px;padding:2px 16px 16px;}
+.estate-fx .guard{font-family:var(--mono);font-size:11px;color:var(--text-2);border:1px solid var(--line);
+  border-radius:999px;padding:4px 10px;}
+.estate-fx .guard::before{content:"▪ ";color:var(--blue);}
+
+ 
+.estate-fx .planes{display:flex;flex-direction:column;gap:0;margin:0;max-width:520px;}
+.estate-fx .plane{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:var(--surface);}
+.estate-fx .plane--gov{border-color:var(--blue);box-shadow:inset 3px 0 0 var(--blue);}
+.estate-fx .plane--obs{background:var(--canvas);}
+.estate-fx .plane-tag{display:block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-2);margin-bottom:10px;}
+.estate-fx .plane--gov .plane-tag{color:var(--text);}
+.estate-fx .plane p{font-size:14px;color:var(--text-2);margin:0;line-height:1.55;}
+.estate-fx .plane-link{align-self:center;width:2px;height:26px;background:var(--line);margin:2px 0;}
+
+ 
+.estate-fx .scorecard{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.estate-fx .sc-row{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;align-items:center;gap:14px;
+  padding:12px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12.5px;}
+.estate-fx .sc-row:last-child{border-bottom:0;}
+.estate-fx .sc-row .sc-dim{color:var(--text-2);}
+.estate-fx .sc-bar{height:6px;background:var(--canvas);border:1px solid var(--line);border-radius:999px;overflow:hidden;}
+.estate-fx .fx-band--alt .sc-bar{background:var(--surface);}
+.estate-fx .sc-bar i{display:block;height:100%;background:var(--verified);}
+.estate-fx .sc-val{color:var(--verified);text-align:right;font-variant-numeric:tabular-nums;font-weight:500;}
+.estate-fx .sc-grade{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:14px 18px;border-top:1px solid var(--line);font-family:var(--mono);}
+.estate-fx .sc-grade .sc-grade-label{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);}
+.estate-fx .sc-grade .sc-grade-val{font-size:18px;font-weight:600;color:var(--verified);letter-spacing:.15em;}
+
+.estate-fx a:focus-visible,.estate-fx .btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
+</style>
+
+
+
+  
+  <script defer src="https://analytics.appliedidentities.com/script.js" data-website-id="c9af12f9-17bd-4ec6-b651-20f79714dd1f"></script>
+</head>
+<body>
+  
+  <header class="estate-header"><div class="bar">
+  <a class="estate-mark" href="/">Applied Identities</a>
+  <nav class="estate-nav" aria-label="Estate">
+    <a href="/consulting/">Consulting</a>
+    <a href="/governance/" aria-current="true">Governance</a>
+    <a href="/commerce/">Commerce</a>
+    <a href="/embodied/">Embodied</a>
+    <a class="btn btn-primary" href="/contact/">Talk to us</a>
+  </nav>
+</div></header>
+
+  <main id="main">
+    
+
+<div class="estate-fx">
+
+<div class="wrap">
+<section class="page-hero">
+  <p class="eyebrow">Governance &middot; The founding decision</p>
+  <h1>We ran it on ourselves first.</h1>
+  <p class="lede" style="max-width:64ch">On 29 August 2026, in one working day, Applied Identities became its own first governance client. We compiled a conduct kit (a hash-pinned mandate rulebook for what our agent fleet may decide) through Mandate Studio, our intake compiler. Our founder adopted that kit as the founding entry of our decision ledger, an append-only record of material decisions. He signed the adoption with a key our organization publicly attests he holds. The record was certified, audited, and anchored to a public blockchain the same afternoon. Everything public in that story you can check yourself, including the founding decision itself; the one part you must take from us is labeled as ours below.</p>
+</section>
+</div>
+
+<div class="fx-band fx-band--alt">
+<div class="wrap">
+<section>
+  <h2 class="section-title">The claim</h2>
+  <div class="card" style="margin-top:24px;max-width:70ch">
+    <p style="font-size:18px;line-height:1.55">Our founding decision is &ldquo;signed by an authenticated principal whose key and role are attested by their employer, the accountable legal entity.&rdquo;</p>
+  </div>
+  <p class="muted" style="margin-top:18px;max-width:66ch">That is the whole claim, and not more. A principal here is the accountable human, never a system. We do not claim the signer's identity was verified by an outside party; that is a later stage of this work, and we say so plainly.</p>
+</section>
+</div>
+</div>
+
+<div class="fx-band">
+<div class="wrap">
+<section>
+  <h2 class="section-title">Verify this yourself</h2>
+  <p class="muted" style="margin-top:10px">Five checks. No account, no permission from us.</p>
+  <div class="card-grid" style="margin-top:24px">
+    <div class="card">
+      <h3>1 &middot; Resolve our organization's DID</h3>
+      <p>A cryptographic identifier served from our own domain: <a class="mono" href="https://appliedidentities.com/.well-known/did.json">/.well-known/did.json</a></p>
+      <p class="muted">Proves the public key named there belongs to <span class="mono">did:web:appliedidentities.com</span>.</p>
+    </div>
+    <div class="card">
+      <h3>2 &middot; Check the domain-linkage credential</h3>
+      <p><a class="mono" href="https://appliedidentities.com/.well-known/did-configuration.json">/.well-known/did-configuration.json</a></p>
+      <p class="muted">Proves the DID and the https domain vouch for each other, signed by that same key.</p>
+    </div>
+    <div class="card">
+      <h3>3 &middot; Read the employer binding</h3>
+      <p>A signed public statement of who holds which key, in which role: <a class="mono" href="https://appliedidentities.com/.well-known/vi/bindings/daniel-k1/v1.json">/.well-known/vi/bindings/daniel-k1/v1.json</a></p>
+      <p class="muted">Proves the organization attests that Daniel, as founder, holds the daniel-k1 principal key. Validity 2026-08-29 to 2027-08-29.</p>
+    </div>
+    <div class="card">
+      <h3>4 &middot; Confirm the anchor on Base</h3>
+      <p>An hourly fingerprint of the ledger head, written to Base mainnet (chain id 8453). Contract <span class="mono">0xE4a7CfC6C80754c349C1366f6ec1b7E0B5E74516</span>, transaction <span class="mono">0xca2310774d854def670e85aa283dbbfcd2aededaeb0ca691691a47c1856a8cf5</span>, block 50615138, 29 August 2026, 16:07 UTC.</p>
+      <p class="muted">Proves the ledger state containing the founding decision existed by that block, and any later rewrite would break the anchored head.</p>
+    </div>
+    <div class="card">
+      <h3>5 &middot; Open the founding decision itself</h3>
+      <p><a class="mono" href="https://appliedidentities.com/.well-known/vi/records/dec-edb24f30-a262-45ba-882b-44f644f51a01.json">/.well-known/vi/records/dec-edb24f30&hellip;.json</a></p>
+      <p class="muted">Read the resolution, the options that were on the table, and the principal. Verify the co-sign against the principal key published in the binding from step 3, and the binding's own signature against the DID key from step 1. Proves the content of the founding decision, not just its existence.</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<div class="fx-band fx-band--alt">
+<div class="wrap">
+<section>
+  <h2 class="section-title">Our attestation</h2>
+  <p class="muted" style="margin-top:10px;max-width:66ch">The five steps above are checks you run. This part you take from us, and we label it as ours. Our closing audit, verifying signatures against public key material only, reported (condensed from the audit output):</p>
+  <div class="kv" style="margin-top:22px;max-width:820px">
+    <div class="k">chain</div><div class="v">20 record(s) <span class="pill pill-verified">VERIFIED</span></div>
+    <div class="k">the founding decision</div><div class="v">dec-edb24f30-a262-45ba-882b-44f644f51a01 <span class="pill pill-verified">VERIFIED</span> daniel as founder @ urn:applied-identities:legal-entity:prototype, binding daniel-k1</div>
+    <div class="k">summary</div><div class="v sans">1 verified &middot; 2 stage-1 (integrity only) &middot; 0 failed</div>
+  </div>
+  <p class="muted" style="margin-top:22px;max-width:66ch">Why the first certified decision sits at record 20: the chain already held 19 records; this is its first certified decision, and the earlier records predate the binding and remain integrity-only by design. And &ldquo;prototype&rdquo; in the entity identifier is deliberate: the legal entity is a variable of each engagement's intake, not a constant of the system.</p>
+</section>
+</div>
+</div>
+
+<div class="fx-band">
+<div class="wrap">
+<section>
+  <h2 class="section-title">What this proves, and what it does not</h2>
+  <p style="margin-top:18px;max-width:66ch">The anchor proves &ldquo;tamper evidence, existence in time, no split view.&rdquo; It does not prove &ldquo;that the record was true when written.&rdquo; We keep that line on every surface this system touches, because a ledger that overstates itself is worse than no ledger.</p>
+  <p class="muted" style="max-width:66ch">Beyond the founding record published above, the decision records themselves are not publicly readable. The full-chain audit is ours to run, not yet yours to reproduce, and we say so rather than imply otherwise.</p>
+</section>
+</div>
+</div>
+
+<div class="wrap">
+<div class="cta-band">
+  <h2>Put your decisions on the same footing.</h2>
+  <p class="muted" style="margin:14px auto 24px;max-width:62ch">This page documents a decision infrastructure engagement. The client was us. The same pipeline, intake, compiled mandates, adoption ceremony, certified record, anchored ledger, one-command audit, already governs publish approvals in our production systems. Your engagement does not start from a blank page. It replays a documented runbook with your entity, your principals, your mandates.</p>
+  <a class="btn btn-primary btn-lg" href="/contact/">Talk to us</a>
+  <a class="btn btn-secondary btn-lg" href="/governance/">Explore the Governance offer</a>
+</div>
+</div>
+
+</div>
+
+  </main>
+  <footer class="estate-footer"><div class="inner">
+  <div class="identity">
+    <a class="estate-mark" href="/">Applied Identities</a>
+    <p>Independent behavioral governance for AI agents.</p>
+  </div>
+  <div class="footer-cols">
+    <div><h4>Consulting</h4><ul>
+      <li><a href="/consulting/">Where are you right now?</a></li>
+      <li><a href="/consulting/#engagements">The engagements</a></li>
+      <li><a href="/consulting/#pilot">The pilot</a></li>
+    </ul></div>
+    <div><h4>Governance</h4><ul>
+      <li><a href="/governance/">How the layer works</a></li>
+      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
+      <li><a href="/verify/">Verify a record</a></li>
+    </ul></div>
+    <div><h4>Commerce</h4><ul>
+      <li><a href="/commerce/">An agent that sells, governed</a></li>
+      <li><a href="https://vi.appliedidentities.com/">Governed Commerce, running</a></li>
+      <li><a href="https://vi.appliedidentities.com/ledger/">The Ledger</a></li>
+    </ul></div>
+    <div><h4>Embodied</h4><ul>
+      <li><a href="/embodied/">Oversight for agents with bodies</a></li>
+    </ul></div>
+    <div><h4>About</h4><ul>
+      <li><a href="/about/">The company</a></li>
+      <li><a href="/insights/">Insights</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul></div>
+    <div><h4>3Jane Intelligence</h4><ul>
+      <li><a href="/research/">Research by a governed agent</a></li>
+      <li><a href="https://research.appliedidentities.com/">This week's research</a></li>
+      <li><a href="https://research.appliedidentities.com/morning/latest/">Morning brief</a></li>
+      <li><a href="https://research.appliedidentities.com/receipts/">Receipts</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-util">
+    <a href="/verify/">Verify</a>
+    <a href="https://research.appliedidentities.com/rights.json">Rights</a>
+    <span>&copy; 2026 Applied Identities · Atlanta, GA</span>
+  </div>
+</div></footer>
+
+  
+  
+</body>
+</html>
