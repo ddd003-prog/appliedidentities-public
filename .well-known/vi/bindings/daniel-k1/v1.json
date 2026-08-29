@@ -1,0 +1,31 @@
+{
+  "kind": "vi-principal-binding",
+  "binding_id": "daniel-k1",
+  "version": 1,
+  "ref": "urn:vi:binding:daniel-k1:v1",
+  "subject": {
+    "principal_id": "daniel",
+    "legal_entity": "urn:applied-identities:legal-entity:prototype",
+    "role": "founder"
+  },
+  "key": {
+    "public_jwk": {
+      "crv": "Ed25519",
+      "x": "4zJZkkBOxL3H-j9WIEOT732kzVtDTfelwQ1SRjoYh2E",
+      "kty": "OKP"
+    },
+    "kid": null
+  },
+  "issuer": "did:web:appliedidentities.com",
+  "method": "did:web",
+  "issued_at": "2026-08-29T15:00:15.060Z",
+  "expires": "2027-08-29T15:00:15.060Z",
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-jcs-2022",
+    "created": "2026-08-29T15:00:15.060Z",
+    "verificationMethod": "did:web:appliedidentities.com#ai-vi-binding-2026-001",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z3z4Xbzu37FtsmufnEXT1iSacW9bTK2LwvBd2HehJfGDaN1vgNx9219owLr7t4aw2ZobnpTzHVSNFKcCrf9t6jy79"
+  }
+}

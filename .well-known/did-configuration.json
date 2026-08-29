@@ -1,0 +1,30 @@
+{
+  "@context": "https://identity.foundation/.well-known/did-configuration/v1",
+  "linked_dids": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://identity.foundation/.well-known/did-configuration/v1"
+      ],
+      "type": [
+        "VerifiableCredential",
+        "DomainLinkageCredential"
+      ],
+      "issuer": "did:web:appliedidentities.com",
+      "issuanceDate": "2026-08-29T13:08:49.314Z",
+      "expirationDate": "2027-08-29T13:08:49.314Z",
+      "credentialSubject": {
+        "id": "did:web:appliedidentities.com",
+        "origin": "https://appliedidentities.com"
+      },
+      "proof": {
+        "type": "DataIntegrityProof",
+        "cryptosuite": "eddsa-jcs-2022",
+        "created": "2026-08-29T13:08:49.314Z",
+        "verificationMethod": "did:web:appliedidentities.com#ai-vi-binding-2026-001",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "z4i6rDBsWYvX1KeVGXGCLZqSteEma3iAWULFTKV9iJpuRAK2jyY96f5ksk4Kg4TgULxmiULnNJidwdk4WgJ4yRZf9"
+      }
+    }
+  ]
+}
