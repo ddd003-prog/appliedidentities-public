@@ -3,7 +3,7 @@
  *   <script src="/js/ambassador.js" defer
  *           data-endpoint="/api/ambassador"
  *           data-agent-name="Verity"
- *           data-verify-url="https://agents.appliedidentities.com/registry"
+ *           data-verify-url="https://vi.appliedidentities.com/api/v1/verify/chain/verity"
  *           data-turnstile-sitekey="..."
  *           data-greeting="..."></script>
  * No frameworks, no external requests except the chat endpoint and Turnstile.
@@ -16,7 +16,7 @@
   var cfg = {
     endpoint: (script && script.dataset.endpoint) || '/api/ambassador',
     agentName: (script && script.dataset.agentName) || 'Verity',
-    verifyUrl: (script && script.dataset.verifyUrl) || 'https://agents.appliedidentities.com/registry',
+    verifyUrl: (script && script.dataset.verifyUrl) || 'https://vi.appliedidentities.com/api/v1/verify/chain/verity',
     turnstileSitekey: (script && script.dataset.turnstileSitekey) || '',
     greeting:
       (script && script.dataset.greeting) ||

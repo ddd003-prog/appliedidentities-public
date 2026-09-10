@@ -242,7 +242,7 @@
     <li class="vl-step" data-step="record">
       <span class="vl-dot" aria-hidden="true"></span>
       <span><span class="vl-name">Public record</span>
-        <span class="vl-what">Your browser asks our registry for the agent's ERC-8004 registration.</span>
+        <span class="vl-what">Your browser asks the verifier for the agent's record: its ERC-8004 registration and the governance documents it works under (Constitution, Charter, Passport).</span>
         <span class="vl-out" data-out></span></span>
     </li>
     <li class="vl-step" data-step="chainread">
@@ -251,10 +251,10 @@
         <span class="vl-what">Your browser queries the blockchain directly: does the registry contract really hold this registration? We are not in the loop.</span>
         <span class="vl-out" data-out></span></span>
     </li>
-    <li class="vl-step" data-step="governance">
+    <li class="vl-step" data-step="card">
       <span class="vl-dot" aria-hidden="true"></span>
-      <span><span class="vl-name">Chain of authority</span>
-        <span class="vl-what">The governance documents the agent works under (Constitution, Charter, Passport) resolve from the live credential plane.</span>
+      <span><span class="vl-name">Registration card, from IPFS</span>
+        <span class="vl-what">Your browser fetches the card the on-chain registration points at, from the public IPFS network, and checks it names this exact agent and registration. We are not in the loop.</span>
         <span class="vl-out" data-out></span></span>
     </li>
   </ol>
@@ -268,7 +268,7 @@
   </div>
 
   <noscript>
-    <p class="muted" style="margin-top:22px;max-width:62ch">Scripting is off, so the live check cannot run in your browser. The records are still public: read <a href="https://agents.appliedidentities.com/verity">Verity's registration</a>, the <a href="https://agents.appliedidentities.com/registry">registry</a>, or the <a href="https://basescan.org/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432">registry contract on BaseScan</a>. None of them need us.</p>
+    <p class="muted" style="margin-top:22px;max-width:62ch">Scripting is off, so the live check cannot run in your browser. The records are still public: read <a href="https://vi.appliedidentities.com/api/v1/verify/chain/verity">Verity's record</a>, the <a href="https://vi.appliedidentities.com/api/v1/verify/chain/nell">Nell record</a>, the <a href="https://vi.appliedidentities.com/api/v1/verify/chain/3jane">3Jane record</a>, or the <a href="https://basescan.org/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432">registry contract on BaseScan</a>. None of them need us.</p>
   </noscript>
 </div>
 
@@ -297,7 +297,7 @@
     if (html !== undefined) el.querySelector('[data-out]').innerHTML = html;
   }
   function reset() {
-    ['record', 'chainread', 'governance'].forEach(function (n) { setState(n, null, ''); });
+    ['record', 'chainread', 'card'].forEach(function (n) { setState(n, null, ''); });
     var v = root.querySelector('[data-verdict]');
     v.classList.remove('ok', 'bad');
   }
@@ -349,19 +349,38 @@
     var t0 = performance.now();
     var t1, t2, t3, ms1, ms2, ms3;
     var s = slug;
-    var reg, contract, agentId, agentName, owner, cardUri, blockNo, rpcHost, serialCount;
+    var reg, contract, agentId, agentName, owner, cardUri, cardCid, blockNo, rpcHost, serialCount, links;
+    var IPFS = ['https://ipfs.io/ipfs/', 'https://dweb.link/ipfs/'];
+    var gatewayUsed = 'ipfs.io';
+    function ipfsGet(cid, i) {
+      i = i || 0;
+      return fetch(IPFS[i] + cid, { headers: { Accept: 'application/json' } })
+        .then(function (r) { if (!r.ok) throw new Error('gateway ' + r.status); gatewayUsed = IPFS[i].split('/')[2]; return r.json(); })
+        .catch(function (e) { if (i + 1 < IPFS.length) return ipfsGet(cid, i + 1); throw e; });
+    }
+    function serialsHtml(ls) {
+      return ls.map(function (p) { return '<b>' + p[0] + '</b> ' + esc(String(p[1]).length > 44 ? String(p[1]).slice(0, 44) + '…' : p[1]); }).join(' · ');
+    }
 
     setState('record', 'run');
-    fetch('https://agents.appliedidentities.com/' + s, { headers: { Accept: 'application/json' } })
+    fetch('https://vi.appliedidentities.com/api/v1/verify/chain/' + s)
       .then(function (r) { if (!r.ok) throw new Error('record ' + r.status); return r.json(); })
       .then(function (j) {
-        agentName = j.name;
-        reg = (j.registrations || []).filter(function (r) { return String(r.agentRegistry).indexOf('eip155:8453:') === 0; })[0];
+        agentName = j.agent;
+        reg = (j.onchain || []).filter(function (o) { return o && Number(o.chain_id) === 8453 && o.token_id && o.registry_contract; })[0];
         if (!reg) throw new Error('no Base registration in the public record');
-        contract = reg.agentRegistry.split(':')[2];
-        agentId = reg.agentId;
+        contract = reg.registry_contract;
+        agentId = String(reg.token_id);
+        var gc = j.governance_chain || {};
+        links = [
+          ['Constitution', gc.constitution_serial],
+          ['Charter', gc.soul_serial],
+          ['Passport', gc.passport_serial]
+        ].filter(function (p) { return p[1]; });
+        if (!links.length) throw new Error('governance chain empty');
+        serialCount = links.length;
         ms1 = Math.round(performance.now() - t0);
-        setState('record', 'ok', '<b>found</b> · ' + esc(agentName) + ' · agent #' + esc(agentId) + ' · registry ' + esc(short(contract)) + ' · Base (eip155:8453) · ' + ms1 + ' ms');
+        setState('record', 'ok', '<b>found</b> · ' + esc(agentName) + ' · agent #' + esc(agentId) + ' · registry ' + esc(short(contract)) + ' · Base (eip155:8453) · ' + serialsHtml(links) + ' · ' + ms1 + ' ms');
 
         setState('chainread', 'run');
         t2 = performance.now();
@@ -382,46 +401,43 @@
         ms2 = Math.round(performance.now() - t2);
         setState('chainread', 'ok', '<b>on-chain</b> · registration #' + esc(agentId) + ' exists at ' + esc(short(contract)) + ' · holder ' + esc(short(owner)) + (blockNo ? ' · block ' + esc(fmtBlock(blockNo)) : '') + ' · ' + ms2 + ' ms');
 
-        setState('governance', 'run');
+        setState('card', 'run');
         t3 = performance.now();
-        return fetch('https://vi.appliedidentities.com/api/v1/verify/chain/' + s).then(function (r) {
-          if (!r.ok) throw new Error('governance ' + r.status); return r.json();
-        });
+        cardCid = String(cardUri).replace(/^ipfs:\/\//, '');
+        if (!/^[A-Za-z0-9]{46,}$/.test(cardCid)) throw new Error('registration URI is not an IPFS card');
+        return ipfsGet(cardCid);
       })
-      .then(function (j) {
-        var gc = j.governance_chain || {};
-        var links = [
-          ['Constitution', gc.constitution_serial],
-          ['Charter', gc.soul_serial],
-          ['Passport', gc.passport_serial]
-        ].filter(function (p) { return p[1]; });
-        if (!links.length) throw new Error('governance chain empty');
-        serialCount = links.length;
+      .then(function (card) {
+        var want = ('eip155:8453:' + contract).toLowerCase();
+        var cr = (card.registrations || []).filter(function (r) { return String(r.agentRegistry).toLowerCase() === want; })[0];
+        if (!cr || String(cr.agentId) !== agentId) throw new Error('card does not name this registration');
+        if (String(card.name) !== String(agentName)) throw new Error('card names a different agent');
         ms3 = Math.round(performance.now() - t3);
-        setState('governance', 'ok', links.map(function (p) { return '<b>' + p[0] + '</b> ' + esc(String(p[1]).length > 44 ? String(p[1]).slice(0, 44) + '…' : p[1]); }).join(' · ') + ' · ' + ms3 + ' ms');
+        setState('card', 'ok', '<b>matches</b> · card ' + esc(short(cardCid)) + ' names ' + esc(card.name) + ' · agent #' + esc(agentId) + ' at ' + esc(short(contract)) + ' · via ' + esc(gatewayUsed) + ' · ' + ms3 + ' ms');
 
         var ms = Math.round(performance.now() - t0);
         var ping = '<table>' +
-          pingRow('registry', 'agents.appliedidentities.com', 'agent #' + esc(agentId), ms1) +
+          pingRow('record', 'vi.appliedidentities.com', 'agent #' + esc(agentId) + ' · ' + serialCount + ' documents', ms1) +
           pingRow('base rpc', esc(rpcHost) + ' · eth_call ×2', (blockNo ? 'block ' + esc(fmtBlock(blockNo)) : 'chain 8453') + ' · holder ' + esc(short(owner)), ms2) +
-          pingRow('governance', 'vi.appliedidentities.com', serialCount + ' documents resolved', ms3) +
+          pingRow('ipfs', esc(gatewayUsed), 'card ' + esc(short(cardCid)) + ' matches', ms3) +
           '</table>' +
           '<div class="sum">3 checks transmitted · <b>3 verified</b> · 0 failed · ' + ms + ' ms total</div>';
         verdict(true,
           esc(agentName) + ' · your browser did this, live · ' + new Date().toISOString().slice(0, 10),
           ping,
-          '<a href="https://agents.appliedidentities.com/' + esc(s) + '">Full record →</a>' +
+          '<a href="https://vi.appliedidentities.com/api/v1/verify/chain/' + esc(s) + '">Public record →</a>' +
+          '<a href="https://ipfs.io/ipfs/' + esc(cardCid) + '">Card on IPFS →</a>' +
           '<a href="https://basescan.org/token/' + esc(contract) + '?a=' + esc(agentId) + '">On BaseScan →</a>');
       })
       .catch(function (e) {
-        ['record', 'chainread', 'governance'].forEach(function (n) {
+        ['record', 'chainread', 'card'].forEach(function (n) {
           var el = step(n);
           if (el.classList.contains('run')) setState(n, 'bad', '<b>failed</b> · ' + esc(e.message || 'network error'));
         });
         verdict(false,
           'A check did not resolve from your browser (' + esc(e.message || 'network error') + '). The records are still public; verify by hand:',
           '<div class="sum">3 checks transmitted · <b>failed</b> · see the step above</div>',
-          '<a href="https://agents.appliedidentities.com/' + esc(s) + '">The record →</a>' +
+          '<a href="https://vi.appliedidentities.com/api/v1/verify/chain/' + esc(s) + '">The record →</a>' +
           '<a href="https://basescan.org/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432">Registry contract on BaseScan →</a>');
       })
       .finally(function () { running = false; });
@@ -452,12 +468,12 @@
 <section>
   <h2 class="section-title" style="margin-bottom:12px">The chain, link by link</h2>
   <p class="muted" style="max-width:62ch;margin-bottom:28px">The same verification in slow motion: each identity document checks against the one that authorizes it, down to the credential the agent works under.</p>
-  <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-09-08">
+  <div class="livecheck" data-endpoint="https://vi.appliedidentities.com/api/v1/verify/chain/1" data-verified-date="2026-09-10">
   <div class="livecheck-head">
     <span class="eyebrow">Chain of authority</span>
-    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-09-08">Chain verified · 4 of 4 links · 2026-09-08</span>
+    <span class="pill pill-verified livecheck-summary" data-verified-date="2026-09-10">Chain verified · 4 of 4 links · 2026-09-10</span>
   </div>
-  <p class="livecheck-sub">A live record resolving link by link: <a href="https://agents.appliedidentities.com/nell">Nell Ashpool</a>, an agent on the public registry.</p>
+  <p class="livecheck-sub">A live record resolving link by link: <a href="https://vi.appliedidentities.com/api/v1/verify/chain/nell">Nell Ashpool</a>, an agent on the public registry.</p>
   <ol class="livecheck-links">
     <li class="livecheck-link is-verified" data-link="constitution">
       <span class="livecheck-mark" aria-hidden="true"></span>
@@ -625,7 +641,7 @@
     </ul></div>
     <div><h4>Governance</h4><ul>
       <li><a href="/governance/">How the layer works</a></li>
-      <li><a href="https://agents.appliedidentities.com/registry">Agent registry</a></li>
+      <li><a href="https://basescan.org/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432">Agent registry</a></li>
       <li><a href="/verify/">Verify a record</a></li>
     </ul></div>
     <div><h4>Commerce</h4><ul>
