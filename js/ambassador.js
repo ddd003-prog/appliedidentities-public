@@ -51,7 +51,8 @@
     '.wa-foot{padding:8px 14px;border-top:1px solid var(--wa-border);font-size:11.5px;color:var(--wa-muted);display:flex;justify-content:space-between;gap:8px}' +
     '.wa-foot a{color:var(--wa-accent);text-decoration:none}' +
     '.wa-ts{padding:0}' +
-    '.wa-ts.wa-ts-active{padding:0 14px 8px}';
+    '.wa-ts.wa-ts-active{padding:0 14px 8px}' +
+    '.wa-ts.wa-ts-done{display:none}';
 
   var style = document.createElement('style');
   style.textContent = css;
@@ -158,18 +159,35 @@
   // --- Turnstile: managed widget, token used on the first message ---------
   var tsToken = '';
   var tsLoaded = false;
+  var tsWidgetId = null;
+  var tsHideTimer = null;
+  // interaction-only keeps the widget invisible unless a visitor has to click
+  // a challenge. Once they do, Turnstile leaves its "Success!" panel mounted,
+  // so we hide the host ourselves shortly after the token arrives.
+  function hideTurnstile(delay) {
+    clearTimeout(tsHideTimer);
+    tsHideTimer = setTimeout(function () {
+      tsHost.classList.remove('wa-ts-active');
+      tsHost.classList.add('wa-ts-done');
+    }, delay || 0);
+  }
+  function showTurnstile() {
+    clearTimeout(tsHideTimer);
+    tsHost.classList.remove('wa-ts-done');
+    tsHost.classList.add('wa-ts-active');
+  }
   function ensureTurnstile() {
     if (!cfg.turnstileSitekey || tsLoaded) return;
     tsLoaded = true;
     window.__waTsReady = function () {
-      window.turnstile.render(tsHost, {
+      tsWidgetId = window.turnstile.render(tsHost, {
         sitekey: cfg.turnstileSitekey,
-        // Invisible unless a visitor actually has to click a challenge;
-        // hides again afterward. No persistent success banner.
         appearance: 'interaction-only',
-        callback: function (token) { tsToken = token; tsHost.classList.remove('wa-ts-active'); },
+        callback: function (token) { tsToken = token; hideTurnstile(1200); },
         'error-callback': function () { tsToken = ''; },
-        'before-interactive-callback': function () { tsHost.classList.add('wa-ts-active'); },
+        // Tokens expire after 5 minutes; fetch a fresh one quietly.
+        'expired-callback': function () { tsToken = ''; window.turnstile.reset(tsWidgetId); },
+        'before-interactive-callback': showTurnstile,
       });
     };
     var s = document.createElement('script');
@@ -215,7 +233,7 @@
         thinking.remove();
         var reply = (r.data && r.data.reply) || 'Something went wrong on my side. Please try again in a moment.';
         addMsg('wa-agent', reply);
-        if (r.ok) sessionStorage.setItem('wa-verified', '1');
+        if (r.ok) { sessionStorage.setItem('wa-verified', '1'); hideTurnstile(0); }
       })
       .catch(function () {
         clearInterval(rotator);
